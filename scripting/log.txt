@@ -1,0 +1,98 @@
+
+> websocket_backend@1.0.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/websocket_backend
+> node app.js
+
+
+> swimfrontend@0.1.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/react_frontend/swimfrontend
+> react-scripts start
+
+Listening on port 4001
+connected
+Subscribing to [object Object]
+Starting the development server...
+
+Compiled successfully!
+
+You can now view swimfrontend in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://192.168.178.144:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+Client disconnected
+Subscribing to [object Object]
+
+> swimfrontend@0.1.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/react_frontend/swimfrontend
+> react-scripts start
+
+
+> express-api-mqtt-example@1.0.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/datamapping
+> node app.js
+
+
+> websocket_backend@1.0.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/websocket_backend
+> node app.js
+
+app running on port. 3001
+mqtt sender client connected
+mqtt client connected
+Something is already running on port 3000.
+123455
+123455 cleared
+mainchannel 123455 cleared
+send 123455 cleared
+hello
+hello cleared
+mainchannel hello cleared
+send hello cleared
+check
+check cleared
+mainchannel check cleared
+send check cleared
+time
+time cleared
+mainchannel time cleared
+send time cleared
+The build failed because the process exited too early. This probably means the system ran out of memory or someone called `kill -9` on the process.
+
+> websocket_backend@1.0.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/websocket_backend
+> node app.js
+
+
+> swimfrontend@0.1.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/react_frontend/swimfrontend
+> react-scripts start
+
+
+> express-api-mqtt-example@1.0.0 start /Users/matthiasfuchs/projects/schwimmen/webtiming/datamapping
+> node app.js
+
+app running on port. 3001
+mqtt sender client connected
+mqtt raw client connected
+websocket backend Listening on port 4001
+websocket backend connected
+Starting the development server...
+
+websocket backend Subscribing to [object Object]
+Compiled successfully!
+
+You can now view swimfrontend in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://192.168.178.144:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+websocket backend Client disconnected
+websocket backend Subscribing to [object Object]
+datamapping incoming time
+datamapping mapper time cleared
+websocket backend mainchannel time cleared
+websocket backend send time cleared
+datamapping incoming 1
+datamapping mapper 1 cleared
+websocket backend mainchannel 1 cleared
+websocket backend send 1 cleared
