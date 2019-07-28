@@ -1,21 +1,16 @@
 const mqtt = require('mqtt');
-var mqttSender = require('./mqtt_sender');
-var messageMapper = require('./message_mapper')
 
-var messageMapper = new messageMapper();
-//var mqttSender = new mqttSender();
+var sendsuccess = false;
 
-class MqttHandler {
+class MqttSender {
   constructor() {
     this.mqttClient = null;
-    this.rawtopic = 'rawdata'
+    this.mqtttopic = 'mainchannel'
     this.host = 'mqtt://localhost';
     this.username = 'YOUR_USER'; // mqtt credentials if these are needed to connect
     this.password = 'YOUR_PASSWORD';
-
-    //mqttSender.connect();
   }
-  
+
   connect() {
     // Connect mqtt with credentials (in case of needed, otherwise we can omit 2nd param)
     //this.mqttClient = mqtt.connect(this.host, { username: this.username, password: this.password });
@@ -29,34 +24,31 @@ class MqttHandler {
     // Mqtt error calback
     this.mqttClient.on('error', (err) => {
       console.log(err);
+      sendsuccess = false;
       this.mqttClient.end();
     });
 
     // Connection callback
     this.mqttClient.on('connect', () => {
-      console.log(`mqtt raw client connected`);
-    });
-
-    // mqtt subscriptions
-    this.mqttClient.subscribe(this.rawtopic, {qos: 0});
-
-    // When a message arrives, console.log it
-    this.mqttClient.on('message', function (topic, message) {
-      console.log("datamapping incoming " + message.toString());
-
-      messageMapper.mapMessage(message)
-      //mqttSender.sendMessage(message + " cleared")
+      console.log(`mqtt_sender client connected`);
+      sendsuccess = true;
     });
 
     this.mqttClient.on('close', () => {
-      console.log(`mqtt raw client disconnected`);
+      console.log(`mqtt_sender client disconnected`);
+      sendsuccess = false;
     });
   }
 
   // Sends a mqtt message to topic: mytopic
-  sendRawMessage(message) {
-    this.mqttClient.publish(this.rawtopic, message);
+  sendMessage(message) {
+    this.mqttClient.publish(this.mqtttopic, message, function (err) {
+      if (err) {
+        console.log(err)
+      }
+    })
+    return sendsuccess
   }
 }
 
-module.exports = MqttHandler;
+module.exports = MqttSender;
