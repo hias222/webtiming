@@ -7,7 +7,7 @@ var heat = 5;
 var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
 console.log("Competition Name")
-console.log(myEvent.getEventName());
+console.log(myEvent.getCompetitionName());
 
 // Heat Names
 console.log("Heat")
@@ -17,7 +17,7 @@ console.log(internHeatID);
 
 // event description
 console.log("Event Name")
-console.log(myEvent.getInternalEventID(event));
+console.log(myEvent.getEventName(event));
 
 //Club Name Athlet id
 console.log("Club from atheltid")

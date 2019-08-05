@@ -9,7 +9,9 @@ var event_heatid = null;
 var event_swimmer = null;
 var event_clubs = null;
 
-var internalheadID = "16005";
+var internalheadID = "1";
+var actual_heat = "1";
+var actual_event = "1";
 
 class swimevent {
 
@@ -35,13 +37,16 @@ class swimevent {
     }
 
 
-    getEventName() {
-        return event_all.LENEX.MEETS[0].MEET[0].ATTR.name;
+    getCompetitionName() {
+        var shortname = "{ \"competition\": \"" + event_all.LENEX.MEETS[0].MEET[0].ATTR.name + "\"}"
+        return JSON.parse(shortname);
     }
 
 
     getInternalHeatId(eventnumber, heatnumber) {
         try {
+            actual_event = eventnumber;
+            actual_heat = heatnumber;
             var searchstring = "[?ATTR.number == '" + eventnumber + "'].HEATS[*].HEAT[*]"
             var tmp_heats = jmespath.search(event_heatid, searchstring)[0][0];
             var searchheat = "[?ATTR.number == '" + heatnumber + "'].ATTR.heatid"
@@ -52,27 +57,37 @@ class swimevent {
         }
     }
 
-    getInternalEventID(number) {
-        var searchstring = "[?ATTR.number == '" + number + "']"
-        var tmp = jmespath.search(event_sessions, searchstring);
-        var attributsearch = "[].{event: ATTR.eventid, gender: ATTR.gender, relaycount: SWIMSTYLE[0].ATTR.relaycount, swimstyle: SWIMSTYLE[0].ATTR.stroke, distance: SWIMSTYLE[0].ATTR.distance }"
-        return jmespath.search(tmp, attributsearch)[0];
+    getEventName(number) {
+        var emptyevent = "{ \"type\": \"header\", \"event\": \"" + actual_event + "\", \"heat\": \"" + actual_heat + "\" }"
+        try {
+            var searchstring = "[?ATTR.number == '" + number + "']"
+            var tmp = jmespath.search(event_sessions, searchstring);
+            var attributsearch = "[].{event: ATTR.number, gender: ATTR.gender, relaycount: SWIMSTYLE[0].ATTR.relaycount, swimstyle: SWIMSTYLE[0].ATTR.stroke, distance: SWIMSTYLE[0].ATTR.distance }"
+            var eventdata = jmespath.search(tmp, attributsearch)[0];
+            var eventresult = typeof eventdata !== "undefined" ? eventdata : JSON.parse(emptyevent);
+            return { ...eventresult, ...JSON.parse(emptyevent), ...this.getCompetitionName() };
+        } catch (err) {
+            console.log(err)
+            return JSON.parse(emptyevent);
+        }
     }
 
     getActualSwimmer(lane) {
+        var emptylane = "{ \"type\": \"lane\", \"lane\": \"" + lane + "\", \"event\": \"" + actual_event + "\", \"heat\": \"" + actual_heat + "\" }"
         try {
             var lastswimmers = this.getSwimmerHeat(internalheadID);
             var searchstring = "[?lane == '" + lane + "']"
             var tmp = jmespath.search(lastswimmers, searchstring);
-            var swimmer = typeof tmp[0] !== "undefined" ? tmp[0] : new Object();
+            var swimmer = typeof tmp[0] !== "undefined" ? tmp[0] : JSON.parse(emptylane);
             if (typeof swimmer.athleteid !== "undefined") {
                 var club = this.getSwimmerClub(tmp[0].athleteid)
-                return { ...swimmer, ...club[0] };
+                return { ...swimmer, ...club[0], ...JSON.parse(emptylane) };
             } else {
                 return swimmer;
             }
         } catch (err) {
-            return new Object();
+            console.log(err)
+            return JSON.parse(emptylane);
         }
 
     }

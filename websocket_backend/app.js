@@ -6,8 +6,8 @@ const index = require("./routes/index");
 
 const topic_name = "mainchannel"
 
-//const mqtt_host = "mqtt://localhost"
-const mqtt_host = "mqtt://mqtt"
+const mqtt_host = "mqtt://localhost"
+//const mqtt_host = "mqtt://mqtt"
 
 var settings = {
   keepalive: 2000
@@ -25,9 +25,8 @@ const server = http.createServer(app);
 const io = socketIo(server); // < Interesting!
 
 io.on("connection", socket => {
-  console.log('websocket backend Subscribing to ' + socket.toString());
+  console.log('websocket backend Subscribing to ' + mqtt_host);
   //client.subscribe("topic_name");
-
   socket.on("disconnect", () => console.log("websocket backend Client disconnected"));
 
   socket.on("error", (error) => {

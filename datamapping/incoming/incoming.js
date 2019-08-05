@@ -1,14 +1,14 @@
 var swimEvent = require('../data/swim_event')
 
-//var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
-var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
+var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
+//var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
 exports.parseColoradoData = function (message) {
     var messagetype = getMessageType(message.toString());
     if (messagetype == "header") {
         var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
-        myEvent.getInternalEventID(getEvent(message))
-        return JSON.stringify(myEvent.getInternalEventID(getEvent(message)))
+        //myEvent.getInternalEventID(getEvent(message))
+        return JSON.stringify(myEvent.getEventName(getEvent(message)))
     } else if (messagetype == "lane") {
         var newmessage = myEvent.getActualSwimmer(getLaneNumber(message));
         return JSON.stringify(newmessage);
