@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
 //var messageMapper = new messageMapper();
+
 var mqttRawClient = new mqttRawHandler();
 mqttRawClient.connect();
 
