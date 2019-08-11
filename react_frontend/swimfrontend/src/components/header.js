@@ -1,54 +1,65 @@
 import React from 'react'
-import { Row, Col, Table } from 'react-materialize';
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import Lane from './lane';
+
+
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
         console.log("Header Services init")
+        
     }
 
     componentDidUpdate() {
         console.log("new data " + JSON.stringify(this.props.lanes));
     }
 
+    
+
     //const Services = ({ services }) => {
     render() {
         return (
             <div>
-                <Row>
-                    <Col>
-                        <h2>
-                            {this.props.info.competition}<br></br>
+                <Paper >
+                        <Button variant="contained" color="primary">
+                            {this.props.info.competition}
+                        </Button>
+                        <Button variant="contained" color="secondary">
                             {this.props.info.distance}m {this.props.info.swimstyle}
-                            <br></br>
-                            Wettkampf: {this.props.info.event} Lauf: {this.props.info.heat}
-                        </h2>
-                        <Table responsive>
-                            <thead>
-                                <tr>
-                                    <th data-field="Bahn">
-                                        Platz
-</th>
-                                    <th data-field="Bahn">
-                                        Bahn
-</th>
-                                    <th data-field="name">
-                                        Name
-</th>
-                                    <th data-field="time">
-                                        Time
-</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.props.lanes.map((lane, index) => (
-                                    <Lane lane={lane} key={index} />
-                                ))}
-                            </tbody>
-                        </Table>
-                    </Col>
-                </Row>
+                        </Button>
+                        <Button variant="contained" color="primary">
+                        Wettkampf: {this.props.info.event}
+                        </Button>
+                        <Button variant="contained" color="secondary">
+                        Lauf: {this.props.info.heat}
+                        </Button>
+                        
+                            <Table >
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Platz</TableCell>
+                                        <TableCell align="right">Bahn</TableCell>
+                                        <TableCell align="right">Name</TableCell>
+                                        <TableCell align="right">Zeit</TableCell>
+                                        <TableCell align="right">Sonstiges</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+   
+                                    {this.props.lanes.map((lane, index) => (
+                                        <Lane lane={lane} key={index} />
+                                    ))}               
+                                </TableBody>
+                            </Table>
+                        </Paper>
+              
             </div>
         )
     }

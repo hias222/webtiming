@@ -1,7 +1,7 @@
 var swimEvent = require('../data/swim_event')
 
-var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
-//var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
+//var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
+var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
 exports.parseColoradoData = function (message) {
     var messagetype = getMessageType(message.toString());

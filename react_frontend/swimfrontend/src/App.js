@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import socketIOClient from "socket.io-client";
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Box from '@material-ui/core/Box';
+
 
 import Header from "./components/header"
 //import { runInThisContext } from 'vm';
+
 
 class App extends Component {
   constructor() {
@@ -40,10 +44,12 @@ class App extends Component {
       })
       console.log("added lane " + jsondata.lane)
     } else if (jsondata.type === 'header') {
-      if (jsondata.heat != this.state.info.heat || jsondata.event != this.state.info.event ) {
+      this.setState(state => {
+        state.info = jsondata
+      })
+      if (jsondata.heat !== this.state.info.heat || jsondata.event !== this.state.info.event) {
         this.setState(state => {
           state.lanes = []
-          state.info = jsondata
         })
       }
     }
@@ -53,15 +59,19 @@ class App extends Component {
     const { response } = this.state;
     return (
       <div>
-        <Header
-          lanes={this.state.lanes}
-          info={this.state.info}
-        />
-        {response
-          ? <p>
-            Connected
-          </p>
-          : <p>Loading...</p>}
+        <Box component="span" m={1}>
+
+          <Header
+            lanes={this.state.lanes}
+            info={this.state.info}
+          />
+          {response
+            ? 
+              <LinearProgress variant="determinate"/>
+          
+            : <LinearProgress  />}
+
+        </Box>
       </div>
     );
   }
