@@ -8,13 +8,13 @@ exports.parseColoradoData = function (message) {
     var messagetype = getMessageType(message.toString());
     if (messagetype == "header") {
         var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
-        return JSON.stringify(myEvent.getEventName(getEvent(message)))
+        return myEvent.getEventName(getEvent(message))
     } else if (messagetype == "lane") {
         var newmessage = myEvent.getActualSwimmer(getLaneNumber(message),getTime(message), getPlace(message));
-        return JSON.stringify(newmessage);
+        return newmessage;
     } else if (messagetype == "start") {
         var start = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-        return JSON.stringify(start);
+        return start;
     } else {
         return "unknown"
     }
@@ -65,20 +65,20 @@ function getEvent(message) {
 function getLaneNumber(message) {
     var words = message.toString().split(' ');
     //header wk heat
-    console.log("lane: " + words[1]);
+    console.log("(incoming.js)lane: " + words[1]);
     return words[1]
 }
 
 function getPlace(message) {
     var words = message.toString().split(' ');
-    console.log("lane: " + words[3]);
+    console.log("(place)lane: " + words[3]);
     return words[3]
 }
 
 function getTime(message) {
     var words = message.toString().split(' ');
     //header wk heat
-    console.log("lane: " + words[2]);
+    console.log("(time)lane: " + words[2]);
     return words[2]
 }
 
