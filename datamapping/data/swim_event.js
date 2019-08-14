@@ -68,12 +68,23 @@ class swimevent {
             return { ...eventresult, ...JSON.parse(emptyevent), ...this.getCompetitionName() };
         } catch (err) {
             console.log(err)
-            return JSON.parse(emptyevent);
+            try {
+                return JSON.parse(emptyevent);
+            } catch (err)
+            {
+                var nullevent = "{\"type\":\"header\",\"event\":\"0\",\"heat\":\"0\"}"
+                return JSON.parse(nullevent);
+            }
         }
     }
 
-    getActualSwimmer(lane) {
-        var emptylane = "{ \"type\": \"lane\", \"lane\": \"" + lane + "\", \"event\": \"" + actual_event + "\", \"heat\": \"" + actual_heat + "\" }"
+    getActualSwimmer(lane, time, place) {
+        var emptylane = "{ \"type\": \"lane\", \"lane\": \"" + 
+            lane + "\", \"event\": \"" + 
+            actual_event + "\", \"place\": \"" + 
+            place + "\", \"time\": \"" + 
+            time + "\", \"heat\": \"" + 
+            actual_heat + "\" }"
         try {
             var lastswimmers = this.getSwimmerHeat(internalheadID);
             var searchstring = "[?lane == '" + lane + "']"
@@ -87,7 +98,14 @@ class swimevent {
             }
         } catch (err) {
             console.log(err)
-            return JSON.parse(emptylane);
+            try {
+                return JSON.parse(emptylane);
+            } catch (err)
+            {
+                var nulllane = "{\"type\":\"lane\",\"lane\":\"0\",\"event\":\"0\",\"place\":\"0\",\"time\":\"0\",\"heat\":\"0\"}"
+                return JSON.parse(nulllane);
+            }
+            
         }
 
     }

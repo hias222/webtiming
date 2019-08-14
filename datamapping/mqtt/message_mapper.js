@@ -2,7 +2,6 @@ var mqttSender= require('./mqtt_sender');
 var incoming = require('../incoming/incoming')
 var mqttSender = new mqttSender();
 
-
 var sendStatus = false;
 
 class MessageMapper {

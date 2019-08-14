@@ -59,12 +59,13 @@ npm start
 
 ```bash
 mosquitto_sub -h localhost -t mainchannel
+mosquitto_sub -h localhost -t rawdata
 ```
 
 ### Generate some messages
 
 ```bash
-mosquitto_pub -h localhost -t mainchannel -m hello
+mosquitto_pub -h localhost -t rawdata -m hello
 ```
 
 Use something like postman to send messages
