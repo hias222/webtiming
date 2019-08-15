@@ -44,9 +44,9 @@ class Header extends React.Component {
                             <Table >
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Platz</TableCell>
-                                        <TableCell align="right">Bahn</TableCell>
-                                        <TableCell align="right">Name</TableCell>
+                                        <TableCell>Bahn</TableCell>
+                                        <TableCell align="left">PLatz</TableCell>
+                                        <TableCell >Name</TableCell>
                                         <TableCell align="right">Zeit</TableCell>
                                         <TableCell align="right">Sonstiges</TableCell>
                                     </TableRow>

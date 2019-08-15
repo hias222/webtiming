@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import Header from "./components/header"
 //import { runInThisContext } from 'vm';
 
-
+//endpoint: "http://127.0.0.1:4001"
 class App extends Component {
   constructor() {
     super();
@@ -18,7 +18,7 @@ class App extends Component {
       response: false,
       event: 0,
       heat: 0,
-      endpoint: "http://127.0.0.1:4001"
+      endpoint: "http://192.168.178.144:4001"
     };
   }
 
