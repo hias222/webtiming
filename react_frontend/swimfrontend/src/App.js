@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import socketIOClient from "socket.io-client";
-import LinearProgress from '@material-ui/core/LinearProgress';
-import Box from '@material-ui/core/Box';
-
-
 import Header from "./components/header"
-//import { runInThisContext } from 'vm';
+import Static from "./components/static"
 
 //endpoint: "http://127.0.0.1:4001"
 //endpoint: "http://" + window.location.hostname + ":4001"
@@ -14,7 +10,7 @@ import Header from "./components/header"
 
 class App extends Component {
   constructor() {
-    
+
     super();
     this.state = {
       info: { "event": "1", "gender": "M", "relaycount": "1", "swimstyle": "BREAST", "distance": "50", "type": "header", "heat": "1", "competition": "Schwimmen" },
@@ -24,11 +20,17 @@ class App extends Component {
       heat: 0,
       endpoint: "http://192.168.178.143:4001",
       isOn: false,
-      time: 0
+      time: 0,
+      webtype: "static",
+      fullscreen: false
     };
   }
 
   componentDidMount() {
+    const { webtype } = this.props.match.params
+    this.setState(
+      { webtype }
+    )
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
     //console.log("url is %PUBLIC_URL% " + process.env.PUBLIC_URL + window.location.hostname);
@@ -47,17 +49,20 @@ class App extends Component {
 
   handleToggle = (e) => {
     const el = document.documentElement
-      if (el.requestFullscreen) {
-        el.requestFullscreen()
-      } else if (el.mozRequestFullScreen) {
-        el.mozRequestFullScreen()
-      } else if (el.webkitRequestFullscreen) {
-        el.webkitRequestFullscreen()
-      } else if (el.msRequestFullscreen) {
-        el.msRequestFullscreen()
-      }
+    if (el.requestFullscreen) {
+      el.requestFullscreen()
+    } else if (el.mozRequestFullScreen) {
+      el.mozRequestFullScreen()
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen()
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen()
+    }
+    this.setState({
+      fullscreen: true
+    })
   }
- 
+
   startTimer() {
     this.setState({
       isOn: true,
@@ -70,12 +75,12 @@ class App extends Component {
   }
 
   stopTimer() {
-    this.setState({isOn: false})
+    this.setState({ isOn: false })
     clearInterval(this.timer)
   }
 
   resetTimer() {
-    this.setState({time: 0})
+    this.setState({ time: 0 })
   }
 
   checkIncoming(jsondata) {
@@ -110,25 +115,30 @@ class App extends Component {
 
 
   render() {
-    const { response } = this.state;
+    var { fullscreen } = "";
+    if (this.state.fullscreen !== true ) {
+      fullscreen = <button onClick={this.handleToggle}>Full {this.state.webtype}</button>
+    }
+    var { webcontent } = "";
+    if (this.state.webtype === 'variable') {
+      webcontent = <Header
+        lanes={this.state.lanes}
+        info={this.state.info}
+        time={this.state.time}
+        responsestate={this.state.response}
+      />
+    } else {
+      webcontent = <Static
+        lanes={this.state.lanes}
+        info={this.state.info}
+        time={this.state.time}
+        responsestate={this.state.response}
+      />
+    }
     return (
       <div>
-        
-        <button onClick={this.handleToggle}>Full</button>
-        <Box component="span" m={1}>
-
-          <Header
-            lanes={this.state.lanes}
-            info={this.state.info}
-            time={this.state.time}
-          />
-          {response
-            ? 
-              <LinearProgress variant="determinate"/>
-          
-            : <LinearProgress  />}
-
-        </Box>
+        {fullscreen}
+        {webcontent}
       </div>
     );
   }
