@@ -13,8 +13,8 @@ exports.parseColoradoData = function (message) {
         var newmessage = myEvent.getActualSwimmer(getLaneNumber(message),getTime(message), getPlace(message));
         return newmessage;
     } else if (messagetype == "start") {
-        var start = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-        return start;
+        var jsonstart = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+        return JSON.parse(jsonstart);
     } else {
         return "unknown"
     }

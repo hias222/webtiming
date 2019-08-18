@@ -8,37 +8,56 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Lane from './lane';
 
+import { styled } from '@material-ui/styles';
 
+const MyButton = styled(Button)({
+    border: 0,
+  });
+
+const MyPaper = styled(Paper)({
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+});
+  
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
         console.log("Header Services init")
-        
     }
 
     componentDidUpdate() {
-        console.log("new data " + JSON.stringify(this.props.lanes));
+        console.log("update data heat " + this.props.info.heat);
     }
 
-    
 
-    //const Services = ({ services }) => {
+  format(ms) {
+    var minutes = Math.floor(ms / (1000 * 60)),
+        seconds = Math.floor((ms - minutes * 1000 * 60) / 1000),
+        fract = Math.floor((ms - minutes * 1000 * 60 - seconds * 1000) / 10);
+
+    return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ',' + (fract < 10 ? '0' : '') + fract;
+  }
+    
     render() {
+
         return (
             <div>
-                <Paper >
-                        <Button variant="contained" color="primary">
+                <MyPaper >
+                        <MyButton variant="contained" color="primary" >
                             {this.props.info.competition}
-                        </Button>
+                        </MyButton>
                         <Button variant="contained" color="secondary">
                             {this.props.info.distance}m {this.props.info.swimstyle}
                         </Button>
+
                         <Button variant="contained" color="primary">
                         Wettkampf: {this.props.info.event}
                         </Button>
                         <Button variant="contained" color="secondary">
                         Lauf: {this.props.info.heat}
+                        </Button>
+                        <Button variant="contained" color="primary">
+                         {this.format(this.props.time)}
                         </Button>
                         
                             <Table >
@@ -58,8 +77,7 @@ class Header extends React.Component {
                                     ))}               
                                 </TableBody>
                             </Table>
-                        </Paper>
-              
+                </MyPaper>
             </div>
         )
     }

@@ -21,7 +21,6 @@ class MqttHandler {
     this.username = 'YOUR_USER'; // mqtt credentials if these are needed to connect
     this.password = 'YOUR_PASSWORD';
     this.connectToMqtt = this.connectToMqtt.bind(this)
-
     //autoBind(this);
   }
 
