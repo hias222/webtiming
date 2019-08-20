@@ -6,9 +6,9 @@ const index = require("./routes/index");
 
 const topic_name = "mainchannel"
 
-//const mqtt_host = "mqtt://localhost"
+const mqtt_host = "mqtt://localhost"
 //const mqtt_host = "mqtt://mqtt"
-const mqtt_host = "mqtt://192.168.178.143"
+//const mqtt_host = "mqtt://192.168.178.145"
 
 var settings = {
   keepalive: 2000

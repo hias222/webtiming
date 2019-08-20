@@ -10,7 +10,7 @@ import Static from "./components/static"
 
 class App extends Component {
   constructor() {
-
+    var backend_url = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":4001" : process.env.REACT_APP_BACKEND_URL
     super();
     this.state = {
       info: { "event": "1", "gender": "M", "relaycount": "1", "swimstyle": "BREAST", "distance": "50", "type": "header", "heat": "1", "competition": "Schwimmen" },
@@ -18,15 +18,19 @@ class App extends Component {
       response: false,
       event: 0,
       heat: 0,
-      endpoint: "http://192.168.178.143:4001",
+      endpoint: backend_url,
       isOn: false,
       time: 0,
-      webtype: "static",
+      webtype: "",
       fullscreen: false
     };
+
   }
 
   componentDidMount() {
+    var title_theme = typeof (this.props.match.params.webtype) != 'undefined' ? this.props.match.params.webtype : "normal"
+    document.title = "Timing - " + title_theme
+
     const { webtype } = this.props.match.params
     this.setState(
       { webtype }
@@ -39,12 +43,20 @@ class App extends Component {
     this.stopTimer = this.stopTimer.bind(this)
     this.resetTimer = this.resetTimer.bind(this)
 
+    this.laptimer = this.laptimer.bind(this)
+
+    this.intervalId = setInterval(this.laptimer, 1000);
+  
     socket.on("FromAPI", data => {
       var jsondata = JSON.parse(data)
       this.checkIncoming(jsondata);
       this.setState({ response: data })
     }
     );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   handleToggle = (e) => {
@@ -71,7 +83,7 @@ class App extends Component {
     })
     this.timer = setInterval(() => this.setState({
       time: Date.now() - this.state.start
-    }), 1);
+    }), 100);
   }
 
   stopTimer() {
@@ -83,11 +95,41 @@ class App extends Component {
     this.setState({ time: 0 })
   }
 
+  laptimer() {
+    var myArray = this.state.lanes;
+    for (let i = 0; i < myArray.length; i++) {
+      if (typeof (myArray[i]) !== 'undefined') {
+        if (myArray[i].lap === 'true') {
+          if ((Date.now() - myArray[i].laptime) > 12000) {
+            var laptime = "{ \"lap\": \"false\", \"place\": \"\", \"time\": \"\" }"
+            var newjsondata = { ...myArray[i], ...JSON.parse(laptime) }
+            var mylane = myArray[i].lane
+            // eslint-disable-next-line
+            this.setState(state => {
+                state.lanes[mylane] = newjsondata
+            })
+          }
+        }
+      }
+
+    };
+  }
+
   checkIncoming(jsondata) {
     if (jsondata.type === 'lane') {
-      this.setState(state => {
-        state.lanes[jsondata.lane] = jsondata
-      })
+      if (jsondata.place === '0') {
+        var laptime = "{ \"laptime\": \"" + Date.now() + "\",\"lap\": \"true\" }"
+        var newjsondata = { ...jsondata, ...JSON.parse(laptime) }
+        this.setState(state => {
+          state.lanes[jsondata.lane] = newjsondata
+        })
+      } else {
+        var laptime2 = "{ \"lap\": \"false\" }"
+        var newjsondata2 = { ...jsondata, ...JSON.parse(laptime2) }
+        this.setState(state => {
+          state.lanes[jsondata.lane] = newjsondata2
+        })
+      }
       console.log("added lane " + jsondata.lane)
     } else if (jsondata.type === 'header') {
       console.log("added header " + jsondata.event + " " + jsondata.heat)
@@ -111,24 +153,31 @@ class App extends Component {
       this.resetTimer()
       this.startTimer();
     }
+
+    if (jsondata.type === 'stop') {
+      console.log("stop " + JSON.stringify(jsondata))
+      this.resetTimer()
+      this.stopTimer()
+    }
   }
 
 
   render() {
+
     var { fullscreen } = "";
-    if (this.state.fullscreen !== true ) {
+    if (this.state.fullscreen !== true) {
       fullscreen = <button onClick={this.handleToggle}>Full {this.state.webtype}</button>
     }
     var { webcontent } = "";
-    if (this.state.webtype === 'variable') {
-      webcontent = <Header
+    if (this.state.webtype === 'static') {
+      webcontent = <Static
         lanes={this.state.lanes}
         info={this.state.info}
         time={this.state.time}
         responsestate={this.state.response}
       />
     } else {
-      webcontent = <Static
+      webcontent = <Header
         lanes={this.state.lanes}
         info={this.state.info}
         time={this.state.time}

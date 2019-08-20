@@ -10,10 +10,13 @@ exports.parseColoradoData = function (message) {
         var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
         return myEvent.getEventName(getEvent(message))
     } else if (messagetype == "lane") {
-        var newmessage = myEvent.getActualSwimmer(getLaneNumber(message),getTime(message), getPlace(message));
+        var newmessage = myEvent.getActualSwimmer(getLaneNumber(message), getTime(message), getPlace(message));
         return newmessage;
     } else if (messagetype == "start") {
         var jsonstart = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+        return JSON.parse(jsonstart);
+    } else if (messagetype == "stop") {
+        var jsonstart = "{ \"type\": \"stop\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
         return JSON.parse(jsonstart);
     } else {
         return "unknown"
@@ -22,15 +25,18 @@ exports.parseColoradoData = function (message) {
 }
 
 function getMessageType(message) {
-    var header = message.startsWith("header"); 
-    var lane = message.startsWith("lane"); 
+    var header = message.startsWith("header");
+    var lane = message.startsWith("lane");
     var start = message.startsWith("start");
+    var stop = message.startsWith("stop");
     if (header) {
         return "header"
     } else if (lane) {
         return "lane"
     } else if (start) {
         return "start"
+    } else if (stop) {
+        return "stop"
     } else {
         return "unknown"
     }
