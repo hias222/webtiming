@@ -89,8 +89,12 @@ class App extends Component {
    // this.timer = setInterval(() => this.setState({
     //  time: Date.now() - this.state.start
     //}), 100);
+    // ggf doppelte timer
+    if (this.clocktimerid){
+      var clocktimeridold = this.clocktimerid
+      clearInterval(clocktimeridold)
+    }
     this.clocktimerid = setInterval(this.clocktimer, 100);
-
   }
 
   stopTimer() {
