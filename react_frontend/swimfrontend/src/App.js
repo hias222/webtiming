@@ -8,6 +8,9 @@ import Static from "./components/static"
 //endpoint: "http://" + window.location.hostname + ":4001"
 //endpoint: "http://192.168.178.143:4001"
 
+var locklanes = false;
+var activelapdata = false;
+
 class App extends Component {
   constructor() {
     var backend_url = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":4001" : process.env.REACT_APP_BACKEND_URL
@@ -44,9 +47,10 @@ class App extends Component {
     this.resetTimer = this.resetTimer.bind(this)
 
     this.laptimer = this.laptimer.bind(this)
+    this.clocktimer = this.clocktimer.bind(this)
 
     this.intervalId = setInterval(this.laptimer, 1000);
-  
+
     socket.on("FromAPI", data => {
       var jsondata = JSON.parse(data)
       this.checkIncoming(jsondata);
@@ -57,6 +61,7 @@ class App extends Component {
 
   componentWillUnmount() {
     clearInterval(this.intervalId);
+    clearInterval(this.timer);
   }
 
   handleToggle = (e) => {
@@ -81,33 +86,56 @@ class App extends Component {
       time: this.state.time,
       start: Date.now() - this.state.time
     })
-    this.timer = setInterval(() => this.setState({
-      time: Date.now() - this.state.start
-    }), 100);
+   // this.timer = setInterval(() => this.setState({
+    //  time: Date.now() - this.state.start
+    //}), 100);
+    this.clocktimerid = setInterval(this.clocktimer, 100);
+
   }
 
   stopTimer() {
     this.setState({ isOn: false })
-    clearInterval(this.timer)
   }
 
-  resetTimer() {
-    this.setState({ time: 0 })
+  resetTimer(delay) {
+    this.setState({ time: delay })
+  }
+
+  clocktimer(){
+    if (!this.state.isOn){
+      clearInterval(this.clocktimerid)
+    }
+    this.setState({
+      time: Date.now() - this.state.start
+    })
   }
 
   laptimer() {
-    var myArray = this.state.lanes;
-    for (let i = 0; i < myArray.length; i++) {
-      if (typeof (myArray[i]) !== 'undefined') {
-        if (myArray[i].lap === 'true') {
-          if ((Date.now() - myArray[i].laptime) > 12000) {
-            var laptime = "{ \"lap\": \"false\", \"place\": \"\", \"time\": \"\" }"
-            var newjsondata = { ...myArray[i], ...JSON.parse(laptime) }
-            var mylane = myArray[i].lane
-            // eslint-disable-next-line
-            this.setState(state => {
-                state.lanes[mylane] = newjsondata
-            })
+    if (locklanes) {
+      locklanes = false;
+    } else {
+      if (activelapdata) {
+        console.log("active laps")
+        var myArray = this.state.lanes;
+        activelapdata = false;
+        for (let i = 0; i < myArray.length; i++) {
+          if (typeof (myArray[i]) !== 'undefined') {
+            if (myArray[i].lap === 'true') {
+              activelapdata = true;
+              if ((Date.now() - myArray[i].laptime) > 12000) {
+                if (!locklanes) {
+                  var laptime = "{ \"lap\": \"false\", \"place\": \"\", \"time\": \"\" }"
+                  var newjsondata = { ...myArray[i], ...JSON.parse(laptime) }
+                  var mylane = myArray[i].lane
+                  // eslint-disable-next-line
+                  this.setState(state => {
+                    state.lanes[mylane] = newjsondata
+                  })
+                } else {
+                  console.log("lock happens laps")
+                }
+              }
+            }
           }
         }
       }
@@ -117,9 +145,11 @@ class App extends Component {
 
   checkIncoming(jsondata) {
     if (jsondata.type === 'lane') {
+      locklanes = true;
       if (jsondata.place === '0') {
         var laptime = "{ \"laptime\": \"" + Date.now() + "\",\"lap\": \"true\" }"
         var newjsondata = { ...jsondata, ...JSON.parse(laptime) }
+        activelapdata = true;
         this.setState(state => {
           state.lanes[jsondata.lane] = newjsondata
         })
@@ -150,13 +180,15 @@ class App extends Component {
 
     if (jsondata.type === 'start') {
       console.log("start " + JSON.stringify(jsondata))
-      this.resetTimer()
+      var startdelay = typeof (jsondata.diff) != 'undefined' ? jsondata.diff : "100" 
+      console.log("start " + JSON.stringify(jsondata) + " delay " + startdelay)
+      this.resetTimer(startdelay)
       this.startTimer();
     }
 
     if (jsondata.type === 'stop') {
       console.log("stop " + JSON.stringify(jsondata))
-      this.resetTimer()
+      this.resetTimer(0)
       this.stopTimer()
     }
   }

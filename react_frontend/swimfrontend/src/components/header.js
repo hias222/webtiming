@@ -41,10 +41,6 @@ class Header extends React.Component {
         console.log("Header Services init")
     }
 
-    componentDidUpdate() {
-        console.log("update data heat " + this.props.info.heat);
-    }
-
 
     format(ms) {
         var minutes = Math.floor(ms / (1000 * 60)),
