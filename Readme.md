@@ -1,5 +1,17 @@
 # Webtiming for colorado
 
+## Overview
+
+the software has these components:
+
+* arduino serial converter (not included)
+* Mosquito pub/sub -> mosquito (docker)
+* backend -> datamapping (Nodejs)
+* frontend backend with websocket -> websocket_backend (Nodejs)
+* react frontend -> react_fontend/swimfrontend (react, Nodejs)
+* scripts for generating RPi image -> raspberry (bash, pi-gen, <https://github.com/RPi-Distro/pi-gen)>
+* scripts -> generate packages for RPi pi-gen (bash)
+
 ## Installs
 
 ### mosquito
@@ -84,18 +96,41 @@ websocket http://localhost:4001/
 
 ## Deployment
 
+### build on raspberry
+
+run script in folder scripts
+
+```bash
+creat_apps.sh
+```
+
+Create new rspberry image out of pi-gen, create a config file out of example
+
+```bash
+./build-docker -c client
+```
+
 <https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker>
 
 https://mherman.org/blog/dockerizing-a-react-app/
 
-### React
+### React only
 
+React hast two environment files
+
+* .env.development -> for start with npm start
+* .env.production -> for prod build with npm build
+
+To build a docker container:
+
+```bash
 docker build -f Dockerfile -t sample:prod .
 docker run -it -p 3000:80 --rm sample:prod
 
 docker run -d -p 3000:80 --rm sample:prod
 
 docker-compose -f docker-compose-prod.yml up -d --build
+```
 
 ### Websocket
 
