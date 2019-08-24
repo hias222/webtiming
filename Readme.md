@@ -86,6 +86,14 @@ Use something like postman to send messages
 http://localhost:3001/send-mqtt
 ```
 
+### Check with postman
+
+The datamapping backend has a post webservice on send-mqtt
+
+```bash
+{message: <stop>/<start>/<lane 1 2 3>}
+
+
 ## Frontends
 
 ```bash
