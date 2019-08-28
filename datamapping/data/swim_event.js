@@ -53,6 +53,7 @@ class swimevent {
             internalheadID = jmespath.search(tmp_heats, searchheat).toString()
             return internalheadID;
         } catch (err) {
+            internalheadID = 0;
             return new Object();
         }
     }
