@@ -11,10 +11,12 @@ import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
 
+import getSwimStyles from './getSwimStyles';
+
 import { styled } from '@material-ui/styles';
 
 import classnames from 'classnames';
-import Image from '../water.jpg';
+import Image from '../water2.jpg';
 
 const MyPaper = styled(Paper)({
     backgroundImage: `url(${Image})`,
@@ -44,6 +46,7 @@ class Header extends React.Component {
 
     render() {
 
+        var style = getSwimStyles(this.props.info.swimstyle);
         let heatclass = classnames('heatheader');
         let heatclass_event = classnames('heatheader_event');
         let heatclass_time = classnames('heatheader_time');
@@ -61,9 +64,7 @@ class Header extends React.Component {
                                         {this.props.info.competition}
                                     </div>
                                     <div className={heatclass_event}>
-                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {this.props.info.swimstyle},
-
-                                    Lauf: {this.props.info.heat}
+                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} Lauf: {this.props.info.heat}
                                     </div>
                                 </Grid>
                                 <Grid align="right" >
