@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -14,24 +13,17 @@ import Box from '@material-ui/core/Box';
 
 import { styled } from '@material-ui/styles';
 
-const MyButton = styled(Button)({
-    size: "large",
-    border: 0,
-});
-
-const TimeButton = styled(Button)({
-    fontSize: '1.3em',
-    border: 0,
-});
+import classnames from 'classnames';
+import Image from '../water.jpg';
 
 const MyPaper = styled(Paper)({
-    background: 'linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%)',
-    marginTop: 3,
-    width: '100%',
-    overflowX: 'auto',
-    marginBottom: 2,
-});
-
+    backgroundImage: `url(${Image})`,
+    backgroundSize: 'cover',
+     backgroundPosition: 'center',
+     width: `calc(100vw-100)`,
+     margin: 10,
+     padding: 0,
+  });
 
 
 class Header extends React.Component {
@@ -52,42 +44,57 @@ class Header extends React.Component {
 
     render() {
 
+        let heatclass = classnames('heatheader');
+        let heatclass_event = classnames('heatheader_event');
+        let heatclass_time = classnames('heatheader_time');
+
+        let backclass = classnames('heatbackground');
+
         return (
-            <div>
+            <div >
                 <Box component="span" m={1} color="text.primary">
                     <Container maxWidth="md">
-                        <MyPaper>
-                            <Grid >
-                                <MyButton variant="contained" color="primary" >
-                                    {this.props.info.competition}
-                                </MyButton>
-                                <Button variant="contained" color="secondary">
-                                    Wettkampf: {this.props.info.event} {this.props.info.distance}m {this.props.info.swimstyle}
-                                </Button>
-                                <Button variant="contained" color="secondary">
+                        <MyPaper >
+                            <div >
+                                <Grid >
+                                    <div className={heatclass}>
+                                        {this.props.info.competition}
+                                    </div>
+                                    <div className={heatclass_event}>
+                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {this.props.info.swimstyle},
+
                                     Lauf: {this.props.info.heat}
-                                </Button>
-                            </Grid>
-                            <Grid align="right" >
-                                <TimeButton variant="contained" color="primary">
-                                    {this.format(this.props.time)}
-                                </TimeButton>
-                            </Grid>
-                            <Table >
-                                <TableHead>
-                                    <TableRow>  
-                                        <TableCell>Bahn</TableCell>
-                                        <TableCell align="left">Platz</TableCell>
-                                        <TableCell>Name<br></br>Verein</TableCell>
-                                        <TableCell align="right">Zeit</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {this.props.lanes.map((lane, index) => (
-                                        <Lane lane={lane} key={index} />
-                                    ))}
-                                </TableBody>
-                            </Table>
+                                    </div>
+                                </Grid>
+                                <Grid align="right" >
+                                    <div className={heatclass_time}>
+                                        {this.format(this.props.time)}
+                                    </div>
+                                </Grid>
+                                <Table >
+                                    <TableHead>
+                                        <TableRow className={backclass}>
+                                            <TableCell >
+                                                <div className={heatclass}>Bahn</div></TableCell>
+                                            <TableCell>
+                                                <div className={heatclass}>Platz</div>
+                                            </TableCell>
+                                            <TableCell>
+                                                <div className={heatclass}>Name/Verein</div>
+                                            </TableCell>
+                                            <TableCell>
+                                                <div className={heatclass_time}>Zeit</div>
+                                            </TableCell>
+                                        </TableRow>
+
+                                    </TableHead>
+                                    <TableBody>
+                                        {this.props.lanes.map((lane, index) => (
+                                            <Lane lane={lane} key={index} />
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </div>
                         </MyPaper>
                         <br></br>
 

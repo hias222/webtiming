@@ -1,29 +1,31 @@
 import React from 'react'
-import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import PoolIcon from '@material-ui/icons/Pool';
+import classnames from 'classnames';
 
-import Typography from '@material-ui/core/Typography';
-
-import { styled } from '@material-ui/styles';
-
-const NormalTableCell = styled(TableCell) ({
-    fontSize: '1.2em'
-})
-
-const ClubTypography = styled(Typography) ({
-    fontSize: '0.7em'
-})
+import NumberCellComponent from '../styles/NumberCellComponent';
+import TextCellComponent from '../styles/TextCellComponent';
+import TimeCellComponent from '../styles/TimeCellComponent';
 
 class Lane extends React.Component {
     //const Service = ({ service }) => {
+    isEven(n) {
+        return n % 2 === 0;
+    }
 
     render() {
-        var {myicon} = ""
+        let laneclass = classnames('laneodd')
+
+        if (this.isEven(this.props.lane.lane)) {
+            laneclass = classnames('laneeven');
+        }
+
+        let laneclub = classnames('laneclub')
+        var { myicon } = ""
         //&& this.props.lane.place !== null
         if (this.props.lane.place !== 'undefined') {
             if (this.props.lane.place === "0") {
-                myicon = <PoolIcon/>
+                myicon = <PoolIcon />
             } else {
                 myicon = this.props.lane.place
             }
@@ -39,18 +41,22 @@ class Lane extends React.Component {
         }
 
         return (
-            <TableRow key={this.props.lane.lane}>
-                <NormalTableCell align="left">{this.props.lane.lane}</NormalTableCell>
-                <NormalTableCell align="left">{myicon}
-                </NormalTableCell>
-                <NormalTableCell align="left">{this.props.lane.firstname} {this.props.lane.lastname}
-                <br></br>
-                <ClubTypography fontSize='0.1em'>
-                {this.props.lane.name}
-                </ClubTypography>
-                </NormalTableCell>
-                <NormalTableCell align="right">{time}</NormalTableCell>
+            <TableRow className={laneclass} key={this.props.lane.lane}>
+                <NumberCellComponent>{this.props.lane.lane}</NumberCellComponent>
+                <NumberCellComponent>{myicon}</NumberCellComponent>
+                <TextCellComponent >
+                <span >
+                    {this.props.lane.firstname} {this.props.lane.lastname} <span className={laneclub}>{this.props.lane.name}
+                    </span>
+                    </span>
+                </TextCellComponent>
+                <TimeCellComponent>
+                <span >
+                    {time}
+                    </span>
+                </TimeCellComponent>
             </TableRow>
+
         )
     }
 };

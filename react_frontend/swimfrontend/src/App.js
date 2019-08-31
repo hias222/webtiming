@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import socketIOClient from "socket.io-client";
 import Header from "./components/header"
 import Static from "./components/static"
+
+import classnames from 'classnames'
 
 //endpoint: "http://127.0.0.1:4001"
 //endpoint: "http://" + window.location.hostname + ":4001"
@@ -126,7 +128,7 @@ class App extends Component {
           if (typeof (myArray[i]) !== 'undefined') {
             if (myArray[i].lap === 'true') {
               activelapdata = true;
-              if ((Date.now() - myArray[i].laptime) > 12000) {
+              if ((Date.now() - myArray[i].laptime) > 15000) {
                 if (!locklanes) {
                   var laptime = "{ \"lap\": \"false\", \"place\": \"\", \"time\": \"\" }"
                   var newjsondata = { ...myArray[i], ...JSON.parse(laptime) }
@@ -200,9 +202,11 @@ class App extends Component {
 
   render() {
 
+    let cssclasses = classnames('headername');
+
     var { fullscreen } = "";
     if (this.state.fullscreen !== true) {
-      fullscreen = <button onClick={this.handleToggle}>Full {this.state.webtype}</button>
+      fullscreen = <button className={cssclasses} onClick={this.handleToggle}>Full {this.state.webtype}</button>
     }
     var { webcontent } = "";
     if (this.state.webtype === 'static') {
@@ -223,6 +227,7 @@ class App extends Component {
     return (
       <div>
         {fullscreen}
+
         {webcontent}
       </div>
     );

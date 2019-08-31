@@ -1,0 +1,63 @@
+
+$farbegerade:  rgba(77, 77, 77, 0.618);
+$farbeungerade: rgba(0, 0, 0, 0.3);
+$farbehintergrund:   rgba(77, 77, 77, 0.618);
+$farbegeradeschrift: white;
+$farbeungeradeschrift: white;
+
+//linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
+
+.headername {
+    color: white;
+    text-align: left;
+}
+
+.heatheader {
+    text-align: left;
+    color: $farbegeradeschrift;
+    background: $farbehintergrund;
+}
+
+.heatheader_event {
+    color: $farbegeradeschrift;
+    background: $farbehintergrund;
+}
+
+.heatheader_heat {
+    color: $farbegeradeschrift;
+    background: $farbehintergrund;
+}
+
+.heatheader_time {
+    color: $farbegeradeschrift;
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.heatbackground {
+    font-size: 1em;
+   background: $farbehintergrund;
+}
+
+.lane {
+    color: $farbegeradeschrift;
+}
+
+.laneeven {
+    background: $farbegerade;
+}
+
+.laneodd {
+    background: $farbeungerade;
+}
+
+.laneclub {
+    font-size: 0.7em;
+}
+
+.lanetime {
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+}
+
