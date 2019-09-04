@@ -1,7 +1,7 @@
 
-$farbegerade:  rgba(77, 77, 77, 0.618);
-$farbeungerade: rgba(0, 0, 0, 0.3);
-$farbehintergrund:   rgba(77, 77, 77, 0.618);
+$farbegerade:  rgba(194, 211, 215, 0);
+$farbeungerade: rgba(196, 196, 196, 0.1);
+$farbehintergrund:   rgba(196, 196, 196, 0.1);
 $farbegeradeschrift: white;
 $farbeungeradeschrift: white;
 $lanecolor: rgb(152, 0, 23);
@@ -16,17 +16,14 @@ $lanecolor: rgb(152, 0, 23);
 .heatheader {
     text-align: left;
     color: $farbegeradeschrift;
-    background: $farbehintergrund;
 }
 
 .heatheader_event {
     color: $farbegeradeschrift;
-    background: $farbehintergrund;
 }
 
 .heatheader_heat {
     color: $farbegeradeschrift;
-    background: $farbehintergrund;
 }
 
 .heatheader_time {
@@ -37,7 +34,7 @@ $lanecolor: rgb(152, 0, 23);
 
 .heatbackground {
     font-size: 1em;
-   background: $farbehintergrund;
+
 }
 
 .lane {
