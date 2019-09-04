@@ -1,4 +1,5 @@
 const mqtt = require('mqtt');
+require('dotenv').config()
 
 var sendsuccess = false;
 
@@ -6,9 +7,12 @@ class MqttSender {
   constructor() {
     this.mqttClient = null;
     this.mqtttopic = 'mainchannel'
-    this.host = 'mqtt://localhost';
-    this.username = 'YOUR_USER'; // mqtt credentials if these are needed to connect
-    this.password = 'YOUR_PASSWORD';
+
+    var mqttdestination = typeof process.env.DEST_MQTT_HOST !== "undefined" ? 'mqtt://' + process.env.DEST_MQTT_HOST : 'mqtt://localhost';
+    //this.host = 'mqtt://' + process.env.DEST_MQTT_HOST;
+    this.host = mqttdestination;
+    this.username = process.env.DEST_MQTT_USER; // mqtt credentials if these are needed to connect
+    this.password = process.env.DEST_MQTT_PWD;
   }
 
   connect() {
@@ -20,6 +24,7 @@ class MqttSender {
     }
 
     this.mqttClient = mqtt.connect(this.host, settings);
+    console.log("DEST_MQTT_HOST: " +  this.host )
 
     // Mqtt error calback
     this.mqttClient.on('error', (err) => {

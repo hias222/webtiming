@@ -4,6 +4,8 @@ var app = express();
 var router = express.Router();
 var mqttRawHandler = require('./mqtt/mqtt_handler');
 
+require('dotenv').config();
+
 const path = __dirname + '/views/';
 
 app.use(bodyParser.json());

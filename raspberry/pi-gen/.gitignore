@@ -2,6 +2,8 @@ deploy/*
 work/*
 config
 client
+clientfrontend
+clientall
 postrun.sh
 SKIP
 SKIP_IMAGES

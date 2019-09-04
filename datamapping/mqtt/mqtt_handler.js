@@ -1,4 +1,6 @@
 const mqtt = require('mqtt');
+require('dotenv').config();
+
 //const autoBind = require('auto-bind');
 var messageMapper = require('./message_mapper')
 var messageMapper = new messageMapper();
