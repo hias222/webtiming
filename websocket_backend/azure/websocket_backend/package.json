@@ -1,23 +1,17 @@
 {
-  "name": "read-d2c-messages",
+  "name": "weboscktbackend",
   "version": "1.0.0",
   "description": "Back-end application in the IoT Hub quickstart device-to-cloud sample",
-  "main": "ReadDeviceToCloudMessages.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Azure-Samples/azure-iot-samples-node.git"
-  },
-  "author": "Microsoft Corporation",
+  "author": "Matthias",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Azure-Samples/azure-iot-samples-node/issues"
-  },
-  "homepage": "https://github.com/Azure-Samples/azure-iot-samples-node#readme",
   "dependencies": {
     "@azure/event-hubs": "^1.0.7",
-    "dotenv": "^8.1.0"
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
   }
 }

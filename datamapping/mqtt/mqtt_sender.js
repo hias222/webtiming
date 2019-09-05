@@ -47,8 +47,7 @@ class MqttSender {
       console.log("DEST_MQTT_HOST: " +  this.host )
     }
   
-    console.log("DEST_MQTT_HOST: " +  this.host )
-
+  
     // Mqtt error calback
     this.mqttClient.on('error', (err) => {
       console.log(err);

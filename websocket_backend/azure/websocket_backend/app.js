@@ -1,7 +1,7 @@
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
-const port = process.env.PORT || 4001;
+const port = 8080;
 const index = require("./routes/index");
 
 require('dotenv').config();
