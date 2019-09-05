@@ -7,6 +7,7 @@ install -v -o 1000 -g 1000 -m 744 files/app.zip "${ROOTFS_DIR}/home/${FIRST_USER
 echo "DEST_MQTT_HOST=${DEST_MQTT_HOST}" > "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/internal/.env"
 echo "DEST_MQTT_USER=${DEST_MQTT_USER}" >> "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/internal/.env"
 echo "DEST_MQTT_PWD=${DEST_MQTT_PWD}" >> "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/internal/.env"
+echo "HTTP_REST_PORT=${HTTP_REST_PORT}" > "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/internal/.env"
 
 echo "install app"
 on_chroot << EOF

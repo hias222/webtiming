@@ -45,6 +45,8 @@ app.use(express.static(path));
 app.use('/', router);
 app.set('view engine', 'pug');
 
-var server = app.listen(3001, function () {
+var HTTP_REST_PORT = typeof process.env.HTTP_REST_PORT !== "undefined" ? process.env.HTTP_REST_PORT : 3001;
+
+var server = app.listen(HTTP_REST_PORT, function () {
     console.log("app running on port.", server.address().port);
 });

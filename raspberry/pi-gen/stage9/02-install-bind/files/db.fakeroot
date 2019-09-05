@@ -1,0 +1,13 @@
+$TTL    30
+@       IN      SOA     ns.domain.com. hostmaster.domain.com. (
+                              1        ; Serial
+                         600         ; Refresh
+                         300         ; Retry
+                         800         ; Expire
+                         600 )       ; Negative Cache TTL
+               NS	192.168.178.143.
+$TTL 30	; 30 seconds
+
+;@ IN SOA ns.domain.com. hostmaster.domain.com. ( 1 3h 1h 1w 1d )
+;  IN NS <ip>
+* IN A 192.178.188.188
