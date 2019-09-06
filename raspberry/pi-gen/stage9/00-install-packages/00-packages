@@ -1,4 +1,2 @@
 unzip
-nodejs
-npm
 mosquitto mosquitto-clients

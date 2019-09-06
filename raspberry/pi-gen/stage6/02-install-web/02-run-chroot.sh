@@ -15,4 +15,6 @@ su - ${FIRST_USER_NAME} -c "cd backend; pm2 stop app"
 
 systemctl stop pm2-root.service
 
-pkill -f /usr/bin/node
+pkill -f node
+
+ps -ef | grep node

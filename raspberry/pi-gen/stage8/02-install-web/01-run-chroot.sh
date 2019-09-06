@@ -1,4 +1,4 @@
-  ls -la /etc
-  
-  cd /usr/share/nginx/html
-  unzip -o web.zip
+echo "nginx unzip"
+
+cd /usr/share/nginx/html
+unzip -o web.zip
