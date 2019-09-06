@@ -3,6 +3,8 @@
 install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/backend"
 install -v -o 1000 -g 1000 -m 744 files/app.zip "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/backend/"
 
+install -v -o 1000 -g 1000 -m 744 files/envlocal "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/backend/.env"
+
 echo "install npm global packages"
 on_chroot << EOF
   systemctl enable mosquitto.service
