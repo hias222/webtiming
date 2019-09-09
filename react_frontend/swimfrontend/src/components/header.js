@@ -10,6 +10,7 @@ import Lane from './lane';
 import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
+import Iframe from 'react-iframe'
 
 import getSwimStyles from './getSwimStyles';
 
@@ -21,11 +22,11 @@ import Image from '../water2.jpg';
 const MyPaper = styled(Paper)({
     backgroundImage: `url(${Image})`,
     backgroundSize: 'cover',
-     backgroundPosition: 'center',
-     width: `calc(100vw-100)`,
-     margin: 10,
-     padding: 0,
-  });
+    backgroundPosition: 'center',
+    width: `calc(100vw-100)`,
+    margin: 10,
+    padding: 0,
+});
 
 
 class Header extends React.Component {
@@ -105,6 +106,15 @@ class Header extends React.Component {
                                 ""
                                 : <LinearProgress />}
                         </div>
+
+                        <Iframe url="https://swimtiming.azurewebsites.net"
+                            width="100%"
+                            height="600px"
+                            id="myId"
+                            className="myClassname"
+                            display="initial"
+                        />
+
                     </Container>
                 </Box>
 

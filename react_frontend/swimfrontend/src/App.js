@@ -6,6 +6,7 @@ import Static from "./components/static"
 
 import classnames from 'classnames'
 
+
 //endpoint: "http://127.0.0.1:4001"
 //endpoint: "http://" + window.location.hostname + ":4001"
 //endpoint: "http://192.168.178.143:4001"
@@ -208,6 +209,7 @@ class App extends Component {
     if (this.state.fullscreen !== true) {
       fullscreen = <button className={cssclasses} onClick={this.handleToggle}>Full {this.state.webtype}</button>
     }
+
     var { webcontent } = "";
     if (this.state.webtype === 'static') {
       webcontent = <Static
@@ -224,11 +226,14 @@ class App extends Component {
         responsestate={this.state.response}
       />
     }
+
+    
+
     return (
       <div>
         {fullscreen}
-
         {webcontent}
+
       </div>
     );
   }
