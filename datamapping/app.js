@@ -1,4 +1,5 @@
 var express = require("express");
+var cors = require('cors');
 var bodyParser = require("body-parser");
 var app = express();
 var router = express.Router();
@@ -10,6 +11,8 @@ const path = __dirname + '/views/';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors());
+app.options('*', cors());
 
 //var messageMapper = new messageMapper();
 
