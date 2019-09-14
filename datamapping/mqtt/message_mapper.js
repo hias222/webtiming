@@ -5,12 +5,17 @@ var mqttSender = new mqttSender();
 var sendStatus = false;
 var lastEvent;
 var lastHeat;
+require('dotenv').config();
 
-var lanes = 8;
+//var lanes = 8;
+var lanes = typeof process.env.NUMBER_LANES !== "undefined" ? process.env.NUMBER_LANES : 8;
+
+
 
 class MessageMapper {
   constructor() {
     mqttSender.connect();
+    console.log("use " + lanes + " lanes")
   }
 
   // Sends a mqtt message to topic: mytopic

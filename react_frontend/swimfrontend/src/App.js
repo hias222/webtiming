@@ -200,6 +200,9 @@ class App extends Component {
       }
     } else if (jsondata.type === 'clear') {
       console.log("clear ")
+      this.setState(state => {
+        state.lanes = []
+      })
       this.clearlanes();
     } else if (jsondata.type === 'message') {
       console.log("message ")

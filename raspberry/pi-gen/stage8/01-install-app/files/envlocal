@@ -3,3 +3,4 @@ DEST_MQTT_HOST=localhost
 # mainchanne
 DEST_MQTT_TOPIC="mainchannel"
 HTTP_REST_PORT=3001
+NUMBER_LANES=6
