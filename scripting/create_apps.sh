@@ -82,3 +82,16 @@ zip ${RASP_DIR}/stage9/01-install-web/files/app.zip app.js package.json routes/*
 
 echo "stage9 ${RASP_DIR}/stage9/01-install-web/files"
 echo `ls -la ${RASP_DIR}/stage9/01-install-web/files`
+
+
+cd $START_DIR
+echo react admin
+cd ../react_frontend/administration
+npm run-script build
+cd build
+
+rm ${RASP_DIR}/stage6/03-install-admin/files/web.zip
+zip ${RASP_DIR}/stage6/03-install-admin/files/web.zip * -r
+
+echo "stage6 ${RASP_DIR}/stage6/03-install-admin/files"
+echo `ls -la ${RASP_DIR}/stage6/03-install-admin/files`

@@ -10,7 +10,7 @@ import Lane from './lane';
 import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
-import Iframe from 'react-iframe'
+//import Iframe from 'react-iframe'
 
 import getSwimStyles from './getSwimStyles';
 
@@ -107,13 +107,6 @@ class Header extends React.Component {
                                 : <LinearProgress />}
                         </div>
 
-                        <Iframe url="https://swimtiming.azurewebsites.net"
-                            width="100%"
-                            height="600px"
-                            id="myId"
-                            className="myClassname"
-                            display="initial"
-                        />
 
                     </Container>
                 </Box>
@@ -124,3 +117,14 @@ class Header extends React.Component {
 };
 
 export default Header
+
+/*
+
+                        <Iframe url="https://swimtiming.azurewebsites.net"
+                            width="100%"
+                            height="600px"
+                            id="myId"
+                            className="myClassname"
+                            display="initial"
+                        />
+                        */

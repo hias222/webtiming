@@ -36,8 +36,8 @@ export default class admin extends React.Component<Props, State> {
 
   public message: string = "";
 
-  private backendConnect = process.env.REACT_APP_DATAMAPPING_INTERNAL_URL + "/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH;
-
+  private backendConnect = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":3001/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH : process.env.REACT_APP_DATAMAPPING_INTERNAL_URL + "/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH
+  
   sendMessage = (message: string) => (event: any) => {
     console.log(this.backendConnect + " " + message + " " + this.state.message)
     fetch(this.backendConnect, {

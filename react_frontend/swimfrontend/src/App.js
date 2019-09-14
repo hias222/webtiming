@@ -89,11 +89,11 @@ class App extends Component {
       time: this.state.time,
       start: Date.now() - this.state.time
     })
-   // this.timer = setInterval(() => this.setState({
+    // this.timer = setInterval(() => this.setState({
     //  time: Date.now() - this.state.start
     //}), 100);
     // ggf doppelte timer
-    if (this.clocktimerid){
+    if (this.clocktimerid) {
       var clocktimeridold = this.clocktimerid
       clearInterval(clocktimeridold)
     }
@@ -108,13 +108,28 @@ class App extends Component {
     this.setState({ time: delay })
   }
 
-  clocktimer(){
-    if (!this.state.isOn){
+  clocktimer() {
+    if (!this.state.isOn) {
       clearInterval(this.clocktimerid)
     }
     this.setState({
       time: Date.now() - this.state.start
     })
+  }
+
+  clearlanes() {
+    var myArray = this.state.lanes;
+    for (let i = 0; i < myArray.length; i++) {
+      if (typeof (myArray[i]) !== 'undefined') {
+        var laptime = "{ \"lap\": \"false\", \"place\": \"\", \"time\": \"\" }"
+        var newjsondata = { ...myArray[i], ...JSON.parse(laptime) }
+        var mylane = myArray[i].lane
+        // eslint-disable-next-line
+        this.setState(state => {
+          state.lanes[mylane] = newjsondata
+        })
+      }
+    }
   }
 
   laptimer() {
@@ -173,21 +188,29 @@ class App extends Component {
 
       this.setState({ event: jsondata.event })
       this.setState({ heat: jsondata.heat })
-      this.setState(state => {
-        state.info = jsondata
-      })
 
       if (jsondata.heat !== this.state.info.heat || jsondata.event !== this.state.info.event) {
+        console.log("header clear ")
+        this.clearlanes();
         this.setState(state => {
-          state.lanes = []
+          state.info = jsondata
         })
+      } else {
+        console.log("header no clear " + jsondata.heat + " " + this.state.info.heat)
       }
+    } else if (jsondata.type === 'clear') {
+      console.log("clear ")
+      this.clearlanes();
+    } else if (jsondata.type === 'message') {
+      console.log("message ")
+    } else if (jsondata.type === 'clock') {
+      console.log("clock ")
     }
 
 
     if (jsondata.type === 'start') {
       console.log("start " + JSON.stringify(jsondata))
-      var startdelay = typeof (jsondata.diff) != 'undefined' ? jsondata.diff : "100" 
+      var startdelay = typeof (jsondata.diff) != 'undefined' ? jsondata.diff : "100"
       console.log("start " + JSON.stringify(jsondata) + " delay " + startdelay)
       this.resetTimer(startdelay)
       this.startTimer();
@@ -227,13 +250,12 @@ class App extends Component {
       />
     }
 
-    
+
 
     return (
       <div>
         {fullscreen}
         {webcontent}
-
       </div>
     );
   }

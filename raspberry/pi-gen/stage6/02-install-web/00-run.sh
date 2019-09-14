@@ -10,4 +10,4 @@ EOF
 
 install -v -m 644 files/web.zip "${ROOTFS_DIR}/usr/share/nginx/html"
 
-install -v -m 644 files/default "${ROOTFS_DIR}//etc/nginx/sites-available/"
+install -v -m 644 files/default "${ROOTFS_DIR}/etc/nginx/sites-available/"
