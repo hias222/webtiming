@@ -95,3 +95,6 @@ zip ${RASP_DIR}/stage6/03-install-admin/files/web.zip * -r
 
 echo "stage6 ${RASP_DIR}/stage6/03-install-admin/files"
 echo `ls -la ${RASP_DIR}/stage6/03-install-admin/files`
+
+rm ${RASP_DIR}/stage8/03-install-admin/files/web.zip
+zip ${RASP_DIR}/stage8/03-install-admin/files/web.zip * -r
