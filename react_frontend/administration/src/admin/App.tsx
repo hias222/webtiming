@@ -164,8 +164,6 @@ export default class admin extends React.Component<Props, State> {
           <Button variant="contained" color="default" onClick={this.sendMessage('message')}>Send
           <StartIcon /></Button>
 
-       
-
           <br></br>
           <Divider variant="middle" />
           <br>
@@ -221,10 +219,8 @@ export default class admin extends React.Component<Props, State> {
           <br>
           </br>
           <Divider variant="middle" />
-          <br>
-          </br>
+          <br></br>
 
-          
         </Box>
 
       </div>

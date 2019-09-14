@@ -3,43 +3,69 @@ var swimEvent = require('../data/swim_event')
 var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
+const actions = {
+    HEADER: 'header',
+    LANE: 'lane',
+    START: 'start',
+    STOP: 'stop',
+    CLOCK: 'clock',
+    CLEAR: 'clear',
+    MESSAGE: 'message'
+}
+
 
 exports.parseColoradoData = function (message) {
     var messagetype = getMessageType(message.toString());
-    if (messagetype == "header") {
-        var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
-        return myEvent.getEventName(getEvent(message))
-    } else if (messagetype == "lane") {
-        var newmessage = myEvent.getActualSwimmer(getLaneNumber(message), getTime(message), getPlace(message));
-        return newmessage;
-    } else if (messagetype == "start") {
-        var jsonstart = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-        return JSON.parse(jsonstart);
-    } else if (messagetype == "stop") {
-        var jsonstart = "{ \"type\": \"stop\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-        return JSON.parse(jsonstart);
-    } else {
-        return "unknown"
+    switch (messagetype) {
+        case actions.HEADER:
+            console.log('Type: ' + messagetype)
+            var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
+            return myEvent.getEventName(getEvent(message))
+            break;
+        case actions.LANE:
+            var newmessage = myEvent.getActualSwimmer(getLaneNumber(message), getTime(message), getPlace(message));
+            return newmessage;
+            break;
+        case actions.START:
+            var jsonstart = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonstart);
+            break;
+        case actions.STOP:
+            var jsonstart = "{ \"type\": \"stop\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonstart);
+            break;
+        case actions.CLOCK:
+            var jsonclock = "{ \"type\": \"clock\", \"size\": \"large\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonclock);
+            break;
+        case actions.CLEAR:
+            var jsonclear = "{ \"type\": \"clear\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonclear);
+            break;
+        case actions.MESSAGE:
+            console.log("mess ")
+            var jsonmsg = "{ \"type\": \"message\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonmsg);
+            break;
+        default:
+            console.log('Type:  not declared')
+            break;
+
     }
+
+    return "unknown"
 
 }
 
 function getMessageType(message) {
-    var header = message.startsWith("header");
-    var lane = message.startsWith("lane");
-    var start = message.startsWith("start");
-    var stop = message.startsWith("stop");
-    if (header) {
-        return "header"
-    } else if (lane) {
-        return "lane"
-    } else if (start) {
-        return "start"
-    } else if (stop) {
-        return "stop"
+    var newactions = message.replace(/ .*/, '');
+    console.log("new message " + newactions)
+    if (Object.values(actions).includes(newactions)) {
+        return newactions;
     } else {
-        return "unknown"
+        return "unknown";
     }
+
 }
 
 function getHeat(message) {
@@ -52,6 +78,16 @@ function getHeat(message) {
     } catch (err) {
         console.log(err)
         return 0
+    }
+}
+
+function getMessage(message) {
+    try {
+        var newStr = message.split(' ').slice(1).join(' ')
+        return newStr
+    } catch (err) {
+        console.log(err)
+        return ""
     }
 }
 
