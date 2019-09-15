@@ -2,14 +2,11 @@ import React from 'react'
 
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
-
 import Grid from '@material-ui/core/Grid';
-
 import Box from '@material-ui/core/Box';
-//import Iframe from 'react-iframe'
-
-
 import { styled } from '@material-ui/styles';
+
+import Clock from 'react-clock';
 
 import classnames from 'classnames';
 import Image from '../water2.jpg';
@@ -25,12 +22,24 @@ const MyPaper = styled(Paper)({
 
 
 class Showmessage extends React.Component {
-
     constructor(props) {
         super(props);
-        console.log("Header Services init")
+        console.log("Message Services init " + this.props.unixcompetitiontime + " " + this.props.type)
+        //this.setState({
+        //    date: new Date(),
+        //    start: 0
+        //})
+
+        this.setClock = this.setClock.bind(this)
+        this.clocktimer = this.clocktimer.bind(this)
+        this.startTimer = this.startTimer.bind(this)
     }
 
+    // die Uhr fängt keine Nuller ab
+    state = {
+        unixcompetitiontime: 0,
+        startcompetition: 0
+    }
 
     format(ms) {
         var minutes = Math.floor(ms / (1000 * 60)),
@@ -40,10 +49,45 @@ class Showmessage extends React.Component {
         return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ',' + fract;
     }
 
+    setClock() {
+        //1568556787
+        this.setState({
+            unixcompetitiontime: this.props.unixcompetitiontime,
+            datestart: new Date(),
+            size: 500
+        })
+    }
+
+    startTimer() {
+        this.setState({
+            datestart: new Date(),
+        })
+        this.clocktimerid = setInterval(this.clocktimer, 1000);
+    }
+
+    clocktimer() {
+        this.setState({
+            timediff: Date.now() - this.state.datestart
+        })
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.clocktimerid);
+    }
+
+
+    componentDidMount() {
+        this.setClock();
+        this.startTimer();
+    }
+
     render() {
 
-       
         let heatclass = classnames('heatheader');
+
+        let clocktime = parseInt(this.state.timediff) + parseInt(this.state.unixcompetitiontime);
+        let unixtoshow = isNaN(clocktime) ? 1 : clocktime
+        let newclocktime = new Date(unixtoshow);
 
         return (
             <div >
@@ -55,10 +99,20 @@ class Showmessage extends React.Component {
                                     {this.props.info.competition}
                                 </div>
                             </Grid>
+                            <Grid>
+                                <Clock
+                                    value={newclocktime} 
+                                    size={this.state.size}
+                                    hourHandWidth='12'
+                                    hourMarksWidth='12'
+                                    hourMarksLength='25'
+                                    minuteHandWidth='12'
+                                    color="red"
+                                />
+                            </Grid>
                         </MyPaper>
                     </Container>
                 </Box>
-
             </div>
         )
     }

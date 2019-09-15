@@ -7,6 +7,7 @@
     "@material-ui/icons": "^4.2.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
+    "react-clock": "^2.4.0",
     "react-dom": "^16.8.6",
     "react-iframe": "^1.8.0",
     "react-materialize": "^3.3.1",

@@ -30,7 +30,8 @@ class App extends Component {
       time: 0,
       webtype: "",
       fullscreen: false,
-      mode: "race"
+      mode: "race",
+      unixcompetitiontime: 1568556787000
     };
 
   }
@@ -66,7 +67,7 @@ class App extends Component {
 
   componentWillUnmount() {
     clearInterval(this.intervalId);
-    clearInterval(this.timer);
+    clearInterval(this.clocktimerid);
   }
 
   handleToggle = (e) => {
@@ -223,16 +224,18 @@ class App extends Component {
     } 
 
     if (jsondata.type === 'clock') {
-      console.log("clock ")
+      console.log("clock zeit test " + new Date(Date.now()).toISOString())
       this.setState({
         mode: "message",
-        type: "clock"
+        type: "clock",
+        unixcompetitiontime: Date.now()
       })
     } else if (jsondata.type === 'message') {
       console.log("message ")
       this.setState({
         mode: "message",
-        type: "message"
+        type: "message",
+        unixcompetitiontime: Date.now()
       })
     } else {
       this.setState({
@@ -288,10 +291,9 @@ class App extends Component {
       }
     } else {
       webcontent = <Showmessage
-          lanes={this.state.lanes}
+          unixcompetitiontime={this.state.unixcompetitiontime}
+          type={this.state.type}
           info={this.state.info}
-          time={this.state.time}
-          responsestate={this.state.response}
         />
     }
 
