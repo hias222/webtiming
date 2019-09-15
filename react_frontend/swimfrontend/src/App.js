@@ -5,6 +5,7 @@ import Header from "./components/header"
 import Static from "./components/static"
 
 import classnames from 'classnames'
+import Showmessage from './components/showmessage';
 
 
 //endpoint: "http://127.0.0.1:4001"
@@ -28,7 +29,8 @@ class App extends Component {
       isOn: false,
       time: 0,
       webtype: "",
-      fullscreen: false
+      fullscreen: false,
+      mode: "race"
     };
 
   }
@@ -100,8 +102,22 @@ class App extends Component {
     this.clocktimerid = setInterval(this.clocktimer, 100);
   }
 
-  stopTimer() {
-    this.setState({ isOn: false })
+  async stopTimer() {
+    clearInterval(this.timer);
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 1000)
+    });
+
+    let result = await promise; // wait till the promise resolves (*)
+    console.log(result)
+
+    this.resetTimer(0)
+    this.setState({
+      isOn: false,
+      time: 0,
+      start: Date.now()
+    })
   }
 
   resetTimer(delay) {
@@ -204,10 +220,25 @@ class App extends Component {
         state.lanes = []
       })
       this.clearlanes();
+    } 
+
+    if (jsondata.type === 'clock') {
+      console.log("clock ")
+      this.setState({
+        mode: "message",
+        type: "clock"
+      })
     } else if (jsondata.type === 'message') {
       console.log("message ")
-    } else if (jsondata.type === 'clock') {
-      console.log("clock ")
+      this.setState({
+        mode: "message",
+        type: "message"
+      })
+    } else {
+      this.setState({
+        mode: "race",
+        type: "normal"
+      })
     }
 
 
@@ -221,9 +252,11 @@ class App extends Component {
 
     if (jsondata.type === 'stop') {
       console.log("stop " + JSON.stringify(jsondata))
-      this.resetTimer(0)
+      //async
+      //this.resetTimer(0)
       this.stopTimer()
     }
+
   }
 
 
@@ -237,20 +270,29 @@ class App extends Component {
     }
 
     var { webcontent } = "";
-    if (this.state.webtype === 'static') {
-      webcontent = <Static
-        lanes={this.state.lanes}
-        info={this.state.info}
-        time={this.state.time}
-        responsestate={this.state.response}
-      />
+    if (this.state.mode === 'race') {
+      if (this.state.webtype === 'static') {
+        webcontent = <Static
+          lanes={this.state.lanes}
+          info={this.state.info}
+          time={this.state.time}
+          responsestate={this.state.response}
+        />
+      } else {
+        webcontent = <Header
+          lanes={this.state.lanes}
+          info={this.state.info}
+          time={this.state.time}
+          responsestate={this.state.response}
+        />
+      }
     } else {
-      webcontent = <Header
-        lanes={this.state.lanes}
-        info={this.state.info}
-        time={this.state.time}
-        responsestate={this.state.response}
-      />
+      webcontent = <Showmessage
+          lanes={this.state.lanes}
+          info={this.state.info}
+          time={this.state.time}
+          responsestate={this.state.response}
+        />
     }
 
 

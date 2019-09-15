@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require('cors');
 const http = require("http");
 const socketIo = require("socket.io");
 const port = process.env.PORT || 4001;
@@ -34,9 +35,15 @@ var client = mqtt.connect(mqtt_host, settings)
 //var client = mqtt.connect('mqtt://localhost', settings)
 
 const app = express();
+
 app.use(index);
+app.use(cors());
+app.options('*', cors());
+
 const server = http.createServer(app);
 const io = socketIo(server); // < Interesting!
+
+io.origins('*:*') // for latest version
 
 io.on("connection", socket => {
   console.log('websocket backend Subscribing to ' + mqtt_host);
