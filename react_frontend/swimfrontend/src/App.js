@@ -6,6 +6,7 @@ import Static from "./components/static"
 
 import classnames from 'classnames'
 import Showmessage from './components/showmessage';
+import Showvideo from './components/showvideo'
 
 
 //endpoint: "http://127.0.0.1:4001"
@@ -224,18 +225,24 @@ class App extends Component {
     } 
 
     if (jsondata.type === 'clock') {
-      console.log("clock zeit test " + new Date(Date.now()).toISOString())
+      console.log(JSON.stringify(jsondata))
       this.setState({
         mode: "message",
         type: "clock",
-        unixcompetitiontime: Date.now()
+        unixcompetitiontime: jsondata.time
       })
     } else if (jsondata.type === 'message') {
-      console.log("message ")
+      console.log(JSON.stringify(jsondata))
       this.setState({
         mode: "message",
         type: "message",
-        unixcompetitiontime: Date.now()
+        unixcompetitiontime: jsondata.time
+      })
+    } else if (jsondata.type === 'video') {
+      console.log(JSON.stringify(jsondata))
+      this.setState({
+        mode: "video",
+        type: jsondata.version
       })
     } else {
       this.setState({
@@ -289,8 +296,14 @@ class App extends Component {
           responsestate={this.state.response}
         />
       }
-    } else {
+    } else if (this.state.mode === 'message') {
       webcontent = <Showmessage
+          unixcompetitiontime={this.state.unixcompetitiontime}
+          type={this.state.type}
+          info={this.state.info}
+        />
+    } else {
+      webcontent = <Showvideo
           unixcompetitiontime={this.state.unixcompetitiontime}
           type={this.state.type}
           info={this.state.info}

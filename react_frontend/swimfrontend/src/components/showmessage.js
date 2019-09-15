@@ -9,10 +9,11 @@ import { styled } from '@material-ui/styles';
 import Clock from 'react-clock';
 
 import classnames from 'classnames';
-import Image from '../water2.jpg';
+//import Image from '../water2.jpg';
+
 
 const MyPaper = styled(Paper)({
-    backgroundImage: `url(${Image})`,
+    //backgroundImage: `url(${Image})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: `calc(100vw-100)`,
@@ -52,7 +53,7 @@ class Showmessage extends React.Component {
     setClock() {
         //1568556787
         this.setState({
-            unixcompetitiontime: this.props.unixcompetitiontime,
+            unixcompetitiontime: Math.floor(this.props.unixcompetitiontime * 1000),
             datestart: new Date(),
             size: 500
         })
@@ -107,7 +108,9 @@ class Showmessage extends React.Component {
                                     hourMarksWidth='12'
                                     hourMarksLength='25'
                                     minuteHandWidth='12'
-                                    color="red"
+                                    backround-color="red"
+                                    position='inherit'
+                                    //react-clock__hand__body
                                 />
                             </Grid>
                         </MyPaper>

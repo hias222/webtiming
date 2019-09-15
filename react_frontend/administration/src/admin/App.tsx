@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 import StartIcon from '@material-ui/icons/PlayArrow';
 import StopIcon from '@material-ui/icons/Stop';
 import ClearIcon from '@material-ui/icons/RestoreFromTrash';
+import VideoIcon from '@material-ui/icons/Videocam';
 import ClockIcon from '@material-ui/icons/Watch';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
@@ -37,7 +38,7 @@ export default class admin extends React.Component<Props, State> {
   public message: string = "";
 
   private backendConnect = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":3001/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH : process.env.REACT_APP_DATAMAPPING_INTERNAL_URL + "/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH
-  
+
   sendMessage = (message: string) => (event: any) => {
     console.log(this.backendConnect + " " + message + " " + this.state.message)
     fetch(this.backendConnect, {
@@ -129,7 +130,7 @@ export default class admin extends React.Component<Props, State> {
       <div>
         <Navigation />
         <Box component="span" m={1}>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Button variant="contained" color="default" onClick={this.sendAction('start')}>
               Start
               <StartIcon />
@@ -146,12 +147,16 @@ export default class admin extends React.Component<Props, State> {
               clock
               <ClockIcon />
             </Button>
+            <Button variant="contained" color="default" onClick={this.sendAction('video')}>
+              video
+              <VideoIcon />
+            </Button>
           </Grid>
 
           <br>
           </br>
           <Divider variant="middle" />
-  
+
 
           <Grid>
             <TextField

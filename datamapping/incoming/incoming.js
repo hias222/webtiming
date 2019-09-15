@@ -10,7 +10,8 @@ const actions = {
     STOP: 'stop',
     CLOCK: 'clock',
     CLEAR: 'clear',
-    MESSAGE: 'message'
+    MESSAGE: 'message',
+    VIDEO: 'video'
 }
 
 
@@ -41,6 +42,10 @@ exports.parseColoradoData = function (message) {
         case actions.CLEAR:
             var jsonclear = "{ \"type\": \"clear\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
             return JSON.parse(jsonclear);
+            break;
+        case actions.VIDEO:
+            var jsonvideo = "{ \"type\": \"video\", \"version\": \"1\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonvideo);
             break;
         case actions.MESSAGE:
             console.log("mess ")
