@@ -1,16 +1,15 @@
 import React from 'react';
 import './Settings.css';
 import Navigation from '../common/Navigation';
+import Upload from './Upload';
 
 const Settings: React.FC = () => {
   return (
     <div className="App">
       <Navigation/>
-      <header className="App-header">
-        <p>
-          Settings
-        </p>
-      </header>
+      <Upload 
+      message='Hello'
+      />
     </div>
   );
 }

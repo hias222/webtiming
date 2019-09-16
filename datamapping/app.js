@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var app = express();
 var router = express.Router();
 var mqttRawHandler = require('./mqtt/mqtt_handler');
+var upload = require('./incoming/upload')
+
 
 require('dotenv').config();
 
@@ -13,6 +15,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
 app.options('*', cors());
+
+
 
 //var messageMapper = new messageMapper();
 
@@ -43,6 +47,8 @@ router.post("/send-mqtt", function(req, res) {
   var lastMessage = mqttRawClient.getLastMessage();
   res.status(200).send("New Message - last " + lastMessage);
 });
+
+app.post('/upload', upload)
 
 app.use(express.static(path));
 app.use('/', router);
