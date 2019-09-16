@@ -88,7 +88,7 @@ function getHeat(message) {
 
 function getMessage(message) {
     try {
-        var newStr = message.split(' ').slice(1).join(' ')
+        var newStr = message.toString().substr(message.indexOf(" ") + 1);
         return newStr
     } catch (err) {
         console.log(err)

@@ -29,7 +29,8 @@ class App extends Component {
       webtype: "",
       fullscreen: false,
       mode: "race",
-      unixcompetitiontime: 1568556787000
+      unixcompetitiontime: 1568556787000,
+      message: ""
     };
 
   }
@@ -233,7 +234,8 @@ class App extends Component {
       this.setState({
         mode: "message",
         type: "message",
-        unixcompetitiontime: jsondata.time
+        unixcompetitiontime: jsondata.time,
+        message: jsondata.value
       })
     } else if (jsondata.type === 'video') {
       console.log(JSON.stringify(jsondata))
@@ -283,6 +285,7 @@ class App extends Component {
         unixcompetitiontime={this.state.unixcompetitiontime}
         type={this.state.type}
         info={this.state.info}
+        message={this.state.message}
       />
     } else {
       webcontent = <Showvideo
@@ -291,8 +294,6 @@ class App extends Component {
         info={this.state.info}
       />
     }
-
-
 
     return (
       <div>

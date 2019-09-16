@@ -26,20 +26,18 @@ class Showmessage extends React.Component {
     constructor(props) {
         super(props);
         console.log("Message Services init " + this.props.unixcompetitiontime + " " + this.props.type)
-        //this.setState({
-        //    date: new Date(),
-        //    start: 0
-        //})
-
         this.setClock = this.setClock.bind(this)
         this.clocktimer = this.clocktimer.bind(this)
         this.startTimer = this.startTimer.bind(this)
+        this.restartMessage = this.restartMessage.bind(this)
     }
 
     // die Uhr fängt keine Nuller ab
     state = {
         unixcompetitiontime: 0,
-        startcompetition: 0
+        startcompetition: 0,
+        hourHandWidth: 5,
+        minuteHandWidth: 5
     }
 
     format(ms) {
@@ -54,9 +52,19 @@ class Showmessage extends React.Component {
         //1568556787
         this.setState({
             unixcompetitiontime: Math.floor(this.props.unixcompetitiontime * 1000),
-            datestart: new Date(),
-            size: 500
+            datestart: new Date()
         })
+        if (this.props.type === 'message') {
+            this.setState({
+                size: 100,
+                hourHandWidth: 2,
+                minuteHandWidth: 2
+            })
+        } else {
+            this.setState({
+                size: 500
+            })
+        }
     }
 
     startTimer() {
@@ -80,6 +88,35 @@ class Showmessage extends React.Component {
     componentDidMount() {
         this.setClock();
         this.startTimer();
+        this.setState({
+            type: this.props.type
+        })
+    }
+
+    componentDidUpdate() {
+
+        if (this.props.type !== this.state.type) {
+            console.log("type change")
+            this.restartMessage()
+            this.setState({
+                type: this.props.type
+            })
+        }
+        //this.restartMessage();
+    }
+
+    async restartMessage() {
+        clearInterval(this.clocktimerid);
+
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve("done!"), 1000)
+        });
+
+        let result = await promise; // wait till the promise resolves (*)
+        console.log(result)
+
+        this.setClock();
+        this.startTimer();
     }
 
     render() {
@@ -89,6 +126,12 @@ class Showmessage extends React.Component {
         let clocktime = parseInt(this.state.timediff) + parseInt(this.state.unixcompetitiontime);
         let unixtoshow = isNaN(clocktime) ? 1 : clocktime
         let newclocktime = new Date(unixtoshow);
+
+        var { webcontent } = "";
+
+        if (this.props.type === 'message') {
+            webcontent = <p>{this.props.message}</p>
+        }
 
         return (
             <div >
@@ -101,16 +144,15 @@ class Showmessage extends React.Component {
                                 </div>
                             </Grid>
                             <Grid>
+                                {webcontent}
+                            </Grid>
+                            <Grid>
                                 <Clock
-                                    value={newclocktime} 
+                                    value={newclocktime}
                                     size={this.state.size}
-                                    hourHandWidth='12'
-                                    hourMarksWidth='12'
-                                    hourMarksLength='25'
-                                    minuteHandWidth='12'
-                                    backround-color="red"
-                                    position='inherit'
-                                    //react-clock__hand__body
+                                    hourHandWidth={this.state.hourHandWidth}
+                                    minuteHandWidth={this.state.minuteHandWidth}
+                                //react-clock__hand__body
                                 />
                             </Grid>
                         </MyPaper>
