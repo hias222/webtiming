@@ -93,6 +93,11 @@ function storeBaseData(message) {
       start = jsonmessage
     }
 
+    if (jsonmessage.type == "clear") {
+      console.log("clear lanes")
+      lanemessages = [] 
+    }
+
     if (jsonmessage.type == "lane") {
       var lanenumber = (jsonmessage.lane - 1)
       var number_of_elements_to_remove = 1

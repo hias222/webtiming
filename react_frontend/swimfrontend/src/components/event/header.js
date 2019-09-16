@@ -12,12 +12,12 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import Box from '@material-ui/core/Box';
 //import Iframe from 'react-iframe'
 
-import getSwimStyles from './getSwimStyles';
+import getSwimStyles from '../getSwimStyles';
 
 import { styled } from '@material-ui/styles';
 
 import classnames from 'classnames';
-import Image from '../water2.jpg';
+import Image from '../../resources/water2.jpg';
 
 const MyPaper = styled(Paper)({
     backgroundImage: `url(${Image})`,

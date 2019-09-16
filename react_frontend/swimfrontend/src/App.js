@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
 import socketIOClient from "socket.io-client";
-import Header from "./components/header"
-import Static from "./components/static"
-
-import classnames from 'classnames'
 import Showmessage from './components/showmessage';
 import Showvideo from './components/showvideo'
+import Event from './components/event/event';
 
 
 //endpoint: "http://127.0.0.1:4001"
@@ -222,7 +219,7 @@ class App extends Component {
         state.lanes = []
       })
       this.clearlanes();
-    } 
+    }
 
     if (jsondata.type === 'clock') {
       console.log(JSON.stringify(jsondata))
@@ -271,50 +268,34 @@ class App extends Component {
 
 
   render() {
-
-    let cssclasses = classnames('headername');
-
-    var { fullscreen } = "";
-    if (this.state.fullscreen !== true) {
-      fullscreen = <button className={cssclasses} onClick={this.handleToggle}>Full {this.state.webtype}</button>
-    }
-
     var { webcontent } = "";
     if (this.state.mode === 'race') {
-      if (this.state.webtype === 'static') {
-        webcontent = <Static
+      webcontent = <Event
+          fullscreen={this.state.fullscreen}
+          webtype={this.state.webtype}
           lanes={this.state.lanes}
           info={this.state.info}
           time={this.state.time}
           responsestate={this.state.response}
         />
-      } else {
-        webcontent = <Header
-          lanes={this.state.lanes}
-          info={this.state.info}
-          time={this.state.time}
-          responsestate={this.state.response}
-        />
-      }
     } else if (this.state.mode === 'message') {
       webcontent = <Showmessage
-          unixcompetitiontime={this.state.unixcompetitiontime}
-          type={this.state.type}
-          info={this.state.info}
-        />
+        unixcompetitiontime={this.state.unixcompetitiontime}
+        type={this.state.type}
+        info={this.state.info}
+      />
     } else {
       webcontent = <Showvideo
-          unixcompetitiontime={this.state.unixcompetitiontime}
-          type={this.state.type}
-          info={this.state.info}
-        />
+        unixcompetitiontime={this.state.unixcompetitiontime}
+        type={this.state.type}
+        info={this.state.info}
+      />
     }
 
 
 
     return (
       <div>
-        {fullscreen}
         {webcontent}
       </div>
     );

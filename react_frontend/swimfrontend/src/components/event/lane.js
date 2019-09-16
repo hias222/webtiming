@@ -3,9 +3,9 @@ import TableRow from '@material-ui/core/TableRow';
 import PoolIcon from '@material-ui/icons/Pool';
 import classnames from 'classnames';
 
-import NumberCellComponent from '../styles/NumberCellComponent';
-import TextCellComponent from '../styles/TextCellComponent';
-import TimeCellComponent from '../styles/TimeCellComponent';
+import NumberCellComponent from '../../styles/NumberCellComponent';
+import TextCellComponent from '../../styles/TextCellComponent';
+import TimeCellComponent from '../../styles/TimeCellComponent';
 
 class Lane extends React.Component {
     //const Service = ({ service }) => {
