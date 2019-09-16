@@ -24,7 +24,7 @@ class Video extends React.Component {
             <div>
                 <video
                     ref="vidRef"
-                    src="http://192.168.178.145/simpsons.mov"
+                    src="http://192.168.178.145/data/simpsons.mov"
                     type="video/mp4"
                 />
             </div>
