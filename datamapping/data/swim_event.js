@@ -21,6 +21,12 @@ class swimevent {
         this.readFile()
     }
 
+    updateFile(filename) {
+        this.filename = filename
+        this.xml_string = fs.readFileSync(filename, "utf8");
+        this.readFile()
+    }
+
     readFile() {
         parser.parseString(this.xml_string, function (error, result) {
             if (error === null) {

@@ -1,5 +1,8 @@
 var swimEvent = require('../data/swim_event')
 
+var fs = require('fs');
+var unzipper = require('unzipper')
+
 var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
@@ -11,7 +14,8 @@ const actions = {
     CLOCK: 'clock',
     CLEAR: 'clear',
     MESSAGE: 'message',
-    VIDEO: 'video'
+    VIDEO: 'video',
+    LENEX: 'lenex'
 }
 
 
@@ -52,14 +56,68 @@ exports.parseColoradoData = function (message) {
             var jsonmsg = "{ \"type\": \"message\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
             return JSON.parse(jsonmsg);
             break;
+        case actions.LENEX:
+            var newfilename = getMessage(message)
+            console.log("lenex " + newfilename)
+            getNewLenexFile(newfilename);
+            var jsonlenex = "{ \"type\": \"lenex\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonlenex);
+            break;
         default:
             console.log('Type:  not declared')
             break;
-
     }
-
     return "unknown"
+}
 
+async function getNewLenexFile(filename) {
+   
+    var lenexfile = __dirname + '/../uploads/' + filename;
+    var destlenexpath = __dirname + '/../resources';
+    var destpath = __dirname + '/../resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"
+    var destfilename = 'resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"
+
+    console.log("check " + filename + " dest " + destpath)
+
+    try {
+
+        fs.access(lenexfile, fs.F_OK, (err) => {
+            if (err) {
+                console.log("not exists " + lenexfile)
+                console.error(err);
+                return;
+            }
+            // file exists
+            console.log("exist " + lenexfile)
+
+            fs.createReadStream(lenexfile)
+                .pipe(unzipper.Extract({ path: destlenexpath }))
+                .on('error', (err) => {
+                    console.log("error extract " + lenexfile)
+                    console.log(err)
+                })
+                .on('finish', (success) => {
+                    console.log("success extract")
+                    
+                    fs.access(destpath, fs.F_OK, (err) => {
+                        if (err) {
+                            console.log("not exists " + destpath)
+                            console.error(err);
+                            return;
+                        }
+                        // file exists
+                        console.log("exist " + destpath)
+                        console.log("old " + JSON.stringify(myEvent.getCompetitionName()))
+                        myEvent.updateFile(destfilename)
+                        console.log("new " + myEvent.filename)
+                        console.log("new " + JSON.stringify(myEvent.getCompetitionName()))
+                    })
+                })
+        });
+    } catch (Exception) {
+        console.log("error extract ")
+        console.log(Exception)
+    }
 }
 
 function getMessageType(message) {

@@ -10,8 +10,6 @@ require('dotenv').config();
 //var lanes = 8;
 var lanes = typeof process.env.NUMBER_LANES !== "undefined" ? process.env.NUMBER_LANES : 8;
 
-
-
 class MessageMapper {
   constructor() {
     mqttSender.connect();

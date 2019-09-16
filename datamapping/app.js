@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
 app.options('*', cors());
 
-
-
 //var messageMapper = new messageMapper();
 
 var mqttRawClient = new mqttRawHandler();

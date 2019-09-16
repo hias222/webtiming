@@ -62,7 +62,6 @@ export default class admin extends React.Component<Props, State> {
       })
     })
       .catch(console.log)
-
   };
 
   sendHeader = () => (event: any) => {

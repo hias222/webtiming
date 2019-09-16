@@ -4,6 +4,7 @@ import FileUploader from './FileUploader'
 //https://malcoded.com/posts/react-file-upload/
 //https://spin.atomicobject.com/2018/09/13/file-uploader-react-typescript/
 
+
 interface Props {
     message: string;
   }
@@ -18,7 +19,6 @@ interface State {
 };
 
 export default class Upload extends React.Component<Props, State> {
-
 
   render() {
     return (

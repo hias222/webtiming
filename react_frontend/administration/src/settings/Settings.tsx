@@ -1,7 +1,7 @@
 import React from 'react';
 import './Settings.css';
 import Navigation from '../common/Navigation';
-import Upload from './Upload';
+import Upload from './upload/Upload';
 
 const Settings: React.FC = () => {
   return (

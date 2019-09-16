@@ -229,7 +229,7 @@ class App extends Component {
         type: "clock",
         unixcompetitiontime: jsondata.time
       })
-    } else if (jsondata.type === 'message') {
+    } else if (jsondata.type === 'message' || jsondata.type === 'lenex') {
       console.log(JSON.stringify(jsondata))
       this.setState({
         mode: "message",
