@@ -10,6 +10,9 @@ const Settings: React.FC = () => {
       <Upload 
       message='Hello'
       />
+      <p>
+      mosquitto_sub -h localhost -t error
+      </p>
     </div>
   );
 }

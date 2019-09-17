@@ -3,6 +3,11 @@ const fs = require('fs');
 const parser = new xml2js.Parser({ attrkey: "ATTR" });
 const jmespath = require('jmespath');
 
+var PropertyReader = require('properties-reader')
+
+require('dotenv').config();
+var propertyfile = __dirname + "/../" + process.env.PROPERTY_FILE;
+var properties = PropertyReader(propertyfile)
 
 var MqttMessageSender = require('../mqtt/mqtt_message_sender')
 var mqttMessageSender = new MqttMessageSender()
@@ -41,7 +46,11 @@ class swimevent {
             mqttMessageSender.sendMessage("lenex failure load <swim_event update> " + this.filename)
             console.log(Exception)
         }
-
+        //todo update file name
+        var lenex_file = properties.get("main.lenex_startlist")
+        console.log("<swimevent> old file " + lenex_file)
+        properties.set("main.lenex_startlist",filename);
+        properties.save(propertyfile)
     }
 
     readFile() {

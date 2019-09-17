@@ -11,7 +11,7 @@ var settings = {
 class MqttMessageSender {
     constructor() {
         this.mqttClient = null;
-        this.rawtopic = 'rawdata'
+        this.rawtopic = 'error'
         //this.host = 'mqtt://localhost';
         this.mqttClient = mqtt.connect('mqtt://localhost', settings);
     }

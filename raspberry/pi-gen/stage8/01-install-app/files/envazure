@@ -5,3 +5,4 @@ DEST_MQTT_TOPIC="devices/rpi-01-2019/messages/events/"
 DEST_MQTT_PWD="SharedAccessSig"
 HTTP_REST_PORT=3002
 NUMBER_LANES=6
+PROPERTY_FILE=property.ini

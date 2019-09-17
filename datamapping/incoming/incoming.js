@@ -12,12 +12,12 @@ var propertyfile = __dirname + "/../" + process.env.PROPERTY_FILE;
 console.log("<incoming> using " + propertyfile);
 var properties = PropertyReader(propertyfile)
 var lenex_file = properties.get("main.lenex_startlist")
-console.log("using file " + lenex_file);
+console.log("<incoming> using file " + lenex_file);
 
 //properties.set("main.config","test_neu");
 //properties.save(propertyfile)
 
-var myEvent = new swimEvent("resources/" + lenex_file);
+var myEvent = new swimEvent(lenex_file);
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
 const actions = {
@@ -91,13 +91,14 @@ async function getNewLenexFile(filename) {
     var destpath = __dirname + '/../resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"
     var destfilename = 'resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"
 
-    console.log("check " + filename + " dest " + destpath)
+    console.log("<incoming> check " + lenexfile)
+    console.log("<incoming> dest " + destpath)
 
     try {
-
+        console.log("<incoming> load new file " + filename)
         fs.access(lenexfile, fs.F_OK, (err) => {
             if (err) {
-                console.log("<incoming> not exists " + lenexfile)
+                console.log("<incoming> not exists ")
                 console.log(lenexfile)
                 console.error(err);
                 //mqttMessageSender.sendMessage("lenex not exists " + lenexfile)
@@ -105,7 +106,7 @@ async function getNewLenexFile(filename) {
                 return;
             }
             // file exists
-            console.log("exist " + lenexfile)
+            console.log("<incoming> exist " + lenexfile)
 
             fs.createReadStream(lenexfile)
                 .pipe(unzipper.Extract({ path: destlenexpath }))
