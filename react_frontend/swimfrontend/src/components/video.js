@@ -11,40 +11,54 @@ class Video extends React.Component {
         }
     }
 
-    componentDidMount = () => {
-        this.playVideo();
-    };
+componentDidMount = () => {
+    this.playVideo();
+};
 
-    componentWillUnmount = () => {
-        this.pauseVideo();
-    };
+componentWillUnmount = () => {
+    this.pauseVideo();
+};
 
-    playVideo = () => {
-        // You can use the play method as normal on your video ref
-        this.refs.vidRef.play();
-        console.log("play " + this.state.videolink)
-    };
+playVideo = () => {
+    // You can use the play method as normal on your video ref
+    var promise = document.querySelector('video').play();
 
-    pauseVideo = () => {
-        // Pause as well
-        this.refs.vidRef.pause();
-    };
+    if (promise !== undefined) {
+        promise.then(_ => {
+            // Autoplay started!
+            this.refs.vidRef.play();
+            console.log("play " + this.state.videolink)
+        }).catch(error => {
+            // Autoplay was prevented.
+            // Show a "Play" button so that user can start playback.
+            console.log("no auto play " + this.state.videolink)
+            alert("turn on sound in chrome -> autoplay should work")
+        });
+    }
+    
+    
+};
 
-    render() {
-        return (
-            <div>
-                <VideoInformation
+pauseVideo = () => {
+    // Pause as well
+    this.refs.vidRef.pause();
+};
+
+render() {
+    return (
+        <div>
+            <VideoInformation
                 name={this.state.videolink}
-                />
-                <video
-                    ref="vidRef"
-                    src={this.state.videolink}
-                    type="video/mp4"
-                />
-                
-            </div>
-        );
-    };
+            />
+            <video
+                ref="vidRef"
+                src={this.state.videolink}
+                type="video/mp4"
+            />
+
+        </div>
+    );
+};
 }
 
 export default Video;

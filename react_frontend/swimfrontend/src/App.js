@@ -69,22 +69,6 @@ class App extends Component {
     clearInterval(this.clocktimerid);
   }
 
-  handleToggle = (e) => {
-    const el = document.documentElement
-    if (el.requestFullscreen) {
-      el.requestFullscreen()
-    } else if (el.mozRequestFullScreen) {
-      el.mozRequestFullScreen()
-    } else if (el.webkitRequestFullscreen) {
-      el.webkitRequestFullscreen()
-    } else if (el.msRequestFullscreen) {
-      el.msRequestFullscreen()
-    }
-    this.setState({
-      fullscreen: true
-    })
-  }
-
   startTimer() {
     this.setState({
       isOn: true,

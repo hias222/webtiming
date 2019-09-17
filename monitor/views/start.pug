@@ -1,0 +1,12 @@
+html
+  head
+    title= title
+  body
+    h1 Raw Messages
+    p Last Message #{message}
+    p Connection Status #{status}
+
+    
+    ul
+      each val in values.length ? values : ['There are no values']
+        li= val

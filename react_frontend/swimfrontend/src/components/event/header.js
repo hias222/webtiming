@@ -106,8 +106,6 @@ class Header extends React.Component {
                                 ""
                                 : <LinearProgress />}
                         </div>
-
-
                     </Container>
                 </Box>
 

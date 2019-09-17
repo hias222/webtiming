@@ -25,9 +25,11 @@ class FileUploader extends React.Component<Props, State> {
 
   private backendConnect = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":3001/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH : process.env.REACT_APP_DATAMAPPING_INTERNAL_URL + "/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH
 
+  private uploadurl: string = "http://" + window.location.hostname + ":3001/upload"
 
   constructor(props: Props) {
     super(props);
+    
     this.state = {
       dragging: false, file: null,
       uploadProgress: {},
@@ -149,7 +151,7 @@ class FileUploader extends React.Component<Props, State> {
         console.log("upload")
         console.log(file)
         formData.append("file", file);
-        req.open("POST", "http://localhost:3001/upload");
+        req.open("POST", this.uploadurl);
         req.send(formData);
       } else {
         console.log("null - no upload")

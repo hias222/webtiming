@@ -10,6 +10,22 @@ class Event extends React.Component {
         console.log("Event Service rendered")
     }
 
+    handleToggle = (e) => {
+        const el = document.documentElement
+        if (el.requestFullscreen) {
+          el.requestFullscreen()
+        } else if (el.mozRequestFullScreen) {
+          el.mozRequestFullScreen()
+        } else if (el.webkitRequestFullscreen) {
+          el.webkitRequestFullscreen()
+        } else if (el.msRequestFullscreen) {
+          el.msRequestFullscreen()
+        }
+        this.setState({
+          fullscreen: true
+        })
+      }
+
     render() {
 
         let cssclasses = classnames('headername');
