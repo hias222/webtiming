@@ -1,6 +1,16 @@
 import React from "react";
 
+import VideoInformation from './video/videoinformation'
+
 class Video extends React.Component {
+    constructor() {
+        super();
+        var videolink = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
+        this.state = {
+            videolink: videolink
+        }
+    }
+
     componentDidMount = () => {
         this.playVideo();
     };
@@ -12,6 +22,7 @@ class Video extends React.Component {
     playVideo = () => {
         // You can use the play method as normal on your video ref
         this.refs.vidRef.play();
+        console.log("play " + this.state.videolink)
     };
 
     pauseVideo = () => {
@@ -19,20 +30,28 @@ class Video extends React.Component {
         this.refs.vidRef.pause();
     };
 
-    render = () => {
+    render() {
         return (
             <div>
+                <VideoInformation
+                name={this.state.videolink}
+                />
                 <video
                     ref="vidRef"
-                    src="http://192.168.178.145/data/simpsons.mov"
+                    src={this.state.videolink}
                     type="video/mp4"
                 />
+                
             </div>
         );
     };
 }
 
 export default Video;
+
+/*
+
+                */
 //src="https://assets.polestar.com/video/test/polestar-1_09.mp4"
 /*
 <div>

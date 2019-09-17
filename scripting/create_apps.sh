@@ -43,7 +43,7 @@ cd $START_DIR
 cd ../datamapping
 
 rm ${RASP_DIR}/stage6/01-install-app/files/app.zip
-zip -q ${RASP_DIR}/stage6/01-install-app/files/app.zip app.js package.json property.ini incoming/* mqtt/* data/* resources/* views/*
+zip -q ${RASP_DIR}/stage6/01-install-app/files/app.zip app.js package.json property.ini uploads/* incoming/* mqtt/* data/* resources/* views/*
 
 echo "stage6 ${RASP_DIR}/stage6/01-install-app/files/"
 echo `ls -la ${RASP_DIR}/stage6/01-install-app/files/`
@@ -51,7 +51,7 @@ echo `ls -la ${RASP_DIR}/stage6/01-install-app/files/`
 echo ""
 
 rm ${RASP_DIR}/stage8/01-install-app/files/app.zip
-zip -q ${RASP_DIR}/stage8/01-install-app/files/app.zip app.js package.json incoming/* mqtt/* data/* resources/* views/*
+zip -q ${RASP_DIR}/stage8/01-install-app/files/app.zip app.js package.json property.ini uploads/* incoming/* mqtt/* data/* resources/* views/*
 
 echo "stage8 ${RASP_DIR}/stage8/01-install-app/files"
 echo `ls -la ${RASP_DIR}/stage8/01-install-app/files`
