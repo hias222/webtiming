@@ -1,9 +1,23 @@
 var swimEvent = require('../data/swim_event')
+var PropertyReader = require('properties-reader')
 
 var fs = require('fs');
 var unzipper = require('unzipper')
 
-var myEvent = new swimEvent("resources/190706_Export_Meldungen.lef");
+var MqttMessageSender = require('../mqtt/mqtt_message_sender')
+var mqttMessageSender = new MqttMessageSender()
+
+require('dotenv').config();
+var propertyfile = __dirname + "/../" + process.env.PROPERTY_FILE;
+console.log("<incoming> using " + propertyfile);
+var properties = PropertyReader(propertyfile)
+var lenex_file = properties.get("main.lenex_startlist")
+console.log("using file " + lenex_file);
+
+//properties.set("main.config","test_neu");
+//properties.save(propertyfile)
+
+var myEvent = new swimEvent("resources/" + lenex_file);
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
 const actions = {
@@ -71,7 +85,7 @@ exports.parseColoradoData = function (message) {
 }
 
 async function getNewLenexFile(filename) {
-   
+
     var lenexfile = __dirname + '/../uploads/' + filename;
     var destlenexpath = __dirname + '/../resources';
     var destpath = __dirname + '/../resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"
@@ -83,8 +97,11 @@ async function getNewLenexFile(filename) {
 
         fs.access(lenexfile, fs.F_OK, (err) => {
             if (err) {
-                console.log("not exists " + lenexfile)
+                console.log("<incoming> not exists " + lenexfile)
+                console.log(lenexfile)
                 console.error(err);
+                //mqttMessageSender.sendMessage("lenex not exists " + lenexfile)
+           
                 return;
             }
             // file exists
@@ -93,30 +110,33 @@ async function getNewLenexFile(filename) {
             fs.createReadStream(lenexfile)
                 .pipe(unzipper.Extract({ path: destlenexpath }))
                 .on('error', (err) => {
-                    console.log("error extract " + lenexfile)
+                    console.log("<incoming> error extract " + lenexfile)
                     console.log(err)
+                    mqttMessageSender.sendMessage("lenex error extract " + lenexfile)
                 })
                 .on('finish', (success) => {
-                    console.log("success extract")
-                    
+                    console.log("<incoming> success extract")
+
                     fs.access(destpath, fs.F_OK, (err) => {
                         if (err) {
-                            console.log("not exists " + destpath)
+                            console.log("<incoming> not exists " + destpath)
                             console.error(err);
                             return;
                         }
                         // file exists
-                        console.log("exist " + destpath)
-                        console.log("old " + JSON.stringify(myEvent.getCompetitionName()))
+                        console.log("<incoming> exist " + destpath)
+                        console.log("<incoming> old " + JSON.stringify(myEvent.getCompetitionName()))
+                        console.log("<incoming> switch to  " + destfilename)
                         myEvent.updateFile(destfilename)
-                        console.log("new " + myEvent.filename)
-                        console.log("new " + JSON.stringify(myEvent.getCompetitionName()))
+                        console.log("<incoming> new " + myEvent.filename)
+                        console.log("<incoming> new " + JSON.stringify(myEvent.getCompetitionName()))
                     })
                 })
         });
     } catch (Exception) {
-        console.log("error extract ")
+        console.log("<incoming> error extract ")
         console.log(Exception)
+        mqttMessageSender.sendMessage("lenex error extract " + Exception)
     }
 }
 

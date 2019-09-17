@@ -32,7 +32,7 @@ class MqttSender {
       //this.mqttClient = mqtt.connect(this.host, settings);
       var azurehost = "mqtts://" +  process.env.DEST_MQTT_HOST + ":8883"
       var username = process.env.DEST_MQTT_HOST + "/" + process.env.DEST_MQTT_DEVICEID + "/?api-version=2018-06-30"
-      console.log("we need auth " + azurehost + " " + username + " " + this.password);
+      console.log("<sender> we need auth for outgoing mqtt " + azurehost + " " + username + " " + this.password);
 
 
       this.mqttClient = mqtt.connect(azurehost, { 
@@ -42,9 +42,9 @@ class MqttSender {
       
 
     } else {
-      console.log("no "+ this.authenticationSet + " " + this.username + " " + this.password);
+      console.log("<sender> no auth set for outgoing mqtt"+ this.authenticationSet + " " + this.username + " " + this.password);
       this.mqttClient = mqtt.connect(this.host, settings);
-      console.log("DEST_MQTT_HOST: " +  this.host )
+      console.log("<sender> DEST_MQTT_HOST: " +  this.host )
     }
   
   
@@ -57,12 +57,12 @@ class MqttSender {
 
     // Connection callback
     this.mqttClient.on('connect', () => {
-      console.log(`mqtt_sender client connected`);
+      console.log(`<sender> mqtt_sender client connected`);
       sendsuccess = true;
     });
 
     this.mqttClient.on('close', () => {
-      console.log(`mqtt_sender client disconnected`);
+      console.log(`<sender> mqtt_sender client disconnected`);
       sendsuccess = false;
     });
   }

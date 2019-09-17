@@ -13,7 +13,7 @@ module.exports = function upload(req, res) {
     });
 
     form.on('file', function (name, file){
-        console.log('Uploaded ' + file.name);
+        console.log('<upload.js> Uploaded ' + file.name);
     });
 
 }

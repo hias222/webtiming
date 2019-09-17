@@ -3,6 +3,10 @@ const fs = require('fs');
 const parser = new xml2js.Parser({ attrkey: "ATTR" });
 const jmespath = require('jmespath');
 
+
+var MqttMessageSender = require('../mqtt/mqtt_message_sender')
+var mqttMessageSender = new MqttMessageSender()
+
 var event_all = null
 var event_sessions = null;
 var event_heatid = null;
@@ -17,35 +21,62 @@ class swimevent {
 
     constructor(filename) {
         this.filename = filename
-        this.xml_string = fs.readFileSync(filename, "utf8");
-        this.readFile()
+        try {
+            this.xml_string = fs.readFileSync(filename, "utf8");
+            this.readFile()
+        } catch (Exception) {
+            mqttMessageSender.sendMessage("lenex failure load <swim_event initial> " + this.filename)
+            console.log(Exception)
+        }
+
+
     }
 
-    updateFile(filename) {
+    async updateFile(filename) {
         this.filename = filename
-        this.xml_string = fs.readFileSync(filename, "utf8");
-        this.readFile()
+        try {
+            this.xml_string = fs.readFileSync(filename, "utf8");
+            this.readFile()
+        } catch (Exception) {
+            mqttMessageSender.sendMessage("lenex failure load <swim_event update> " + this.filename)
+            console.log(Exception)
+        }
+
     }
 
     readFile() {
-        parser.parseString(this.xml_string, function (error, result) {
-            if (error === null) {
-                event_all = result;
-                event_swimmer = jmespath.search(result.LENEX.MEETS[0].MEET[0], "CLUBS[].CLUB[].ATHLETES[].ATHLETE[]")
-                event_clubs = result.LENEX.MEETS[0].MEET[0].CLUBS[0].CLUB
-                event_heatid = jmespath.search(result.LENEX.MEETS[0].MEET[0].SESSIONS, "[].SESSION[].EVENTS[].EVENT[]");
-                event_sessions = jmespath.search(result.LENEX.MEETS[0].MEET[0].SESSIONS, "[].SESSION[].EVENTS[].EVENT[]")
-            }
-            else {
-                console.log(error);
-            }
-        });
+        console.log("<swim_event> read " + this.filename)
+        try {
+            parser.parseString(this.xml_string, function (error, result) {
+                if (error === null) {
+                    mqttMessageSender.sendMessage("lenex success upload new lenex file")
+                    event_all = result;
+                    event_swimmer = jmespath.search(result.LENEX.MEETS[0].MEET[0], "CLUBS[].CLUB[].ATHLETES[].ATHLETE[]")
+                    event_clubs = result.LENEX.MEETS[0].MEET[0].CLUBS[0].CLUB
+                    event_heatid = jmespath.search(result.LENEX.MEETS[0].MEET[0].SESSIONS, "[].SESSION[].EVENTS[].EVENT[]");
+                    event_sessions = jmespath.search(result.LENEX.MEETS[0].MEET[0].SESSIONS, "[].SESSION[].EVENTS[].EVENT[]")
+                } else {
+                    mqttMessageSender.sendMessage("lenex error" + error)
+                    console.log(error);
+                }
+            });
+        } catch (Exception) {
+            mqttMessageSender.sendMessage("lenex failure load <swim_event> " + this.filename)
+            console.log(Exception)
+        }
     }
 
 
     getCompetitionName() {
-        var shortname = "{ \"competition\": \"" + event_all.LENEX.MEETS[0].MEET[0].ATTR.name + "\"}"
-        return JSON.parse(shortname);
+        try {
+            var shortname = "{ \"competition\": \"" + event_all.LENEX.MEETS[0].MEET[0].ATTR.name + "\"}"
+            return JSON.parse(shortname);
+        } catch (Exception) {
+            //mqttMessageSender.sendMessage("lenex failure load " + this.filename)
+            //console.log(Exception)
+            return null;
+        }
+
     }
 
 
@@ -77,8 +108,7 @@ class swimevent {
             console.log(err)
             try {
                 return JSON.parse(emptyevent);
-            } catch (err)
-            {
+            } catch (err) {
                 var nullevent = "{\"type\":\"header\",\"event\":\"0\",\"heat\":\"0\"}"
                 return JSON.parse(nullevent);
             }
@@ -86,11 +116,11 @@ class swimevent {
     }
 
     getActualSwimmer(lane, time, place) {
-        var emptylane = "{ \"type\": \"lane\", \"lane\": \"" + 
-            lane + "\", \"event\": \"" + 
-            actual_event + "\", \"place\": \"" + 
-            place + "\", \"time\": \"" + 
-            time + "\", \"heat\": \"" + 
+        var emptylane = "{ \"type\": \"lane\", \"lane\": \"" +
+            lane + "\", \"event\": \"" +
+            actual_event + "\", \"place\": \"" +
+            place + "\", \"time\": \"" +
+            time + "\", \"heat\": \"" +
             actual_heat + "\" }"
         try {
             var lastswimmers = this.getSwimmerHeat(internalheadID);
@@ -107,12 +137,11 @@ class swimevent {
             console.log(err)
             try {
                 return JSON.parse(emptylane);
-            } catch (err)
-            {
+            } catch (err) {
                 var nulllane = "{\"type\":\"lane\",\"lane\":\"0\",\"event\":\"0\",\"place\":\"0\",\"time\":\"0\",\"heat\":\"0\"}"
                 return JSON.parse(nulllane);
             }
-            
+
         }
 
     }

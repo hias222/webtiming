@@ -13,7 +13,7 @@ var lanes = typeof process.env.NUMBER_LANES !== "undefined" ? process.env.NUMBER
 class MessageMapper {
   constructor() {
     mqttSender.connect();
-    console.log("use " + lanes + " lanes")
+    console.log("<mapper> use " + lanes + " lanes")
   }
 
   // Sends a mqtt message to topic: mytopic
@@ -25,7 +25,7 @@ class MessageMapper {
           if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {
             lastEvent = newmessage.event
             lastHeat = newmessage.heat
-            console.log("Store heat")
+            console.log("<mapper> Store heat")
             for (var i = 0; i < lanes; i++) {
               //we send all lanes
               var incomingmsg = "lane " + (i + 1);
@@ -37,10 +37,10 @@ class MessageMapper {
         }
       } catch (err) {
         console.log(err)
-        console.log("message_mapper wrong old heat")
+        console.log(" <mapper> message_mapper wrong old heat")
       }
       var stringnewmessage = JSON.stringify(newmessage)
-      console.log("datamapping mapper: " + stringnewmessage)
+      console.log("<mapper> datamapping mapper: " + stringnewmessage)
       sendStatus = mqttSender.sendMessage(stringnewmessage);
     } catch (err) {
       stringnewmessage = "failed mapping"
