@@ -10,8 +10,8 @@ su - ${FIRST_USER_NAME} -c "pm2 save"
 
 pm2 startup ubuntu -u swim --hp /home/swim
 
-su - ${FIRST_USER_NAME} -c "cd frontend; pm2 stop app"
-su - ${FIRST_USER_NAME} -c "cd backend; pm2 stop app"
+su - ${FIRST_USER_NAME} -c "pm2 stop app"
+# su - ${FIRST_USER_NAME} -c "cd backend; pm2 stop app"
 
 systemctl stop pm2-root.service
 

@@ -9,7 +9,9 @@ WPA_ESSID=xxxxx
 WPA_PASSWORD=xxxxx
 STAGE_LIST="stage0 stage1 stage2 stage7"
 
+monitor1: npm to monitor mqtt
 stage6: normal client with single datamapping
+datanginx1: copy data to nginx
 stage7: npm from download
 stage8: double datamapping
 stage9: frontend only

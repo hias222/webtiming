@@ -14,5 +14,5 @@ html
             each val in values.length ? values : ['There are no values']
               tr
                 td= val.type
-                td #{ moment(1 * val.date).format('HH:MM:SS DD:MM:YYYY') }
+                td #{ moment(1 * val.date).format('HH:mm:ss DD.MM.YYYY') }
                 td= val.message

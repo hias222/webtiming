@@ -25,7 +25,7 @@ rm ${RASP_DIR}/stage8/02-install-web/files/web.zip
 zip -q ${RASP_DIR}/stage8/02-install-web/files/web.zip * -r
 
 echo "stage8 ${RASP_DIR}/stage8/02-install-web/files"
-echo `ls -la ${RASP_DIR}/stage8/02-install-web/files`
+echo `ls -la ${RASP_DIR}/stage8/02-install-web/files/web.zip`
 
 echo ""
 
@@ -33,7 +33,7 @@ rm ${RASP_DIR}/stage9/01-install-web/files/web.zip
 zip -q ${RASP_DIR}/stage9/01-install-web/files/web.zip * -r
 
 echo "stage9 ${RASP_DIR}/stage9/01-install-web/files"
-echo `ls -la ${RASP_DIR}/stage9/01-install-web/files`
+echo `ls -la ${RASP_DIR}/stage9/01-install-web/files/web.zip`
 
 echo ""
 
@@ -46,7 +46,7 @@ rm ${RASP_DIR}/stage6/01-install-app/files/app.zip
 zip -q ${RASP_DIR}/stage6/01-install-app/files/app.zip app.js package.json property.ini uploads/* incoming/* mqtt/* data/* resources/* views/*
 
 echo "stage6 ${RASP_DIR}/stage6/01-install-app/files/"
-echo `ls -la ${RASP_DIR}/stage6/01-install-app/files/`
+echo `ls -la ${RASP_DIR}/stage6/01-install-app/files/app.zip`
 
 echo ""
 
@@ -54,7 +54,7 @@ rm ${RASP_DIR}/stage8/01-install-app/files/app.zip
 zip -q ${RASP_DIR}/stage8/01-install-app/files/app.zip app.js package.json property.ini uploads/* incoming/* mqtt/* data/* resources/* views/*
 
 echo "stage8 ${RASP_DIR}/stage8/01-install-app/files"
-echo `ls -la ${RASP_DIR}/stage8/01-install-app/files`
+echo `ls -la ${RASP_DIR}/stage8/01-install-app/files/app.zip`
 
 echo ""echo ""
 
@@ -100,3 +100,15 @@ echo `ls -la ${RASP_DIR}/stage6/03-install-admin/files/web.zip`
 
 rm ${RASP_DIR}/stage8/03-install-admin/files/web.zip
 zip -q ${RASP_DIR}/stage8/03-install-admin/files/web.zip * -r
+
+
+echo "---------------------------------------------------"
+echo monitor
+cd $START_DIR
+cd ../monitor
+
+rm ${RASP_DIR}/monitor1/00-install-monitor/files/app.zip
+zip -q ${RASP_DIR}/monitor1/00-install-monitor/files/app.zip app.js package.json property.ini mqtt/* views/*
+
+echo "monitor1 ${RASP_DIR}/monitor1/00-install-monitor/files/app.zip"
+echo `ls -la ${RASP_DIR}/monitor1/00-install-monitor/files/app.zip`

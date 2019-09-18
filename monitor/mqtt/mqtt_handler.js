@@ -16,10 +16,10 @@ function addMessage(message, type) {
   var newmessage = "{ \"date\": \""+ messagedate + " \", \
               \"type\": \""+ type + " \", \
               \"message\": \"" + message + "\" }"
-  buildMessages(newmessage)
+  buildMessages(newmessage,type)
 }
 
-function buildMessages(newmessage) {
+function buildMessages(newmessage,type) {
   if (lastMessages.length > process.env.MQTT_NUMBER_MESSAGES ) {
     lastMessages.shift();
   }
@@ -27,7 +27,9 @@ function buildMessages(newmessage) {
     var jsonmessage = JSON.parse(newmessage)
     lastMessages.push(jsonmessage)
   } catch (Exception) {
-    lastMessages.push(JSON.parse("{ \"message\": \"failure in parse\"}"))
+    lastMessages.push(JSON.parse("{ \"message\": \"failure in parse\", \
+        \"type\": \""+ type + " \" \
+        }"))
   }
 }
 
