@@ -9,16 +9,33 @@ var settings = {
   keepalive: 2000
 }
 
-function addMessage(message) {
+function addMessage(message, type) {
   lastMessage = message
-  lastMessages.push(message)
+  var messagedate = Date.now();
+
+  var newmessage = "{ \"date\": \""+ messagedate + " \", \
+              \"type\": \""+ type + " \", \
+              \"message\": \"" + message + "\" }"
+  buildMessages(newmessage)
+}
+
+function buildMessages(newmessage) {
+  if (lastMessages.length > process.env.MQTT_NUMBER_MESSAGES ) {
+    lastMessages.shift();
+  }
+  try {
+    var jsonmessage = JSON.parse(newmessage)
+    lastMessages.push(jsonmessage)
+  } catch (Exception) {
+    lastMessages.push(JSON.parse("{ \"message\": \"failure in parse\"}"))
+  }
 }
 
 class MqttHandler {
-  constructor() {
+  constructor(topic) {
     //super(onMessageChange);
     this.mqttClient = null;
-    this.rawtopic =  process.env.SRC_MQTT_RAW_TOPIC;
+    this.rawtopic =  topic;
     this.host = 'mqtt://' + process.env.SRC_MQTT_HOST;
     this.connectToMqtt = this.connectToMqtt.bind(this)
     //autoBind(this);
@@ -49,13 +66,12 @@ class MqttHandler {
 
     // When a message arrives, console.log it
     this.mqttClient.on('message', function (topic, message) {
-      console.log("mqtt_handler datamapping incoming " + message.toString());
-      addMessage(message.toString());
+      console.log("<mqtt_handler> monitor " + message.toString());
+      addMessage(message.toString(), topic);
     });
 
     this.mqttClient.on('close', () => {
       console.log(`mqtt_handler raw client disconnected`);
-      SendMessage = messageMapper.mapMessage("connection abort")
       ConnectedRaw = false;
     });
 
