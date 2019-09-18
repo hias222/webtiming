@@ -26,4 +26,16 @@ on_chroot << EOF
   #
   su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js"
   
+  su - ${FIRST_USER_NAME} -c "pm2 save"
+  pm2 startup ubuntu -u swim --hp /home/swim
+
+  su - ${FIRST_USER_NAME} -c "pm2 stop app"
+  pm2 startup ubuntu -u swim --hp /home/swim
+
+  su - ${FIRST_USER_NAME} -c "pm2 stop app"
+
+  systemctl stop pm2-root.service
+
+  pkill -f node
+
 EOF
