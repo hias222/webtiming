@@ -48,7 +48,7 @@ io.origins('*:*') // for latest version
 io.on("connection", socket => {
   console.log('websocket backend Subscribing to ' + mqtt_host);
   //client.subscribe("topic_name");
-  sendBaseData()
+  sendBaseData(socket)
   socket.on("disconnect", () => console.log("websocket backend Client disconnected"));
 
   socket.on("error", (error) => {
@@ -93,6 +93,14 @@ function storeBaseData(message) {
       start = jsonmessage
     }
 
+    if (jsonmessage.type == "clock") {
+      start = jsonmessage
+    }
+
+    if (jsonmessage.type == "message") {
+      start = jsonmessage
+    }
+
     if (jsonmessage.type == "clear") {
       console.log("clear lanes")
       lanemessages = [] 
@@ -106,21 +114,24 @@ function storeBaseData(message) {
   } catch (err) {
     console.log(err)
   }
-
 }
-function sendBaseData() {
+
+function sendBaseData(socket) {
+  // we need io.sockets.socket();
   try {
-    io.sockets.emit("FromAPI", JSON.stringify(headermessage));
-    
+    //socket.emit("FromAPI", JSON.stringify(headermessage))
+    //io.sockets.emit("FromAPI", JSON.stringify(headermessage));
+    socket.emit("FromAPI", JSON.stringify(headermessage));
+
     console.log("init send " + headermessage.toString())
     for (let lane of lanemessages) {
-      io.sockets.emit("FromAPI", JSON.stringify(lane));
+      socket.emit("FromAPI", JSON.stringify(lane));
     }
 
     var timediff = Date.now() - laststart;
     var jsondiff = "{\"diff\":\"" + timediff + "\" }"
     var newmessage = {...start,...JSON.parse(jsondiff) }
-    io.sockets.emit("FromAPI", JSON.stringify(newmessage));
+    socket.emit("FromAPI", JSON.stringify(newmessage));
   } catch (error) {
     console.error(`websocket backend Error emit : ${error.code}`);
     console.error(error);
