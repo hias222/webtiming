@@ -5,7 +5,7 @@ var app = express();
 var router = express.Router();
 var mqttRawHandler = require('./mqtt/mqtt_handler');
 var upload = require('./incoming/upload')
-
+var configuration = require('./data/configuration')
 
 require('dotenv').config();
 
@@ -27,15 +27,10 @@ router.use(function (req,res,next) {
   next();
 });
 
+router.get('/configuration', configuration)
+
 router.get('/', function(req,res){
-  //res.sendFile(path + 'index.html');
-  res.render('start', { 
-    title: 'Last Message', 
-    status: mqttRawClient.getStatus(),
-    message: mqttRawClient.getLastMessage(),
-    sendstatus: mqttRawClient.getSendStatus(),
-    sendmessage: mqttRawClient.getLastSendMessage()
-  });
+  res.send('I am alive');
 });
 
 

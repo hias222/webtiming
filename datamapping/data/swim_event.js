@@ -18,9 +18,17 @@ var event_heatid = null;
 var event_swimmer = null;
 var event_clubs = null;
 
+var event_type = properties.get("main.event_type")
+
 var internalheadID = "1";
 var actual_heat = "1";
 var actual_event = "1";
+
+const event_type_values = {
+    FINALE: 'FIN',
+    VORLAEUFE: 'PRE',
+    DIREKT: 'TIM'
+}
 
 class swimevent {
 
@@ -34,6 +42,7 @@ class swimevent {
             console.log(Exception)
         }
 
+        console.log("<swim_event> Event type " + event_type)
 
     }
 
@@ -49,7 +58,7 @@ class swimevent {
         //todo update file name
         var lenex_file = properties.get("main.lenex_startlist")
         console.log("<swimevent> old file " + lenex_file)
-        properties.set("main.lenex_startlist",filename);
+        properties.set("main.lenex_startlist", filename);
         properties.save(propertyfile)
     }
 
@@ -87,7 +96,6 @@ class swimevent {
         }
 
     }
-
 
     getInternalHeatId(eventnumber, heatnumber) {
         try {
@@ -169,6 +177,19 @@ class swimevent {
         var tmp = jmespath.search(event_clubs, searchstring);
         var searchstring2 = "[].{name: ATTR.name, code: ATTR.code}"
         return jmespath.search(tmp, searchstring2);
+    }
+
+    setEventType(type) {
+        if (Object.values(event_type_values).includes(type)) {
+            properties.set("main.event_type", type);
+            properties.save(propertyfile);
+            return true;
+        }
+        return false;
+    }
+
+    getEventType() {
+        return event_type;
     }
 }
 

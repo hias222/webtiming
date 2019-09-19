@@ -20,28 +20,31 @@ class MessageMapper {
   mapMessage(message) {
     try {
       var newmessage = incoming.parseColoradoData(message)
-      try {
-        if (newmessage.type === "header") {
-          if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {
-            lastEvent = newmessage.event
-            lastHeat = newmessage.heat
-            console.log("<mapper> Store heat")
-            for (var i = 0; i < lanes; i++) {
-              //we send all lanes
-              var incomingmsg = "lane " + (i + 1);
-              var newlanemessage = incoming.parseColoradoData(incomingmsg.toString())
-              var stringnewlanemessage = JSON.stringify(newlanemessage)
-              mqttSender.sendMessage(stringnewlanemessage);
+      if (stringnewmessage != null) {
+        try {
+          if (newmessage.type === "header") {
+            if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {
+              lastEvent = newmessage.event
+              lastHeat = newmessage.heat
+              console.log("<mapper> Store heat")
+              for (var i = 0; i < lanes; i++) {
+                //we send all lanes
+                var incomingmsg = "lane " + (i + 1);
+                var newlanemessage = incoming.parseColoradoData(incomingmsg.toString())
+                var stringnewlanemessage = JSON.stringify(newlanemessage)
+                mqttSender.sendMessage(stringnewlanemessage);
+              }
             }
           }
+        } catch (err) {
+          console.log(err)
+          console.log(" <mapper> message_mapper wrong old heat")
         }
-      } catch (err) {
-        console.log(err)
-        console.log(" <mapper> message_mapper wrong old heat")
+        var stringnewmessage = JSON.stringify(newmessage)
+
+        console.log("<mapper> datamapping mapper: " + stringnewmessage)
+        sendStatus = mqttSender.sendMessage(stringnewmessage);
       }
-      var stringnewmessage = JSON.stringify(newmessage)
-      console.log("<mapper> datamapping mapper: " + stringnewmessage)
-      sendStatus = mqttSender.sendMessage(stringnewmessage);
     } catch (err) {
       stringnewmessage = "failed mapping"
     }

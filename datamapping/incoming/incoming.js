@@ -14,9 +14,6 @@ var properties = PropertyReader(propertyfile)
 var lenex_file = properties.get("main.lenex_startlist")
 console.log("<incoming> using file " + lenex_file);
 
-//properties.set("main.config","test_neu");
-//properties.save(propertyfile)
-
 var myEvent = new swimEvent(lenex_file);
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
@@ -29,9 +26,9 @@ const actions = {
     CLEAR: 'clear',
     MESSAGE: 'message',
     VIDEO: 'video',
-    LENEX: 'lenex'
+    LENEX: 'lenex',
+    CONFIGURATION: 'configuration'
 }
-
 
 exports.parseColoradoData = function (message) {
     var messagetype = getMessageType(message.toString());
@@ -77,6 +74,19 @@ exports.parseColoradoData = function (message) {
             var jsonlenex = "{ \"type\": \"lenex\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
             return JSON.parse(jsonlenex);
             break;
+        case actions.CONFIGURATION:
+            var configuration = getMessage(message)
+            if (getMessageWord1(message) == "event_type") {
+                mqttMessageSender.sendMessage("configuration change " + getMessageWord1(message))
+                console.log("configuration " + configuration)
+                if (myEvent.setEventType(getMessageWord2(message))) {
+                    mqttMessageSender.sendMessage("configuration updated " + getMessageWord2(message))
+                }else{
+                    mqttMessageSender.sendMessage("configuration updated failed " + getMessageWord2(message))
+                }
+            }
+            return null
+            break;
         default:
             console.log('Type:  not declared')
             break;
@@ -102,7 +112,7 @@ async function getNewLenexFile(filename) {
                 console.log(lenexfile)
                 console.error(err);
                 //mqttMessageSender.sendMessage("lenex not exists " + lenexfile)
-           
+
                 return;
             }
             // file exists
@@ -131,6 +141,7 @@ async function getNewLenexFile(filename) {
                         myEvent.updateFile(destfilename)
                         console.log("<incoming> new " + myEvent.filename)
                         console.log("<incoming> new " + JSON.stringify(myEvent.getCompetitionName()))
+                        mqttMessageSender.sendMessage("lenex updated myEvent.filename")
                     })
                 })
         });
@@ -149,7 +160,6 @@ function getMessageType(message) {
     } else {
         return "unknown";
     }
-
 }
 
 function getHeat(message) {
@@ -178,7 +188,7 @@ function getMessage(message) {
 function getEvent(message) {
     var words = message.toString().split(' ');
     //header wk heat
-    console.log("Event: " + words[1]);
+    console.log("Event: -" + words[1] + "-");
     try {
         var numberevent = parseInt(words[1])
         return numberevent
@@ -186,6 +196,20 @@ function getEvent(message) {
         console.log(err)
         return 0
     }
+}
+
+function getMessageWord1(message) {
+    var words = message.toString().split(' ');
+    //header wk heat
+    console.log("Word1: -" + words[1] + "-");
+    return words[1];
+}
+
+function getMessageWord2(message) {
+    var words = message.toString().split(' ');
+    //header wk heat
+    console.log("Word2: -" + words[2] + "-");
+    return words[2];
 }
 
 function getLaneNumber(message) {
