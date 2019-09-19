@@ -20,7 +20,7 @@ class MessageMapper {
   mapMessage(message) {
     try {
       var newmessage = incoming.parseColoradoData(message)
-      if (stringnewmessage != null) {
+      if (newmessage != null) {
         try {
           if (newmessage.type === "header") {
             if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {

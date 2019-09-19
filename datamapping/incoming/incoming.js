@@ -141,7 +141,7 @@ async function getNewLenexFile(filename) {
                         myEvent.updateFile(destfilename)
                         console.log("<incoming> new " + myEvent.filename)
                         console.log("<incoming> new " + JSON.stringify(myEvent.getCompetitionName()))
-                        mqttMessageSender.sendMessage("lenex updated myEvent.filename")
+                        mqttMessageSender.sendMessage("lenex updated " + myEvent.filename)
                     })
                 })
         });
