@@ -11,6 +11,7 @@ import ClockIcon from '@material-ui/icons/Watch';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
+import SendDatamapping from './datamapping/SendDatamapping';
 
 interface Props {
   message: string;
@@ -155,7 +156,6 @@ export default class admin extends React.Component<Props, State> {
           <br>
           </br>
           <Divider variant="middle" />
-
           <Grid>
             <TextField
               id="standard-name"
@@ -224,6 +224,8 @@ export default class admin extends React.Component<Props, State> {
           <Divider variant="middle" />
           <br></br>
 
+          <SendDatamapping
+            event_type="" />
         </Box>
 
       </div>
