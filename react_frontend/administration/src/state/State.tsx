@@ -1,38 +1,64 @@
 import React from 'react';
 import './State.css';
 import Navigation from '../common/Navigation';
-import ComponentState from '../components/ComponentState';
+import DatamappingInfo from '../components/DatamappingInfo';
 
-interface Props {}
+interface Props { }
 
 interface State {
   count: number;
+  event_type: string;
+  lenex_startlist: string;
 };
 
 export default class Counter extends React.Component<Props, State> {
-  state: State = {
-    count: 0
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      event_type: "",
+      lenex_startlist: "",
+      count: 0
+    };
 
-  increment = () => {
-    this.setState({
-      count: (this.state.count + 1)
-    });
-  };
+    this.getStateDatamapping = this.getStateDatamapping.bind(this);
+    
+  }
 
-  decrement = () => {
-    this.setState({
-      count: (this.state.count - 1)
-    });
-  };
+  //state: State = {
+  //  event_type: "",
+  //  count: 0
+  //};
 
-  render () {
+
+  private backendConnect = process.env.REACT_APP_DATAMAPPING_DIRECT === "true" ? "http://" + window.location.hostname + ":3001" : process.env.REACT_APP_DATAMAPPING_URL;
+
+  getStateDatamapping() {
+    fetch(this.backendConnect + "/configuration")
+      .then(res => res.json())
+      .then((data) => {
+        this.setState({ 
+          event_type: data.event_type,
+          lenex_startlist: data.lenex_startlist })
+      })
+      .catch(console.log)
+
+      console.log("update from " + this.backendConnect)
+  }
+
+
+  componentDidMount() {
+    this.getStateDatamapping()
+    }
+
+  
+  render() {
     return (
       <div>
-        <Navigation/>
-        <ComponentState count={this.state.count} />
-        <button onClick={this.increment}>Increment</button>
-        <button onClick={this.decrement}>Decrement</button>
+        <Navigation />
+        <button onClick={this.getStateDatamapping}>Update</button>
+        <DatamappingInfo 
+        event_type={this.state.event_type} 
+        lenex_startlist= {this.state.lenex_startlist}/>       
       </div>
     );
   }

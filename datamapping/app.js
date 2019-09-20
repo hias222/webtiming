@@ -6,6 +6,7 @@ var router = express.Router();
 var mqttRawHandler = require('./mqtt/mqtt_handler');
 var upload = require('./incoming/upload')
 var configuration = require('./data/configuration')
+var health = require('./data/health')
 
 require('dotenv').config();
 
@@ -28,11 +29,7 @@ router.use(function (req,res,next) {
 });
 
 router.get('/configuration', configuration)
-
-router.get('/', function(req,res){
-  res.send('I am alive');
-});
-
+router.get('/', health);
 
 router.post("/send-mqtt", function(req, res) {
   console.log("Message: " +  JSON.stringify(req.body) )
