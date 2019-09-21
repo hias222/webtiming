@@ -12,10 +12,13 @@ var settings = {
 function addMessage(message, type) {
   lastMessage = message
   var messagedate = Date.now();
+  // message remove " {
+  var messagedate_clear =  message.toString().replace(/["{}']+/g, '')
 
   var newmessage = "{ \"date\": \""+ messagedate + " \", \
               \"type\": \""+ type + " \", \
-              \"message\": \"" + message + "\" }"
+              \"message\": \"" + messagedate_clear + "\" }"
+           
   buildMessages(newmessage,type)
 }
 
