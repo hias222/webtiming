@@ -4,14 +4,14 @@ import Navigation from '../common/Navigation';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import StartIcon from '@material-ui/icons/PlayArrow';
-import StopIcon from '@material-ui/icons/Stop';
-import ClearIcon from '@material-ui/icons/RestoreFromTrash';
-import VideoIcon from '@material-ui/icons/Videocam';
-import ClockIcon from '@material-ui/icons/Watch';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import SendDatamapping from './datamapping/SendDatamapping';
+import RaceModes from './datamapping/RaceModes';
+import ChangeRaceStatus from './datamapping/ChangeRaceStatus';
+
+import SendMessages from './datamapping/SendMessages';
 
 interface Props {
   message: string;
@@ -40,30 +40,6 @@ export default class admin extends React.Component<Props, State> {
 
   private backendConnect = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":3001/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH : process.env.REACT_APP_DATAMAPPING_INTERNAL_URL + "/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH
 
-  sendMessage = (message: string) => (event: any) => {
-    console.log(this.backendConnect + " " + message + " " + this.state.message)
-    fetch(this.backendConnect, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        "message": "message " + this.state.message
-      })
-    })
-      .catch(console.log)
-
-  };
-
-  sendAction = (message: string) => (event: any) => {
-    console.log(this.backendConnect + " " + message)
-    fetch(this.backendConnect, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        "message": message
-      })
-    })
-      .catch(console.log)
-  };
 
   sendHeader = () => (event: any) => {
     console.log(this.backendConnect + " header " + this.state.event + " " + this.state.heat)
@@ -95,11 +71,6 @@ export default class admin extends React.Component<Props, State> {
 
   handleChange = (val: string) => (event: any) => {
     switch (val) {
-      case "message":
-        this.setState({
-          message: event.target.value
-        });
-        break;
       case "event":
         this.setState({
           event: event.target.value
@@ -130,47 +101,29 @@ export default class admin extends React.Component<Props, State> {
       <div>
         <Navigation />
         <Box component="span" m={1}>
-          <Grid item xs={12}>
-            <Button variant="contained" color="default" onClick={this.sendAction('start')}>
-              Start
-              <StartIcon />
-            </Button>
-            <Button variant="contained" color="default" onClick={this.sendAction('stop')}>
-              Stop
-              <StopIcon />
-            </Button>
-            <Button variant="contained" color="default" onClick={this.sendAction('clear')}>
-              clear
-              <ClearIcon />
-            </Button>
-            <Button variant="contained" color="default" onClick={this.sendAction('clock')}>
-              clock
-              <ClockIcon />
-            </Button>
-            <Button variant="contained" color="default" onClick={this.sendAction('video')}>
-              video
-              <VideoIcon />
-            </Button>
-          </Grid>
+          <RaceModes/>
+          <br>
+          </br>
+          <Divider variant="middle" />
+          <br>
+          </br>
+          <SendMessages
+          type="standard"/>
 
           <br>
           </br>
           <Divider variant="middle" />
-          <Grid>
-            <TextField
-              id="standard-name"
-              label="Message"
-              margin="normal"
-              onChange={this.handleChange('message')}
-            />
-          </Grid>
-          <Button variant="contained" color="default" onClick={this.sendMessage('message')}>Send
-          <StartIcon /></Button>
+          <br>
+          </br>
 
-          <br></br>
+          <ChangeRaceStatus/>  
+          <br>
+          </br>
           <Divider variant="middle" />
           <br>
           </br>
+
+
           <Grid item xs={6}>
             <TextField
               id="standard-name"
