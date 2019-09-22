@@ -60,14 +60,17 @@ export default class SendDatamapping extends React.Component<Props, State> {
     render() {
         return (
             <div>
-                 <p>{this.state.event_type}:</p>
+                <p>{this.state.event_type}:</p>
                 <Button variant="contained" color="default" onClick={this.sendFinal("FIN")}>Finale
+            </Button>
+                <Button variant="contained" color="default" onClick={this.sendFinal("ALL")}>ALL
             </Button>
                 <Button variant="contained" color="default" onClick={this.sendFinal("PRE")}>Vorläufe
             </Button>
                 <Button variant="contained" color="default" onClick={this.sendFinal("TIM")}>Normal
             </Button>
-               
+
+
             </div>
         )
     };

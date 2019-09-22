@@ -6,6 +6,7 @@ const jmespath = require('jmespath');
 var PropertyReader = require('properties-reader')
 
 require('dotenv').config();
+
 var propertyfile = __dirname + "/../" + process.env.PROPERTY_FILE;
 var properties = PropertyReader(propertyfile)
 
@@ -27,7 +28,8 @@ var actual_event = "1";
 const event_type_values = {
     FINALE: 'FIN',
     VORLAEUFE: 'PRE',
-    DIREKT: 'TIM'
+    DIREKT: 'TIM',
+    ALL: 'ALL'
 }
 
 class swimevent {
@@ -98,15 +100,33 @@ class swimevent {
     }
 
     getInternalHeatId(eventnumber, heatnumber) {
+        console.log("<swim_events> getInternalHeatId " + eventnumber + " " + heatnumber)
         try {
             actual_event = eventnumber;
             actual_heat = heatnumber;
-            var searchstring = "[?ATTR.number == '" + eventnumber + "'].HEATS[*].HEAT[*]"
-            var tmp_heats = jmespath.search(event_heatid, searchstring)[0][0];
-            var searchheat = "[?ATTR.number == '" + heatnumber + "'].ATTR.heatid"
-            internalheadID = jmespath.search(tmp_heats, searchheat).toString()
-            return internalheadID;
+            if (event_type === event_type_values.ALL) {
+                var searchstring = "[?ATTR.number == '" + eventnumber + "' && ATTR.round == 'PRE'].HEATS[*].HEAT[*]"
+                var tmp_heats = jmespath.search(event_heatid, searchstring)[0][0];
+                var searchheat = "[?ATTR.number == '" + heatnumber + "'].ATTR.heatid"
+                var newid = jmespath.search(tmp_heats, searchheat).toString()
+                internalheadID = newid
+                console.log("<swim_event> number heats " + newid)
+                return newid;
+            } else {
+                console.log("<swim_events> mode " + event_type)
+                var searchstring = "[?ATTR.number == '" + eventnumber + "' && ATTR.round == '" + event_type + "'].HEATS[*].HEAT[*]"
+                var myarray = jmespath.search(event_heatid, searchstring);
+                var tmp_heats = jmespath.search(event_heatid, searchstring)[0][0];
+                
+                var searchheat = "[?ATTR.number == '" + heatnumber + "'].ATTR.heatid"
+                var newid = jmespath.search(tmp_heats, searchheat).toString()
+                internalheadID = newid
+                console.log("<swim_event> number heats " + myarray.length + " " + newid)
+                return newid;
+            }
         } catch (err) {
+            console.log("<swim_events> getInternalHeatId crash " + eventnumber + " " + heatnumber + " mode " + event_type  )
+            console.log(err)
             internalheadID = 0;
             return new Object();
         }
@@ -117,10 +137,23 @@ class swimevent {
         try {
             var searchstring = "[?ATTR.number == '" + number + "']"
             var tmp = jmespath.search(event_sessions, searchstring);
-            var attributsearch = "[].{event: ATTR.number, gender: ATTR.gender, relaycount: SWIMSTYLE[0].ATTR.relaycount, swimstyle: SWIMSTYLE[0].ATTR.stroke, distance: SWIMSTYLE[0].ATTR.distance }"
-            var eventdata = jmespath.search(tmp, attributsearch)[0];
-            var eventresult = typeof eventdata !== "undefined" ? eventdata : JSON.parse(emptyevent);
-            return { ...eventresult, ...JSON.parse(emptyevent), ...this.getCompetitionName() };
+            var attributsearch = "[].{event: ATTR.number, gender: ATTR.gender, round: ATTR.round, relaycount: SWIMSTYLE[0].ATTR.relaycount, swimstyle: SWIMSTYLE[0].ATTR.stroke, distance: SWIMSTYLE[0].ATTR.distance }"
+            var searcharray = jmespath.search(tmp, attributsearch);
+            if (searcharray.length > 1  && event_type !== event_type_values.ALL) {
+                console.log("wir müssen nochmal filtern " + event_type)
+                for (let eventnames of searcharray) {
+                    if (eventnames.round.toString() === event_type) {
+                        console.log("<swim_evnet> geteventname found " + eventnames.round);
+                        var eventdata = eventnames;
+                        var eventresult = typeof eventdata !== "undefined" ? eventdata : JSON.parse(emptyevent);
+                        return { ...eventresult, ...JSON.parse(emptyevent), ...this.getCompetitionName() };
+                    }
+                }
+            } else {
+                var eventdata = jmespath.search(tmp, attributsearch)[0];
+                var eventresult = typeof eventdata !== "undefined" ? eventdata : JSON.parse(emptyevent);
+                return { ...eventresult, ...JSON.parse(emptyevent), ...this.getCompetitionName() };
+            }
         } catch (err) {
             console.log(err)
             try {
@@ -141,6 +174,7 @@ class swimevent {
             actual_heat + "\" }"
         try {
             var lastswimmers = this.getSwimmerHeat(internalheadID);
+            //console.log("<swim_event> getActualSwimmer + heatid " + internalheadID )
             var searchstring = "[?lane == '" + lane + "']"
             var tmp = jmespath.search(lastswimmers, searchstring);
             var swimmer = typeof tmp[0] !== "undefined" ? tmp[0] : JSON.parse(emptylane);
@@ -158,14 +192,13 @@ class swimevent {
                 var nulllane = "{\"type\":\"lane\",\"lane\":\"0\",\"event\":\"0\",\"place\":\"0\",\"time\":\"0\",\"heat\":\"0\"}"
                 return JSON.parse(nulllane);
             }
-
         }
-
     }
 
     getSwimmerHeat(internalHeatID) {
         var searchstring = "[?ENTRIES[?ENTRY[?ATTR.heatid == '" + internalHeatID + "']]]"
         var tmp = jmespath.search(event_swimmer, searchstring);
+        //console.log("getswimmerheate number swimmers " +  tmp.length)
         var searchstring2 = "[].{athleteid: ATTR.athleteid, firstname: ATTR.firstname, lastname: ATTR.lastname, birthdate: ATTR.birthdate , lane: ENTRIES[0].ENTRY[?ATTR.heatid == '" + internalHeatID + "'].ATTR.lane }"
         var tmp2 = jmespath.search(tmp, searchstring2);
         var searchstring3 = "[].{athleteid: athleteid, firstname: firstname, lastname: lastname, lane: lane[0]}"
@@ -183,6 +216,7 @@ class swimevent {
         if (Object.values(event_type_values).includes(type)) {
             properties.set("main.event_type", type);
             properties.save(propertyfile);
+            event_type = type
             return true;
         }
         return false;

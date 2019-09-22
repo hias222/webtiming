@@ -24,7 +24,6 @@ function storeLaneData(lane, laneraw) {
   }
 }
 
-
 class MessageMapper {
   constructor() {
     mqttSender.connect();
