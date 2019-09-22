@@ -19,6 +19,7 @@ var myEvent = new swimEvent(lenex_file);
 
 const actions = {
     HEADER: 'header',
+    RACE: 'race',
     LANE: 'lane',
     START: 'start',
     STOP: 'stop',
@@ -37,6 +38,10 @@ exports.parseColoradoData = function (message) {
             console.log('Type: ' + messagetype)
             var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
             return myEvent.getEventName(getEvent(message))
+            break;
+        case actions.RACE:
+            var jsonsrace = "{ \"type\": \"race\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+            return JSON.parse(jsonsrace);
             break;
         case actions.LANE:
             var newmessage = myEvent.getActualSwimmer(getLaneNumber(message), getTime(message), getPlace(message));
@@ -81,7 +86,7 @@ exports.parseColoradoData = function (message) {
                 console.log("configuration " + configuration)
                 if (myEvent.setEventType(getMessageWord2(message))) {
                     mqttMessageSender.sendMessage("configuration updated " + getMessageWord2(message))
-                }else{
+                } else {
                     mqttMessageSender.sendMessage("configuration updated failed " + getMessageWord2(message))
                 }
             }
