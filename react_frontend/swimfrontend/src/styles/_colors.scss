@@ -15,14 +15,17 @@ $lanecolor: rgb(152, 0, 23);
 
 .heatheader {
     text-align: left;
+    font-size: 1em;
     color: $farbegeradeschrift;
 }
 
 .heatheader_event {
+    font-size: 1.5em;
     color: $farbegeradeschrift;
 }
 
 .heatheader_heat {
+    font-size: 1.5em;
     color: $farbegeradeschrift;
 }
 
@@ -58,4 +61,3 @@ $lanecolor: rgb(152, 0, 23);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 
 }
-

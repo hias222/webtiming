@@ -18,6 +18,7 @@ import { styled } from '@material-ui/styles';
 
 import classnames from 'classnames';
 import Image from '../../resources/water2.jpg';
+import getRaceType from '../getRaceType';
 
 const MyPaper = styled(Paper)({
     backgroundImage: `url(${Image})`,
@@ -48,6 +49,7 @@ class Header extends React.Component {
     render() {
 
         var style = getSwimStyles(this.props.info.swimstyle);
+        var race = getRaceType(this.props.info.round);
         let heatclass = classnames('heatheader');
         let heatclass_event = classnames('heatheader_event');
         let heatclass_time = classnames('heatheader_time');
@@ -55,9 +57,7 @@ class Header extends React.Component {
         let backclass = classnames('heatbackground');
 
         return (
-            <div >
-                <Box component="span" m={1} color="text.primary">
-                    <Container maxWidth="md">
+            <div>
                         <MyPaper >
                             <div >
                                 <Grid >
@@ -65,7 +65,7 @@ class Header extends React.Component {
                                         {this.props.info.competition}
                                     </div>
                                     <div className={heatclass_event}>
-                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} Lauf: {this.props.info.heat}
+                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
                                     </div>
                                 </Grid>
                                 <Grid align="right" >
@@ -106,9 +106,7 @@ class Header extends React.Component {
                                 ""
                                 : <LinearProgress />}
                         </div>
-                    </Container>
-                </Box>
-
+        
             </div>
         )
     }

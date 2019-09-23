@@ -28,13 +28,6 @@ class Event extends React.Component {
 
     render() {
 
-        let cssclasses = classnames('headername');
-
-        var { fullscreen } = "";
-        if (this.props.fullscreen !== true) {
-            fullscreen = <button className={cssclasses} onClick={this.handleToggle}>Full {this.props.webtype}</button>
-        }
-
         var { webcontent } = "";
 
         if (this.props.webtype === 'static') {
@@ -55,7 +48,6 @@ class Event extends React.Component {
 
         return (
             <div>
-                {fullscreen}
                 {webcontent}
             </div>
         );

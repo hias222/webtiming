@@ -1,9 +1,9 @@
 var swimEvent = require('./swim_event')
 
-var event = 1;
+var event = 2;
 var heat = 1;
 
-var myEvent = new swimEvent("bayerische_2016_meldungen.lef");
+var myEvent = new swimEvent("resources/bayerische_2016_meldungen.lef");
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 //var myEvent = new swimEvent("resources/bayerische_2016_meldungen.lef");
 

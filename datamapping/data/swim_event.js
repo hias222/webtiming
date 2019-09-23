@@ -198,10 +198,13 @@ class swimevent {
     getSwimmerHeat(internalHeatID) {
         var searchstring = "[?ENTRIES[?ENTRY[?ATTR.heatid == '" + internalHeatID + "']]]"
         var tmp = jmespath.search(event_swimmer, searchstring);
+        //console.log(tmp[0].ENTRIES[0].ENTRY)
         //console.log("getswimmerheate number swimmers " +  tmp.length)
-        var searchstring2 = "[].{athleteid: ATTR.athleteid, firstname: ATTR.firstname, lastname: ATTR.lastname, birthdate: ATTR.birthdate , lane: ENTRIES[0].ENTRY[?ATTR.heatid == '" + internalHeatID + "'].ATTR.lane }"
+        var searchstring2 = "[].{athleteid: ATTR.athleteid, birthdate: ATTR.birthdate, firstname: ATTR.firstname, lastname: ATTR.lastname, birthdate: ATTR.birthdate , \
+            lane: ENTRIES[0].ENTRY[?ATTR.heatid == '" + internalHeatID + "'].ATTR.lane , \
+            entrytime: ENTRIES[0].ENTRY[?ATTR.heatid == '" + internalHeatID + "'].ATTR.entrytime}"
         var tmp2 = jmespath.search(tmp, searchstring2);
-        var searchstring3 = "[].{athleteid: athleteid, firstname: firstname, lastname: lastname, lane: lane[0]}"
+        var searchstring3 = "[].{athleteid: athleteid, birthdate: birthdate, firstname: firstname, lastname: lastname, lane: lane[0], entrytime: entrytime[0] }"
         return jmespath.search(tmp2, searchstring3);
     }
 

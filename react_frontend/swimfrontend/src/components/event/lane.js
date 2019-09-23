@@ -47,6 +47,7 @@ class Lane extends React.Component {
                 <TextCellComponent >
                 <span >
                     {this.props.lane.firstname} {this.props.lane.lastname} <span className={laneclub}>{this.props.lane.name}
+                    <br></br>{this.props.lane.entrytime} {this.props.lane.birthdate}
                     </span>
                     </span>
                 </TextCellComponent>
