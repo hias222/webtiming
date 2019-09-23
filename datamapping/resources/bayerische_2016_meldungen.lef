@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LENEX version="3.0">
-  <CONSTRUCTOR name="SPLASH Meet Manager 11" registration="SG Fürth" version="11.60446">
+  <CONSTRUCTOR name="SPLASH Meet Manager 11" registration="SG Fürth" version="11.61084">
     <CONTACT name="Splash Software GmbH" street="Ahornweg 41" city="Spiegel b. Bern" zip="3095" country="CH" email="sales@swimrankings.net" internet="https://www.swimrankings.net" />
   </CONSTRUCTOR>
   <MEETS>
-    <MEET city="Nürnberg" name="Bayerische Kurzbahnmeisterschaften 2016" course="SCM" deadline="2016-10-26" hostclub="SG Mittelfranken" organizer="Bayerischer Schwimmverband e.V." organizer.url="http://www.bayerischer-schwimmverband.de/schwimmen" reservecount="3" startmethod="1" timing="AUTOMATIC" nation="GER">
+    <MEET city="Nürnberg" name="Bayerische Kurzbahnmeisterschaften 2016" course="SCM" deadline="2016-10-26" hostclub="SG Mittelfranken" organizer="Bayerischer Schwimmverband e.V." organizer.url="http://www.bayerischer-schwimmverband.de/schwimmen" reservecount="4" startmethod="1" timing="AUTOMATIC" nation="GER">
       <AGEDATE value="2016-11-06" type="YEAR" />
       <POOL name="90471 Nürnberg, Hallenbad Langwasser, Breslauer Str. 251, Eingang Gleiwitzer Straße" lanemin="1" lanemax="6" />
       <FACILITY city="Nürnberg" name="90471 Nürnberg, Hallenbad Langwasser, Breslauer Str. 251, Eingang Gleiwitzer Straße" nation="GER" />
@@ -18,12 +18,12 @@
               <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4779" daytime="14:05" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4780" daytime="14:10" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4781" daytime="14:10" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4782" daytime="14:15" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4783" daytime="14:15" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4784" daytime="14:20" number="6" order="6" status="SEEDED" />
+                <HEAT heatid="4779" daytime="14:05" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4780" daytime="14:10" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4781" daytime="14:10" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4782" daytime="14:15" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4783" daytime="14:15" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4784" daytime="14:20" number="6" order="6" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -36,14 +36,14 @@
               <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4696" daytime="10:50" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4697" daytime="10:50" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4698" daytime="10:50" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4699" daytime="10:55" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4700" daytime="10:55" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4701" daytime="10:55" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4702" daytime="11:00" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4703" daytime="11:00" number="8" order="8" status="SEEDED" />
+                <HEAT heatid="4696" daytime="10:50" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4697" daytime="10:50" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4698" daytime="10:50" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4699" daytime="10:55" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4700" daytime="10:55" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4701" daytime="10:55" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4702" daytime="11:00" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4703" daytime="11:00" number="8" order="8" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -56,9 +56,9 @@
               <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4745" daytime="12:45" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4746" daytime="12:50" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4747" daytime="12:50" number="3" order="3" status="SEEDED" />
+                <HEAT heatid="4745" daytime="12:45" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4746" daytime="12:50" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4747" daytime="12:50" number="3" order="3" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -71,8 +71,8 @@
               <SWIMSTYLE distance="1500" relaycount="1" stroke="FREE" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4726" daytime="11:50" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4727" daytime="12:10" number="2" order="2" status="SEEDED" />
+                <HEAT heatid="4726" daytime="11:50" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4727" daytime="12:10" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -85,13 +85,13 @@
               <SWIMSTYLE distance="400" relaycount="1" stroke="FREE" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4758" daytime="13:15" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4759" daytime="13:20" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4760" daytime="13:25" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4761" daytime="13:35" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4762" daytime="13:40" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4763" daytime="13:45" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4764" daytime="13:50" number="7" order="7" status="SEEDED" />
+                <HEAT heatid="4758" daytime="13:15" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4759" daytime="13:20" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4760" daytime="13:25" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4761" daytime="13:35" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4762" daytime="13:40" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4763" daytime="13:45" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4764" daytime="13:50" number="7" order="7" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -104,14 +104,14 @@
               <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4749" daytime="12:55" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4750" daytime="13:00" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4751" daytime="13:00" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4752" daytime="13:05" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4753" daytime="13:05" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4754" daytime="13:10" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4755" daytime="13:10" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4756" daytime="13:15" number="8" order="8" status="SEEDED" />
+                <HEAT heatid="4749" daytime="12:55" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4750" daytime="13:00" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4751" daytime="13:00" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4752" daytime="13:05" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4753" daytime="13:05" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4754" daytime="13:10" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4755" daytime="13:10" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4756" daytime="13:15" number="8" order="8" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -124,14 +124,14 @@
               <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4687" daytime="10:40" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4688" daytime="10:40" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4689" daytime="10:45" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4690" daytime="10:45" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4691" daytime="10:45" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4692" daytime="10:45" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4693" daytime="10:45" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4694" daytime="10:45" number="8" order="8" status="SEEDED" />
+                <HEAT heatid="4687" daytime="10:40" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4688" daytime="10:40" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4689" daytime="10:45" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4690" daytime="10:45" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4691" daytime="10:45" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4692" daytime="10:45" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4693" daytime="10:45" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4694" daytime="10:45" number="8" order="8" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -144,13 +144,13 @@
               <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4718" daytime="11:40" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4719" daytime="11:40" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4720" daytime="11:40" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4721" daytime="11:40" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4722" daytime="11:45" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4723" daytime="11:45" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4724" daytime="11:45" number="7" order="7" status="SEEDED" />
+                <HEAT heatid="4718" daytime="11:40" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4719" daytime="11:40" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4720" daytime="11:40" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4721" daytime="11:40" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4722" daytime="11:45" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4723" daytime="11:45" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4724" daytime="11:45" number="7" order="7" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -163,16 +163,16 @@
               <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4676" daytime="10:20" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4677" daytime="10:20" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4678" daytime="10:20" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4679" daytime="10:25" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4680" daytime="10:25" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4681" daytime="10:30" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4682" daytime="10:30" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4683" daytime="10:35" number="8" order="8" status="SEEDED" />
-                <HEAT heatid="4684" daytime="10:35" number="9" order="9" status="SEEDED" />
-                <HEAT heatid="4685" daytime="10:40" number="10" order="10" status="SEEDED" />
+                <HEAT heatid="4676" daytime="10:20" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4677" daytime="10:20" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4678" daytime="10:20" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4679" daytime="10:25" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4680" daytime="10:25" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4681" daytime="10:30" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4682" daytime="10:30" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4683" daytime="10:35" number="8" order="8" status="OFFICIAL" />
+                <HEAT heatid="4684" daytime="10:35" number="9" order="9" status="OFFICIAL" />
+                <HEAT heatid="4685" daytime="10:40" number="10" order="10" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -185,12 +185,12 @@
               <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4738" daytime="12:40" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4739" daytime="12:40" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4740" daytime="12:45" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4741" daytime="12:45" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4742" daytime="12:45" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4743" daytime="12:45" number="6" order="6" status="SEEDED" />
+                <HEAT heatid="4738" daytime="12:40" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4739" daytime="12:40" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4740" daytime="12:45" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4741" daytime="12:45" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4742" daytime="12:45" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4743" daytime="12:45" number="6" order="6" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -203,14 +203,26 @@
               <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4709" daytime="11:25" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4710" daytime="11:25" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4711" daytime="11:30" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4712" daytime="11:30" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4713" daytime="11:30" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4714" daytime="11:30" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4715" daytime="11:35" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4716" daytime="11:35" number="8" order="8" status="SEEDED" />
+                <HEAT heatid="4709" daytime="11:25" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4710" daytime="11:25" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4711" daytime="11:30" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4712" daytime="11:30" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4713" daytime="11:30" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4714" daytime="11:30" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4715" daytime="11:35" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4716" daytime="11:35" number="8" order="8" status="OFFICIAL" />
+              </HEATS>
+              <TIMESTANDARDREFS>
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1066" />
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1078" />
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1070" />
+              </TIMESTANDARDREFS>
+            </EVENT>
+            <EVENT eventid="5369" gender="M" number="6" order="30" round="SOP" preveventid="1778">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
+              <HEATS>
+                <HEAT heatid="5378" agegroupid="5375" number="1" order="1" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -223,19 +235,19 @@
               <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4662" daytime="10:00" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4663" daytime="10:00" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4664" daytime="10:05" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4665" daytime="10:05" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4666" daytime="10:05" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4667" daytime="10:05" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4668" daytime="10:10" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4669" daytime="10:10" number="8" order="8" status="SEEDED" />
-                <HEAT heatid="4670" daytime="10:10" number="9" order="9" status="SEEDED" />
-                <HEAT heatid="4671" daytime="10:10" number="10" order="10" status="SEEDED" />
-                <HEAT heatid="4672" daytime="10:15" number="11" order="11" status="SEEDED" />
-                <HEAT heatid="4673" daytime="10:15" number="12" order="12" status="SEEDED" />
-                <HEAT heatid="4674" daytime="10:15" number="13" order="13" status="SEEDED" />
+                <HEAT heatid="4662" daytime="10:00" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4663" daytime="10:00" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4664" daytime="10:05" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4665" daytime="10:05" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4666" daytime="10:05" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4667" daytime="10:05" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4668" daytime="10:10" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4669" daytime="10:10" number="8" order="8" status="OFFICIAL" />
+                <HEAT heatid="4670" daytime="10:10" number="9" order="9" status="OFFICIAL" />
+                <HEAT heatid="4671" daytime="10:10" number="10" order="10" status="OFFICIAL" />
+                <HEAT heatid="4672" daytime="10:15" number="11" order="11" status="OFFICIAL" />
+                <HEAT heatid="4673" daytime="10:15" number="12" order="12" status="OFFICIAL" />
+                <HEAT heatid="4674" daytime="10:15" number="13" order="13" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -244,16 +256,28 @@
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1072" />
               </TIMESTANDARDREFS>
             </EVENT>
+            <EVENT eventid="5443" gender="M" number="14" order="31" round="SOP" preveventid="1834">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
+              <HEATS>
+                <HEAT heatid="5452" agegroupid="5449" number="1" order="1" status="OFFICIAL" />
+              </HEATS>
+              <TIMESTANDARDREFS>
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1066" />
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1078" />
+                <TIMESTANDARDREF marker="ENM" timestandardlistid="1070" />
+              </TIMESTANDARDREFS>
+            </EVENT>
             <EVENT eventid="1848" daytime="14:25" gender="M" number="16" order="27" round="PRE" preveventid="-1">
               <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4786" daytime="14:25" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4787" daytime="14:25" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4788" daytime="14:30" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4789" daytime="14:30" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4790" daytime="14:35" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4791" daytime="14:35" number="6" order="6" status="SEEDED" />
+                <HEAT heatid="4786" daytime="14:25" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4787" daytime="14:25" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4788" daytime="14:30" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4789" daytime="14:30" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4790" daytime="14:35" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4791" daytime="14:35" number="6" order="6" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -266,10 +290,10 @@
               <SWIMSTYLE distance="400" relaycount="1" stroke="MEDLEY" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4705" daytime="11:00" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4706" daytime="11:05" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4707" daytime="11:15" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4708" daytime="11:20" number="4" order="4" status="SEEDED" />
+                <HEAT heatid="4705" daytime="11:00" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4706" daytime="11:05" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4707" daytime="11:15" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4708" daytime="11:20" number="4" order="4" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -282,16 +306,16 @@
               <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4793" daytime="14:40" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4794" daytime="14:40" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4795" daytime="14:40" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4796" daytime="14:45" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4797" daytime="14:45" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4798" daytime="14:45" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4799" daytime="14:45" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4800" daytime="14:45" number="8" order="8" status="SEEDED" />
-                <HEAT heatid="4801" daytime="14:45" number="9" order="9" status="SEEDED" />
-                <HEAT heatid="4961" daytime="14:45" number="10" order="10" status="SEEDED" />
+                <HEAT heatid="4793" daytime="14:40" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4794" daytime="14:40" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4795" daytime="14:40" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4796" daytime="14:45" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4797" daytime="14:45" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4798" daytime="14:45" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4799" daytime="14:45" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4800" daytime="14:45" number="8" order="8" status="OFFICIAL" />
+                <HEAT heatid="4801" daytime="14:45" number="9" order="9" status="OFFICIAL" />
+                <HEAT heatid="4961" daytime="14:45" number="10" order="10" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -304,15 +328,15 @@
               <SWIMSTYLE distance="100" relaycount="1" stroke="MEDLEY" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4728" daytime="12:25" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4729" daytime="12:25" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4730" daytime="12:30" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4731" daytime="12:30" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4732" daytime="12:30" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4733" daytime="12:35" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4734" daytime="12:35" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4735" daytime="12:35" number="8" order="8" status="SEEDED" />
-                <HEAT heatid="4736" daytime="12:35" number="9" order="9" status="SEEDED" />
+                <HEAT heatid="4728" daytime="12:25" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4729" daytime="12:25" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4730" daytime="12:30" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4731" daytime="12:30" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4732" daytime="12:30" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4733" daytime="12:35" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4734" daytime="12:35" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4735" daytime="12:35" number="8" order="8" status="OFFICIAL" />
+                <HEAT heatid="4736" daytime="12:35" number="9" order="9" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -325,19 +349,19 @@
               <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4765" daytime="13:55" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4766" daytime="13:55" number="2" order="2" status="SEEDED" />
-                <HEAT heatid="4767" daytime="13:55" number="3" order="3" status="SEEDED" />
-                <HEAT heatid="4768" daytime="13:55" number="4" order="4" status="SEEDED" />
-                <HEAT heatid="4769" daytime="13:55" number="5" order="5" status="SEEDED" />
-                <HEAT heatid="4770" daytime="13:55" number="6" order="6" status="SEEDED" />
-                <HEAT heatid="4771" daytime="13:55" number="7" order="7" status="SEEDED" />
-                <HEAT heatid="4772" daytime="14:00" number="8" order="8" status="SEEDED" />
-                <HEAT heatid="4773" daytime="14:00" number="9" order="9" status="SEEDED" />
-                <HEAT heatid="4774" daytime="14:00" number="10" order="10" status="SEEDED" />
-                <HEAT heatid="4775" daytime="14:00" number="11" order="11" status="SEEDED" />
-                <HEAT heatid="4776" daytime="14:00" number="12" order="12" status="SEEDED" />
-                <HEAT heatid="4777" daytime="14:00" number="13" order="13" status="SEEDED" />
+                <HEAT heatid="4765" daytime="13:55" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4766" daytime="13:55" number="2" order="2" status="OFFICIAL" />
+                <HEAT heatid="4767" daytime="13:55" number="3" order="3" status="OFFICIAL" />
+                <HEAT heatid="4768" daytime="13:55" number="4" order="4" status="OFFICIAL" />
+                <HEAT heatid="4769" daytime="13:55" number="5" order="5" status="OFFICIAL" />
+                <HEAT heatid="4770" daytime="13:55" number="6" order="6" status="OFFICIAL" />
+                <HEAT heatid="4771" daytime="13:55" number="7" order="7" status="OFFICIAL" />
+                <HEAT heatid="4772" daytime="14:00" number="8" order="8" status="OFFICIAL" />
+                <HEAT heatid="4773" daytime="14:00" number="9" order="9" status="OFFICIAL" />
+                <HEAT heatid="4774" daytime="14:00" number="10" order="10" status="OFFICIAL" />
+                <HEAT heatid="4775" daytime="14:00" number="11" order="11" status="OFFICIAL" />
+                <HEAT heatid="4776" daytime="14:00" number="12" order="12" status="OFFICIAL" />
+                <HEAT heatid="4777" daytime="14:00" number="13" order="13" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -348,12 +372,13 @@
             </EVENT>
           </EVENTS>
         </SESSION>
-        <SESSION date="2016-11-05" daytime="16:45" number="2">
+        <SESSION date="2016-11-05" daytime="16:45" endtime="19:39" number="2">
           <EVENTS>
             <EVENT eventid="1919" gender="F" number="9" order="25" round="FIN" preveventid="1799">
               <SWIMSTYLE distance="100" relaycount="1" stroke="MEDLEY" />
               <HEATS>
-                <HEAT heatid="4737" agegroupid="1920" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5404" agegroupid="1920" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4737" agegroupid="1920" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -365,7 +390,8 @@
             <EVENT eventid="1898" gender="M" number="6" order="18" round="FIN" preveventid="1778">
               <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
               <HEATS>
-                <HEAT heatid="4717" agegroupid="1899" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5465" agegroupid="1899" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4717" agegroupid="1899" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -378,8 +404,8 @@
               <SWIMSTYLE distance="1500" relaycount="1" stroke="FREE" />
               <FEE value="1000" />
               <HEATS>
-                <HEAT heatid="4803" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4804" number="2" order="2" status="SEEDED" />
+                <HEAT heatid="4803" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4804" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -391,7 +417,8 @@
             <EVENT eventid="1863" gender="F" number="1" order="3" round="FIN" preveventid="1059">
               <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
               <HEATS>
-                <HEAT heatid="4675" agegroupid="1864" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5317" agegroupid="1864" final="B" number="1" order="1" status="INOFFICIAL" />
+                <HEAT heatid="4675" agegroupid="1864" final="A" number="2" order="2" status="INOFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -403,7 +430,8 @@
             <EVENT eventid="1926" gender="M" number="12" order="27" round="FIN" preveventid="1820">
               <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
               <HEATS>
-                <HEAT heatid="4757" agegroupid="1927" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5442" agegroupid="1927" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4757" agegroupid="1927" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -415,7 +443,8 @@
             <EVENT eventid="1954" gender="F" number="15" order="33" round="FIN" preveventid="1841">
               <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
               <HEATS>
-                <HEAT heatid="4785" agegroupid="1955" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5491" agegroupid="1955" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4785" agegroupid="1955" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -427,7 +456,8 @@
             <EVENT eventid="1884" gender="M" number="4" order="13" round="FIN" preveventid="1763">
               <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
               <HEATS>
-                <HEAT heatid="4704" agegroupid="1885" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5368" agegroupid="1885" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4704" agegroupid="1885" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -440,7 +470,7 @@
               <SWIMSTYLE distance="50" relaycount="4" stroke="MEDLEY" />
               <FEE value="2000" />
               <HEATS>
-                <HEAT heatid="4807" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4807" number="1" order="1" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="2072" />
@@ -449,7 +479,8 @@
             <EVENT eventid="1870" gender="M" number="2" order="6" round="FIN" preveventid="1749">
               <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
               <HEATS>
-                <HEAT heatid="4686" agegroupid="1871" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5342" agegroupid="1871" final="B" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4686" agegroupid="1871" final="A" number="2" order="2" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -461,7 +492,8 @@
             <EVENT eventid="1891" gender="F" number="7" order="15" round="FIN" preveventid="1785">
               <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
               <HEATS>
-                <HEAT heatid="4725" agegroupid="1892" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5391" agegroupid="1892" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4725" agegroupid="1892" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -473,7 +505,8 @@
             <EVENT eventid="1912" gender="M" number="10" order="23" round="FIN" preveventid="1806">
               <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
               <HEATS>
-                <HEAT heatid="4744" agegroupid="1913" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5417" agegroupid="1913" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4744" agegroupid="1913" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -485,7 +518,8 @@
             <EVENT eventid="1947" gender="M" number="14" order="31" round="FIN" preveventid="1834">
               <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
               <HEATS>
-                <HEAT heatid="4778" agegroupid="1948" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5478" agegroupid="1948" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4778" agegroupid="1948" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -497,7 +531,8 @@
             <EVENT eventid="1961" gender="M" number="16" order="35" round="FIN" preveventid="1848">
               <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
               <HEATS>
-                <HEAT heatid="4792" agegroupid="1962" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5504" agegroupid="1962" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4792" agegroupid="1962" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -509,7 +544,8 @@
             <EVENT eventid="1877" gender="F" number="3" order="10" round="FIN" preveventid="1756">
               <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
               <HEATS>
-                <HEAT heatid="4695" agegroupid="1878" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5355" agegroupid="1878" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4695" agegroupid="1878" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -522,8 +558,8 @@
               <SWIMSTYLE distance="50" relaycount="4" stroke="MEDLEY" />
               <FEE value="2000" />
               <HEATS>
-                <HEAT heatid="4805" number="1" order="1" status="SEEDED" />
-                <HEAT heatid="4806" number="2" order="2" status="SEEDED" />
+                <HEAT heatid="4805" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4806" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="2070" />
@@ -532,7 +568,8 @@
             <EVENT eventid="1933" gender="F" number="11" order="29" round="FIN" preveventid="1813">
               <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
               <HEATS>
-                <HEAT heatid="4748" agegroupid="1934" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5429" agegroupid="1934" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4748" agegroupid="1934" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -544,7 +581,8 @@
             <EVENT eventid="1940" gender="F" number="17" order="37" round="FIN" preveventid="1855">
               <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
               <HEATS>
-                <HEAT heatid="4802" agegroupid="1941" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="5517" agegroupid="1941" final="B" number="1" order="1" status="OFFICIAL" />
+                <HEAT heatid="4802" agegroupid="1941" final="A" number="2" order="2" status="OFFICIAL" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -890,7 +928,7 @@
             <EVENT eventid="2154" gender="F" number="26" order="52" round="FIN" preveventid="2006">
               <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
               <HEATS>
-                <HEAT heatid="4868" agegroupid="2155" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4868" agegroupid="2155" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -902,7 +940,7 @@
             <EVENT eventid="2210" gender="M" number="35" order="70" round="FIN" preveventid="2089">
               <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
               <HEATS>
-                <HEAT heatid="4931" agegroupid="2211" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4931" agegroupid="2211" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -928,7 +966,7 @@
             <EVENT eventid="2189" gender="M" number="31" order="66" round="FIN" preveventid="2041">
               <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
               <HEATS>
-                <HEAT heatid="4895" agegroupid="2190" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4895" agegroupid="2190" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -940,7 +978,7 @@
             <EVENT eventid="2182" gender="F" number="30" order="57" round="FIN" preveventid="2034">
               <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
               <HEATS>
-                <HEAT heatid="4890" agegroupid="2183" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4890" agegroupid="2183" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -952,7 +990,7 @@
             <EVENT eventid="2126" gender="M" number="21" order="41" round="FIN" preveventid="1971">
               <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
               <HEATS>
-                <HEAT heatid="4828" agegroupid="2127" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4828" agegroupid="2127" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -964,7 +1002,7 @@
             <EVENT eventid="2147" gender="F" number="24" order="48" round="FIN" preveventid="1992">
               <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
               <HEATS>
-                <HEAT heatid="4858" agegroupid="2148" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4858" agegroupid="2148" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -986,7 +1024,7 @@
             <EVENT eventid="2133" gender="F" number="22" order="43" round="FIN" preveventid="1978">
               <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
               <HEATS>
-                <HEAT heatid="4839" agegroupid="2134" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4839" agegroupid="2134" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -998,7 +1036,7 @@
             <EVENT eventid="2112" gender="M" number="37" order="74" round="FIN" preveventid="2103">
               <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
               <HEATS>
-                <HEAT heatid="4948" agegroupid="2113" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4948" agegroupid="2113" final="A" number="1" order="1" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -1010,7 +1048,7 @@
             <EVENT eventid="2175" gender="M" number="29" order="60" round="FIN" preveventid="2027">
               <SWIMSTYLE distance="100" relaycount="1" stroke="MEDLEY" />
               <HEATS>
-                <HEAT heatid="4882" agegroupid="2176" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4882" agegroupid="2176" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -1033,7 +1071,7 @@
             <EVENT eventid="2140" gender="M" number="23" order="46" round="FIN" preveventid="1985">
               <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
               <HEATS>
-                <HEAT heatid="4849" agegroupid="2141" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4849" agegroupid="2141" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -1045,7 +1083,7 @@
             <EVENT eventid="2203" gender="F" number="34" order="68" round="FIN" preveventid="2082">
               <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
               <HEATS>
-                <HEAT heatid="4924" agegroupid="2204" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4924" agegroupid="2204" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -1057,7 +1095,7 @@
             <EVENT eventid="2196" gender="F" number="32" order="64" round="FIN" preveventid="2055">
               <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
               <HEATS>
-                <HEAT heatid="4905" agegroupid="2197" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4905" agegroupid="2197" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -1069,7 +1107,7 @@
             <EVENT eventid="2217" gender="F" number="36" order="72" round="FIN" preveventid="2096">
               <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
               <HEATS>
-                <HEAT heatid="4938" agegroupid="2218" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4938" agegroupid="2218" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1064" />
@@ -1081,7 +1119,7 @@
             <EVENT eventid="2161" gender="M" number="27" order="50" round="FIN" preveventid="2013">
               <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
               <HEATS>
-                <HEAT heatid="4874" agegroupid="2162" number="1" order="1" status="SEEDED" />
+                <HEAT heatid="4874" agegroupid="2162" final="A" number="1" order="1" status="SEEDED" />
               </HEATS>
               <TIMESTANDARDREFS>
                 <TIMESTANDARDREF marker="ENM" timestandardlistid="1062" />
@@ -1195,6 +1233,12 @@
                 <ENTRY entrytime="00:00:29.68" eventid="1855" heatid="4961" lane="1" />
                 <ENTRY entrytime="00:01:08.50" eventid="2006" heatid="4864" lane="3" />
                 <ENTRY entrytime="00:00:29.00" eventid="2082" heatid="4917" lane="6" />
+                <ENTRY entrytime="00:01:10.47" eventid="1919" heatid="5404" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:29.42" eventid="1940" heatid="5517" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -1218,6 +1262,12 @@
                 <ENTRY entrytime="00:01:01.41" eventid="2013" heatid="4872" lane="5" />
                 <ENTRY entrytime="00:04:19.25" eventid="2075" heatid="4910" lane="6" />
                 <ENTRY entrytime="00:00:28.63" eventid="2103" heatid="4940" lane="3" />
+                <ENTRY entrytime="00:00:27.91" eventid="1912" heatid="5417" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:08.84" eventid="1961" heatid="4792" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Lena" gender="F" lastname="Köhnke" nation="GER" license="284272" athleteid="2612">
@@ -1245,6 +1295,12 @@
                 <ENTRY entrytime="00:00:53.82" eventid="1971" heatid="4824" lane="3" />
                 <ENTRY entrytime="00:02:06.87" eventid="2041" heatid="4894" lane="4" />
                 <ENTRY entrytime="00:00:26.28" eventid="2103" heatid="4946" lane="5" />
+                <ENTRY entrytime="00:00:27.62" eventid="1912" heatid="4744" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:57.73" eventid="1898" heatid="4717" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1998-01-01" firstname="Toni" gender="M" lastname="Schmid" nation="GER" license="227470" athleteid="2630">
@@ -1255,14 +1311,17 @@
                 <ENTRY entrytime="00:00:29.07" eventid="1985" heatid="4848" lane="4" />
                 <ENTRY entrytime="00:01:00.70" eventid="2027" heatid="4880" lane="2" />
                 <ENTRY entrytime="00:00:27.18" eventid="2103" heatid="4944" lane="4" />
+                <ENTRY entrytime="00:01:05.00" eventid="1884" heatid="5368" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Daniel" gender="M" lastname="Siminenko" nation="GER" license="300185" athleteid="2637">
               <ENTRIES>
-                <ENTRY entrytime="00:02:11.30" eventid="1749" heatid="4676" lane="2" />
-                <ENTRY entrytime="00:01:13.58" eventid="1763" heatid="4697" lane="6" />
-                <ENTRY entrytime="00:02:25.22" eventid="1820" heatid="4750" lane="5" />
-                <ENTRY entrytime="00:00:27.28" eventid="1834" heatid="4766" lane="3" />
+                <ENTRY entrytime="00:02:11.30" eventid="1749" status="DNS" heatid="4676" lane="2" />
+                <ENTRY entrytime="00:01:13.58" eventid="1763" status="DNS" heatid="4697" lane="6" />
+                <ENTRY entrytime="00:02:25.22" eventid="1820" status="DNS" heatid="4750" lane="5" />
+                <ENTRY entrytime="00:00:27.28" eventid="1834" status="DNS" heatid="4766" lane="3" />
                 <ENTRY entrytime="00:00:34.03" eventid="1985" heatid="4841" lane="2" />
                 <ENTRY entrytime="00:02:39.38" eventid="2089" heatid="4925" lane="3" />
               </ENTRIES>
@@ -1451,6 +1510,9 @@
               <ENTRIES>
                 <ENTRY entrytime="00:01:02.50" eventid="1763" heatid="4701" lane="3" />
                 <ENTRY entrytime="00:00:26.95" eventid="1985" heatid="4848" lane="3" />
+                <ENTRY entrytime="00:01:02.84" eventid="1884" heatid="4704" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Markus" gender="M" lastname="Fischer" nation="GER" license="297634" athleteid="4117">
@@ -1462,6 +1524,9 @@
                 <ENTRY entrytime="00:04:22.05" eventid="2075" heatid="4909" lane="2" />
                 <ENTRY entrytime="00:09:07.54" eventid="2168" status="RJC">
                   <MEETINFO qualificationtime="00:09:07.54" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:16.01" eventid="1961" heatid="5504" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
                 </ENTRY>
               </ENTRIES>
             </ATHLETE>
@@ -1515,6 +1580,9 @@
                 <ENTRY entrytime="00:01:07.60" eventid="2006" heatid="4865" lane="1" />
                 <ENTRY entrytime="00:00:31.85" eventid="2034" heatid="4889" lane="6" />
                 <ENTRY entrytime="00:00:27.53" eventid="2082" heatid="4922" lane="2" />
+                <ENTRY entrytime="00:00:29.79" eventid="1940" heatid="5517" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -1570,6 +1638,9 @@
               <ENTRIES>
                 <ENTRY entrytime="00:00:59.24" eventid="1778" heatid="4714" lane="5" />
                 <ENTRY entrytime="00:02:11.81" eventid="1820" heatid="4754" lane="1" />
+                <ENTRY entrytime="00:00:58.10" eventid="1898" heatid="4717" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Julius" gender="M" lastname="Hirschberg" nation="GER" license="333024" athleteid="3666">
@@ -1593,6 +1664,9 @@
                 <ENTRY entrytime="00:00:53.22" eventid="1971" heatid="4825" lane="5" />
                 <ENTRY entrytime="00:00:59.00" eventid="2027" heatid="4879" lane="4" />
                 <ENTRY entrytime="00:00:25.82" eventid="2103" heatid="4946" lane="2" />
+                <ENTRY entrytime="00:00:23.95" eventid="1947" heatid="4778" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Frida" gender="F" lastname="Mayr" nation="GER" license="356519" athleteid="3680">
@@ -1619,6 +1693,9 @@
                 <ENTRY entrytime="00:02:00.59" eventid="1749" heatid="4682" lane="4" />
                 <ENTRY entrytime="00:00:24.50" eventid="1834" heatid="4775" lane="1" />
                 <ENTRY entrytime="00:00:53.31" eventid="1971" heatid="4827" lane="1" />
+                <ENTRY entrytime="00:00:24.22" eventid="1947" heatid="5478" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1997-01-01" firstname="Alexandra" gender="F" lastname="Schäffler" nation="GER" license="231075" athleteid="3694">
@@ -1633,15 +1710,32 @@
                 <ENTRY entrytime="00:00:54.67" eventid="1971" heatid="4823" lane="1" />
                 <ENTRY entrytime="00:01:03.02" eventid="2027" heatid="4880" lane="1" />
                 <ENTRY entrytime="00:00:27.00" eventid="2103" heatid="4946" lane="6" />
+                <ENTRY entrytime="00:00:24.08" eventid="1947" heatid="5478" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:02:00.63" eventid="2048" heatid="4805" lane="5" />
+                <ENTRY entrytime="00:02:00.63" eventid="2048" heatid="4805" lane="5">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3696" number="1" />
+                    <RELAYPOSITION athleteid="3670" number="2" />
+                    <RELAYPOSITION athleteid="3663" number="3" />
+                    <RELAYPOSITION athleteid="3674" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:42.63" eventid="2232" heatid="4811" lane="4" />
-                <ENTRY entrytime="00:02:02.63" eventid="2048" heatid="4805" lane="1" />
+                <ENTRY entrytime="00:02:02.63" eventid="2048" heatid="4805" lane="1">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3690" number="1" />
+                    <RELAYPOSITION athleteid="3656" number="2" />
+                    <RELAYPOSITION athleteid="3666" number="3" />
+                    <RELAYPOSITION athleteid="3660" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
               </ENTRIES>
             </RELAY>
           </RELAYS>
@@ -1655,6 +1749,12 @@
                 <ENTRY entrytime="00:02:08.50" eventid="1978" heatid="4837" lane="2" />
                 <ENTRY entrytime="00:00:30.60" eventid="2034" heatid="4888" lane="4" />
                 <ENTRY entrytime="00:00:27.30" eventid="2082" heatid="4922" lane="4" />
+                <ENTRY entrytime="00:00:59.71" eventid="1863" heatid="5317" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:07.45" eventid="1891" heatid="5391" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Cara" gender="F" lastname="Gallina" nation="GER" license="299199" athleteid="3270">
@@ -1671,6 +1771,12 @@
                 <ENTRY entrytime="00:00:23.40" eventid="1834" heatid="4775" lane="4" />
                 <ENTRY entrytime="00:00:51.90" eventid="1971" heatid="4827" lane="2" />
                 <ENTRY entrytime="00:00:25.90" eventid="2103" heatid="4945" lane="2" />
+                <ENTRY entrytime="00:00:24.26" eventid="5443" heatid="5452" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:24.26" eventid="1947" heatid="5478" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1977-01-01" firstname="Andreas" gender="M" lastname="Kornes" nation="GER" license="075398" athleteid="3280">
@@ -1684,6 +1790,12 @@
                 <ENTRY entrytime="00:00:58.74" eventid="1059" heatid="4672" lane="4" />
                 <ENTRY entrytime="00:01:06.16" eventid="1799" heatid="4734" lane="3" />
                 <ENTRY entrytime="00:00:29.44" eventid="1855" heatid="4800" lane="2" />
+                <ENTRY entrytime="00:00:59.49" eventid="1863" heatid="4675" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:29.35" eventid="1940" heatid="4802" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Oliver" gender="M" lastname="Lienhart" nation="GER" license="248518" athleteid="3287">
@@ -1701,6 +1813,12 @@
                 <ENTRY entrytime="00:02:47.00" eventid="1841" heatid="4784" lane="6" />
                 <ENTRY entrytime="00:01:15.50" eventid="1992" heatid="4855" lane="2" />
                 <ENTRY entrytime="00:00:27.50" eventid="2082" heatid="4923" lane="2" />
+                <ENTRY entrytime="00:00:33.96" eventid="1877" heatid="4695" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:44.09" eventid="1954" heatid="5491" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1997-01-01" firstname="Laura" gender="F" lastname="Popp" nation="GER" license="178550" athleteid="3298">
@@ -1710,6 +1828,15 @@
                 <ENTRY entrytime="00:02:38.20" eventid="1841" heatid="4782" lane="3" />
                 <ENTRY entrytime="00:01:12.90" eventid="1992" heatid="4857" lane="4" />
                 <ENTRY entrytime="00:02:27.30" eventid="2055" heatid="4902" lane="2" />
+                <ENTRY entrytime="00:00:34.36" eventid="1877" heatid="5355" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:09.92" eventid="1919" heatid="5404" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:40.61" eventid="1954" heatid="4785" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Lea" gender="F" lastname="Preußner" nation="GER" license="282176" athleteid="3304">
@@ -1731,6 +1858,9 @@
                 <ENTRY entrytime="00:00:59.70" eventid="1778" heatid="4715" lane="1" />
                 <ENTRY entrytime="00:00:30.20" eventid="1985" heatid="4847" lane="1" />
                 <ENTRY entrytime="00:00:25.50" eventid="2103" heatid="4947" lane="4" />
+                <ENTRY entrytime="00:00:59.07" eventid="1898" heatid="5465" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2003-01-01" firstname="Denis" gender="M" lastname="Sczesny" nation="GER" license="350186" athleteid="3316">
@@ -1743,6 +1873,9 @@
                 <ENTRY entrytime="00:01:04.86" eventid="1763" heatid="4702" lane="5" />
                 <ENTRY entrytime="00:00:30.26" eventid="1985" heatid="4846" lane="1" />
                 <ENTRY entrytime="00:02:23.53" eventid="2089" heatid="4930" lane="5" />
+                <ENTRY entrytime="00:01:04.32" eventid="1884" heatid="5368" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Mark" gender="M" lastname="Toprak" nation="GER" license="346434" athleteid="3322">
@@ -1757,7 +1890,14 @@
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="F">
               <ENTRIES>
-                <ENTRY entrytime="00:02:02.00" eventid="2062" heatid="4807" lane="5" />
+                <ENTRY entrytime="00:02:02.00" eventid="2062" heatid="4807" lane="5">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3264" number="1" />
+                    <RELAYPOSITION athleteid="3298" number="2" />
+                    <RELAYPOSITION athleteid="3283" number="3" />
+                    <RELAYPOSITION athleteid="3292" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
               </ENTRIES>
             </RELAY>
           </RELAYS>
@@ -1796,6 +1936,9 @@
                 <ENTRY entrytime="00:01:01.77" eventid="2013" heatid="4871" lane="5" />
                 <ENTRY entrytime="00:04:23.39" eventid="2075" heatid="4909" lane="1" />
                 <ENTRY entrytime="00:00:28.86" eventid="2103" heatid="4940" lane="2" />
+                <ENTRY entrytime="00:02:16.16" eventid="1961" heatid="5504" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Nikolas" gender="M" lastname="Häfner" nation="GER" license="196438" athleteid="4181">
@@ -1806,6 +1949,12 @@
                 <ENTRY entrytime="00:00:51.39" eventid="1971" heatid="4826" lane="4" />
                 <ENTRY entrytime="00:00:56.10" eventid="2013" heatid="4873" lane="3" />
                 <ENTRY entrytime="00:00:26.80" eventid="2103" heatid="4946" lane="1" />
+                <ENTRY entrytime="00:00:27.35" eventid="1912" heatid="4744" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:11.82" eventid="1961" heatid="4792" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2003-01-01" firstname="Kevin" gender="M" lastname="Kertész" nation="GER" license="391557" athleteid="4188">
@@ -1859,6 +2008,15 @@
                 <ENTRY entrytime="00:00:51.17" eventid="1971" heatid="4827" lane="4" />
                 <ENTRY entrytime="00:00:58.85" eventid="2027" heatid="4879" lane="3" />
                 <ENTRY entrytime="00:00:25.49" eventid="2103" heatid="4945" lane="3" />
+                <ENTRY entrytime="00:01:56.80" eventid="1870" heatid="5342" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:59.14" eventid="5369" heatid="5378" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:59.14" eventid="1898" heatid="5465" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Corina" gender="F" lastname="Schwandner" nation="GER" license="233736" athleteid="4219">
@@ -1872,6 +2030,9 @@
               <ENTRIES>
                 <ENTRY entrytime="00:00:23.36" eventid="1834" heatid="4776" lane="4" />
                 <ENTRY entrytime="00:00:54.66" eventid="1971" heatid="4823" lane="5" />
+                <ENTRY entrytime="00:00:23.97" eventid="1947" heatid="5478" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2004-01-01" firstname="Fabienne" gender="F" lastname="Wenske" nation="GER" license="287819" swrid="5195433" athleteid="4226">
@@ -1891,16 +2052,32 @@
                 <ENTRY entrytime="00:00:57.51" eventid="1778" heatid="4714" lane="4" />
                 <ENTRY entrytime="00:00:27.43" eventid="1806" heatid="4742" lane="4" />
                 <ENTRY entrytime="00:02:07.97" eventid="1848" heatid="4789" lane="3" />
-                <ENTRY entrytime="00:00:58.80" eventid="2013" heatid="4873" lane="4" />
-                <ENTRY entrytime="00:02:09.16" eventid="2041" heatid="4893" lane="4" />
-                <ENTRY entrytime="00:00:26.59" eventid="2103" heatid="4947" lane="1" />
+                <ENTRY entrytime="00:00:58.80" eventid="2013" status="WDR" heatid="4873" lane="4" />
+                <ENTRY entrytime="00:02:09.16" eventid="2041" status="WDR" heatid="4893" lane="4" />
+                <ENTRY entrytime="00:00:26.59" eventid="2103" status="WDR" heatid="4947" lane="1" />
+                <ENTRY entrytime="00:00:27.68" eventid="1912" heatid="4744" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:58.98" eventid="1898" heatid="5465" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:09.92" eventid="1961" heatid="4792" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:46.84" eventid="2048" heatid="4806" lane="5" />
+                <ENTRY entrytime="00:01:46.84" eventid="2048" heatid="4806" lane="5">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="4181" number="1" />
+                    <RELAYPOSITION athleteid="4233" number="2" />
+                    <RELAYPOSITION athleteid="4212" number="3" />
+                    <RELAYPOSITION athleteid="4223" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:36.30" eventid="2232" heatid="4812" lane="5" />
               </ENTRIES>
             </RELAY>
@@ -1957,6 +2134,12 @@
                 <ENTRY entrytime="00:00:29.18" eventid="2034" heatid="4889" lane="3" />
                 <ENTRY entrytime="00:00:28.13" eventid="2082" heatid="4923" lane="6" />
                 <ENTRY entrytime="00:02:18.88" eventid="2096" heatid="4937" lane="4" />
+                <ENTRY entrytime="00:01:06.06" eventid="1891" heatid="5391" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:30.10" eventid="1940" heatid="5517" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Cindy" gender="F" lastname="Blum" nation="GER" license="291192" athleteid="3808">
@@ -2017,6 +2200,15 @@
                 <ENTRY entrytime="00:00:33.22" eventid="1756" heatid="4694" lane="4" />
                 <ENTRY entrytime="00:01:06.73" eventid="1799" heatid="4735" lane="4" />
                 <ENTRY entrytime="00:02:28.55" eventid="1841" heatid="4783" lane="3" />
+                <ENTRY entrytime="00:00:34.16" eventid="1877" heatid="5355" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:06.41" eventid="1919" heatid="4737" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:37.44" eventid="1954" heatid="4785" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Selina" gender="F" lastname="Herzog" nation="GER" license="274715" athleteid="3842">
@@ -2051,6 +2243,9 @@
                 </ENTRY>
                 <ENTRY entrytime="00:01:14.65" eventid="1992" heatid="4855" lane="4" />
                 <ENTRY entrytime="NT" eventid="2020" status="RJC" />
+                <ENTRY entrytime="00:01:09.48" eventid="1919" heatid="4737" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Simon" gender="M" lastname="Jonscher" nation="GER" license="271097" athleteid="3865">
@@ -2070,10 +2265,10 @@
             </ATHLETE>
             <ATHLETE birthdate="1993-01-01" firstname="Daniela" gender="F" lastname="Karst" nation="GER" license="156320" athleteid="3874">
               <ENTRIES>
-                <ENTRY entrytime="00:00:33.11" eventid="1756" heatid="4692" lane="3" />
-                <ENTRY entrytime="00:01:06.41" eventid="1799" heatid="4736" lane="4" />
-                <ENTRY entrytime="00:02:17.97" eventid="1813" heatid="4746" lane="3" />
-                <ENTRY entrytime="00:00:28.42" eventid="1855" heatid="4801" lane="4" />
+                <ENTRY entrytime="00:00:33.11" eventid="1756" status="DNS" heatid="4692" lane="3" />
+                <ENTRY entrytime="00:01:06.41" eventid="1799" status="DNS" heatid="4736" lane="4" />
+                <ENTRY entrytime="00:02:17.97" eventid="1813" status="DNS" heatid="4746" lane="3" />
+                <ENTRY entrytime="00:00:28.42" eventid="1855" status="DNS" heatid="4801" lane="4" />
                 <ENTRY entrytime="00:01:11.57" eventid="1992" heatid="4857" lane="3" />
                 <ENTRY entrytime="00:01:03.15" eventid="2006" heatid="4866" lane="3" />
               </ENTRIES>
@@ -2153,6 +2348,12 @@
                 <ENTRY entrytime="00:00:28.23" eventid="1855" heatid="4800" lane="3" />
                 <ENTRY entrytime="00:01:03.50" eventid="2006" heatid="4865" lane="3" />
                 <ENTRY entrytime="00:00:31.80" eventid="2034" heatid="4887" lane="1" />
+                <ENTRY entrytime="00:02:22.83" eventid="1933" heatid="4748" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:28.89" eventid="1940" heatid="4802" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Christoph" gender="M" lastname="Mooser" nation="GER" license="240870" athleteid="3931">
@@ -2164,6 +2365,12 @@
                 <ENTRY entrytime="00:00:30.09" eventid="1985" heatid="4848" lane="1" />
                 <ENTRY entrytime="00:01:00.21" eventid="2013" heatid="4871" lane="4" />
                 <ENTRY entrytime="00:02:23.26" eventid="2089" heatid="4929" lane="2" />
+                <ENTRY entrytime="00:00:28.22" eventid="1912" heatid="5417" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:14.80" eventid="1961" heatid="5504" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1997-01-01" firstname="Jonas" gender="M" lastname="Mursak" nation="GER" license="196445" athleteid="3939">
@@ -2173,6 +2380,9 @@
                 <ENTRY entrytime="00:00:30.43" eventid="1985" heatid="4848" lane="6" />
                 <ENTRY entrytime="00:00:59.94" eventid="2027" heatid="4881" lane="2" />
                 <ENTRY entrytime="00:02:22.50" eventid="2089" heatid="4930" lane="2" />
+                <ENTRY entrytime="00:01:05.14" eventid="1884" heatid="5368" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1998-01-01" firstname="Lisa" gender="F" lastname="Mursak" nation="GER" license="196457" athleteid="3945">
@@ -2181,6 +2391,9 @@
                 <ENTRY entrytime="00:00:31.03" eventid="1855" heatid="4797" lane="2" />
                 <ENTRY entrytime="00:00:29.90" eventid="2034" heatid="4888" lane="3" />
                 <ENTRY entrytime="00:02:18.00" eventid="2096" heatid="4935" lane="3" />
+                <ENTRY entrytime="00:01:04.72" eventid="1891" heatid="4725" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2003-01-01" firstname="Katja" gender="F" lastname="Neousypin" nation="GER" license="281139" athleteid="3950">
@@ -2200,6 +2413,9 @@
                 <ENTRY entrytime="00:02:45.36" eventid="1841" heatid="4784" lane="1" />
                 <ENTRY entrytime="00:01:16.84" eventid="1992" heatid="4856" lane="6" />
                 <ENTRY entrytime="00:02:38.75" eventid="2055" heatid="4897" lane="4" />
+                <ENTRY entrytime="00:02:46.10" eventid="1954" heatid="5491" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Daniela" gender="F" lastname="Neubig" nation="GER" license="169855" athleteid="3963">
@@ -2209,6 +2425,9 @@
                 <ENTRY entrytime="00:01:15.77" eventid="1992" heatid="4857" lane="5" />
                 <ENTRY entrytime="00:02:23.50" eventid="2055" heatid="4904" lane="2" />
                 <ENTRY entrytime="00:02:19.50" eventid="2096" heatid="4936" lane="4" />
+                <ENTRY entrytime="00:02:44.11" eventid="1954" heatid="5491" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Jeremias" gender="M" lastname="Pock" nation="GER" license="269306" athleteid="3969">
@@ -2227,6 +2446,9 @@
                 <ENTRY entrytime="00:03:06.13" eventid="1841" heatid="4779" lane="1" />
                 <ENTRY entrytime="00:01:18.88" eventid="1992" heatid="4853" lane="1" />
                 <ENTRY entrytime="00:02:44.43" eventid="2055" heatid="4896" lane="6" />
+                <ENTRY entrytime="00:02:41.48" eventid="1954" heatid="5491" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Andreas" gender="M" lastname="Rein" nation="GER" license="278278" athleteid="3981">
@@ -2237,6 +2459,9 @@
                 <ENTRY entrytime="00:00:51.11" eventid="1971" heatid="4826" lane="3" />
                 <ENTRY entrytime="00:01:02.43" eventid="2013" heatid="4872" lane="6" />
                 <ENTRY entrytime="00:00:25.54" eventid="2103" heatid="4945" lane="4" />
+                <ENTRY entrytime="00:00:24.12" eventid="1947" heatid="5478" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1998-01-01" firstname="Ferdinand" gender="M" lastname="Reng" nation="GER" license="188193" athleteid="3988">
@@ -2244,6 +2469,9 @@
                 <ENTRY entrytime="00:00:23.25" eventid="1834" heatid="4777" lane="4" />
                 <ENTRY entrytime="00:00:53.39" eventid="1971" heatid="4826" lane="1" />
                 <ENTRY entrytime="00:00:26.22" eventid="2103" heatid="4947" lane="5" />
+                <ENTRY entrytime="00:00:23.61" eventid="1947" heatid="4778" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Julian" gender="M" lastname="Richter" nation="GER" license="166195" athleteid="3992">
@@ -2261,6 +2489,12 @@
                 <ENTRY entrytime="00:02:12.90" eventid="2041" heatid="4893" lane="5" />
                 <ENTRY entrytime="00:08:33.44" eventid="2168" heatid="4809" lane="6">
                   <MEETINFO qualificationtime="00:08:33.44" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:52.00" eventid="1870" heatid="4686" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:10.76" eventid="1926" heatid="5442" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
                 </ENTRY>
               </ENTRIES>
             </ATHLETE>
@@ -2311,6 +2545,9 @@
             <ATHLETE birthdate="1998-01-01" firstname="Anna Lena" gender="F" lastname="Sinn" nation="GER" license="169870" athleteid="4024">
               <ENTRIES>
                 <ENTRY entrytime="00:00:33.38" eventid="1756" heatid="4693" lane="4" />
+                <ENTRY entrytime="00:00:33.67" eventid="1877" heatid="4695" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2004-01-01" firstname="Laura" gender="F" lastname="Steuerl" nation="GER" license="316690" athleteid="4953">
@@ -2324,6 +2561,9 @@
                 <ENTRY entrytime="00:02:15.39" eventid="1978" heatid="4833" lane="4" />
                 <ENTRY entrytime="NT" eventid="2020" status="RJC" />
                 <ENTRY entrytime="00:00:29.28" eventid="2082" heatid="4916" lane="1" />
+                <ENTRY entrytime="00:02:35.72" eventid="1933" heatid="5429" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Lorenz" gender="M" lastname="Streicher" nation="GER" license="252860" athleteid="4026">
@@ -2354,6 +2594,9 @@
                 <ENTRY entrytime="00:01:18.79" eventid="1992" heatid="4853" lane="5" />
                 <ENTRY entrytime="00:00:34.49" eventid="2034" heatid="4883" lane="2" />
                 <ENTRY entrytime="00:02:39.11" eventid="2055" heatid="4897" lane="5" />
+                <ENTRY entrytime="00:01:09.93" eventid="1919" heatid="5404" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Emma" gender="F" lastname="Veit" nation="GER" license="301073" athleteid="4050">
@@ -2374,6 +2617,9 @@
                 <ENTRY entrytime="00:00:30.77" eventid="2034" heatid="4887" lane="4" />
                 <ENTRY entrytime="00:00:28.48" eventid="2082" heatid="4919" lane="2" />
                 <ENTRY entrytime="00:02:21.86" eventid="2096" heatid="4935" lane="2" />
+                <ENTRY entrytime="00:01:05.86" eventid="1891" heatid="4725" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Annalena" gender="F" lastname="Wagner" nation="GER" license="297332" athleteid="4064">
@@ -2384,6 +2630,12 @@
                 <ENTRY entrytime="00:02:13.46" eventid="1978" heatid="4835" lane="6" />
                 <ENTRY entrytime="00:00:31.44" eventid="2034" heatid="4887" lane="5" />
                 <ENTRY entrytime="00:02:19.84" eventid="2096" heatid="4935" lane="4" />
+                <ENTRY entrytime="00:00:59.50" eventid="1863" heatid="4675" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:04.42" eventid="1891" heatid="4725" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Rebecca" gender="F" lastname="Walther" nation="GER" license="292203" athleteid="4071">
@@ -2398,6 +2650,9 @@
                 <ENTRY entrytime="00:00:30.83" eventid="1855" heatid="4798" lane="5" />
                 <ENTRY entrytime="NT" eventid="1905" status="RJC" />
                 <ENTRY entrytime="00:01:07.13" eventid="2006" heatid="4865" lane="5" />
+                <ENTRY entrytime="00:02:25.35" eventid="1933" heatid="4748" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Josefina" gender="F" lastname="Wiesbeck" nation="GER" license="301078" athleteid="4079">
@@ -2405,19 +2660,36 @@
                 <ENTRY entrytime="00:02:29.24" eventid="1813" heatid="4747" lane="5" />
                 <ENTRY entrytime="00:00:31.67" eventid="1855" heatid="4795" lane="2" />
                 <ENTRY entrytime="00:01:08.16" eventid="2006" heatid="4866" lane="6" />
+                <ENTRY entrytime="00:02:25.06" eventid="1933" heatid="4748" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:46.00" eventid="2048" heatid="4806" lane="2" />
+                <ENTRY entrytime="00:01:46.00" eventid="2048" heatid="4806" lane="2">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3931" number="1" />
+                    <RELAYPOSITION athleteid="3939" number="2" />
+                    <RELAYPOSITION athleteid="3996" number="3" />
+                    <RELAYPOSITION athleteid="3988" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:35.00" eventid="2232" heatid="4812" lane="2" />
               </ENTRIES>
             </RELAY>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="F">
               <ENTRIES>
-                <ENTRY entrytime="00:01:59.00" eventid="2062" heatid="4807" lane="2" />
+                <ENTRY entrytime="00:01:59.00" eventid="2062" heatid="4807" lane="2">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3945" number="1" />
+                    <RELAYPOSITION athleteid="4024" number="2" />
+                    <RELAYPOSITION athleteid="3926" number="3" />
+                    <RELAYPOSITION athleteid="4064" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:50.00" eventid="2224" heatid="4810" lane="2" />
               </ENTRIES>
             </RELAY>
@@ -2474,6 +2746,9 @@
                 <ENTRY entrytime="00:00:24.05" eventid="1834" heatid="4775" lane="5" />
                 <ENTRY entrytime="00:00:53.15" eventid="1971" heatid="4826" lane="5" />
                 <ENTRY entrytime="00:00:25.41" eventid="2103" heatid="4946" lane="3" />
+                <ENTRY entrytime="00:00:56.69" eventid="1898" heatid="4717" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Jakob" gender="M" lastname="Hoehler" nation="GER" license="246021" athleteid="3470">
@@ -2488,6 +2763,9 @@
                 <ENTRY entrytime="00:00:27.87" eventid="1806" heatid="4743" lane="2" />
                 <ENTRY entrytime="00:02:10.00" eventid="1848" heatid="4789" lane="4" />
                 <ENTRY entrytime="00:00:58.65" eventid="2013" heatid="4871" lane="3" />
+                <ENTRY entrytime="00:00:27.69" eventid="1912" heatid="5417" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Martina Edda" gender="F" lastname="Lickel" nation="GER" license="284991" athleteid="3478">
@@ -2497,6 +2775,9 @@
                 <ENTRY entrytime="00:02:14.37" eventid="1978" heatid="4834" lane="5" />
                 <ENTRY entrytime="00:00:32.21" eventid="2034" heatid="4887" lane="6" />
                 <ENTRY entrytime="00:00:27.82" eventid="2082" heatid="4923" lane="5" />
+                <ENTRY entrytime="00:01:00.56" eventid="1863" heatid="5317" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Jonathan" gender="M" lastname="Schottenheim" nation="GER" license="306550" athleteid="3484">
@@ -2517,7 +2798,14 @@
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:50.00" eventid="2048" heatid="4806" lane="6" />
+                <ENTRY entrytime="00:01:50.00" eventid="2048" heatid="4806" lane="6">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3474" number="1" />
+                    <RELAYPOSITION athleteid="3470" number="2" />
+                    <RELAYPOSITION athleteid="3464" number="3" />
+                    <RELAYPOSITION athleteid="3488" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
               </ENTRIES>
             </RELAY>
           </RELAYS>
@@ -2538,6 +2826,12 @@
                 <ENTRY entrytime="00:01:11.24" eventid="1799" heatid="4735" lane="1" />
                 <ENTRY entrytime="00:01:15.48" eventid="1992" heatid="4856" lane="2" />
                 <ENTRY entrytime="00:00:28.59" eventid="2082" heatid="4918" lane="3" />
+                <ENTRY entrytime="00:00:34.54" eventid="1877" heatid="5355" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:10.02" eventid="1919" heatid="5404" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Maike" gender="F" lastname="Schuller" nation="GER" license="183954" athleteid="4260">
@@ -2566,6 +2860,12 @@
                 <ENTRY entrytime="00:02:45.21" eventid="1841" heatid="4782" lane="5" />
                 <ENTRY entrytime="00:01:16.31" eventid="1992" heatid="4855" lane="1" />
                 <ENTRY entrytime="00:02:31.62" eventid="2055" heatid="4903" lane="6" />
+                <ENTRY entrytime="00:00:34.09" eventid="1877" heatid="5355" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:39.32" eventid="1954" heatid="4785" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Yael" gender="M" lastname="Balz" nation="GER" license="318639" athleteid="2928">
@@ -2595,6 +2895,12 @@
                 <ENTRY entrytime="00:02:06.12" eventid="1978" heatid="4838" lane="4" />
                 <ENTRY entrytime="00:01:04.11" eventid="2006" heatid="4866" lane="4" />
                 <ENTRY entrytime="00:00:27.11" eventid="2082" heatid="4921" lane="3" />
+                <ENTRY entrytime="00:00:59.15" eventid="1863" heatid="4675" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:25.36" eventid="1933" heatid="4748" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Pascal" gender="M" lastname="Borchardt" nation="GER" license="287497" athleteid="2951">
@@ -2614,6 +2920,12 @@
                 <ENTRY entrytime="00:02:40.10" eventid="1841" heatid="4782" lane="4" />
                 <ENTRY entrytime="00:01:13.38" eventid="1992" heatid="4856" lane="4" />
                 <ENTRY entrytime="00:02:14.15" eventid="2096" heatid="4937" lane="3" />
+                <ENTRY entrytime="00:00:33.54" eventid="1877" heatid="4695" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:39.66" eventid="1954" heatid="4785" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Lisa Marie" gender="F" lastname="Börnigen" nation="GER" license="267312" athleteid="2959">
@@ -2625,6 +2937,12 @@
                   <MEETINFO qualificationtime="00:10:07.84" />
                 </ENTRY>
                 <ENTRY entrytime="00:02:33.13" eventid="2096" heatid="4934" lane="6" />
+                <ENTRY entrytime="00:00:59.99" eventid="1863" heatid="5317" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:30.16" eventid="1933" heatid="5429" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Benjamin" gender="M" lastname="Campbell-James" nation="GER" license="376054" athleteid="2965">
@@ -2635,6 +2953,9 @@
                 <ENTRY entrytime="00:00:55.12" eventid="1971" heatid="4822" lane="3" />
                 <ENTRY entrytime="00:01:00.98" eventid="2013" heatid="4873" lane="5" />
                 <ENTRY entrytime="00:04:18.09" eventid="2075" heatid="4910" lane="1" />
+                <ENTRY entrytime="00:02:07.71" eventid="1961" heatid="4792" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Elena" gender="F" lastname="Czeschner" nation="GER" license="183021" athleteid="2972">
@@ -2643,6 +2964,9 @@
                 <ENTRY entrytime="00:00:27.90" eventid="1855" heatid="4801" lane="3" />
                 <ENTRY entrytime="00:01:02.00" eventid="2006" heatid="4867" lane="3" />
                 <ENTRY entrytime="00:00:26.31" eventid="2082" heatid="4923" lane="3" />
+                <ENTRY entrytime="00:00:29.26" eventid="1940" heatid="4802" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1998-01-01" firstname="Henning" gender="M" lastname="Dörries" nation="GER" license="220261" athleteid="2977">
@@ -2672,6 +2996,15 @@
                 <ENTRY entrytime="00:01:01.85" eventid="1785" heatid="4724" lane="3" />
                 <ENTRY entrytime="00:01:02.93" eventid="1799" heatid="4736" lane="3" />
                 <ENTRY entrytime="00:00:27.18" eventid="1855" heatid="4961" lane="3" />
+                <ENTRY entrytime="00:01:05.48" eventid="1891" heatid="4725" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:07.24" eventid="1919" heatid="4737" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:28.08" eventid="1940" heatid="4802" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Konrad" gender="M" lastname="Fleckenstein" nation="GER" license="247730" athleteid="2995">
@@ -2682,6 +3015,9 @@
                 <ENTRY entrytime="00:00:54.33" eventid="1971" heatid="4823" lane="4" />
                 <ENTRY entrytime="00:02:10.00" eventid="2041" heatid="4894" lane="2" />
                 <ENTRY entrytime="00:00:25.50" eventid="2103" heatid="4946" lane="4" />
+                <ENTRY entrytime="00:00:58.92" eventid="1898" heatid="5465" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2004-01-01" firstname="Rabea" gender="F" lastname="Gärtner" nation="GER" license="316345" athleteid="3002">
@@ -2699,6 +3035,9 @@
                 <ENTRY entrytime="00:01:04.00" eventid="1763" heatid="4702" lane="4" />
                 <ENTRY entrytime="00:00:29.54" eventid="1985" heatid="4847" lane="2" />
                 <ENTRY entrytime="00:02:15.00" eventid="2089" heatid="4929" lane="3" />
+                <ENTRY entrytime="00:01:04.27" eventid="1884" heatid="5368" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Anna" gender="F" lastname="Herbst" nation="GER" license="250303" athleteid="3013">
@@ -2710,6 +3049,12 @@
                 <ENTRY entrytime="00:00:31.72" eventid="2034" heatid="4889" lane="1" />
                 <ENTRY entrytime="00:02:28.00" eventid="2055" heatid="4904" lane="1" />
                 <ENTRY entrytime="00:02:27.29" eventid="2096" heatid="4936" lane="6" />
+                <ENTRY entrytime="00:01:06.21" eventid="1891" heatid="5391" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:30.09" eventid="1940" heatid="5517" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Anastasia" gender="F" lastname="Ismyrli" nation="GER" license="332675" athleteid="3021">
@@ -2719,6 +3064,12 @@
                 <ENTRY entrytime="00:00:29.89" eventid="1855" heatid="4961" lane="6" />
                 <ENTRY entrytime="00:01:11.63" eventid="1992" heatid="4856" lane="3" />
                 <ENTRY entrytime="00:01:05.72" eventid="2006" heatid="4865" lane="2" />
+                <ENTRY entrytime="00:00:33.33" eventid="1877" heatid="4695" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:37.17" eventid="1954" heatid="4785" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Sebastian" gender="M" lastname="Koller" nation="GER" license="184756" athleteid="3027">
@@ -2726,12 +3077,15 @@
                 <ENTRY entrytime="00:01:04.26" eventid="1763" heatid="4703" lane="2" />
                 <ENTRY entrytime="00:00:29.42" eventid="1985" heatid="4848" lane="2" />
                 <ENTRY entrytime="00:02:16.45" eventid="2089" heatid="4928" lane="3" />
+                <ENTRY entrytime="00:01:05.19" eventid="1884" heatid="5368" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Stella" gender="F" lastname="Koltermann" nation="GER" license="245421" athleteid="3031">
               <ENTRIES>
-                <ENTRY entrytime="00:01:10.87" eventid="1785" heatid="4720" lane="3" />
-                <ENTRY entrytime="00:00:31.17" eventid="1855" heatid="4797" lane="6" />
+                <ENTRY entrytime="00:01:10.87" eventid="1785" status="DNS" heatid="4720" lane="3" />
+                <ENTRY entrytime="00:00:31.17" eventid="1855" status="DNS" heatid="4797" lane="6" />
                 <ENTRY entrytime="00:02:14.22" eventid="1978" heatid="4834" lane="2" />
                 <ENTRY entrytime="00:00:28.28" eventid="2082" heatid="4920" lane="4" />
               </ENTRIES>
@@ -2744,12 +3098,21 @@
                 <ENTRY entrytime="00:02:12.50" eventid="1978" heatid="4835" lane="2" />
                 <ENTRY entrytime="00:00:30.41" eventid="2034" heatid="4889" lane="4" />
                 <ENTRY entrytime="00:02:21.88" eventid="2096" heatid="4937" lane="5" />
+                <ENTRY entrytime="00:01:06.31" eventid="1891" heatid="5391" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1986-01-01" firstname="Robert" gender="M" lastname="Könneker" nation="GER" license="75201" athleteid="3036">
               <ENTRIES>
                 <ENTRY entrytime="00:00:24.49" eventid="1806" heatid="4743" lane="3" />
                 <ENTRY entrytime="00:00:22.91" eventid="1834" heatid="4776" lane="3" />
+                <ENTRY entrytime="00:00:24.96" eventid="1912" heatid="4744" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:22.31" eventid="1947" heatid="4778" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Amelie" gender="F" lastname="Liesenfeld" nation="GER" license="301144" athleteid="3039">
@@ -2784,6 +3147,12 @@
                 <ENTRY entrytime="00:01:06.36" eventid="2006" heatid="4866" lane="5" />
                 <ENTRY entrytime="00:02:22.81" eventid="2055" heatid="4902" lane="4" />
                 <ENTRY entrytime="00:02:23.00" eventid="2096" heatid="4936" lane="5" />
+                <ENTRY entrytime="00:00:59.37" eventid="1863" heatid="4675" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:06.04" eventid="1891" heatid="4725" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Andreas" gender="M" lastname="März" nation="GER" license="301258" athleteid="3052">
@@ -2793,6 +3162,9 @@
                 <ENTRY entrytime="00:04:50.04" eventid="1999" heatid="4861" lane="1" />
                 <ENTRY entrytime="00:01:00.90" eventid="2013" heatid="4871" lane="2" />
                 <ENTRY entrytime="00:02:40.53" eventid="2089" heatid="4925" lane="4" />
+                <ENTRY entrytime="00:02:11.97" eventid="1961" heatid="4792" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2004-01-01" firstname="Mara" gender="F" lastname="Münsch" nation="GER" license="280574" athleteid="3066">
@@ -2812,6 +3184,12 @@
                 <ENTRY entrytime="00:02:05.00" eventid="2041" heatid="4893" lane="3" />
                 <ENTRY entrytime="00:03:49.00" eventid="2075" heatid="4912" lane="4" />
                 <ENTRY entrytime="NT" eventid="2168" status="RJC" />
+                <ENTRY entrytime="00:01:51.42" eventid="1870" heatid="4686" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:05.94" eventid="1926" heatid="4757" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Christopher" gender="M" lastname="Richter" nation="GER" license="278786" athleteid="3079">
@@ -2824,6 +3202,9 @@
                 <ENTRY entrytime="00:08:40.79" eventid="2168" heatid="4808" lane="2">
                   <MEETINFO qualificationtime="00:08:39.44" />
                 </ENTRY>
+                <ENTRY entrytime="00:01:55.86" eventid="1870" heatid="5342" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Felix" gender="M" lastname="Richtsfeld" nation="GER" license="223387" athleteid="3086">
@@ -2835,6 +3216,12 @@
                 <ENTRY entrytime="00:08:35.70" eventid="2168" heatid="4808" lane="4">
                   <MEETINFO qualificationtime="00:08:35.70" />
                 </ENTRY>
+                <ENTRY entrytime="00:01:53.33" eventid="1870" heatid="4686" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:10.90" eventid="1926" heatid="5442" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Derik" gender="M" lastname="Rodrigues" nation="GER" license="245161" athleteid="3092">
@@ -2845,6 +3232,9 @@
                 <ENTRY entrytime="00:00:57.00" eventid="1971" heatid="4818" lane="1" />
                 <ENTRY entrytime="00:01:01.93" eventid="2013" heatid="4873" lane="1" />
                 <ENTRY entrytime="00:02:10.00" eventid="2041" heatid="4892" lane="4" />
+                <ENTRY entrytime="00:00:58.88" eventid="1898" heatid="5465" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Aleksandar" gender="M" lastname="Savic" nation="GER" license="292599" athleteid="3099">
@@ -2866,6 +3256,9 @@
                 <ENTRY entrytime="00:00:31.40" eventid="2034" heatid="4888" lane="5" />
                 <ENTRY entrytime="00:02:28.00" eventid="2055" heatid="4903" lane="1" />
                 <ENTRY entrytime="00:02:18.00" eventid="2096" heatid="4936" lane="3" />
+                <ENTRY entrytime="00:01:03.72" eventid="1891" heatid="4725" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2003-01-01" firstname="Lisa Ava" gender="F" lastname="Schlüter" nation="GER" license="310203" athleteid="3114">
@@ -2890,6 +3283,12 @@
                 <ENTRY entrytime="00:04:23.02" eventid="1999" heatid="4862" lane="3" />
                 <ENTRY entrytime="00:02:04.67" eventid="2041" heatid="4894" lane="3" />
                 <ENTRY entrytime="00:02:17.62" eventid="2089" heatid="4930" lane="4" />
+                <ENTRY entrytime="00:01:03.08" eventid="1884" heatid="4704" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:07.08" eventid="1926" heatid="4757" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1985-01-01" firstname="Christoph" gender="M" lastname="Thade" nation="GER" license="132608" athleteid="3134">
@@ -2899,6 +3298,9 @@
                 <ENTRY entrytime="00:00:23.08" eventid="1834" heatid="4775" lane="3" />
                 <ENTRY entrytime="00:00:52.00" eventid="1971" heatid="4826" lane="2" />
                 <ENTRY entrytime="00:00:57.68" eventid="2013" heatid="4872" lane="3" />
+                <ENTRY entrytime="00:00:27.88" eventid="1912" heatid="5417" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Julia" gender="F" lastname="Titze" nation="GER" license="272986" athleteid="3140">
@@ -2910,6 +3312,12 @@
                 <ENTRY entrytime="00:01:12.72" eventid="1992" heatid="4855" lane="3" />
                 <ENTRY entrytime="00:00:30.24" eventid="2034" heatid="4887" lane="3" />
                 <ENTRY entrytime="00:02:22.39" eventid="2055" heatid="4903" lane="4" />
+                <ENTRY entrytime="00:00:32.56" eventid="1877" heatid="4695" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:06.38" eventid="1919" heatid="4737" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Sarah" gender="F" lastname="Vidic" nation="GER" license="290443" athleteid="3148">
@@ -2926,7 +3334,7 @@
                 <ENTRY entrytime="00:02:02.50" eventid="1749" heatid="4681" lane="6" />
                 <ENTRY entrytime="00:01:04.14" eventid="1778" heatid="4709" lane="4" />
                 <ENTRY entrytime="00:00:28.88" eventid="1806" heatid="4742" lane="1" />
-                <ENTRY entrytime="00:00:24.95" eventid="1834" heatid="4773" lane="4" />
+                <ENTRY entrytime="00:00:24.95" eventid="1834" status="DNS" heatid="4773" lane="4" />
                 <ENTRY entrytime="00:00:55.50" eventid="1971" heatid="4821" lane="3" />
                 <ENTRY entrytime="00:01:02.28" eventid="2013" heatid="4873" lane="6" />
                 <ENTRY entrytime="00:04:27.29" eventid="2075" heatid="4908" lane="3" />
@@ -2960,6 +3368,9 @@
                 </ENTRY>
                 <ENTRY entrytime="00:02:27.54" eventid="2055" heatid="4904" lane="5" />
                 <ENTRY entrytime="00:00:28.32" eventid="2082" heatid="4920" lane="5" />
+                <ENTRY entrytime="00:01:10.20" eventid="1919" heatid="5404" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2004-01-01" firstname="Lea" gender="F" lastname="Winzer" nation="GER" license="316349" athleteid="3182">
@@ -2979,6 +3390,12 @@
                 <ENTRY entrytime="00:09:13.63" eventid="2168" status="RJC">
                   <MEETINFO qualificationtime="00:09:13.63" />
                 </ENTRY>
+                <ENTRY entrytime="00:02:11.80" eventid="1926" heatid="5442" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:13.09" eventid="1961" heatid="4792" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Oliver" gender="M" lastname="Zeidler" nation="GER" license="167736" athleteid="3193">
@@ -2986,19 +3403,39 @@
                 <ENTRY entrytime="00:01:51.00" eventid="1749" heatid="4683" lane="3" />
                 <ENTRY entrytime="00:00:23.90" eventid="1834" heatid="4777" lane="5" />
                 <ENTRY entrytime="00:00:50.80" eventid="1971" heatid="4827" lane="3" />
+                <ENTRY entrytime="00:01:55.02" eventid="1870" heatid="5342" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:23.42" eventid="1947" heatid="4778" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:38.48" eventid="2048" heatid="4806" lane="3" />
+                <ENTRY entrytime="00:01:38.48" eventid="2048" heatid="4806" lane="3">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3036" number="1" />
+                    <RELAYPOSITION athleteid="3009" number="2" />
+                    <RELAYPOSITION athleteid="3072" number="3" />
+                    <RELAYPOSITION athleteid="3193" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:29.29" eventid="2232" heatid="4812" lane="4" />
               </ENTRIES>
             </RELAY>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="F">
               <ENTRIES>
-                <ENTRY entrytime="00:01:52.67" eventid="2062" heatid="4807" lane="3" />
+                <ENTRY entrytime="00:01:52.67" eventid="2062" heatid="4807" lane="3">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="2991" number="1" />
+                    <RELAYPOSITION athleteid="3140" number="2" />
+                    <RELAYPOSITION athleteid="2972" number="3" />
+                    <RELAYPOSITION athleteid="2939" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:42.08" eventid="2224" heatid="4810" lane="3" />
               </ENTRIES>
             </RELAY>
@@ -3136,6 +3573,9 @@
                 <ENTRY entrytime="00:00:55.73" eventid="1971" heatid="4821" lane="1" />
                 <ENTRY entrytime="00:01:04.50" eventid="2013" heatid="4870" lane="1" />
                 <ENTRY entrytime="00:00:27.98" eventid="2103" heatid="4942" lane="5" />
+                <ENTRY entrytime="00:02:16.10" eventid="1961" heatid="5504" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2003-01-01" firstname="Cäcilia" gender="F" lastname="Bausback" nation="GER" license="308503" athleteid="3718">
@@ -3155,6 +3595,9 @@
                 <ENTRY entrytime="00:01:01.15" eventid="1059" heatid="4671" lane="5" />
                 <ENTRY entrytime="00:00:29.62" eventid="1855" heatid="4800" lane="5" />
                 <ENTRY entrytime="00:00:28.26" eventid="2082" heatid="4920" lane="3" />
+                <ENTRY entrytime="00:00:30.23" eventid="1940" heatid="5517" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1997-01-01" firstname="Sebastian" gender="M" lastname="Feser" nation="GER" license="173941" athleteid="3729">
@@ -3208,6 +3651,9 @@
                   <MEETINFO qualificationtime="00:09:35.39" />
                 </ENTRY>
                 <ENTRY entrytime="00:02:29.86" eventid="2096" heatid="4934" lane="3" />
+                <ENTRY entrytime="00:00:59.81" eventid="1863" heatid="5317" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1998-01-01" firstname="Niklas" gender="M" lastname="Reibenspiess" nation="GER" license="168669" athleteid="3759">
@@ -3218,6 +3664,9 @@
                 <ENTRY entrytime="00:00:54.08" eventid="1971" heatid="4824" lane="5" />
                 <ENTRY entrytime="00:04:47.13" eventid="1999" heatid="4861" lane="2" />
                 <ENTRY entrytime="00:02:25.50" eventid="2089" heatid="4928" lane="5" />
+                <ENTRY entrytime="00:02:09.83" eventid="1926" heatid="5442" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Hanna" gender="F" lastname="Seubert" nation="GER" license="257093" athleteid="3766">
@@ -3321,6 +3770,12 @@
                 <ENTRY entrytime="00:01:00.20" eventid="1778" heatid="4715" lane="6" />
                 <ENTRY entrytime="00:02:11.11" eventid="1820" heatid="4754" lane="5" />
                 <ENTRY entrytime="00:04:45.15" eventid="1999" heatid="4861" lane="4" />
+                <ENTRY entrytime="00:00:59.14" eventid="5369" heatid="5378" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:10.71" eventid="1926" heatid="5442" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Carmen" gender="F" lastname="Gräbner" nation="GER" license="297780" athleteid="4595">
@@ -3370,13 +3825,23 @@
                 <ENTRY entrytime="00:02:21.48" eventid="1978" heatid="4829" lane="5" />
                 <ENTRY entrytime="00:01:11.67" eventid="2006" heatid="4863" lane="5" />
                 <ENTRY entrytime="00:02:34.79" eventid="2055" heatid="4900" lane="4" />
+                <ENTRY entrytime="00:02:30.37" eventid="1933" heatid="5429" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:54.00" eventid="2048" heatid="4805" lane="4" />
+                <ENTRY entrytime="00:01:54.00" eventid="2048" heatid="4805" lane="4">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="4591" number="1" />
+                    <RELAYPOSITION athleteid="4573" number="2" />
+                    <RELAYPOSITION athleteid="4609" number="3" />
+                    <RELAYPOSITION athleteid="4585" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:44.00" eventid="2232" heatid="4811" lane="2" />
               </ENTRIES>
             </RELAY>
@@ -3393,6 +3858,9 @@
                 <ENTRY entrytime="00:00:54.20" eventid="1971" heatid="4824" lane="6" />
                 <ENTRY entrytime="00:00:32.00" eventid="1985" heatid="4844" lane="5" />
                 <ENTRY entrytime="00:00:27.26" eventid="2103" heatid="4944" lane="2" />
+                <ENTRY entrytime="00:00:24.26" eventid="5443" heatid="5452" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -3457,6 +3925,9 @@
                 <ENTRY entrytime="00:00:24.50" eventid="1834" heatid="4777" lane="6" />
                 <ENTRY entrytime="00:00:53.60" eventid="1971" heatid="4825" lane="6" />
                 <ENTRY entrytime="00:00:59.00" eventid="2013" heatid="4872" lane="4" />
+                <ENTRY entrytime="00:00:27.31" eventid="1912" heatid="4744" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Marina" gender="F" lastname="Hammerl" nation="GER" license="284445" athleteid="2454">
@@ -3467,6 +3938,9 @@
                 <ENTRY entrytime="00:02:16.50" eventid="1978" heatid="4832" lane="4" />
                 <ENTRY entrytime="00:01:08.00" eventid="2006" heatid="4867" lane="6" />
                 <ENTRY entrytime="00:00:29.50" eventid="2082" heatid="4915" lane="1" />
+                <ENTRY entrytime="00:02:29.62" eventid="1933" heatid="5429" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Dominik" gender="M" lastname="Kohlschmid" nation="GER" license="242746" athleteid="2461">
@@ -3479,6 +3953,12 @@
                 <ENTRY entrytime="00:00:59.00" eventid="2027" heatid="4880" lane="4" />
                 <ENTRY entrytime="00:02:27.00" eventid="2089" heatid="4928" lane="1" />
                 <ENTRY entrytime="00:00:27.00" eventid="2103" heatid="4947" lane="6" />
+                <ENTRY entrytime="00:02:08.00" eventid="1926" heatid="4757" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:58.05" eventid="1898" heatid="4717" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Paulina" gender="F" lastname="Sandner" nation="GER" license="316586" athleteid="2470">
@@ -3488,6 +3968,9 @@
                 <ENTRY entrytime="00:01:10.00" eventid="1799" heatid="4735" lane="5" />
                 <ENTRY entrytime="00:01:17.00" eventid="1992" heatid="4854" lane="3" />
                 <ENTRY entrytime="00:00:29.00" eventid="2082" heatid="4917" lane="1" />
+                <ENTRY entrytime="00:01:10.08" eventid="1919" heatid="5404" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Marlene" gender="F" lastname="Sommoggy von" nation="GER" license="304160" athleteid="2476">
@@ -3496,6 +3979,12 @@
                 <ENTRY entrytime="00:01:12.00" eventid="1799" heatid="4733" lane="2" />
                 <ENTRY entrytime="00:02:48.00" eventid="1841" heatid="4782" lane="6" />
                 <ENTRY entrytime="00:01:17.00" eventid="1992" heatid="4854" lane="4" />
+                <ENTRY entrytime="00:00:34.18" eventid="1877" heatid="5355" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:44.28" eventid="1954" heatid="5491" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -3509,6 +3998,9 @@
                 <ENTRY entrytime="00:00:29.92" eventid="1855" heatid="4800" lane="6" />
                 <ENTRY entrytime="00:00:31.02" eventid="2034" heatid="4887" lane="2" />
                 <ENTRY entrytime="00:02:23.95" eventid="2096" heatid="4935" lane="5" />
+                <ENTRY entrytime="00:01:07.04" eventid="1891" heatid="5391" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Alina" gender="F" lastname="Zimmermann" nation="GER" license="193325" athleteid="4655">
@@ -3531,6 +4023,12 @@
                 <ENTRY entrytime="00:02:27.87" eventid="1841" heatid="4784" lane="3" />
                 <ENTRY entrytime="00:01:57.90" eventid="1978" heatid="4838" lane="3" />
                 <ENTRY entrytime="00:02:11.87" eventid="2055" heatid="4904" lane="3" />
+                <ENTRY entrytime="00:00:57.46" eventid="1863" heatid="4675" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:33.07" eventid="1954" heatid="4785" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1995-01-01" firstname="Maximilian" gender="M" lastname="Beck" nation="GER" license="161820" athleteid="3507">
@@ -3540,6 +4038,12 @@
                 <ENTRY entrytime="00:00:23.65" eventid="1834" heatid="4775" lane="2" />
                 <ENTRY entrytime="00:00:29.13" eventid="1985" heatid="4847" lane="4" />
                 <ENTRY entrytime="00:00:57.94" eventid="2027" heatid="4880" lane="3" />
+                <ENTRY entrytime="00:01:04.19" eventid="1884" heatid="4704" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:06.51" eventid="1926" heatid="4757" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Sebastian Aurelius" gender="M" lastname="Beck" nation="GER" license="236295" athleteid="3513">
@@ -3550,6 +4054,12 @@
                 <ENTRY entrytime="00:03:58.67" eventid="2075" heatid="4912" lane="2" />
                 <ENTRY entrytime="00:08:30.03" eventid="2168" heatid="4809" lane="1">
                   <MEETINFO qualificationtime="00:08:30.03" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:54.95" eventid="1870" heatid="5342" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:07.63" eventid="1926" heatid="4757" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
                 </ENTRY>
               </ENTRIES>
             </ATHLETE>
@@ -3567,6 +4077,9 @@
                 <ENTRY entrytime="00:00:24.78" eventid="1834" heatid="4774" lane="2" />
                 <ENTRY entrytime="00:00:55.00" eventid="1971" heatid="4823" lane="6" />
                 <ENTRY entrytime="00:01:02.00" eventid="2027" heatid="4881" lane="5" />
+                <ENTRY entrytime="00:00:27.77" eventid="1912" heatid="5417" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1994-01-01" firstname="Klemens" gender="M" lastname="Degenhardt" nation="GER" license="140643" athleteid="3524">
@@ -3578,6 +4091,9 @@
                 <ENTRY entrytime="00:08:34.84" eventid="2168" heatid="4808" lane="3">
                   <MEETINFO qualificationtime="00:08:34.84" />
                 </ENTRY>
+                <ENTRY entrytime="00:01:03.99" eventid="1884" heatid="4704" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Carolin" gender="F" lastname="Dorfner" nation="GER" license="244045" athleteid="3530">
@@ -3587,6 +4103,12 @@
                 <ENTRY entrytime="00:00:29.55" eventid="1855" heatid="4801" lane="5" />
                 <ENTRY entrytime="00:01:03.53" eventid="2006" heatid="4867" lane="4" />
                 <ENTRY entrytime="00:02:21.52" eventid="2055" heatid="4904" lane="4" />
+                <ENTRY entrytime="00:00:59.51" eventid="1863" heatid="5317" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:18.28" eventid="1933" heatid="4748" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Romy" gender="F" lastname="Dreher" nation="GER" license="269748" athleteid="3546">
@@ -3600,6 +4122,9 @@
                 <ENTRY entrytime="00:09:09.01" eventid="2020" heatid="4876" lane="4">
                   <MEETINFO qualificationtime="00:09:09.01" />
                 </ENTRY>
+                <ENTRY entrytime="00:01:00.24" eventid="1863" heatid="5317" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Tim" gender="M" lastname="Dreher" nation="GER" license="205376" athleteid="3552">
@@ -3609,6 +4134,9 @@
                 <ENTRY entrytime="00:02:06.68" eventid="2041" heatid="4892" lane="3" />
                 <ENTRY entrytime="00:08:53.45" eventid="2168" status="RJC">
                   <MEETINFO qualificationtime="00:08:53.45" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:54.92" eventid="1870" heatid="5342" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
                 </ENTRY>
               </ENTRIES>
             </ATHLETE>
@@ -3647,6 +4175,12 @@
                 <ENTRY entrytime="00:00:30.00" eventid="1985" heatid="4847" lane="5" />
                 <ENTRY entrytime="00:00:59.00" eventid="2027" heatid="4881" lane="4" />
                 <ENTRY entrytime="00:00:25.00" eventid="2103" heatid="4947" lane="3" />
+                <ENTRY entrytime="00:00:55.47" eventid="1898" heatid="4717" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:23.68" eventid="1947" heatid="4778" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1999-01-01" firstname="Lars" gender="M" lastname="Grundheber" nation="GER" license="234237" athleteid="3568">
@@ -3658,12 +4192,18 @@
                 <ENTRY entrytime="00:08:29.14" eventid="2168" heatid="4809" lane="5">
                   <MEETINFO qualificationtime="00:08:29.14" />
                 </ENTRY>
+                <ENTRY entrytime="00:01:53.41" eventid="1870" heatid="4686" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:07.67" eventid="1926" heatid="4757" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1996-01-01" firstname="Alina" gender="F" lastname="Hennl" nation="GER" license="173169" athleteid="3574">
               <ENTRIES>
-                <ENTRY entrytime="00:04:54.33" eventid="1771" heatid="4708" lane="3" />
-                <ENTRY entrytime="00:02:18.46" eventid="1813" heatid="4747" lane="4" />
+                <ENTRY entrytime="00:04:54.33" eventid="1771" status="DNS" heatid="4708" lane="3" />
+                <ENTRY entrytime="00:02:18.46" eventid="1813" status="DNS" heatid="4747" lane="4" />
                 <ENTRY entrytime="00:02:09.35" eventid="1978" heatid="4836" lane="2" />
                 <ENTRY entrytime="00:02:18.44" eventid="2055" heatid="4902" lane="3" />
               </ENTRIES>
@@ -3696,6 +4236,12 @@
                 <ENTRY entrytime="00:00:29.00" eventid="1855" heatid="4800" lane="4" />
                 <ENTRY entrytime="00:00:31.00" eventid="2034" heatid="4888" lane="2" />
                 <ENTRY entrytime="00:02:20.00" eventid="2096" heatid="4937" lane="2" />
+                <ENTRY entrytime="00:01:06.17" eventid="1919" heatid="4737" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:28.16" eventid="1940" heatid="4802" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1992-01-01" firstname="Jakob" gender="M" lastname="Markowski" nation="GER" license="154737" athleteid="3596">
@@ -3704,6 +4250,12 @@
                 <ENTRY entrytime="00:00:22.86" eventid="1834" heatid="4777" lane="3" />
                 <ENTRY entrytime="00:00:28.79" eventid="1985" heatid="4846" lane="3" />
                 <ENTRY entrytime="00:00:57.45" eventid="2027" heatid="4881" lane="3" />
+                <ENTRY entrytime="00:01:02.39" eventid="1884" heatid="4704" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:22.47" eventid="1947" heatid="4778" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1990-01-01" firstname="Sören" gender="M" lastname="Meißner" nation="GER" license="106221" athleteid="3601">
@@ -3719,6 +4271,9 @@
                 <ENTRY entrytime="00:02:44.00" eventid="1841" heatid="4783" lane="2" />
                 <ENTRY entrytime="00:02:10.00" eventid="1978" heatid="4837" lane="5" />
                 <ENTRY entrytime="00:02:26.00" eventid="2055" heatid="4903" lane="2" />
+                <ENTRY entrytime="00:02:43.04" eventid="1954" heatid="5491" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Leonie" gender="F" lastname="Neumann" nation="GER" license="249655" athleteid="3608">
@@ -3753,6 +4308,9 @@
                 <ENTRY entrytime="00:07:54.96" eventid="2168" heatid="4809" lane="3">
                   <MEETINFO qualificationtime="00:07:54.96" />
                 </ENTRY>
+                <ENTRY entrytime="00:01:52.64" eventid="1870" heatid="4686" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1995-01-01" firstname="Shay" gender="M" lastname="Toledano" nation="GER" license="365525" athleteid="3627">
@@ -3778,13 +4336,27 @@
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:44.00" eventid="2048" heatid="4806" lane="4" />
+                <ENTRY entrytime="00:01:44.00" eventid="2048" heatid="4806" lane="4">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3497" number="1" />
+                    <RELAYPOSITION athleteid="3524" number="2" />
+                    <RELAYPOSITION athleteid="3562" number="3" />
+                    <RELAYPOSITION athleteid="3596" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:26.89" eventid="2232" heatid="4812" lane="3" />
               </ENTRIES>
             </RELAY>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="F">
               <ENTRIES>
-                <ENTRY entrytime="00:01:58.00" eventid="2062" heatid="4807" lane="4" />
+                <ENTRY entrytime="00:01:58.00" eventid="2062" heatid="4807" lane="4">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="3591" number="1" />
+                    <RELAYPOSITION athleteid="3502" number="2" />
+                    <RELAYPOSITION athleteid="3530" number="3" />
+                    <RELAYPOSITION athleteid="3585" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:47.00" eventid="2224" heatid="4810" lane="4" />
               </ENTRIES>
             </RELAY>
@@ -3881,6 +4453,15 @@
                 <ENTRY entrytime="00:01:16.85" eventid="1992" heatid="4855" lane="6" />
                 <ENTRY entrytime="00:01:05.46" eventid="2006" heatid="4866" lane="2" />
                 <ENTRY entrytime="00:02:28.56" eventid="2055" heatid="4902" lane="1" />
+                <ENTRY entrytime="00:00:33.58" eventid="1877" heatid="4695" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:29.26" eventid="1933" heatid="5429" lane="3">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:29.57" eventid="1940" heatid="5517" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -3980,6 +4561,9 @@
                 <ENTRY entrytime="00:04:59.19" eventid="1999" heatid="4860" lane="4" />
                 <ENTRY entrytime="00:01:03.36" eventid="2013" heatid="4870" lane="3" />
                 <ENTRY entrytime="00:02:38.40" eventid="2089" heatid="4926" lane="5" />
+                <ENTRY entrytime="00:02:16.91" eventid="1961" heatid="5504" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2004-01-01" firstname="Daniela" gender="F" lastname="Ernst" nation="GER" license="316890" athleteid="2786">
@@ -4008,6 +4592,9 @@
                 <ENTRY entrytime="00:00:25.66" eventid="1834" heatid="4771" lane="1" />
                 <ENTRY entrytime="00:00:56.98" eventid="1971" heatid="4818" lane="5" />
                 <ENTRY entrytime="00:00:27.42" eventid="2103" heatid="4943" lane="3" />
+                <ENTRY entrytime="00:00:24.23" eventid="1947" heatid="5478" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Alina" gender="F" lastname="Hermeking" nation="GER" license="290265" athleteid="2802">
@@ -4028,6 +4615,9 @@
                 <ENTRY entrytime="00:01:04.32" eventid="1763" heatid="4702" lane="2" />
                 <ENTRY entrytime="00:00:29.90" eventid="1985" heatid="4848" lane="5" />
                 <ENTRY entrytime="00:02:22.45" eventid="2089" heatid="4928" lane="4" />
+                <ENTRY entrytime="00:01:04.10" eventid="1884" heatid="4704" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1995-01-01" firstname="Sarah-Isabelle" gender="F" lastname="Mai" nation="GER" license="269795" athleteid="2813">
@@ -4097,6 +4687,12 @@
                 <ENTRY entrytime="00:04:35.89" eventid="1999" heatid="4862" lane="2" />
                 <ENTRY entrytime="00:04:08.23" eventid="2075" heatid="4911" lane="4" />
                 <ENTRY entrytime="NT" eventid="2168" status="RJC" />
+                <ENTRY entrytime="00:01:57.24" eventid="1870" heatid="5342" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:11.29" eventid="1926" heatid="5442" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1997-01-01" firstname="Magnus" gender="M" lastname="Schweiger" nation="GER" license="158545" athleteid="2858">
@@ -4106,6 +4702,12 @@
                 <ENTRY entrytime="00:00:53.55" eventid="1971" heatid="4826" lane="6" />
                 <ENTRY entrytime="00:02:10.69" eventid="2041" heatid="4893" lane="2" />
                 <ENTRY entrytime="00:04:03.77" eventid="2075" heatid="4912" lane="6" />
+                <ENTRY entrytime="00:01:54.03" eventid="1870" heatid="4686" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:57.93" eventid="1898" heatid="4717" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2002-01-01" firstname="Helena" gender="F" lastname="Sedlar" nation="GER" license="290267" athleteid="2864">
@@ -4124,6 +4726,15 @@
                 <ENTRY entrytime="00:00:29.35" eventid="1855" heatid="4801" lane="2" />
                 <ENTRY entrytime="00:01:06.20" eventid="2006" heatid="4867" lane="5" />
                 <ENTRY entrytime="00:00:26.68" eventid="2082" heatid="4922" lane="3" />
+                <ENTRY entrytime="00:00:58.97" eventid="1863" heatid="4675" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:01:07.42" eventid="1919" heatid="4737" lane="1">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:28.92" eventid="1940" heatid="4802" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2001-01-01" firstname="Jacopo" gender="M" lastname="Vercelli" nation="GER" license="329282" athleteid="2876">
@@ -4172,13 +4783,27 @@
           <RELAYS>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="M">
               <ENTRIES>
-                <ENTRY entrytime="00:01:50.00" eventid="2048" heatid="4806" lane="1" />
+                <ENTRY entrytime="00:01:50.00" eventid="2048" heatid="4806" lane="1">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="2851" number="1" />
+                    <RELAYPOSITION athleteid="2809" number="2" />
+                    <RELAYPOSITION athleteid="2846" number="3" />
+                    <RELAYPOSITION athleteid="2798" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:40.00" eventid="2232" heatid="4812" lane="1" />
               </ENTRIES>
             </RELAY>
             <RELAY agemax="-1" agemin="-1" agetotalmax="-1" agetotalmin="-1" gender="F">
               <ENTRIES>
-                <ENTRY entrytime="00:02:05.00" eventid="2062" heatid="4807" lane="1" />
+                <ENTRY entrytime="00:02:05.00" eventid="2062" heatid="4807" lane="1">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION athleteid="2786" number="1" />
+                    <RELAYPOSITION athleteid="2813" number="2" />
+                    <RELAYPOSITION athleteid="2794" number="3" />
+                    <RELAYPOSITION athleteid="2870" number="4" />
+                  </RELAYPOSITIONS>
+                </ENTRY>
                 <ENTRY entrytime="00:01:55.00" eventid="2224" heatid="4810" lane="5" />
               </ENTRIES>
             </RELAY>
@@ -4194,6 +4819,12 @@
                 <ENTRY entrytime="00:00:54.19" eventid="1971" heatid="4824" lane="1" />
                 <ENTRY entrytime="00:01:00.26" eventid="2013" heatid="4873" lane="2" />
                 <ENTRY entrytime="00:00:26.43" eventid="2103" heatid="4945" lane="5" />
+                <ENTRY entrytime="00:00:27.22" eventid="1912" heatid="4744" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:58.90" eventid="1898" heatid="5465" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="1995-01-01" firstname="Christina" gender="F" lastname="Wenger" nation="GER" license="162995" athleteid="3435">
@@ -4202,6 +4833,9 @@
                 <ENTRY entrytime="00:01:12.08" eventid="1799" heatid="4733" lane="5" />
                 <ENTRY entrytime="00:00:31.05" eventid="1855" heatid="4797" lane="5" />
                 <ENTRY entrytime="00:01:16.16" eventid="1992" heatid="4855" lane="5" />
+                <ENTRY entrytime="00:00:34.66" eventid="1877" heatid="5355" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -4269,6 +4903,12 @@
                   <MEETINFO qualificationtime="00:09:18.14" />
                 </ENTRY>
                 <ENTRY entrytime="00:02:20.32" eventid="2096" heatid="4936" lane="2" />
+                <ENTRY entrytime="00:01:06.65" eventid="1891" heatid="5391" lane="5">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:02:26.69" eventid="1933" heatid="4748" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>
@@ -4286,6 +4926,9 @@
                 <ENTRY entrytime="00:01:03.52" eventid="2027" heatid="4879" lane="6" />
                 <ENTRY entrytime="00:02:18.14" eventid="2041" heatid="4893" lane="6" />
                 <ENTRY entrytime="00:02:36.99" eventid="2089" heatid="4926" lane="4" />
+                <ENTRY entrytime="00:02:15.55" eventid="1961" heatid="5504" lane="4">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
             <ATHLETE birthdate="2000-01-01" firstname="Jan" gender="M" lastname="Schuster" nation="GER" license="301516" athleteid="2422">
@@ -4306,6 +4949,12 @@
                 <ENTRY entrytime="00:00:29.80" eventid="1985" heatid="4846" lane="2" />
                 <ENTRY entrytime="00:01:01.14" eventid="2027" heatid="4879" lane="2" />
                 <ENTRY entrytime="00:02:21.88" eventid="2089" heatid="4929" lane="4" />
+                <ENTRY entrytime="00:01:04.52" eventid="1884" heatid="5368" lane="2">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
+                <ENTRY entrytime="00:00:28.69" eventid="1912" heatid="5417" lane="6">
+                  <MEETINFO qualificationtime="00:00:00.00" />
+                </ENTRY>
               </ENTRIES>
             </ATHLETE>
           </ATHLETES>

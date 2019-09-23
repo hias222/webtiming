@@ -105,7 +105,7 @@ class swimevent {
             actual_event = eventnumber;
             actual_heat = heatnumber;
             if (event_type === event_type_values.ALL) {
-                var searchstring = "[?ATTR.number == '" + eventnumber + "' && ATTR.round == 'PRE'].HEATS[*].HEAT[*]"
+                var searchstring = "[?ATTR.number == '" + eventnumber + "'].HEATS[*].HEAT[*]"
                 var tmp_heats = jmespath.search(event_heatid, searchstring)[0][0];
                 var searchheat = "[?ATTR.number == '" + heatnumber + "'].ATTR.heatid"
                 var newid = jmespath.search(tmp_heats, searchheat).toString()

@@ -101,14 +101,22 @@ export default class admin extends React.Component<Props, State> {
       <div>
         <Navigation />
         <Box component="span" m={1}>
-          <RaceModes/>
+          <RaceModes />
           <br>
           </br>
           <Divider variant="middle" />
           <br>
           </br>
           <SendMessages
-          type="standard"/>
+            type="standard" />
+
+          <br>
+          </br>
+          <Divider variant="middle" />
+          <br></br>
+
+          <SendDatamapping
+            event_type="" />
 
           <br>
           </br>
@@ -116,7 +124,7 @@ export default class admin extends React.Component<Props, State> {
           <br>
           </br>
 
-          <ChangeRaceStatus/>  
+          <ChangeRaceStatus />
           <br>
           </br>
           <Divider variant="middle" />
@@ -172,13 +180,7 @@ export default class admin extends React.Component<Props, State> {
             <StartIcon /></Button>
           </Grid>
 
-          <br>
-          </br>
-          <Divider variant="middle" />
-          <br></br>
 
-          <SendDatamapping
-            event_type="" />
         </Box>
 
       </div>
