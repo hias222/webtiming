@@ -1,6 +1,11 @@
 function getBirthYear(brithdate) {
-    var res = brithdate.toString().substring(0, 4);
-    return res
+    try {
+        var res = brithdate.toString().substring(0, 4);
+        return res
+    } catch {
+        return null
+    }
+   
     // The function returns the product of p1 and p2
 }
 

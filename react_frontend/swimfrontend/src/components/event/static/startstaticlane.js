@@ -15,25 +15,7 @@ class StartStaticLane extends React.Component {
     //const Service = ({ service }) => {
 
     render() {
-        var { place } = ""
-        //&& this.props.lane.place !== null
-        if (this.props.lane.place !== 'undefined') {
-            if (this.props.lane.place === "0") {
-                place = "<-->"
-            } else {
-                place = this.props.lane.place
-            }
-        } else {
-            place = "-"
-        }
-
-        var { time } = ""
-        if (this.props.lane.time !== 'undefined') {
-            time = this.props.lane.time
-        } else {
-            time = ""
-        }
-
+    
         return (
             <tr key={this.props.lane.lane}>
                 <td align="left">{this.props.lane.lane}</td>

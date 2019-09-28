@@ -8,9 +8,9 @@ class Event extends React.Component {
     super(props);
     console.log("Event Service rendered ")
     this.state = {
-      displaymode: 'responsive',
+      webtype: "",
       fullscreen: false,
-      webtype: this.props.webtype
+      displaymode: ""
     };
   }
 
@@ -38,6 +38,7 @@ class Event extends React.Component {
   setWebmode() {
     var title_theme = typeof (process.env.REACT_APP_DISPLAY_MODE) != 'undefined' ? process.env.REACT_APP_DISPLAY_MODE : "responsive"
     if (this.props.webtype !== 'normal') {
+      console.log("mode set " + this.props.webtype)
       this.setState({
         webtype: this.props.webtype,
         displaymode: this.props.webtype
@@ -84,8 +85,9 @@ class Event extends React.Component {
     } else {
       webcontent = <div>
         <p>wrong mode in env file check REACT_APP_DISPLAY_MODE or in url path</p>
+        <p>{this.state.displaymode}</p>
         <p>{JSON.stringify(this.accessMode)}</p>
-        </div>
+      </div>
     }
 
     return (

@@ -76,9 +76,15 @@ class App extends Component {
     socket.on("FromAPI", data => {
       var jsondata = JSON.parse(data)
       this.checkIncoming(jsondata);
-      this.setState({ response: data })
-    }
-    );
+      this.setState({ response: true })
+    });
+
+    socket.on("disconnect", data => {
+      console.log("Disconneted -----------------------------")
+      this.setState({ response: false })
+    })
+
+  
   }
 
   componentWillUnmount() {

@@ -16,7 +16,16 @@ $lanecolor: rgb(152, 0, 23);
 .staticheatheader {
     text-align: left;
     font-size: 1em;
+    
     color: $farbegeradeschrift;
+}
+
+.staticmaintable {
+    width: 1000pt;
+    font-size: 4em;
+    color: red;
+    background-color: red;
+    text-align: right;
 }
 
 .staticheatbackground {
@@ -26,6 +35,6 @@ $lanecolor: rgb(152, 0, 23);
 
 .staticheatheader_time {
     color: $farbegeradeschrift;
-    text-align: right;
+    text-align: left;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }

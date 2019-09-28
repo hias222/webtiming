@@ -15,11 +15,23 @@ class Static extends React.Component {
         console.log("Header Services init")
         this.laneversion = <tbody></tbody>
         this.tableheader = <thead></thead>
+        this.connectionstatus = <LinearProgress />
     }
 
     componentDidUpdate() {
         this.setLaneVersion()
         this.setTableHeader()
+        this.getConnectionStatus()
+    }
+
+    getConnectionStatus() {
+
+        if (this.props.responsestate) {
+            this.connectionstatus = ""
+        } else {
+            this.connectionstatus = <p>no connection to backend</p>
+        }
+
     }
 
     setTableHeader() {
@@ -84,34 +96,32 @@ class Static extends React.Component {
     }
 
     render() {
-
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
 
+        let staticmaintable = classnames('staticmaintable');
+
         return (
             <div>
-                <table>
-                    <tr> {this.props.info.competition}</tr>
+                <table width="512px">
+                    <tr> <span className={staticmaintable}>{this.props.info.competition}</span></tr>
                     <tr> Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}</tr>
                     <tr> Lauf: {this.props.info.heat}</tr>
                     <tr align='right'>{this.format(this.props.time)}</tr>
                 </table>
-                    <table >
-                        {this.tableheader}
-                        {this.laneversion}
-                    </table>
-             
-                <br></br>
-                
-                <div>
-                    {this.props.responsestate
-                        ?
-                        <LinearProgress variant="determinate" />
 
-                        : <LinearProgress />}
+                <table width="512px">
+                    {this.tableheader}
+                    {this.laneversion}
+                </table>
+
+                <br></br>
+
+                <div>
+                    {this.connectionstatus}
                 </div>
             </div>
-                
+
         )
     }
 };

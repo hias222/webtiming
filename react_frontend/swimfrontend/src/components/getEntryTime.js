@@ -1,6 +1,6 @@
 export default function getEntryTime(entrytime) {
-    var res = entrytime.toString().split(":");
     try {
+        var res = entrytime.toString().split(":");
         if (res[1] === undefined || res[2] === undefined) {
             return "NT"
         } else {
@@ -8,7 +8,7 @@ export default function getEntryTime(entrytime) {
             return newstring
         }
     } catch (e) {
-        console.log(e)
+        //console.log(e)
         return "NT";
     }
 }
