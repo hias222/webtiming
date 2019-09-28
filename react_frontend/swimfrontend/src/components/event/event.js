@@ -36,6 +36,7 @@ class Event extends React.Component {
                 info={this.props.info}
                 time={this.props.time}
                 responsestate={this.props.responsestate}
+                showstartlist={this.props.showstartlist}
             />
         } else {
             webcontent = <Header
@@ -43,6 +44,7 @@ class Event extends React.Component {
                 info={this.props.info}
                 time={this.props.time}
                 responsestate={this.props.responsestate}
+                showstartlist={this.props.showstartlist}
             />
         }
 

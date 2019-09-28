@@ -48,6 +48,13 @@ class Header extends React.Component {
 
     render() {
 
+        var { startlist } = "";
+
+        if (this.props.showstartlist) {
+            startlist = <p>startlist</p>
+        }
+
+
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
         let heatclass = classnames('heatheader');
@@ -59,6 +66,7 @@ class Header extends React.Component {
         return (
             <div>
                         <MyPaper >
+                        { startlist }
                             <div >
                                 <Grid >
                                     <div className={heatclass}>

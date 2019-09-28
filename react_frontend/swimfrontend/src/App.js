@@ -30,7 +30,8 @@ class App extends Component {
       fullscreen: false,
       mode: "race",
       unixcompetitiontime: 1568556787000,
-      message: ""
+      message: "",
+      showstartlist: false
     };
 
   }
@@ -190,12 +191,14 @@ class App extends Component {
         activelapdata = true;
         this.setState(state => {
           state.lanes[jsondata.lane] = newjsondata
+          state.showstartlist = false
         })
       } else {
         var laptime2 = "{ \"lap\": \"false\" }"
         var newjsondata2 = { ...jsondata, ...JSON.parse(laptime2) }
         this.setState(state => {
           state.lanes[jsondata.lane] = newjsondata2
+          state.showstartlist = false
         })
       }
       console.log("added lane " + jsondata.lane)
@@ -210,6 +213,7 @@ class App extends Component {
         this.clearlanes();
         this.setState(state => {
           state.info = jsondata
+          state.showstartlist = true
         })
       } else {
         console.log("header no clear " + jsondata.heat + " " + this.state.info.heat)
@@ -255,6 +259,9 @@ class App extends Component {
       console.log("start " + JSON.stringify(jsondata))
       var startdelay = typeof (jsondata.diff) != 'undefined' ? jsondata.diff : "100"
       console.log("start " + JSON.stringify(jsondata) + " delay " + startdelay)
+      this.setState(state => {
+        state.showstartlist = false
+      })
       this.resetTimer(startdelay)
       this.startTimer();
     }
@@ -283,6 +290,7 @@ class App extends Component {
         lanes={this.state.lanes}
         info={this.state.info}
         time={this.state.time}
+        showstartlist={this.state.showstartlist}
         responsestate={this.state.response}
       />
     } else if (this.state.mode === 'message') {
