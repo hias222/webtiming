@@ -1,59 +1,99 @@
 import React from 'react'
-import Header from "./header"
-import Static from "./static"
-import classnames from 'classnames'
+import Header from "./responsive/header"
+import Static from "./static/static"
 
 class Event extends React.Component {
 
-    constructor(props) {
-        super(props);
-        console.log("Event Service rendered")
-    }
+  constructor(props) {
+    super(props);
+    console.log("Event Service rendered ")
+    this.state = {
+      displaymode: 'responsive',
+      fullscreen: false,
+      webtype: this.props.webtype
+    };
+  }
 
-    handleToggle = (e) => {
-        const el = document.documentElement
-        if (el.requestFullscreen) {
-          el.requestFullscreen()
-        } else if (el.mozRequestFullScreen) {
-          el.mozRequestFullScreen()
-        } else if (el.webkitRequestFullscreen) {
-          el.webkitRequestFullscreen()
-        } else if (el.msRequestFullscreen) {
-          el.msRequestFullscreen()
-        }
-        this.setState({
-          fullscreen: true
-        })
+  accessMode = {
+    DISPLAY: "static",
+    WEB: "responsive"
+  };
+
+  handleToggle = (e) => {
+    const el = document.documentElement
+    if (el.requestFullscreen) {
+      el.requestFullscreen()
+    } else if (el.mozRequestFullScreen) {
+      el.mozRequestFullScreen()
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen()
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen()
+    }
+    this.setState({
+      fullscreen: true
+    })
+  }
+
+  setWebmode() {
+    var title_theme = typeof (process.env.REACT_APP_DISPLAY_MODE) != 'undefined' ? process.env.REACT_APP_DISPLAY_MODE : "responsive"
+    if (this.props.webtype !== 'normal') {
+      this.setState({
+        webtype: this.props.webtype,
+        displaymode: this.props.webtype
+      })
+    } else {
+      this.setState({
+        webtype: this.props.webtype,
+        displaymode: title_theme
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.webtype !== this.props.webtype) {
+      this.setWebmode();
+    }
+  }
+
+  render() {
+
+    var { webcontent } = "";
+
+    if (Object.values(this.accessMode).includes(this.state.displaymode)) {
+
+      if (this.state.displaymode === this.accessMode.WEB) {
+        webcontent = <Header
+          lanes={this.props.lanes}
+          info={this.props.info}
+          time={this.props.time}
+          responsestate={this.props.responsestate}
+          showstartlist={this.props.showstartlist}
+        />
       }
 
-    render() {
-
-        var { webcontent } = "";
-
-        if (this.props.webtype === 'static') {
-            webcontent = <Static
-                lanes={this.props.lanes}
-                info={this.props.info}
-                time={this.props.time}
-                responsestate={this.props.responsestate}
-                showstartlist={this.props.showstartlist}
-            />
-        } else {
-            webcontent = <Header
-                lanes={this.props.lanes}
-                info={this.props.info}
-                time={this.props.time}
-                responsestate={this.props.responsestate}
-                showstartlist={this.props.showstartlist}
-            />
-        }
-
-        return (
-            <div>
-                {webcontent}
-            </div>
-        );
+      if (this.state.displaymode === this.accessMode.DISPLAY) {
+        webcontent = <Static
+          lanes={this.props.lanes}
+          info={this.props.info}
+          time={this.props.time}
+          responsestate={this.props.responsestate}
+          showstartlist={this.props.showstartlist}
+        />
+      }
+    } else {
+      webcontent = <div>
+        <p>wrong mode in env file check REACT_APP_DISPLAY_MODE or in url path</p>
+        <p>{JSON.stringify(this.accessMode)}</p>
+        </div>
     }
+
+    return (
+      <div>
+        {webcontent}
+      </div>
+    );
+  }
 };
 
 export default Event

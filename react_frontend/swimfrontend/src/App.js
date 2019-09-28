@@ -56,10 +56,10 @@ class App extends Component {
     var title_theme = typeof (this.props.match.params.webtype) != 'undefined' ? this.props.match.params.webtype : "normal"
     document.title = "Timing - " + title_theme
 
-    const { webtype } = this.props.match.params
-    this.setState(
-      { webtype }
-    )
+    //let webtype = this.props.match.params
+    this.setState({ 
+      webtype: title_theme  
+    })
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
     //console.log("url is %PUBLIC_URL% " + process.env.PUBLIC_URL + window.location.hostname);
@@ -279,7 +279,7 @@ class App extends Component {
   render() {
     var { fullscreen } = "";
     if (this.state.fullscreen !== true) {
-      fullscreen = <button onClick={this.handleToggle}>Full {this.props.webtype}</button>
+      fullscreen = <button onClick={this.handleToggle}>Full {this.state.webtype}</button>
     }
 
     var { webcontent } = "";

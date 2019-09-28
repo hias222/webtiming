@@ -1,0 +1,31 @@
+
+$farbegerade:  rgba(194, 211, 215, 0);
+$farbeungerade: rgba(196, 196, 196, 0.1);
+$farbehintergrund:   rgba(196, 196, 196, 0.1);
+$farbegeradeschrift: white;
+$farbeungeradeschrift: white;
+$lanecolor: rgb(152, 0, 23);
+
+//linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
+
+.staticheadername {
+    color: green;
+    text-align: left;
+}
+
+.staticheatheader {
+    text-align: left;
+    font-size: 1em;
+    color: $farbegeradeschrift;
+}
+
+.staticheatbackground {
+    font-size: 1em;
+
+}
+
+.staticheatheader_time {
+    color: $farbegeradeschrift;
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
