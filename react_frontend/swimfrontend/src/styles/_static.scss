@@ -6,35 +6,98 @@ $farbegeradeschrift: white;
 $farbeungeradeschrift: white;
 $lanecolor: rgb(152, 0, 23);
 
+$farbeschrift: rgb(195, 220, 232);
+
+$farbehintergrund: rgb(27, 50, 179);
+
+$lanesize: 1.6em; 
 //linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
 
+// the <table> css
+.staticmaintable {
+    border-spacing: 0;
+    width: 512px;
+    height: 284px;
+    background-color: $farbehintergrund
+}
+
+.staticheadertable{
+    border-spacing: 0;
+    width: 512px;
+    height: 30px;
+    background-color: $farbehintergrund
+}
+
+.staticemptytable {
+    border-spacing: 0;
+    width: 512px;
+    height: 384px;
+    border: 2px solid black;
+}
+
+//header
+
+.staticeventname{
+    color: $farbeschrift;
+    text-align: center;
+}
+
+.staticheatevent{
+    color: $farbeschrift;
+}
+
+.staticheader_time{
+    color: $farbeschrift;
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+///////// heat 
+
+
+.staticlaneeven {
+    color: $farbegeradeschrift;
+    background: $farbegerade;
+    font-size: $lanesize;
+}
+
+.staticlaneodd {
+    color: $farbeungeradeschrift;
+    background: $farbeungerade;
+    font-size: $lanesize;
+}
+
+.startstaticlaneeven {
+    color: $farbegeradeschrift;
+    background: $farbegerade;
+    font-size: $lanesize;
+}
+
+.startstaticlaneodd {
+    color: $farbeungeradeschrift;
+    background: $farbeungerade;
+    font-size: $lanesize;
+}
+
 .staticheadername {
-    color: green;
+    color: $farbeschrift;
     text-align: left;
 }
 
 .staticheatheader {
+    color: $farbeschrift;
     text-align: left;
     font-size: 1em;
-    
-    color: $farbegeradeschrift;
-}
-
-.staticmaintable {
-    width: 1000pt;
-    font-size: 4em;
-    color: red;
-    background-color: red;
-    text-align: right;
 }
 
 .staticheatbackground {
+    color: $farbeschrift;
     font-size: 1em;
-
 }
 
 .staticheatheader_time {
-    color: $farbegeradeschrift;
-    text-align: left;
+    color: $farbeschrift;
+    font-size: $lanesize;
+    text-align: right;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }

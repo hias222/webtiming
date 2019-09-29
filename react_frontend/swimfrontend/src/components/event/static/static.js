@@ -35,36 +35,36 @@ class Static extends React.Component {
     }
 
     setTableHeader() {
-        let heatclass = classnames('staticheatheader');
-        let heatclass_time = classnames('staticheatheader_time');
-        let backclass = classnames('staticheatbackground');
+        let staticheatclass = classnames('staticheatheader');
+        let staticheatclass_time = classnames('staticheatheader_time');
+        let staticbackclass = classnames('staticheatbackground');
 
         if (this.props.showstartlist) {
             this.tableheader = <thead>
-                <tr className={backclass}>
+                <tr className={staticbackclass}>
                     <td >
-                        <div className={heatclass}>Bahn</div></td>
+                        <div className={staticheatclass}>Bahn</div></td>
                     <td>
-                        <div className={heatclass}>Name/Verein</div>
+                        <div className={staticheatclass}>Name/Verein</div>
                     </td>
                     <td>
-                        <div className={heatclass_time}>Meldezeit</div>
+                        <div className={staticheatclass_time}>Meldezeit</div>
                     </td>
                 </tr>
             </thead>
         } else {
             this.tableheader = <thead>
-                <tr className={backclass}>
+                <tr className={staticbackclass}>
                     <td >
-                        <div className={heatclass}>Bahn</div></td>
+                        <div className={staticheatclass}>Bahn</div></td>
                     <td>
-                        <div className={heatclass}>Platz</div>
+                        <div className={staticheatclass}>Platz</div>
                     </td>
                     <td>
-                        <div className={heatclass}>Name/Verein</div>
+                        <div className={staticheatclass}>Name/Verein</div>
                     </td>
                     <td>
-                        <div className={heatclass_time}>Zeit</div>
+                        <div className={staticheatclass_time}>Zeit</div>
                     </td>
                 </tr>
             </thead>
@@ -100,26 +100,48 @@ class Static extends React.Component {
         var race = getRaceType(this.props.info.round);
 
         let staticmaintable = classnames('staticmaintable');
+        let staticheadertable = classnames('staticheadertable');
+
+        let staticeventname = classnames('staticeventname');
+        let staticheatevent = classnames('staticheatevent');
+        let staticheader_time = classnames('staticheader_time');
+        let staticemptytable = classnames('staticemptytable');
+
 
         return (
             <div>
-                <table width="512px">
-                    <tr> <span className={staticmaintable}>{this.props.info.competition}</span></tr>
-                    <tr> Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}</tr>
-                    <tr> Lauf: {this.props.info.heat}</tr>
-                    <tr align='right'>{this.format(this.props.time)}</tr>
-                </table>
-
-                <table width="512px">
-                    {this.tableheader}
-                    {this.laneversion}
-                </table>
-
-                <br></br>
-
                 <div>
-                    {this.connectionstatus}
+                    <table className={staticemptytable} ></table>
                 </div>
+                <div>
+                    <table className={staticheadertable}>
+                        <tbody>
+                            <tr className={staticeventname}>
+                                <td>{this.props.info.competition}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table className={staticheadertable}>
+                        <tbody>
+                            <tr className={staticheatevent}>
+                                <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
+                                    : {this.props.info.heat}</td>
+                                <td className={staticheader_time}>{this.format(this.props.time)}</td>
+                            </tr>
+                        </tbody>
+                    </table >
+
+                    <table className={staticmaintable}>
+                        {this.tableheader}
+                        {this.laneversion}
+                    </table>
+
+                    <br></br>
+
+                    <div>
+                        {this.connectionstatus}
+                    </div>
+                </div >
             </div>
 
         )
