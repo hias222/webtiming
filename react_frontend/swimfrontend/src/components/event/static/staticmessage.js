@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Clock from 'react-clock';
+import Clock from 'react-clock/dist/entry.nostyle'
+//import Clock from 'react-clock';
 
 import classnames from 'classnames';
 //import Image from '../water2.jpg';
@@ -40,13 +41,13 @@ class Staticmessage extends React.Component {
         })
         if (this.props.type === 'message') {
             this.setState({
-                size: 100,
-                hourHandWidth: 2,
-                minuteHandWidth: 2
+                size: 200,
+                hourHandWidth: 4,
+                minuteHandWidth: 4
             })
         } else {
             this.setState({
-                size: 500
+                size: 290
             })
         }
     }
@@ -103,6 +104,32 @@ class Staticmessage extends React.Component {
         this.startTimer();
     }
 
+    splitMessageLines() {
+        var webcontent = "";
+        let staticmessagetext_main = classnames('staticmessagetext_main');
+
+        var strmessage = this.props.message.toString();
+        var lines = strmessage.split('\\n');
+
+        if (this.props.type === 'message') {
+
+            webcontent = <table >
+                {lines.map((msg, index) => (
+                    <tr className={staticmessagetext_main}>
+                        <td>{msg}</td>
+                    </tr>
+                ))}
+            </table>
+            return webcontent;
+            //lines.forEach(item => {
+            //    var text = <p>item</p>
+            //    webcontent = webcontent + text;
+            //  });
+        }
+
+        return webcontent
+    }
+
     render() {
 
 
@@ -114,15 +141,12 @@ class Staticmessage extends React.Component {
         let staticmessagetext_main = classnames('staticmessagetext_main');
         let staticmessagetext_header = classnames('staticmessagetext_header');
 
+        //let message_clock = classnames('message-clock');
+
         let clocktime = parseInt(this.state.timediff) + parseInt(this.state.unixcompetitiontime);
         let unixtoshow = isNaN(clocktime) ? 1 : clocktime
         let newclocktime = new Date(unixtoshow);
 
-        var { webcontent } = "";
-
-        if (this.props.type === 'message') {
-            webcontent = <p>{this.props.message}</p>
-        }
 
         return (
             <div >
@@ -138,7 +162,7 @@ class Staticmessage extends React.Component {
                     <table className={staticmessagetable}>
                         <tr className={staticmessagetext_main}>
                             <td>
-                                {webcontent}
+                                {this.splitMessageLines()}
                             </td>
                             <td>
                                 <Clock
@@ -146,6 +170,7 @@ class Staticmessage extends React.Component {
                                     size={this.state.size}
                                     hourHandWidth={this.state.hourHandWidth}
                                     minuteHandWidth={this.state.minuteHandWidth}
+                                    className="message_clock"
                                 //react-clock__hand__body
                                 />
                             </td>

@@ -121,7 +121,7 @@ $lanesize: 1.6em;
 .staticmessagetext_main{
     color: $farbeschrift;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .staticmessagetext_header{
@@ -130,3 +130,41 @@ $lanesize: 1.6em;
     font-size: 1.2em;
 }
 
+
+//@at-root
+.message_clock {
+    color: $farbeschrift;
+    text-align: center;
+    font-size: 1.2em;
+
+    .react-clock {
+
+        &__face {
+            border-color: $farbeschrift;  
+          }
+
+        &__mark {
+            &__body {
+                background-color: $farbeschrift;
+              }
+          }
+        
+        &__minute-mark {
+            background-color: $farbeschrift;
+        }
+
+        &__hand {
+          &__body {
+            background-color: $farbeschrift;
+          }
+
+        }
+        &__hour-hand {
+          &__body {
+              background-color: $farbeschrift;
+          }
+
+        }
+    }
+
+}
