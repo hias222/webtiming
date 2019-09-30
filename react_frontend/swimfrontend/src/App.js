@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import socketIOClient from "socket.io-client";
-import Showmessage from './components/showmessage';
+import Showmessage from './components/event/message';
 import Showvideo from './components/showvideo'
 import Event from './components/event/event';
 
@@ -36,6 +36,12 @@ class App extends Component {
 
   }
 
+  DisplayModes = {
+    VIDEO: "video",
+    MESSAGE: "message",
+    RACE: "race"
+  };
+
   handleToggle = (e) => {
     const el = document.documentElement
     if (el.requestFullscreen) {
@@ -57,8 +63,8 @@ class App extends Component {
     document.title = "Timing - " + title_theme
 
     //let webtype = this.props.match.params
-    this.setState({ 
-      webtype: title_theme  
+    this.setState({
+      webtype: title_theme
     })
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
@@ -84,7 +90,7 @@ class App extends Component {
       this.setState({ response: false })
     })
 
-  
+
   }
 
   componentWillUnmount() {
@@ -289,30 +295,43 @@ class App extends Component {
     }
 
     var { webcontent } = "";
-    if (this.state.mode === 'race') {
-      webcontent = <Event
-        fullscreen={this.state.fullscreen}
-        webtype={this.state.webtype}
-        lanes={this.state.lanes}
-        info={this.state.info}
-        time={this.state.time}
-        showstartlist={this.state.showstartlist}
-        responsestate={this.state.response}
-      />
-    } else if (this.state.mode === 'message') {
-      webcontent = <Showmessage
-        unixcompetitiontime={this.state.unixcompetitiontime}
-        type={this.state.type}
-        info={this.state.info}
-        message={this.state.message}
-      />
+
+    if (Object.values(this.DisplayModes).includes(this.state.mode)) {
+
+      if (this.state.mode === 'race') {
+        webcontent = <Event
+          fullscreen={this.state.fullscreen}
+          webtype={this.state.webtype}
+          lanes={this.state.lanes}
+          info={this.state.info}
+          time={this.state.time}
+          showstartlist={this.state.showstartlist}
+          responsestate={this.state.response}
+        />
+      }
+
+      if (this.state.mode === 'message') {
+        webcontent = <Showmessage
+          unixcompetitiontime={this.state.unixcompetitiontime}
+          type={this.state.type}
+          info={this.state.info}
+          webtype={this.state.webtype}
+          message={this.state.message}
+        />
+      }
+
+      if (this.state.mode === 'video') {
+        webcontent = <Showvideo
+          unixcompetitiontime={this.state.unixcompetitiontime}
+          type={this.state.type}
+          info={this.state.info}
+        />
+      }
     } else {
-      webcontent = <Showvideo
-        unixcompetitiontime={this.state.unixcompetitiontime}
-        type={this.state.type}
-        info={this.state.info}
-      />
+      webcontent = <p>wrong mode</p>
     }
+
+
 
     return (
       <div>

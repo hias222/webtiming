@@ -33,68 +33,73 @@ const actions = {
 
 exports.parseColoradoData = function (message) {
     var messagetype = getMessageType(message.toString());
-    switch (messagetype) {
-        case actions.HEADER:
-            console.log('Type: ' + messagetype)
-            var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
-            return myEvent.getEventName(getEvent(message))
-            break;
-        case actions.RACE:
-            var jsonsrace = "{ \"type\": \"race\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonsrace);
-            break;
-        case actions.LANE:
-            var newmessage = myEvent.getActualSwimmer(getLaneNumber(message), getTime(message), getPlace(message));
-            return newmessage;
-            break;
-        case actions.START:
-            var jsonstart = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonstart);
-            break;
-        case actions.STOP:
-            var jsonstart = "{ \"type\": \"stop\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonstart);
-            break;
-        case actions.CLOCK:
-            var jsonclock = "{ \"type\": \"clock\", \"size\": \"large\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonclock);
-            break;
-        case actions.CLEAR:
-            var jsonclear = "{ \"type\": \"clear\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonclear);
-            break;
-        case actions.VIDEO:
-            var jsonvideo = "{ \"type\": \"video\", \"version\": \"1\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonvideo);
-            break;
-        case actions.MESSAGE:
-            console.log("mess ")
-            var jsonmsg = "{ \"type\": \"message\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonmsg);
-            break;
-        case actions.LENEX:
-            var newfilename = getMessage(message)
-            console.log("lenex " + newfilename)
-            getNewLenexFile(newfilename);
-            var jsonlenex = "{ \"type\": \"lenex\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
-            return JSON.parse(jsonlenex);
-            break;
-        case actions.CONFIGURATION:
-            var configuration = getMessage(message)
-            if (getMessageWord1(message) == "event_type") {
-                mqttMessageSender.sendMessage("configuration change " + getMessageWord1(message))
-                console.log("configuration " + configuration)
-                if (myEvent.setEventType(getMessageWord2(message))) {
-                    mqttMessageSender.sendMessage("configuration updated " + getMessageWord2(message))
-                } else {
-                    mqttMessageSender.sendMessage("configuration updated failed " + getMessageWord2(message))
+    console.log('<incoming> Type: ' + messagetype)
+    try {
+        switch (messagetype) {
+            case actions.HEADER:
+                var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
+                return myEvent.getEventName(getEvent(message))
+                break;
+            case actions.RACE:
+                var jsonsrace = "{ \"type\": \"race\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonsrace);
+                break;
+            case actions.LANE:
+                var newmessage = myEvent.getActualSwimmer(getLaneNumber(message), getTime(message), getPlace(message));
+                return newmessage;
+                break;
+            case actions.START:
+                var jsonstart = "{ \"type\": \"start\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonstart);
+                break;
+            case actions.STOP:
+                var jsonstart = "{ \"type\": \"stop\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonstart);
+                break;
+            case actions.CLOCK:
+                var jsonclock = "{ \"type\": \"clock\", \"size\": \"large\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonclock);
+                break;
+            case actions.CLEAR:
+                var jsonclear = "{ \"type\": \"clear\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonclear);
+                break;
+            case actions.VIDEO:
+                var jsonvideo = "{ \"type\": \"video\", \"version\": \"1\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonvideo);
+                break;
+            case actions.MESSAGE:
+                var clearMessage = clearMessageText(message)
+                var jsonmsg = "{ \"type\": \"message\", \"value\": \"" + getMessage(clearMessage) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonmsg);
+                break;
+            case actions.LENEX:
+                var newfilename = getMessage(message)
+                console.log("lenex " + newfilename)
+                getNewLenexFile(newfilename);
+                var jsonlenex = "{ \"type\": \"lenex\", \"value\": \"" + getMessage(message) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonlenex);
+                break;
+            case actions.CONFIGURATION:
+                var configuration = getMessage(message)
+                if (getMessageWord1(message) == "event_type") {
+                    mqttMessageSender.sendMessage("configuration change " + getMessageWord1(message))
+                    console.log("configuration " + configuration)
+                    if (myEvent.setEventType(getMessageWord2(message))) {
+                        mqttMessageSender.sendMessage("configuration updated " + getMessageWord2(message))
+                    } else {
+                        mqttMessageSender.sendMessage("configuration updated failed " + getMessageWord2(message))
+                    }
                 }
-            }
-            return null
-            break;
-        default:
-            console.log('Type:  not declared')
-            break;
+                return null
+                break;
+            default:
+                console.log('Type:  not declared')
+                break;
+        }
+    } catch (e) {
+        console.log(e)
+        return "unknown"
     }
     return "unknown"
 }
@@ -158,13 +163,30 @@ async function getNewLenexFile(filename) {
 }
 
 function getMessageType(message) {
-    var newactions = message.replace(/ .*/, '');
-    console.log("new message " + newactions)
-    if (Object.values(actions).includes(newactions)) {
-        return newactions;
-    } else {
+    try {
+        var newactions = message.replace(/ .*/, '');
+        //console.log("<incoming> message with action: " + newactions)
+        if (Object.values(actions).includes(newactions)) {
+            return newactions;
+        } else {
+            var clearstring = message.replace(/\n|\r|\t/g, " ");
+            var actionclear = clearstring.replace(/ .*/, '');
+            if (Object.values(actions).includes(actionclear)) {
+                return actionclear;
+            } else {
+                return "unknown";
+            }
+        }
+    } catch (e) {
+        console.log(e)
         return "unknown";
     }
+}
+
+function clearMessageText(message) {
+    var strmessage = message.toString();
+    var newMessage =  strmessage.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
+    return newMessage;
 }
 
 function getHeat(message) {

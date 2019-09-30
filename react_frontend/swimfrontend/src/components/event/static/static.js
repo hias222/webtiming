@@ -90,9 +90,9 @@ class Static extends React.Component {
     format(ms) {
         var minutes = Math.floor(ms / (1000 * 60)),
             seconds = Math.floor((ms - minutes * 1000 * 60) / 1000),
-            fract = Math.floor((ms - minutes * 1000 * 60 - seconds * 1000) / 10);
+            fract = Math.floor((ms - minutes * 1000 * 60 - seconds * 1000) / 100);
 
-        return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ',' + (fract < 10 ? '0' : '') + fract;
+        return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ',' + fract;
     }
 
     render() {

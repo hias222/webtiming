@@ -33,7 +33,9 @@ class MessageMapper {
   // Sends a mqtt message to topic: mytopic
   mapMessage(message) {
     try {
+      console.log("<message_mapper> beginn parse")
       var newmessage = incoming.parseColoradoData(message)
+      console.log("<message_mapper> aditional steps check")
       if (newmessage != null) {
         try {
           if (newmessage.type === "header") {
@@ -70,6 +72,7 @@ class MessageMapper {
           console.log(err)
           console.log(" <mapper> message_mapper wrong old heat")
         }
+        console.log("<message_mapper> generate message")
         var stringnewmessage = JSON.stringify(newmessage)
 
         console.log("<mapper> datamapping mapper: " + stringnewmessage)
