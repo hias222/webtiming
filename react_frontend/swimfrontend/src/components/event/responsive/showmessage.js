@@ -119,6 +119,25 @@ class Showmessage extends React.Component {
         this.startTimer();
     }
 
+    splitMessageLines() {
+        var webcontent = "";
+        let messagetext_main = classnames('messagetext_main');
+
+        var strmessage = this.props.message.toString();
+        var lines = strmessage.split('\\n');
+
+        if (this.props.type === 'message') {
+            webcontent = <div className={messagetext_main}>
+                {lines.map((msg, index) => (
+                    <p>{msg}</p>
+                ))}
+            </div>
+            return webcontent;
+        }
+
+        return webcontent
+    }
+
     render() {
 
         let heatclass = classnames('heatheader');
@@ -127,33 +146,29 @@ class Showmessage extends React.Component {
         let unixtoshow = isNaN(clocktime) ? 1 : clocktime
         let newclocktime = new Date(unixtoshow);
 
-        var { webcontent } = "";
-
-        if (this.props.type === 'message') {
-            webcontent = <p>{this.props.message}</p>
-        }
-
         return (
             <div >
                 <Box component="span" m={1} color="text.primary">
                     <Container maxWidth="md">
                         <MyPaper >
-                            <Grid >
-                                <div className={heatclass}>
-                                    {this.props.info.competition}
-                                </div>
-                            </Grid>
-                            <Grid>
-                                {webcontent}
-                            </Grid>
-                            <Grid>
-                                <Clock
-                                    value={newclocktime}
-                                    size={this.state.size}
-                                    hourHandWidth={this.state.hourHandWidth}
-                                    minuteHandWidth={this.state.minuteHandWidth}
-                                //react-clock__hand__body
-                                />
+                            <Grid container spacing={3}>
+                                <Grid xs='12'>
+                                    <div className={heatclass}>
+                                        {this.props.info.competition}
+                                    </div>
+                                </Grid>
+                                <Grid xs="6">
+                                    {this.splitMessageLines()}
+                                </Grid>
+                                <Grid xs="6">
+                                    <Clock
+                                        value={newclocktime}
+                                        size={this.state.size}
+                                        hourHandWidth={this.state.hourHandWidth}
+                                        minuteHandWidth={this.state.minuteHandWidth}
+                                    //react-clock__hand__body
+                                    />
+                                </Grid>
                             </Grid>
                         </MyPaper>
                     </Container>

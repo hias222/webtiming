@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from '@material-ui/core/Container';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -116,37 +117,37 @@ class Header extends React.Component {
 
         return (
             <div>
-                <MyPaper >
-                   
-                    <div >
-                        <Grid >
-                            <div className={heatclass}>
-                                {this.props.info.competition}
-                            </div>
-                            <div className={heatclass_event}>
-                                Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
-                            </div>
-                        </Grid>
-                        <Grid align="right" >
-                            <div className={heatclass_time}>
-                                {this.format(this.props.time)}
-                            </div>
-                        </Grid>
-                        <Table >
-                            {this.tableheader}
-                            {this.laneversion}
-                        </Table>
-                    </div>
-                </MyPaper>
-                <br></br>
+                <Container maxWidth="md">
+                    <MyPaper >
 
+                        <div >
+                            <Grid >
+                                <div className={heatclass}>
+                                    {this.props.info.competition}
+                                </div>
+                                <div className={heatclass_event}>
+                                    Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
+                                </div>
+                            </Grid>
+                            <Grid align="right" >
+                                <div className={heatclass_time}>
+                                    {this.format(this.props.time)}
+                                </div>
+                            </Grid>
+                            <Table >
+                                {this.tableheader}
+                                {this.laneversion}
+                            </Table>
+                        </div>
+                    </MyPaper>
+                </Container>
+                <br></br>
                 <div>
                     {this.props.responsestate
                         ?
                         ""
                         : <LinearProgress />}
                 </div>
-
             </div>
         )
     }

@@ -121,10 +121,6 @@ class Staticmessage extends React.Component {
                 ))}
             </table>
             return webcontent;
-            //lines.forEach(item => {
-            //    var text = <p>item</p>
-            //    webcontent = webcontent + text;
-            //  });
         }
 
         return webcontent
