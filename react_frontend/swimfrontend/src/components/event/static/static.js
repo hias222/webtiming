@@ -47,9 +47,6 @@ class Static extends React.Component {
                     <td>
                         <div className={staticheatclass}>Name/Verein</div>
                     </td>
-                    <td>
-                        <div className={staticheatclass_time}>Meldezeit</div>
-                    </td>
                 </tr>
             </thead>
         } else {
@@ -75,13 +72,19 @@ class Static extends React.Component {
         if (this.props.showstartlist) {
             this.laneversion = <tbody>
                 {this.props.lanes.map((lane, index) => (
-                    <StartStaticLane lane={lane} key={index} />
+                    <StartStaticLane
+                        lane={lane}
+                        key={index}
+                        rowsperlane={this.props.rowsperlane} />
                 ))}
             </tbody>
         } else {
             this.laneversion = <tbody>
                 {this.props.lanes.map((lane, index) => (
-                    <StaticLane lane={lane} key={index} />
+                    <StaticLane
+                        lane={lane}
+                        key={index}
+                        rowsperlane={this.props.rowsperlane} />
                 ))}
             </tbody>
         }
@@ -99,6 +102,7 @@ class Static extends React.Component {
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
 
+        let statictable = classnames('statictable');
         let staticmaintable = classnames('staticmaintable');
         let staticheadertable = classnames('staticheadertable');
 
@@ -111,36 +115,39 @@ class Static extends React.Component {
         return (
             <div>
                 <div>
-                    <table className={staticemptytable} ></table>
+                    <table className={staticemptytable} ><tr><td>Rows per lane: {this.props.rowsperlane}</td></tr></table>
                 </div>
                 <div>
-                    <table className={staticheadertable}>
-                        <tbody>
-                            <tr className={staticeventname}>
-                                <td>{this.props.info.competition}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table className={staticheadertable}>
-                        <tbody>
-                            <tr className={staticheatevent}>
-                                <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
-                                    : {this.props.info.heat}</td>
-                                <td className={staticheader_time}>{this.format(this.props.time)}</td>
-                            </tr>
-                        </tbody>
-                    </table >
+                    <table className={statictable}>
+                        <tr><td>
+                            <table className={staticheadertable}>
+                                <tbody>
+                                    <tr className={staticeventname}>
+                                        <td>{this.props.info.competition}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table className={staticheadertable}>
+                                <tbody>
+                                    <tr className={staticheatevent}>
+                                        <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
+                                            : {this.props.info.heat}</td>
+                                        <td className={staticheader_time}>{this.format(this.props.time)}</td>
+                                    </tr>
+                                </tbody>
+                            </table >
 
-                    <table className={staticmaintable}>
-                        {this.tableheader}
-                        {this.laneversion}
-                    </table>
+                            <table className={staticmaintable}>
+                                {this.tableheader}
+                                {this.laneversion}
+                            </table>
 
-                    <br></br>
+                            <br></br>
 
-                    <div>
-                        {this.connectionstatus}
-                    </div>
+                            <div>
+                                {this.connectionstatus}
+                            </div>
+                        </td></tr></table>
                 </div >
             </div>
 

@@ -6,26 +6,36 @@ $farbegeradeschrift: white;
 $farbeungeradeschrift: white;
 $lanecolor: rgb(152, 0, 23);
 
-$farbeschrift: rgb(195, 220, 232);
+$farbeschrift: white;
 
 $farbehintergrund: rgb(27, 50, 179);
 
-$lanesize: 1.6em; 
+$lanesize: 1.5em; 
+$topsize: 1.4em;
 //linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
 
 // the <table> css
+
+.statictable {
+    border-spacing: 0;
+    width: 512px;
+    height: 384px;
+    border-spacing: 0;
+    background-color: $farbehintergrund;
+}
+
 .staticmaintable {
     border-spacing: 0;
     width: 512px;
-    height: 284px;
-    background-color: $farbehintergrund
+    // height: 284px;
+    //background-color: $farbehintergrund
 }
 
 .staticheadertable{
     border-spacing: 0;
     width: 512px;
-    height: 30px;
-    background-color: $farbehintergrund
+    //height: 30px;
+    //background-color: $farbehintergrund
 }
 
 .staticemptytable {
@@ -44,6 +54,7 @@ $lanesize: 1.6em;
 
 .staticheatevent{
     color: $farbeschrift;
+    font-size: $topsize;
 }
 
 .staticheader_time{
@@ -65,6 +76,36 @@ $lanesize: 1.6em;
     color: $farbeungeradeschrift;
     background: $farbeungerade;
     font-size: $lanesize;
+}
+
+.staticlane_time{
+    color: $farbeschrift;
+    font-size: 1.3em;
+    align-items: right;
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.startstaticlane_time{
+    color: $farbeschrift;
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.staticemptylane {
+    font-size: 0.6em;
+}
+
+.staticclub {
+    font-size: 0.6em;
+}
+
+.staticname {
+    font-size: 1em;
+}
+
+.staticplace {
+    font-size: 1.3em;
 }
 
 .startstaticlaneeven {
@@ -97,10 +138,10 @@ $lanesize: 1.6em;
 
 .staticheatheader_time {
     color: $farbeschrift;
-    font-size: $lanesize;
     text-align: right;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
+
 
 //message
 
@@ -168,3 +209,26 @@ $lanesize: 1.6em;
     }
 
 }
+
+//
+
+@keyframes ticker {
+    20% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+  }
+
+.ticker-move {
+    display: inline-block;
+    width: 300px;
+    white-space: nowrap;
+    //padding-right: px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: ticker;
+    animation-duration: 6s;
+  }
+
+  .ticker-item{
+    display: inline-block;
+    padding: 0 4px;
+  }

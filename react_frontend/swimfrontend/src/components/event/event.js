@@ -80,6 +80,7 @@ class Event extends React.Component {
           time={this.props.time}
           responsestate={this.props.responsestate}
           showstartlist={this.props.showstartlist}
+          rowsperlane={this.props.rowsperlane}
         />
       }
     } else {

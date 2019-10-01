@@ -160,7 +160,7 @@ class Staticmessage extends React.Component {
                             <td>
                                 {this.splitMessageLines()}
                             </td>
-                            <td>
+                            <td align='center'>
                                 <Clock
                                     value={newclocktime}
                                     size={this.state.size}

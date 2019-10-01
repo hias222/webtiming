@@ -16,6 +16,8 @@ var activelapdata = false;
 class App extends Component {
   constructor() {
     var backend_url = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":4001" : process.env.REACT_APP_BACKEND_URL
+    var rowsperlane = typeof (process.env.REACT_APP_STATIC_ROWS_PER_LANE) != 'undefined' ? process.env.REACT_APP_STATIC_ROWS_PER_LANE : "1"
+   
     super();
     this.state = {
       info: { "event": "1", "gender": "M", "relaycount": "1", "swimstyle": "BREAST", "distance": "50", "type": "header", "heat": "1", "competition": "Schwimmen" },
@@ -31,7 +33,8 @@ class App extends Component {
       mode: "race",
       unixcompetitiontime: 1568556787000,
       message: "",
-      showstartlist: false
+      showstartlist: false,
+      rowsperlane: rowsperlane
     };
 
   }
@@ -307,6 +310,7 @@ class App extends Component {
           time={this.state.time}
           showstartlist={this.state.showstartlist}
           responsestate={this.state.response}
+          rowsperlane={this.state.rowsperlane}
         />
       }
 

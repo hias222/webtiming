@@ -1,6 +1,7 @@
 import React from 'react'
 
 import classnames from 'classnames';
+import getBirthYear from '../../getBirthYear'
 
 class StaticLane extends React.Component {
     //const Service = ({ service }) => {
@@ -9,9 +10,57 @@ class StaticLane extends React.Component {
         return n % 2 === 0;
     }
 
+    //shortswimName = swimName.toString().substr(0, 40)
+
+    getSwimmerName() {
+        var swimmerName = "keine Belegung"
+        var spanName = ""
+
+        let staticclub = classnames('staticclub')
+        let staticname = classnames('staticname')
+
+
+        var rows = this.props.rowsperlane;
+
+        if (rows === "2") {
+            if (this.props.lane.lastname !== undefined) {
+                swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
+                spanName = <td>
+                    <table>
+                        <tr className={staticname}>
+                            <td>
+                                {swimmerName.toString().substr(0, 30)}
+                            </td>
+                        </tr>
+                        <tr className={staticclub}>
+                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
+                        </tr>
+                    </table>
+                </td>
+                return spanName;
+            }
+        } else {
+            if (this.props.lane.lastname !== undefined) {
+                swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
+                spanName = <td className={staticname}>{swimmerName}</td>
+                return spanName;
+            }
+        }
+
+
+
+        let staticemptylane = classnames('staticemptylane')
+        spanName = <td className={staticemptylane}>{swimmerName}</td>
+        return spanName;
+    }
+
     render() {
 
         let laneclass = classnames('staticlaneodd')
+        let staticlane_time = classnames('staticlane_time')
+
+        let staticplace = classnames('staticplace')
+
 
         if (this.isEven(this.props.lane.lane)) {
             laneclass = classnames('staticlaneeven');
@@ -38,11 +87,10 @@ class StaticLane extends React.Component {
 
         return (
             <tr key={this.props.lane.lane} className={laneclass}>
-                <td align="left">{this.props.lane.lane}</td>
-                <td align="left">{place}</td>
-                <td align="left">{this.props.lane.firstname} {this.props.lane.lastname}
-                </td>
-                <td align="right">{time}</td>
+                <td className={staticplace}>{this.props.lane.lane}</td>
+                <td className={staticplace}>{place}</td>
+                {this.getSwimmerName()}
+                <td className={staticlane_time}>{time}</td>
             </tr>
         )
     }
