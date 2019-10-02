@@ -31,23 +31,28 @@ class MessageMapper {
   }
 
   // Sends a mqtt message to topic: mytopic
-  mapMessage(message) {
+  async mapMessage(message) {
     try {
       console.log("<message_mapper> beginn parse")
       var newmessage = incoming.parseColoradoData(message)
       console.log("<message_mapper> aditional steps check")
       if (newmessage != null) {
+        console.log("<message_mapper> generate message")
+        var stringnewmessage = JSON.stringify(newmessage)
+        console.log("<mapper> datamapping mapper: " + stringnewmessage)
+        sendStatus = mqttSender.sendMessage(stringnewmessage);
+
         try {
           if (newmessage.type === "header") {
             if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {
               lastEvent = newmessage.event
               lastHeat = newmessage.heat
-              lanemessages = [] 
+              lanemessages = []
               console.log("<mapper> Store heat")
               for (var i = 0; i < lanes; i++) {
                 //we send all lanes
                 var incomingmsg = "lane " + (i + 1);
-                storeLaneData(i+1, incomingmsg);
+                storeLaneData(i + 1, incomingmsg);
                 var newlanemessage = incoming.parseColoradoData(incomingmsg.toString())
                 var stringnewlanemessage = JSON.stringify(newlanemessage)
                 mqttSender.sendMessage(stringnewlanemessage);
@@ -72,11 +77,6 @@ class MessageMapper {
           console.log(err)
           console.log(" <mapper> message_mapper wrong old heat")
         }
-        console.log("<message_mapper> generate message")
-        var stringnewmessage = JSON.stringify(newmessage)
-
-        console.log("<mapper> datamapping mapper: " + stringnewmessage)
-        sendStatus = mqttSender.sendMessage(stringnewmessage);
       }
     } catch (err) {
       stringnewmessage = "failed mapping"

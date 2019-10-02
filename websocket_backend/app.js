@@ -112,6 +112,7 @@ function storeBaseData(message) {
       lanemessages.splice(lanenumber, number_of_elements_to_remove, jsonmessage);
     }
   } catch (err) {
+    console.log("<app.js> error")
     console.log(err)
   }
 }

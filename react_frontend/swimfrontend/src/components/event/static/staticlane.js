@@ -38,6 +38,22 @@ class StaticLane extends React.Component {
                     </table>
                 </td>
                 return spanName;
+            } else if (this.props.lane.code !== undefined) {
+                //Staffel
+                swimmerName = this.props.lane.name
+                spanName = <td>
+                    <table>
+                        <tr className={staticname}>
+                            <td>
+                                {swimmerName.toString().substr(0, 30)}
+                            </td>
+                        </tr>
+                        <tr className={staticclub}>
+                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
+                        </tr>
+                    </table>
+                </td>
+                return spanName;
             }
         } else {
             if (this.props.lane.lastname !== undefined) {

@@ -183,15 +183,20 @@ class swimevent {
         try {
             var lastswimmer = this.getSwimmerHeat(internalheadID, lane);
             console.log("<swim_event> lastswimmer")
-            console.log(lastswimmer)
+            //console.log(lastswimmer)
             //var searchstring = "[?lane == '" + lane + "']"
             //var tmp = jmespath.search(lastswimmers, searchstring);
             //[].relay[][].RELAYPOSITION[].ATTR
             var swimmer = typeof lastswimmer[0] !== "undefined" ? lastswimmer[0] : JSON.parse(emptylane);
             if (typeof swimmer.athleteid !== "undefined") {
+                console.log("<swim_event> type single")
                 var club = this.getSwimmerClub(lastswimmer[0].athleteid)
                 return { ...swimmer, ...club[0], ...JSON.parse(emptylane) };
+            } else if (typeof swimmer.round !== "undefined") {
+                console.log("<swim_event> type relay")
+                return { ...JSON.parse(emptylane), ...swimmer };
             } else {
+                console.log("<swim_event> type nothing")
                 return swimmer;
             }
         } catch (err) {
@@ -208,7 +213,7 @@ class swimevent {
 
     getRelayHeat(internalHeatID, lane) {
         console.log("<swim_event> get relay for internalheatid " + internalHeatID + " no relay lane " + lane)
-        console.log("<swim_event> relay")
+        var emptylane = "{ \"round\": \"4\"}"
 
         var searchstring = "[?RELAYS[?RELAY[?ENTRIES[?ENTRY[?ATTR.heatid == '" + internalHeatID + "' && ATTR.lane == '" + lane + "' ]]]]]"
         var tmp = jmespath.search(event_clubs, searchstring);
@@ -220,7 +225,7 @@ class swimevent {
         var get_club_Search = "[].{code: ATTR.code, name: ATTR.name}"
         var club_per_lane = jmespath.search(tmp, get_club_Search);
 
-        var complete_entry = [{ ...club_per_lane[0], ...cleared_entry[0]}]
+        var complete_entry = [{ ...JSON.parse(emptylane), ...club_per_lane[0], ...cleared_entry[0]}]
         
         //console.log(JSON.stringify(complete_entry))
     
