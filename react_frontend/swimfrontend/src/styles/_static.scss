@@ -10,7 +10,9 @@ $farbeschrift: white;
 
 $farbehintergrund: rgb(27, 50, 179);
 
-$lanesize: 1.5em; 
+$lanesize: 1.3em; 
+$smallsize: 0.6em;
+$normalsize: 0.9em;
 $topsize: 1.4em;
 //linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
 
@@ -41,7 +43,7 @@ $topsize: 1.4em;
 .staticemptytable {
     border-spacing: 0;
     width: 512px;
-    height: 384px;
+    //height: 384px;
     border: 2px solid black;
 }
 
@@ -80,7 +82,7 @@ $topsize: 1.4em;
 
 .staticlane_time{
     color: $farbeschrift;
-    font-size: 1.3em;
+    font-size: $lanesize;
     align-items: right;
     text-align: right;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
@@ -93,19 +95,19 @@ $topsize: 1.4em;
 }
 
 .staticemptylane {
-    font-size: 0.6em;
+    font-size: $smallsize;
 }
 
 .staticclub {
-    font-size: 0.6em;
+    font-size: $smallsize;
 }
 
 .staticname {
-    font-size: 1em;
+    font-size: $normalsize;
 }
 
 .staticplace {
-    font-size: 1.3em;
+    font-size: $lanesize;
 }
 
 .startstaticlaneeven {
@@ -128,12 +130,12 @@ $topsize: 1.4em;
 .staticheatheader {
     color: $farbeschrift;
     text-align: left;
-    font-size: 1em;
+    font-size: $normalsize;
 }
 
 .staticheatbackground {
     color: $farbeschrift;
-    font-size: 1em;
+    font-size: $normalsize;
 }
 
 .staticheatheader_time {
@@ -141,10 +143,7 @@ $topsize: 1.4em;
     text-align: right;
 }
 
-
-
 //message
-
 .staticmessagetable{
     border-spacing: 0;
     width: 512px;

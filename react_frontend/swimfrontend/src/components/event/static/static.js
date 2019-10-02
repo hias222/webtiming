@@ -115,7 +115,7 @@ class Static extends React.Component {
         return (
             <div>
                 <div>
-                    <table className={staticemptytable} ><tr><td>Rows per lane: {this.props.rowsperlane}</td></tr></table>
+                    <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} ><tr><td>Rows per lane: {this.props.rowsperlane}</td></tr></table>
                 </div>
                 <div>
                     <table className={statictable}>
@@ -136,14 +136,10 @@ class Static extends React.Component {
                                     </tr>
                                 </tbody>
                             </table >
-
                             <table className={staticmaintable}>
                                 {this.tableheader}
                                 {this.laneversion}
                             </table>
-
-                            <br></br>
-
                             <div>
                                 {this.connectionstatus}
                             </div>

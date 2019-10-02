@@ -56,6 +56,14 @@ zip -q ${RASP_DIR}/stage8/01-install-app/files/app.zip app.js package.json prope
 echo "stage8 ${RASP_DIR}/stage8/01-install-app/files"
 echo `ls -la ${RASP_DIR}/stage8/01-install-app/files/app.zip`
 
+echo ""
+
+rm ${RASP_DIR}/cloud1/00-install-cloud/files/app.zip
+zip -q ${RASP_DIR}/cloud1/00-install-cloud/files/app.zip app.js package.json property.ini uploads/* incoming/* mqtt/* data/* resources/*
+
+echo "cloud1 ${RASP_DIR}/cloud1/00-install-cloud/files"
+echo `ls -la ${RASP_DIR}/cloud1/00-install-cloud/files/app.zip`
+
 echo ""echo ""
 
 echo "---------------------------------------------------"
