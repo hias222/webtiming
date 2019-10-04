@@ -114,11 +114,13 @@ class Staticmessage extends React.Component {
         if (this.props.type === 'message') {
 
             webcontent = <table >
-                {lines.map((msg, index) => (
-                    <tr className={staticmessagetext_main}>
-                        <td>{msg}</td>
-                    </tr>
-                ))}
+                <tbody>
+                    {lines.map((msg, index) => (
+                        <tr className={staticmessagetext_main} key={index}>
+                            <td>{msg}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
             return webcontent;
         }
@@ -143,34 +145,41 @@ class Staticmessage extends React.Component {
         let unixtoshow = isNaN(clocktime) ? 1 : clocktime
         let newclocktime = new Date(unixtoshow);
 
-
         return (
             <div >
                 <div>
-                    <table className={staticemptytable} ></table>
+                    <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} >
+                        <tbody>
+                            <tr><td>Message View</td></tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div>
                     <table className={staticmessagetable_header} >
-                        <tr className={staticmessagetext_header}><td>
-                            {this.props.info.competition}
-                        </td></tr>
+                        <tbody>
+                            <tr className={staticmessagetext_header}><td>
+                                {this.props.info.competition}
+                            </td></tr>
+                        </tbody>
                     </table>
                     <table className={staticmessagetable}>
-                        <tr className={staticmessagetext_main}>
-                            <td>
-                                {this.splitMessageLines()}
-                            </td>
-                            <td align='center'>
-                                <Clock
-                                    value={newclocktime}
-                                    size={this.state.size}
-                                    hourHandWidth={this.state.hourHandWidth}
-                                    minuteHandWidth={this.state.minuteHandWidth}
-                                    className="message_clock"
-                                //react-clock__hand__body
-                                />
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr className={staticmessagetext_main}>
+                                <td>
+                                    {this.splitMessageLines()}
+                                </td>
+                                <td align='center'>
+                                    <Clock
+                                        value={newclocktime}
+                                        size={this.state.size}
+                                        hourHandWidth={this.state.hourHandWidth}
+                                        minuteHandWidth={this.state.minuteHandWidth}
+                                        className="message_clock"
+                                    //react-clock__hand__body
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

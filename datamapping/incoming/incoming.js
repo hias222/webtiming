@@ -28,7 +28,8 @@ const actions = {
     MESSAGE: 'message',
     VIDEO: 'video',
     LENEX: 'lenex',
-    CONFIGURATION: 'configuration'
+    CONFIGURATION: 'configuration',
+    STARTLIST: 'startlist'
 }
 
 exports.parseColoradoData = function (message) {
@@ -63,6 +64,10 @@ exports.parseColoradoData = function (message) {
             case actions.CLEAR:
                 var jsonclear = "{ \"type\": \"clear\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
                 return JSON.parse(jsonclear);
+                break;
+            case actions.STARTLIST:
+                var jsonstartlist = "{ \"type\": \"startlist\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonstartlist);
                 break;
             case actions.VIDEO:
                 var jsonvideo = "{ \"type\": \"video\", \"version\": \"1\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
@@ -185,7 +190,7 @@ function getMessageType(message) {
 
 function clearMessageText(message) {
     var strmessage = message.toString();
-    var newMessage =  strmessage.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
+    var newMessage = strmessage.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
     return newMessage;
 }
 

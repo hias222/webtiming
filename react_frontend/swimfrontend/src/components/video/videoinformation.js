@@ -6,13 +6,18 @@ class VideoInformation extends React.Component {
 
     render() {
         var videoname = this.props.name;
+
+
         return (
             <div>
-                <p>
-                   {videoname} 
-                </p>
+               
+                <div>
+                    <p>
+                        {videoname}
+                    </p>
+                </div>
             </div>
-            
+
         )
     }
 };

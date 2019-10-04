@@ -115,35 +115,42 @@ class Static extends React.Component {
         return (
             <div>
                 <div>
-                    <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} ><tr><td>Rows per lane: {this.props.rowsperlane}</td></tr></table>
+                    <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} >
+                        <tbody>
+                            <tr><td>Rows per lane: {this.props.rowsperlane}</td></tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div>
                     <table className={statictable}>
-                        <tr><td>
-                            <table className={staticheadertable}>
-                                <tbody>
-                                    <tr className={staticeventname}>
-                                        <td>{this.props.info.competition}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table className={staticheadertable}>
-                                <tbody>
-                                    <tr className={staticheatevent}>
-                                        <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
-                                            : {this.props.info.heat}</td>
-                                        <td className={staticheader_time}>{this.format(this.props.time)}</td>
-                                    </tr>
-                                </tbody>
-                            </table >
-                            <table className={staticmaintable}>
-                                {this.tableheader}
-                                {this.laneversion}
-                            </table>
-                            <div>
-                                {this.connectionstatus}
-                            </div>
-                        </td></tr></table>
+                        <tbody>
+                            <tr><td>
+                                <table className={staticheadertable}>
+                                    <tbody>
+                                        <tr className={staticeventname}>
+                                            <td>{this.props.info.competition}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table className={staticheadertable}>
+                                    <tbody>
+                                        <tr className={staticheatevent}>
+                                            <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
+                                                : {this.props.info.heat}</td>
+                                            <td className={staticheader_time}>{this.format(this.props.time)}</td>
+                                        </tr>
+                                    </tbody>
+                                </table >
+                                <table className={staticmaintable}>
+                                        {this.tableheader}
+                                        {this.laneversion}
+                                </table>
+                                <div>
+                                    {this.connectionstatus}
+                                </div>
+                            </td></tr>
+                        </tbody>
+                    </table>
                 </div >
             </div>
 

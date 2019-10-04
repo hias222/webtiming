@@ -76,6 +76,7 @@ class App extends Component {
     this.startTimer = this.startTimer.bind(this)
     this.stopTimer = this.stopTimer.bind(this)
     this.resetTimer = this.resetTimer.bind(this)
+    this.activatePage = this.activatePage.bind(this)
 
     this.laptimer = this.laptimer.bind(this)
     this.clocktimer = this.clocktimer.bind(this)
@@ -197,6 +198,12 @@ class App extends Component {
     };
   }
 
+  activatePage() {
+    this.setState({ event: this.state.info.event })
+    this.setState({ heat: this.state.info.heat })
+    console.log("activePage " + this.state.info.event + " " + this.state.info.heat)
+  }
+
   checkIncoming(jsondata) {
     if (jsondata.type === 'lane') {
       locklanes = true;
@@ -230,6 +237,8 @@ class App extends Component {
       this.setState({ event: jsondata.event })
       this.setState({ heat: jsondata.heat })
 
+      setTimeout(this.activatePage, 500);
+
       if (jsondata.heat !== this.state.info.heat || jsondata.event !== this.state.info.event) {
         console.log("header clear ")
         this.clearlanes();
@@ -238,7 +247,7 @@ class App extends Component {
           state.showstartlist = true
         })
       } else {
-        console.log("header no clear " + jsondata.heat + " " + this.state.info.heat)
+        console.log("header no clear " + this.state.info.event + " " + this.state.info.heat)
       }
     } else if (jsondata.type === 'clear') {
       console.log("clear ")
@@ -246,6 +255,23 @@ class App extends Component {
         state.lanes = []
       })
       this.clearlanes();
+    }
+
+    if (jsondata.type === 'startlist') {
+      console.log("startlist " + this.state.info.event + " " + this.state.info.heat)
+      this.setState(state => {
+        state.showstartlist = true
+        state.type =  "normal"
+      })
+
+      setTimeout(this.activatePage, 500);
+    }
+
+    if (jsondata.type === 'race') {
+      console.log("startlist")
+      this.setState(state => {
+        state.showstartlist = false
+      })
     }
 
     if (jsondata.type === 'clock') {
@@ -341,8 +367,6 @@ class App extends Component {
     } else {
       webcontent = <p>wrong mode</p>
     }
-
-
 
     return (
       <div>

@@ -29,17 +29,24 @@ class StartStaticLane extends React.Component {
                 swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
                 spanName = <td>
                     <table width='100%'>
-                        <tr className={staticname}>
-                            <td>
-                                {swimmerName}
-                            </td>
-                        </tr>
-                        <table width='100%'>
-                            <tr className={staticclub}>
-                                <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name} </td>
-                                <td className={startstaticlane_time}> {getEntryTime(this.props.lane.entrytime)}</td>
+                        <tbody>
+                            <tr className={staticname}>
+                                <td>
+                                    {swimmerName}
+                                </td>
                             </tr>
-                        </table>
+                            <tr><td>
+                                <table width='100%'>
+                                    <tbody>
+                                        <tr className={staticclub}>
+                                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name} </td>
+                                            <td className={startstaticlane_time}> {getEntryTime(this.props.lane.entrytime)}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </td>
                 return spanName;
@@ -48,14 +55,16 @@ class StartStaticLane extends React.Component {
                 swimmerName = this.props.lane.name
                 spanName = <td>
                     <table>
-                        <tr className={staticname}>
-                            <td>
-                                {swimmerName.toString().substr(0, 30)}
-                            </td>
-                        </tr>
-                        <tr className={staticclub}>
-                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
-                        </tr>
+                        <tbody>
+                            <tr className={staticname}>
+                                <td>
+                                    {swimmerName.toString().substr(0, 30)}
+                                </td>
+                            </tr>
+                            <tr className={staticclub}>
+                                <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </td>
                 return spanName;

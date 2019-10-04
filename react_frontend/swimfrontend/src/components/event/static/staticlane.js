@@ -27,14 +27,16 @@ class StaticLane extends React.Component {
                 swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
                 spanName = <td>
                     <table>
-                        <tr className={staticname}>
-                            <td>
-                                {swimmerName.toString().substr(0, 30)}
-                            </td>
-                        </tr>
-                        <tr className={staticclub}>
-                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
-                        </tr>
+                        <tbody>
+                            <tr className={staticname}>
+                                <td>
+                                    {swimmerName.toString().substr(0, 30)}
+                                </td>
+                            </tr>
+                            <tr className={staticclub}>
+                                <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </td>
                 return spanName;
@@ -43,14 +45,16 @@ class StaticLane extends React.Component {
                 swimmerName = this.props.lane.name
                 spanName = <td>
                     <table>
-                        <tr className={staticname}>
-                            <td>
-                                {swimmerName.toString().substr(0, 30)}
-                            </td>
-                        </tr>
-                        <tr className={staticclub}>
-                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
-                        </tr>
+                        <tbody>
+                            <tr className={staticname}>
+                                <td>
+                                    {swimmerName.toString().substr(0, 30)}
+                                </td>
+                            </tr>
+                            <tr className={staticclub}>
+                                <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name.toString().substr(0, 50)}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </td>
                 return spanName;
@@ -62,8 +66,6 @@ class StaticLane extends React.Component {
                 return spanName;
             }
         }
-
-
 
         let staticemptylane = classnames('staticemptylane')
         spanName = <td className={staticemptylane}>{swimmerName}</td>
@@ -86,12 +88,12 @@ class StaticLane extends React.Component {
         //&& this.props.lane.place !== null
         if (this.props.lane.place !== 'undefined') {
             if (this.props.lane.place === "0") {
-                place = "<-->"
+                place = "-"
             } else {
                 place = this.props.lane.place
             }
         } else {
-            place = "-"
+            place = ""
         }
 
         var { time } = ""
