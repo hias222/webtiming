@@ -11,6 +11,7 @@ the software has these components:
 * react frontend -> react_fontend/swimfrontend (react, Nodejs)
 * scripts for generating RPi image -> raspberry (bash, pi-gen, <https://github.com/RPi-Distro/pi-gen)>
 * scripts -> generate packages for RPi pi-gen (bash)
+* monitor
 
 ## Installs
 
