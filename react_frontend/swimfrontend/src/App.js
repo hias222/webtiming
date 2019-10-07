@@ -91,6 +91,7 @@ class App extends Component {
 
     socket.on("disconnect", data => {
       console.log("Disconneted -----------------------------")
+      console.log(backend_url)
       this.setState({ response: false })
     })
 

@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+.env.*
 *.mp4
 
 # testing
