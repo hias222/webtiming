@@ -6,7 +6,7 @@ const index = require("./routes/index");
 
 require('dotenv').config();
 
-var connectionString =  process.env.AZURE_CONNECT_STRING
+var connectionString = process.env.AZURE_CONNECT_STRING
 
 var { EventHubClient, EventPosition } = require('@azure/event-hubs');
 
@@ -21,7 +21,7 @@ var headermessage = {
   heat: '0'
 };
 
-var start = { type: 'start'};
+var start = { type: 'start' };
 var laststart = Date.now();
 
 var printError = function (err) {
@@ -29,13 +29,6 @@ var printError = function (err) {
 };
 
 var printMessage = function (message) {
-  //console.log('Telemetry received: ');
-  //console.log(JSON.stringify(message.body));
-  //console.log('Application properties (set by device): ')
-  //console.log(JSON.stringify(message.applicationProperties));
-  //console.log('System properties (set by IoT Hub): ')
-  //console.log(JSON.stringify(message.annotations));
-  //console.log('');
 
   storeBaseData(message.body)
 
@@ -63,12 +56,15 @@ EventHubClient.createFromIotHubConnectionString(connectionString).then(function 
 const app = express();
 app.use(index);
 const server = http.createServer(app);
-const io = socketIo(server); // < Interesting!
+const io = socketIo(server,
+  {
+    path: '/ws'
+  }); // < Interesting!
 
 io.on("connection", socket => {
   console.log('websocket backend Subscribing to azure');
   //client.subscribe("topic_name");
-  sendBaseData()
+  sendBaseData(socket)
   socket.on("disconnect", () => console.log("websocket backend Client disconnected"));
 
   socket.on("error", (error) => {
@@ -106,7 +102,7 @@ function storeBaseData(message) {
 
     if (jsonmessage.type == "clear") {
       console.log("clear lanes")
-      lanemessages = [] 
+      lanemessages = []
     }
 
     if (jsonmessage.type == "lane") {
@@ -134,7 +130,7 @@ function sendBaseData(socket) {
 
     var timediff = Date.now() - laststart;
     var jsondiff = "{\"diff\":\"" + timediff + "\" }"
-    var newmessage = {...start,...JSON.parse(jsondiff) }
+    var newmessage = { ...start, ...JSON.parse(jsondiff) }
     socket.emit("FromAPI", JSON.stringify(newmessage));
   } catch (error) {
     console.error(`websocket backend Error emit : ${error.code}`);

@@ -17,7 +17,8 @@ class App extends Component {
   constructor() {
     var backend_url = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":4001" : process.env.REACT_APP_BACKEND_URL
     var rowsperlane = typeof (process.env.REACT_APP_STATIC_ROWS_PER_LANE) != 'undefined' ? process.env.REACT_APP_STATIC_ROWS_PER_LANE : "1"
-
+    var backend_path = typeof (process.env.REACT_APP_BACKEND_PATH) != 'undefined' ? "/" + process.env.REACT_APP_BACKEND_PATH : "/socket.io"
+    
     super();
     this.state = {
       info: { "event": "1", "gender": "M", "relaycount": "1", "swimstyle": "BREAST", "distance": "50", "type": "header", "heat": "1", "competition": "Schwimmen" },
@@ -26,6 +27,7 @@ class App extends Component {
       event: 0,
       heat: 0,
       endpoint: backend_url,
+      backendpath: backend_path,
       isOn: false,
       time: 0,
       webtype: "",
@@ -36,6 +38,8 @@ class App extends Component {
       showstartlist: false,
       rowsperlane: rowsperlane
     };
+
+    console.log('use backend ' + backend_url + ' path ' + backend_path)
 
   }
 
@@ -70,7 +74,12 @@ class App extends Component {
       webtype: title_theme
     })
     const { endpoint } = this.state;
-    const socket = socketIOClient(endpoint);
+    const { backendpath } = this.state;
+    console.log("endpoint socketio " + endpoint + " " + backendpath)
+    const socket = socketIOClient(endpoint,
+      {
+        path: backendpath
+      });
     //console.log("url is %PUBLIC_URL% " + process.env.PUBLIC_URL + window.location.hostname);
 
     this.startTimer = this.startTimer.bind(this)
@@ -91,9 +100,18 @@ class App extends Component {
 
     socket.on("disconnect", data => {
       console.log("Disconneted -----------------------------")
-      console.log(backend_url)
+      console.log(this.backend_url)
+      console.log(this.state.endpoint)
       this.setState({ response: false })
     })
+
+    socket.on("error", data => {
+      console.log("Error -----------------------------")
+      console.log(this.backend_url)
+      console.log(this.state.endpoint)
+      this.setState({ response: false })
+    })
+
 
 
   }
