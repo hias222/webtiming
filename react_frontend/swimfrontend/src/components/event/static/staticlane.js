@@ -3,6 +3,8 @@ import React from 'react'
 import classnames from 'classnames';
 import getBirthYear from '../../getBirthYear'
 
+import PoolIcon from '@material-ui/icons/Pool';
+
 class StaticLane extends React.Component {
     //const Service = ({ service }) => {
 
@@ -18,6 +20,7 @@ class StaticLane extends React.Component {
 
         let staticclub = classnames('staticclub')
         let staticname = classnames('staticname')
+        let internaltable = classnames('internaltable')
 
 
         var rows = this.props.rowsperlane;
@@ -26,7 +29,7 @@ class StaticLane extends React.Component {
             if (this.props.lane.lastname !== undefined) {
                 swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
                 spanName = <td>
-                    <table>
+                    <table className={internaltable}>
                         <tbody>
                             <tr className={staticname}>
                                 <td>
@@ -88,7 +91,7 @@ class StaticLane extends React.Component {
         //&& this.props.lane.place !== null
         if (this.props.lane.place !== 'undefined') {
             if (this.props.lane.place === "0") {
-                place = "-"
+                place = <PoolIcon/>
             } else {
                 place = this.props.lane.place
             }

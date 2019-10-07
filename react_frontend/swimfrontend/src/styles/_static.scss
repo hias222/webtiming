@@ -12,8 +12,11 @@ $farbehintergrund: rgb(27, 50, 179);
 
 $lanesize: 1.3em; 
 $smallsize: 0.6em;
-$normalsize: 0.9em;
+$normalsize: 1em;
 $topsize: 1.4em;
+
+$laneheight: 50px;
+
 //linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
 
 // the <table> css
@@ -22,7 +25,6 @@ $topsize: 1.4em;
     border-spacing: 0;
     width: 512px;
     height: 384px;
-    border-spacing: 0;
     background-color: $farbehintergrund;
     border-top: 0;
     border-bottom: 0;
@@ -51,16 +53,33 @@ $topsize: 1.4em;
     border: 2px solid black;
 }
 
+.internaltable{
+    border-spacing: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 100%;
+}
+
+.staticfooter{
+    font-size: $smallsize;
+    border-spacing: 0;
+    text-align: right;
+    color: $farbeschrift;
+}
 //header
 
 .staticeventname{
     color: $farbeschrift;
     text-align: center;
+    font-size: 1.1em;
+    //font-size: $normalsize;
 }
 
 .staticheatevent{
     color: $farbeschrift;
-    font-size: $topsize;
+    font-size: $lanesize;
 }
 
 .staticheader_time{
@@ -76,12 +95,14 @@ $topsize: 1.4em;
     color: $farbegeradeschrift;
     background: $farbegerade;
     font-size: $lanesize;
+    height: $laneheight;
 }
 
 .staticlaneodd {
     color: $farbeungeradeschrift;
     background: $farbeungerade;
     font-size: $lanesize;
+    height: $laneheight;
 }
 
 .staticlane_time{
@@ -112,18 +133,22 @@ $topsize: 1.4em;
 
 .staticplace {
     font-size: $lanesize;
+    width: 49px;
+    text-align: center;
 }
 
 .startstaticlaneeven {
     color: $farbegeradeschrift;
     background: $farbegerade;
     font-size: $lanesize;
+    height: $laneheight;
 }
 
 .startstaticlaneodd {
     color: $farbeungeradeschrift;
     background: $farbeungerade;
     font-size: $lanesize;
+    height: $laneheight;
 }
 
 .staticheadername {
@@ -134,17 +159,20 @@ $topsize: 1.4em;
 .staticheatheader {
     color: $farbeschrift;
     text-align: left;
-    font-size: $normalsize;
+    font-size: $smallsize;
+    text-align: center;
 }
 
 .staticheatbackground {
     color: $farbeschrift;
     font-size: $normalsize;
+    
 }
 
 .staticheatheader_time {
     color: $farbeschrift;
-    text-align: right;
+    font-size: $smallsize;
+    text-align: center;
 }
 
 //message

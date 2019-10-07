@@ -45,7 +45,7 @@ class Static extends React.Component {
                     <td >
                         <div className={staticheatclass}>Bahn</div></td>
                     <td>
-                        <div className={staticheatclass}>Name/Verein</div>
+                        <div className={staticheatclass}>Name/Verein/Meldezeit</div>
                     </td>
                 </tr>
             </thead>
@@ -111,6 +111,8 @@ class Static extends React.Component {
         let staticheader_time = classnames('staticheader_time');
         let staticemptytable = classnames('staticemptytable');
 
+        let staticfooter = classnames('staticfooter');
+        let internaltable = classnames('internaltable');
 
         return (
             <div>
@@ -124,31 +126,47 @@ class Static extends React.Component {
                 <div>
                     <table className={statictable}>
                         <tbody>
-                            <tr><td>
-                                <table className={staticheadertable}>
-                                    <tbody>
-                                        <tr className={staticeventname}>
-                                            <td>{this.props.info.competition}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <table className={staticheadertable}>
-                                    <tbody>
-                                        <tr className={staticheatevent}>
-                                            <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
-                                                : {this.props.info.heat}</td>
-                                            <td className={staticheader_time}>{this.format(this.props.time)}</td>
-                                        </tr>
-                                    </tbody>
-                                </table >
-                                <table className={staticmaintable}>
+                            <tr>
+                                <td>
+                                    <table className={staticheadertable}>
+                                        <tbody>
+                                            <tr className={staticeventname}>
+                                                <td>{this.props.info.competition}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table className={staticheadertable}>
+                                        <tbody>
+                                            <tr className={staticheatevent}>
+                                                <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
+                                                    : {this.props.info.heat}</td>
+                                                <td className={staticheader_time}>{this.format(this.props.time)}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table >
+                                    <table className={staticmaintable}>
                                         {this.tableheader}
                                         {this.laneversion}
+                                    </table>
+                                    <div>
+                                        {this.connectionstatus}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr className={staticfooter}>
+                                <table className={internaltable}>
+                                    <tbody>
+                                        <tr>
+                                            <td align="left">
+                                                BSV - SG Mittelfranken
+                                            </td>
+                                            <td align="right">
+                                                Timing SG Fürth
+                                            </td>
+                                        </tr>
+                                    </tbody>
                                 </table>
-                                <div>
-                                    {this.connectionstatus}
-                                </div>
-                            </td></tr>
+                            </tr>
                         </tbody>
                     </table>
                 </div >

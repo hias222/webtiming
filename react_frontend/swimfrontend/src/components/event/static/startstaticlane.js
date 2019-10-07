@@ -21,6 +21,7 @@ class StartStaticLane extends React.Component {
         let staticclub = classnames('staticclub')
         let staticname = classnames('staticname')
         let startstaticlane_time = classnames('startstaticlane_time')
+        let internaltable = classnames('internaltable')
 
         var rows = this.props.rowsperlane;
 
@@ -28,7 +29,7 @@ class StartStaticLane extends React.Component {
             if (this.props.lane.lastname !== undefined) {
                 swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
                 spanName = <td>
-                    <table width='100%'>
+                    <table width='100%' className={internaltable}>
                         <tbody>
                             <tr className={staticname}>
                                 <td>
@@ -36,7 +37,7 @@ class StartStaticLane extends React.Component {
                                 </td>
                             </tr>
                             <tr><td>
-                                <table width='100%'>
+                                <table width='100%' className={internaltable}>
                                     <tbody>
                                         <tr className={staticclub}>
                                             <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name} </td>
@@ -88,6 +89,7 @@ class StartStaticLane extends React.Component {
     render() {
 
         let laneclass = classnames('startstaticlaneodd')
+        let staticplace = classnames('staticplace')
         //let staticlane_time = classnames('staticlane_time')
 
 
@@ -99,7 +101,7 @@ class StartStaticLane extends React.Component {
         return (
 
             <tr key={this.props.lane.lane} className={laneclass}>
-                <td>{this.props.lane.lane}</td>
+                <td className={staticplace}>{this.props.lane.lane}</td>
                 {this.getSwimmerName()}
             </tr>
 
