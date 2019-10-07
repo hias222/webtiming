@@ -7,9 +7,7 @@ const index = require("./routes/index");
 require('dotenv').config();
 
 var connectionString = process.env.AZURE_CONNECT_STRING
-
 var { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
 var lanemessages = []
 
 var headermessage = {
