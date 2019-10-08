@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/c7d4f7fe-53f6-4043-a10a-d574ccc6db26/resourceGroups/webtiming/providers/Microsoft.Web/sites/backendwebsocket",
-    "appService.deploySubpath": "websocket_backend/azure/websocket_backend"
-}
