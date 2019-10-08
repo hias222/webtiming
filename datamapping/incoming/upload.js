@@ -1,5 +1,7 @@
 const IncomingForm = require('formidable').IncomingForm
 
+require('dotenv').config();
+
 util = require('util');
 
 module.exports = function upload(req, res) {
@@ -8,8 +10,11 @@ module.exports = function upload(req, res) {
     
     form.parse(req);
 
+    process.env.DEST_MQTT_TOPIC
+
     form.on('fileBegin', function (name, file){
-        file.path = __dirname + '/../uploads/' + file.name;
+        file.path = process.env.LENEX_BASE_DIR + '/' + file.name;
+        //file.path = __dirname + '/../uploads/' + file.name;
     });
 
     form.on('file', function (name, file){

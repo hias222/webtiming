@@ -83,8 +83,22 @@ function storeBaseData(message) {
     console.log(jsonmessage.type)
     if (jsonmessage.type == "header") {
       headermessage = jsonmessage
+    
+      if (start.type === 'clock' || start.type === 'message' ){
+        console.log("----------------- reset " + start.type)
+          var recallmessage = "{\"type\":\"race\"}"
+          start = JSON.parse(recallmessage)
+      }
     }
 
+    if (jsonmessage.type == "race") {
+      start = jsonmessage
+    }
+
+    if (jsonmessage.type == "startlist") {
+      start = jsonmessage
+    }
+    
     if (jsonmessage.type == "start") {
       laststart = Date.now()
       start = jsonmessage
@@ -125,11 +139,10 @@ function sendBaseData(socket) {
     //io.sockets.emit("FromAPI", JSON.stringify(headermessage));
     socket.emit("FromAPI", JSON.stringify(headermessage));
 
-    console.log("init send " + headermessage.toString())
+    //console.log("init send " + headermessage.toString())
     for (let lane of lanemessages) {
       socket.emit("FromAPI", JSON.stringify(lane));
     }
-
     var timediff = Date.now() - laststart;
     var jsondiff = "{\"diff\":\"" + timediff + "\" }"
     var newmessage = { ...start, ...JSON.parse(jsondiff) }

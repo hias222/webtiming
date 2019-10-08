@@ -111,7 +111,8 @@ exports.parseColoradoData = function (message) {
 
 async function getNewLenexFile(filename) {
 
-    var lenexfile = __dirname + '/../uploads/' + filename;
+    //var lenexfile = __dirname + '/../uploads/' + filename;
+    var lenexfile = process.env.LENEX_BASE_DIR + '/' + filename;
     var destlenexpath = __dirname + '/../resources';
     var destpath = __dirname + '/../resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"
     var destfilename = 'resources/' + filename.split('.').slice(0, -1).join('.') + ".lef"

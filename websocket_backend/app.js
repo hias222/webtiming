@@ -81,7 +81,21 @@ function storeBaseData(message) {
     var jsonmessage = JSON.parse(message)
     console.log(jsonmessage.type)
     if (jsonmessage.type == "header") {
+      //console.log("new header " + JSON.stringify(jsonmessage))
       headermessage = jsonmessage
+      if (start.type === 'clock' || start.type === 'message' ){
+        console.log("----------------- reset " + start.type)
+          var recallmessage = "{\"type\":\"race\"}"
+          start = JSON.parse(recallmessage)
+      }
+    }
+
+    if (jsonmessage.type == "race") {
+      start = jsonmessage
+    }
+
+    if (jsonmessage.type == "startlist") {
+      start = jsonmessage
     }
 
     if (jsonmessage.type == "start") {
@@ -124,7 +138,7 @@ function sendBaseData(socket) {
     //io.sockets.emit("FromAPI", JSON.stringify(headermessage));
     socket.emit("FromAPI", JSON.stringify(headermessage));
 
-    console.log("init send " + headermessage.toString())
+    //console.log("init send " + JSON.stringify(headermessage))
     for (let lane of lanemessages) {
       socket.emit("FromAPI", JSON.stringify(lane));
     }
@@ -133,6 +147,7 @@ function sendBaseData(socket) {
     var jsondiff = "{\"diff\":\"" + timediff + "\" }"
     var newmessage = {...start,...JSON.parse(jsondiff) }
     socket.emit("FromAPI", JSON.stringify(newmessage));
+    //console.log("FromAPI " + JSON.stringify(newmessage))
   } catch (error) {
     console.error(`websocket backend Error emit : ${error.code}`);
     console.error(error);

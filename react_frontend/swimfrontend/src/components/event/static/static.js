@@ -16,6 +16,10 @@ class Static extends React.Component {
         this.laneversion = <tbody></tbody>
         this.tableheader = <thead></thead>
         this.connectionstatus = <LinearProgress />
+
+        this.state = {
+            fullscreen: false
+        }
     }
 
     componentDidUpdate() {
@@ -98,6 +102,22 @@ class Static extends React.Component {
         return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ',' + fract;
     }
 
+    handleToggle = (e) => {
+        const el = document.documentElement
+        if (el.requestFullscreen) {
+          el.requestFullscreen()
+        } else if (el.mozRequestFullScreen) {
+          el.mozRequestFullScreen()
+        } else if (el.webkitRequestFullscreen) {
+          el.webkitRequestFullscreen()
+        } else if (el.msRequestFullscreen) {
+          el.msRequestFullscreen()
+        }
+        this.setState({
+          fullscreen: true
+        })
+      }
+
     render() {
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
@@ -114,12 +134,21 @@ class Static extends React.Component {
         let staticfooter = classnames('staticfooter');
         let internaltable = classnames('internaltable');
 
+        var { fullscreen } = "";
+        if (this.state.fullscreen !== true) {
+            fullscreen = <button onClick={this.handleToggle}>Full screen {this.state.webtype}</button>
+        }
+
         return (
+
+
             <div>
                 <div>
                     <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} >
                         <tbody>
-                            <tr><td>Rows per lane: {this.props.rowsperlane}</td></tr>
+                            <tr><td>Rows per lane: {this.props.rowsperlane}</td>
+                            <td>{fullscreen}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

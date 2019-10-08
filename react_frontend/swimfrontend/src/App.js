@@ -52,22 +52,6 @@ class App extends Component {
     RACE: "race"
   };
 
-  handleToggle = (e) => {
-    const el = document.documentElement
-    if (el.requestFullscreen) {
-      el.requestFullscreen()
-    } else if (el.mozRequestFullScreen) {
-      el.mozRequestFullScreen()
-    } else if (el.webkitRequestFullscreen) {
-      el.webkitRequestFullscreen()
-    } else if (el.msRequestFullscreen) {
-      el.msRequestFullscreen()
-    }
-    this.setState({
-      fullscreen: true
-    })
-  }
-
   componentDidMount() {
     var title_theme = typeof (this.props.match.params.webtype) != 'undefined' ? this.props.match.params.webtype : "normal"
     document.title = "Timing - " + title_theme
@@ -350,10 +334,6 @@ class App extends Component {
 
 
   render() {
-    var { fullscreen } = "";
-    if (this.state.fullscreen !== true) {
-      fullscreen = <button onClick={this.handleToggle}>Full {this.state.webtype}</button>
-    }
 
     var { webcontent } = "";
 
@@ -395,7 +375,6 @@ class App extends Component {
 
     return (
       <div>
-        {fullscreen}
         {webcontent}
       </div>
     );
