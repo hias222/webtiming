@@ -7,7 +7,7 @@ import getEntryTime from '../../getEntryTime'
 
 import NumberCellComponent from '../../../styles/NumberCellComponent';
 import TextCellComponent from '../../../styles/TextCellComponent';
-import TimeCellComponent from '../../../styles/TimeCellComponent';
+//import TimeCellComponent from '../../../styles/TimeCellComponent';
 
 class StartLane extends React.Component {
     //const Service = ({ service }) => {
@@ -29,17 +29,15 @@ class StartLane extends React.Component {
                 <NumberCellComponent>{this.props.lane.lane}</NumberCellComponent>
                 <TextCellComponent >
                     <span >
-                        {this.props.lane.firstname} {this.props.lane.lastname} ({getBirthYear(this.props.lane.birthdate)})
+                        {this.props.lane.firstname} {this.props.lane.lastname} 
                         <span className={laneclub}>
+                        &nbsp; {getBirthYear(this.props.lane.birthdate)}
                         &nbsp; {this.props.lane.name}
-                        </span>
+                        &nbsp; ({getEntryTime(this.props.lane.entrytime)})
+                    </span>
                     </span>
                 </TextCellComponent>
-                <TimeCellComponent>
-                    <span >
-                        {getEntryTime(this.props.lane.entrytime)}
-                    </span>
-                </TimeCellComponent>
+               
             </TableRow>
 
         )

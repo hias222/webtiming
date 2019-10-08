@@ -19,8 +19,6 @@ class MqttSender {
 
   connect() {
     // Connect mqtt with credentials (in case of needed, otherwise we can omit 2nd param)
-
-   
     //this.mqttClient = mqtt.connect(this.host, { username: this.username, password: this.password });
 
     var settings = {
@@ -61,8 +59,9 @@ class MqttSender {
       sendsuccess = true;
     });
 
-    this.mqttClient.on('close', () => {
+    this.mqttClient.on('close', (info) => {
       console.log(`<sender> mqtt_sender client disconnected`);
+      console.log(info)
       sendsuccess = false;
     });
   }

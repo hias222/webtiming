@@ -7,4 +7,4 @@ DEST_MQTT_HOST=swim.azure-devices.net
 DEST_MQTT_DEVICEID="rpi-02-2019"
 DEST_MQTT_TOPIC="devices/rpi-02-2019/messages/events/"
 DEST_MQTT_PWD="SharedAccessSignature sr=swim.azure-devices.net%2Fdevices%2Frpi-02-2019&sig=QFJQg11uJcuMZW3dT9aJF3lfsB0R3NmrmoU8iOK%2Bb5I%3D&se=1570565080"
-HTTP_REST_PORT=3002
+HTTP_REST_PORT=3003

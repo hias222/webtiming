@@ -49,7 +49,7 @@ class Static extends React.Component {
                     <td >
                         <div className={staticheatclass}>Bahn</div></td>
                     <td>
-                        <div className={staticheatclass}>Name/Verein/Meldezeit</div>
+                        <div className={staticheatclass}>Name/Jahrgang/Verein/Meldezeit</div>
                     </td>
                 </tr>
             </thead>

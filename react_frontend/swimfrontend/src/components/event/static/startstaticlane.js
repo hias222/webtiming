@@ -20,7 +20,7 @@ class StartStaticLane extends React.Component {
 
         let staticclub = classnames('staticclub')
         let staticname = classnames('staticname')
-        let startstaticlane_time = classnames('startstaticlane_time')
+        //let startstaticlane_time = classnames('startstaticlane_time')
         let internaltable = classnames('internaltable')
 
         var rows = this.props.rowsperlane;
@@ -33,15 +33,17 @@ class StartStaticLane extends React.Component {
                         <tbody>
                             <tr className={staticname}>
                                 <td>
-                                    {swimmerName}
+                                    {swimmerName.toString().substr(0, 40)}
                                 </td>
                             </tr>
                             <tr><td>
                                 <table width='100%' className={internaltable}>
                                     <tbody>
                                         <tr className={staticclub}>
-                                            <td>{getBirthYear(this.props.lane.birthdate)} {this.props.lane.name} </td>
-                                            <td className={startstaticlane_time}> {getEntryTime(this.props.lane.entrytime)}</td>
+                                            <td>
+                                                {getBirthYear(this.props.lane.birthdate)} {this.props.lane.name}
+                                                &nbsp; {getEntryTime(this.props.lane.entrytime)}
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
