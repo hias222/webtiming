@@ -297,6 +297,8 @@ DerivedData/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+envlocal
+
 ### ReactNative.Gradle Stack ###
 .gradle
 
