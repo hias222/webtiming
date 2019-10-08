@@ -40,6 +40,7 @@ var printMessage = function (message) {
 };
 
 var ehClient;
+
 EventHubClient.createFromIotHubConnectionString(connectionString).then(function (client) {
   console.log("Successfully created the EventHub Client from iothub connection string.");
   ehClient = client;
@@ -54,10 +55,13 @@ EventHubClient.createFromIotHubConnectionString(connectionString).then(function 
 const app = express();
 app.use(index);
 const server = http.createServer(app);
-const io = socketIo(server,
-  {
+const io = socketIo(server)
+
+/* path 
+{
     path: '/ws'
   }); // < Interesting!
+*/
 
 io.on("connection", socket => {
   console.log('websocket backend Subscribing to azure');

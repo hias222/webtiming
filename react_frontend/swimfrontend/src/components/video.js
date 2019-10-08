@@ -76,13 +76,13 @@ class Video extends React.Component {
                             <tr>
                                 <td padding="0">
                                     <video
-                                        loop="true"
+                                        loop={true}
                                         height="382"
                                         width="510"
                                         ref="vidRef"
                                         src={this.state.videolink}
                                         type="video/mp4"
-                                        autoPlay="true"
+                                        autoPlay={true}
                                     />
                                 </td>
                             </tr>

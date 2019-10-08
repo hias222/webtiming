@@ -154,18 +154,20 @@ class Static extends React.Component {
                                 </td>
                             </tr>
                             <tr className={staticfooter}>
-                                <table className={internaltable}>
-                                    <tbody>
-                                        <tr>
-                                            <td align="left">
-                                                BSV - SG Mittelfranken
+                                <td>
+                                    <table className={internaltable}>
+                                        <tbody>
+                                            <tr>
+                                                <td align="left">
+                                                    BSV - SG Mittelfranken
                                             </td>
-                                            <td align="right">
-                                                Timing SG Fürth
+                                                <td align="right">
+                                                    Timing SG Fürth
                                             </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

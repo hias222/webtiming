@@ -18,7 +18,9 @@ class App extends Component {
     var backend_url = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":4001" : process.env.REACT_APP_BACKEND_URL
     var rowsperlane = typeof (process.env.REACT_APP_STATIC_ROWS_PER_LANE) != 'undefined' ? process.env.REACT_APP_STATIC_ROWS_PER_LANE : "1"
     var backend_path = typeof (process.env.REACT_APP_BACKEND_PATH) != 'undefined' ? "/" + process.env.REACT_APP_BACKEND_PATH : "/socket.io"
-    
+
+    var video_access = typeof (process.env.REACT_APP_BACKEND_VIDEO_ACCESS) != 'undefined' ? process.env.REACT_APP_BACKEND_VIDEO_ACCESS : true
+
     super();
     this.state = {
       info: { "event": "1", "gender": "M", "relaycount": "1", "swimstyle": "BREAST", "distance": "50", "type": "header", "heat": "1", "competition": "Schwimmen" },
@@ -28,6 +30,7 @@ class App extends Component {
       heat: 0,
       endpoint: backend_url,
       backendpath: backend_path,
+      videoaccess: video_access,
       isOn: false,
       time: 0,
       webtype: "",
@@ -248,7 +251,7 @@ class App extends Component {
           state.showstartlist = false
         })
       }
-      
+
       console.log("added lane " + jsondata.lane)
     } else if (jsondata.type === 'header') {
       console.log("added header " + jsondata.event + " " + jsondata.heat)
@@ -280,7 +283,7 @@ class App extends Component {
       console.log("startlist " + this.state.info.event + " " + this.state.info.heat)
       this.setState(state => {
         state.showstartlist = true
-        state.type =  "normal"
+        state.type = "normal"
       })
 
       setTimeout(this.activatePage, 500);
@@ -309,11 +312,13 @@ class App extends Component {
         message: jsondata.value
       })
     } else if (jsondata.type === 'video') {
-      console.log(JSON.stringify(jsondata))
-      this.setState({
-        mode: "video",
-        type: jsondata.version
-      })
+      if (this.state.videoaccess) {
+        console.log(JSON.stringify(jsondata))
+        this.setState({
+          mode: "video",
+          type: jsondata.version
+        })
+      }
     } else {
       this.setState({
         mode: "race",
