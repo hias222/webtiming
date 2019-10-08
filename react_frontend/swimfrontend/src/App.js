@@ -19,7 +19,7 @@ class App extends Component {
     var rowsperlane = typeof (process.env.REACT_APP_STATIC_ROWS_PER_LANE) != 'undefined' ? process.env.REACT_APP_STATIC_ROWS_PER_LANE : "1"
     var backend_path = typeof (process.env.REACT_APP_BACKEND_PATH) != 'undefined' ? "/" + process.env.REACT_APP_BACKEND_PATH : "/socket.io"
 
-    var video_access = typeof (process.env.REACT_APP_BACKEND_VIDEO_ACCESS) != 'undefined' ? process.env.REACT_APP_BACKEND_VIDEO_ACCESS : true
+    var video_access = typeof (process.env.REACT_APP_BACKEND_VIDEO_ACCESS) != 'undefined' ? process.env.REACT_APP_BACKEND_VIDEO_ACCESS : 'true'
 
     super();
     this.state = {
@@ -312,7 +312,8 @@ class App extends Component {
         message: jsondata.value
       })
     } else if (jsondata.type === 'video') {
-      if (this.state.videoaccess) {
+      console.log("video message")
+      if (this.state.videoaccess === 'true') {
         console.log(JSON.stringify(jsondata))
         this.setState({
           mode: "video",

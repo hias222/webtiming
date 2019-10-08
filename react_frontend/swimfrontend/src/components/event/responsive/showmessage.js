@@ -6,14 +6,15 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { styled } from '@material-ui/styles';
 
+
 import Clock from 'react-clock';
 
 import classnames from 'classnames';
-//import Image from '../water2.jpg';
+import Image from '../../../resources/water2.jpg';
 
 
 const MyPaper = styled(Paper)({
-    //backgroundImage: `url(${Image})`,
+    backgroundImage: `url(${Image})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: `calc(100vw-100)`,
@@ -56,13 +57,13 @@ class Showmessage extends React.Component {
         })
         if (this.props.type === 'message') {
             this.setState({
-                size: 100,
+                size: 150,
                 hourHandWidth: 2,
                 minuteHandWidth: 2
             })
         } else {
             this.setState({
-                size: 500
+                size: 200
             })
         }
     }
@@ -121,13 +122,14 @@ class Showmessage extends React.Component {
 
     splitMessageLines() {
         var webcontent = "";
-        let messagetext_main = classnames('messagetext_main');
+
+        let varmessagetext_main = classnames('varmessagetext_main');
 
         var strmessage = this.props.message.toString();
         var lines = strmessage.split('\\n');
 
         if (this.props.type === 'message') {
-            webcontent = <div className={messagetext_main}>
+            webcontent = <div className={varmessagetext_main}>
                 {lines.map((msg, index) => (
                     <p>{msg}</p>
                 ))}
@@ -138,38 +140,49 @@ class Showmessage extends React.Component {
         return webcontent
     }
 
+
     render() {
 
-        let heatclass = classnames('heatheader');
+        let varmessagetext_main = classnames('varmessagetext_main');
+        //let varmessage_clock = classnames('varmessage_clock');
+        let varfooter = classnames('varfooter');
 
         let clocktime = parseInt(this.state.timediff) + parseInt(this.state.unixcompetitiontime);
         let unixtoshow = isNaN(clocktime) ? 1 : clocktime
         let newclocktime = new Date(unixtoshow);
 
         return (
+
             <div >
                 <Box component="span" m={1} color="text.primary">
                     <Container maxWidth="md">
                         <MyPaper >
-                            <Grid container spacing={3}>
-                                <Grid xs='12'>
-                                    <div className={heatclass}>
-                                        {this.props.info.competition}
-                                    </div>
+                            <Grid container spacing={1} className={varmessagetext_main}>
+                                <Grid item xs={12}>
+                                    {this.props.info.competition}
                                 </Grid>
-                                <Grid xs="6">
+                                <Grid item xs={6}>
                                     {this.splitMessageLines()}
                                 </Grid>
-                                <Grid xs="6">
+                                <Grid item xs={6}>
                                     <Clock
                                         value={newclocktime}
                                         size={this.state.size}
                                         hourHandWidth={this.state.hourHandWidth}
                                         minuteHandWidth={this.state.minuteHandWidth}
+                                        className="varmessage_clock"
                                     //react-clock__hand__body
                                     />
                                 </Grid>
+                                <Grid item xs={6} className={varfooter}>
+                                    <a href='https://swimtiming.azurewebsites.com/' className={varfooter}>Ergebnisse Wettkampf</a>
+                                </Grid>
+
+                                <Grid item xs={6} className={varfooter}>
+                                    <a href='https://www.sgfuerth.de/kontakt-impressum/' className={varfooter}>Kontakt/Impressum</a>
+                                </Grid>
                             </Grid>
+
                         </MyPaper>
                     </Container>
                 </Box>

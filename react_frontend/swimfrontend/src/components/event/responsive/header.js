@@ -111,6 +111,8 @@ class Header extends React.Component {
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
         let heatclass = classnames('heatheader');
+        let varfooter = classnames('varfooter');
+
         let heatclass_event = classnames('heatheader_event');
         let heatclass_time = classnames('heatheader_time');
 
@@ -119,26 +121,37 @@ class Header extends React.Component {
             <div>
                 <Container maxWidth="md">
                     <MyPaper >
+                        <Grid container spacing={0} >
+                            <Grid item xs={12}>
+                                <Grid >
+                                    <div className={heatclass}>
+                                        {this.props.info.competition}
+                                    </div>
+                                    <div className={heatclass_event}>
+                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
+                                    </div>
+                                </Grid>
 
-                        <div >
-                            <Grid >
-                                <div className={heatclass}>
-                                    {this.props.info.competition}
-                                </div>
-                                <div className={heatclass_event}>
-                                    Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
-                                </div>
+                                <Grid align="right" >
+                                    <div className={heatclass_time}>
+                                        {this.format(this.props.time)}
+                                    </div>
+                                </Grid>
                             </Grid>
-                            <Grid align="right" >
-                                <div className={heatclass_time}>
-                                    {this.format(this.props.time)}
-                                </div>
+                            <Grid item xs={12}>
+                                <Table >
+                                    {this.tableheader}
+                                    {this.laneversion}
+                                </Table>
                             </Grid>
-                            <Table >
-                                {this.tableheader}
-                                {this.laneversion}
-                            </Table>
-                        </div>
+                            <Grid item xs={6} className={varfooter}>
+                                <a href='https://swimtiming.azurewebsites.com/' className={varfooter}>Ergebnisse Wettkampf</a>
+                            </Grid>
+
+                            <Grid item xs={6} className={varfooter}>
+                                <a href='https://www.sgfuerth.de/kontakt-impressum/' className={varfooter}>Kontakt/Impressum</a>
+                            </Grid>
+                        </Grid>
                     </MyPaper>
                 </Container>
                 <br></br>
