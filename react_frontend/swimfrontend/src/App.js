@@ -54,7 +54,7 @@ class App extends Component {
 
   componentDidMount() {
     var title_theme = typeof (this.props.match.params.webtype) != 'undefined' ? this.props.match.params.webtype : "normal"
-    document.title = "Timing - " + title_theme
+    document.title = this.state.info.competition + " " + title_theme
 
     //let webtype = this.props.match.params
     this.setState({
@@ -239,6 +239,8 @@ class App extends Component {
       console.log("added lane " + jsondata.lane)
     } else if (jsondata.type === 'header') {
       console.log("added header " + jsondata.event + " " + jsondata.heat)
+
+      document.title = this.state.info.competition
 
       this.setState({ event: jsondata.event })
       this.setState({ heat: jsondata.heat })

@@ -4,7 +4,7 @@
     <CONTACT name="Splash Software GmbH" street="Ahornweg 41" city="Spiegel b. Bern" zip="3095" country="CH" email="sales@swimrankings.net" internet="https://www.swimrankings.net" />
   </CONSTRUCTOR>
   <MEETS>
-    <MEET city="Nürnberg" name="Bayerische Kurzbahnmeisterschaften 2016" course="SCM" deadline="2016-10-26" hostclub="SG Mittelfranken" organizer="Bayerischer Schwimmverband e.V." organizer.url="http://www.bayerischer-schwimmverband.de/schwimmen" reservecount="4" startmethod="1" timing="AUTOMATIC" nation="GER">
+    <MEET city="Nürnberg" name="Bayerische Kurzbahnmeisterschaften 2019" course="SCM" deadline="2016-10-26" hostclub="SG Mittelfranken" organizer="Bayerischer Schwimmverband e.V." organizer.url="http://www.bayerischer-schwimmverband.de/schwimmen" reservecount="4" startmethod="1" timing="AUTOMATIC" nation="GER">
       <AGEDATE value="2016-11-06" type="YEAR" />
       <POOL name="90471 Nürnberg, Hallenbad Langwasser, Breslauer Str. 251, Eingang Gleiwitzer Straße" lanemin="1" lanemax="6" />
       <FACILITY city="Nürnberg" name="90471 Nürnberg, Hallenbad Langwasser, Breslauer Str. 251, Eingang Gleiwitzer Straße" nation="GER" />
