@@ -37,7 +37,6 @@ class StartLane extends React.Component {
                     </span>
                     </span>
                 </TextCellComponent>
-               
             </TableRow>
 
         )
