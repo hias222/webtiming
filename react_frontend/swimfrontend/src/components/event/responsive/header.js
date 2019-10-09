@@ -149,7 +149,7 @@ class Header extends React.Component {
                                     </MyButton>
                                 </Grid>
                                 <Grid  className={varfooter} >
-                                    <MyButton variant="contained" href='https://swimtiming.azurewebsites.com/' className={varfooter} target='_blank' >
+                                    <MyButton variant="contained" href='https://swimtiming.azurewebsites.net' className={varfooter} target='_blank' >
                                         <ResultIcon></ResultIcon>
                                         Ergebnisse
                                     </MyButton>
