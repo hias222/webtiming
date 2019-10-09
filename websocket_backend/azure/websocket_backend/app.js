@@ -21,6 +21,7 @@ var headermessage = {
 
 var start = { type: 'start' };
 var laststart = Date.now();
+var timestart = Date.now();
 
 var printError = function (err) {
   console.log(err.message);
@@ -109,10 +110,12 @@ function storeBaseData(message) {
     }
 
     if (jsonmessage.type == "clock") {
+      timestart = Date.now()
       start = jsonmessage
     }
 
     if (jsonmessage.type == "message") {
+      timestart = Date.now()
       start = jsonmessage
     }
 
@@ -144,17 +147,19 @@ function sendBaseData(socket) {
       socket.emit("FromAPI", JSON.stringify(lane));
     }
 
-    if (start.type == "message" || start.type == "clock") {
+    if (start.type === "message" || start.type === "clock") {
       var timediff = Date.now() - timestart;
       var newtime = Math.floor((timestart + timediff) / 1000);
       var jsondiff = "{\"time\":\"" + newtime + "\" }"
       var newmessage = { ...start, ...JSON.parse(jsondiff) }
       socket.emit("FromAPI", JSON.stringify(newmessage));
+      console.log("message clock " + start.type)
     } else {
       var timediff = Date.now() - laststart;
       var jsondiff = "{\"diff\":\"" + timediff + "\" }"
       var newmessage = { ...start, ...JSON.parse(jsondiff) }
       socket.emit("FromAPI", JSON.stringify(newmessage));
+      console.log("other message " + start.type)
     }
 
   } catch (error) {

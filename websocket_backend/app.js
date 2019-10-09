@@ -146,7 +146,7 @@ function sendBaseData(socket) {
       socket.emit("FromAPI", JSON.stringify(lane));
     }
 
-    if (start.type == "message" || start.type == "clock") {
+    if (start.type === "message" || start.type === "clock") {
       var timediff = Date.now() - timestart;
       var newtime = Math.floor((timestart + timediff) / 1000);
       var jsondiff = "{\"time\":\"" + newtime + "\" }"
