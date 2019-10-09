@@ -12,6 +12,11 @@ import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
 //import Iframe from 'react-iframe'
 
+import ResultIcon from '@material-ui/icons/Flag';
+import LinkIcon from '@material-ui/icons/Link';
+import ImpIcon from '@material-ui/icons/Info';
+import Button from '@material-ui/core/Button';
+
 import getSwimStyles from '../../getSwimStyles';
 
 import { styled } from '@material-ui/styles';
@@ -25,10 +30,21 @@ const MyPaper = styled(Paper)({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: `calc(100vw-100)`,
-    margin: 10,
+    margin: 0,
     padding: 0,
 });
 
+const MyGrid = styled(Grid)({
+    //backgroundColor: 'rgba(196, 196, 196, 0.5);',
+    background: 'rgba(196, 196, 196, 0.5)',
+    backgroundColor: '#ff0000'
+});
+
+const MyButton = styled(Button)({
+    //backgroundColor: 'rgba(196, 196, 196, 0.5);',
+    background: 'rgba(196, 196, 196, 0.5)',
+    backgroundColor: '#ff0000'
+});
 
 class Header extends React.Component {
 
@@ -111,7 +127,7 @@ class Header extends React.Component {
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
         let heatclass = classnames('heatheader');
-        let varfooter = classnames('varfooter');
+        let varfooter = classnames('varfooter_race');
 
         let heatclass_event = classnames('heatheader_event');
         let heatclass_time = classnames('heatheader_time');
@@ -122,6 +138,32 @@ class Header extends React.Component {
                 <Container maxWidth="md">
                     <MyPaper >
                         <Grid container spacing={0} >
+                            <MyGrid className={varfooter}
+                                  container 
+                                  direction="row"
+                                  justify="flex-start"
+                                  alignItems="flex-start"
+                                  color='inherit'
+                                  >
+                                <Grid className={varfooter} >
+                                    <MyButton variant="contained" href='https://sg-mfr.de' target='_blank' className={varfooter}>
+                                        <LinkIcon></LinkIcon>
+                                        SG Mittelfranken
+                                    </MyButton>
+                                </Grid>
+                                <Grid  className={varfooter} >
+                                    <MyButton variant="contained" href='https://swimtiming.azurewebsites.com/' className={varfooter} target='_blank' >
+                                        <ResultIcon></ResultIcon>
+                                        Ergebnisse
+                                    </MyButton>
+                                </Grid>
+                                <Grid className={varfooter} >
+                                    <MyButton variant="contained" href='https://www.sgfuerth.de/kontakt-impressum/' target='_blank' className={varfooter} >
+                                        <ImpIcon></ImpIcon>
+                                        Kontakt/Impressum
+                                    </MyButton>
+                                </Grid>
+                            </MyGrid>
                             <Grid item xs={12}>
                                 <Grid >
                                     <div className={heatclass}>
@@ -131,7 +173,6 @@ class Header extends React.Component {
                                         Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
                                     </div>
                                 </Grid>
-
                                 <Grid align="right" >
                                     <div className={heatclass_time}>
                                         {this.format(this.props.time)}
@@ -143,13 +184,6 @@ class Header extends React.Component {
                                     {this.tableheader}
                                     {this.laneversion}
                                 </Table>
-                            </Grid>
-                            <Grid item xs={6} className={varfooter}>
-                                <a href='https://swimtiming.azurewebsites.com/' className={varfooter}>Ergebnisse Wettkampf</a>
-                            </Grid>
-
-                            <Grid item xs={6} className={varfooter}>
-                                <a href='https://www.sgfuerth.de/kontakt-impressum/' className={varfooter}>Kontakt/Impressum</a>
                             </Grid>
                         </Grid>
                     </MyPaper>

@@ -37,6 +37,30 @@ $normalsize: 1em;
     }
 }
 
+.varfooter_race{
+    font-size: 1.2em;
+    border-spacing: 0;
+    text-align: center;
+    color: $farbeschrift;
+
+    .a:link {
+        color: white;
+        text-decoration: none;
+      }
+    
+    .a:visited {
+        color: white;
+        text-decoration: none;
+    }
+    .a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .a:active {
+        color: white;
+        text-decoration: none;
+    }
+}
 
 .headername {
     color: white;

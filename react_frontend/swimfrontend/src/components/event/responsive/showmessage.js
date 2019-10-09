@@ -3,9 +3,15 @@ import React from 'react'
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+
 import { styled } from '@material-ui/styles';
 
+
+import ResultIcon from '@material-ui/icons/Flag';
+import LinkIcon from '@material-ui/icons/Link';
+import ImpIcon from '@material-ui/icons/Info';
+
+import Button from '@material-ui/core/Button';
 
 import Clock from 'react-clock';
 
@@ -18,8 +24,21 @@ const MyPaper = styled(Paper)({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: `calc(100vw-100)`,
-    margin: 10,
+    margin: 0,
     padding: 0,
+});
+
+
+const MyButton = styled(Button)({
+    //backgroundColor: 'rgba(196, 196, 196, 0.5);',
+    background: 'rgba(196, 196, 196, 0.5)',
+    backgroundColor: '#ff0000',
+});
+
+const MyGrid = styled(Grid)({
+    //backgroundColor: 'rgba(196, 196, 196, 0.5);',
+    background: 'rgba(196, 196, 196, 0.5)',
+    backgroundColor: '#ff0000'
 });
 
 
@@ -154,38 +173,65 @@ class Showmessage extends React.Component {
         return (
 
             <div >
-                <Box component="span" m={1} color="text.primary">
-                    <Container maxWidth="md">
-                        <MyPaper >
-                            <Grid container spacing={1} className={varmessagetext_main}>
-                                <Grid item xs={12}>
-                                    {this.props.info.competition}
-                                </Grid>
-                                <Grid item xs={6}>
-                                    {this.splitMessageLines()}
-                                </Grid>
-                                <Grid item xs={6}>
-                                    <Clock
-                                        value={newclocktime}
-                                        size={this.state.size}
-                                        hourHandWidth={this.state.hourHandWidth}
-                                        minuteHandWidth={this.state.minuteHandWidth}
-                                        className="varmessage_clock"
-                                    //react-clock__hand__body
-                                    />
-                                </Grid>
-                                <Grid item xs={6} className={varfooter}>
-                                    <a href='https://swimtiming.azurewebsites.com/' className={varfooter}>Ergebnisse Wettkampf</a>
-                                </Grid>
 
-                                <Grid item xs={6} className={varfooter}>
-                                    <a href='https://www.sgfuerth.de/kontakt-impressum/' className={varfooter}>Kontakt/Impressum</a>
+                <Container maxWidth="md">
+                    <MyPaper >
+                        <Grid container spacing={0} >
+                            <MyGrid className={varfooter}
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="flex-start"
+                                color='inherit'
+                            >
+                                <Grid className={varfooter} >
+                                    <MyButton variant="contained" href='https://sg-mfr.de' target='_blank' className={varfooter}>
+                                        <LinkIcon></LinkIcon>
+                                        SG Mittelfranken
+                                    </MyButton>
                                 </Grid>
+                                <Grid className={varfooter} >
+                                    <MyButton variant="contained" href='https://swimtiming.azurewebsites.com/' className={varfooter} target='_blank' >
+                                        <ResultIcon></ResultIcon>
+                                        Ergebnisse
+                                    </MyButton>
+                                </Grid>
+                                <Grid className={varfooter} >
+                                    <MyButton variant="contained" href='https://www.sgfuerth.de/kontakt-impressum/' target='_blank' className={varfooter} >
+                                        <ImpIcon></ImpIcon>
+                                        Kontakt/Impressum
+                                    </MyButton>
+                                </Grid>
+                            </MyGrid>
+                            <Grid item xs={12} className={varmessagetext_main}>
+                                {this.props.info.competition}
                             </Grid>
+                            <Grid item xs={6} container justify='center' >
+                                {this.splitMessageLines()}
+                            </Grid>
+                            <Grid item xs={6} container justify='center' >
+                                <table height='100%'>
+                                    <tbody>
+                                        <tr >
+                                            <td align='middle' >
+                                                <Clock
+                                                    value={newclocktime}
+                                                    size={this.state.size}
+                                                    hourHandWidth={this.state.hourHandWidth}
+                                                    minuteHandWidth={this.state.minuteHandWidth}
+                                                    className="varmessage_clock"
+                                                //react-clock__hand__body
+                                                />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </Grid>
+                        </Grid>
 
-                        </MyPaper>
-                    </Container>
-                </Box>
+                    </MyPaper>
+                </Container>
+
             </div>
         )
     }
