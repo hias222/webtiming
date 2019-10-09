@@ -135,12 +135,14 @@ class Static extends React.Component {
         let internaltable = classnames('internaltable');
 
         var { fullscreen } = "";
+        
         if (this.state.fullscreen !== true) {
             fullscreen = <button onClick={this.handleToggle}>Full screen {this.state.webtype}</button>
+        } else {
+            fullscreen = <button onClick={this.handleToggle}>Full screen second time {this.state.webtype}</button>
         }
 
         return (
-
 
             <div>
                 <div>

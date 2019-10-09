@@ -25,6 +25,22 @@ class Staticmessage extends React.Component {
         minuteHandWidth: 5
     }
 
+    handleToggle = (e) => {
+        const el = document.documentElement
+        if (el.requestFullscreen) {
+          el.requestFullscreen()
+        } else if (el.mozRequestFullScreen) {
+          el.mozRequestFullScreen()
+        } else if (el.webkitRequestFullscreen) {
+          el.webkitRequestFullscreen()
+        } else if (el.msRequestFullscreen) {
+          el.msRequestFullscreen()
+        }
+        this.setState({
+          fullscreen: true
+        })
+      }
+
     format(ms) {
         var minutes = Math.floor(ms / (1000 * 60)),
             seconds = Math.floor((ms - minutes * 1000 * 60) / 1000),
@@ -150,7 +166,8 @@ class Staticmessage extends React.Component {
                 <div>
                     <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} >
                         <tbody>
-                            <tr><td>Message View</td></tr>
+                            <tr><td>Message View</td>
+                            <td><button onClick={this.handleToggle}>Full screen {this.state.webtype}</button></td></tr>
                         </tbody>
                     </table>
                 </div>
