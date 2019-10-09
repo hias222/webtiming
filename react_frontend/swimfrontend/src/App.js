@@ -10,6 +10,9 @@ import Event from './components/event/event';
 //endpoint: "http://" + window.location.hostname + ":4001"
 //endpoint: "http://192.168.178.143:4001"
 
+// Internet Explorer 6-11
+const isIE = /*@cc_on!@*/false || !!document.documentMode;
+
 var locklanes = false;
 var activelapdata = false;
 
@@ -337,49 +340,62 @@ class App extends Component {
 
   render() {
 
-    var { webcontent } = "";
+    if (isIE) {
+      return (
+        <div>
+          <p> Doesn't work with internet Explorer</p>
+          <p> Please use another Browser</p>
 
-    if (Object.values(this.DisplayModes).includes(this.state.mode)) {
-
-      if (this.state.mode === 'race') {
-        webcontent = <Event
-          fullscreen={this.state.fullscreen}
-          webtype={this.state.webtype}
-          lanes={this.state.lanes}
-          info={this.state.info}
-          time={this.state.time}
-          showstartlist={this.state.showstartlist}
-          responsestate={this.state.response}
-          rowsperlane={this.state.rowsperlane}
-        />
-      }
-
-      if (this.state.mode === 'message') {
-        webcontent = <Showmessage
-          unixcompetitiontime={this.state.unixcompetitiontime}
-          type={this.state.type}
-          info={this.state.info}
-          webtype={this.state.webtype}
-          message={this.state.message}
-        />
-      }
-
-      if (this.state.mode === 'video') {
-        webcontent = <Showvideo
-          unixcompetitiontime={this.state.unixcompetitiontime}
-          type={this.state.type}
-          info={this.state.info}
-        />
-      }
+          <p> Seite funktioniert nicht mit Internet Explorer</p>
+          <p> Bitte einen anderen Browser benutzen</p>
+        </div>
+      )
     } else {
-      webcontent = <p>wrong mode</p>
-    }
 
-    return (
-      <div>
-        {webcontent}
-      </div>
-    );
+      var { webcontent } = "";
+
+      if (Object.values(this.DisplayModes).includes(this.state.mode)) {
+
+        if (this.state.mode === 'race') {
+          webcontent = <Event
+            fullscreen={this.state.fullscreen}
+            webtype={this.state.webtype}
+            lanes={this.state.lanes}
+            info={this.state.info}
+            time={this.state.time}
+            showstartlist={this.state.showstartlist}
+            responsestate={this.state.response}
+            rowsperlane={this.state.rowsperlane}
+          />
+        }
+
+        if (this.state.mode === 'message') {
+          webcontent = <Showmessage
+            unixcompetitiontime={this.state.unixcompetitiontime}
+            type={this.state.type}
+            info={this.state.info}
+            webtype={this.state.webtype}
+            message={this.state.message}
+          />
+        }
+
+        if (this.state.mode === 'video') {
+          webcontent = <Showvideo
+            unixcompetitiontime={this.state.unixcompetitiontime}
+            type={this.state.type}
+            info={this.state.info}
+          />
+        }
+      } else {
+        webcontent = <p>wrong mode</p>
+      }
+
+      return (
+        <div>
+          {webcontent}
+        </div>
+      );
+    }
   }
 }
 export default App;

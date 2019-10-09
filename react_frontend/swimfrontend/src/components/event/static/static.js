@@ -8,6 +8,7 @@ import classnames from 'classnames';
 import getSwimStyles from '../../getSwimStyles';
 import getRaceType from '../../getRaceType';
 
+
 class Static extends React.Component {
 
     constructor(props) {
@@ -105,20 +106,22 @@ class Static extends React.Component {
     handleToggle = (e) => {
         const el = document.documentElement
         if (el.requestFullscreen) {
-          el.requestFullscreen()
+            el.requestFullscreen()
         } else if (el.mozRequestFullScreen) {
-          el.mozRequestFullScreen()
+            el.mozRequestFullScreen()
         } else if (el.webkitRequestFullscreen) {
-          el.webkitRequestFullscreen()
+            el.webkitRequestFullscreen()
         } else if (el.msRequestFullscreen) {
-          el.msRequestFullscreen()
+            el.msRequestFullscreen()
         }
         this.setState({
-          fullscreen: true
+            fullscreen: true
         })
-      }
+    }
 
     render() {
+
+
         var style = getSwimStyles(this.props.info.swimstyle);
         var race = getRaceType(this.props.info.round);
 
@@ -135,7 +138,7 @@ class Static extends React.Component {
         let internaltable = classnames('internaltable');
 
         var { fullscreen } = "";
-        
+
         if (this.state.fullscreen !== true) {
             fullscreen = <button onClick={this.handleToggle}>Full screen {this.state.webtype}</button>
         } else {
@@ -149,7 +152,7 @@ class Static extends React.Component {
                     <table height={process.env.REACT_APP_PIXEL_FROM_TOP} className={staticemptytable} >
                         <tbody>
                             <tr><td>Rows per lane: {this.props.rowsperlane}</td>
-                            <td>{fullscreen}</td>
+                                <td>{fullscreen}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -207,6 +210,7 @@ class Static extends React.Component {
 
         )
     }
+
 };
 
 export default Static
