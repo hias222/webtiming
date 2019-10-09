@@ -143,10 +143,20 @@ function sendBaseData(socket) {
     for (let lane of lanemessages) {
       socket.emit("FromAPI", JSON.stringify(lane));
     }
-    var timediff = Date.now() - laststart;
-    var jsondiff = "{\"diff\":\"" + timediff + "\" }"
-    var newmessage = { ...start, ...JSON.parse(jsondiff) }
-    socket.emit("FromAPI", JSON.stringify(newmessage));
+
+    if (start.type == "message" || start.type == "clock") {
+      var timediff = Date.now() - timestart;
+      var newtime = Math.floor((timestart + timediff) / 1000);
+      var jsondiff = "{\"time\":\"" + newtime + "\" }"
+      var newmessage = { ...start, ...JSON.parse(jsondiff) }
+      socket.emit("FromAPI", JSON.stringify(newmessage));
+    } else {
+      var timediff = Date.now() - laststart;
+      var jsondiff = "{\"diff\":\"" + timediff + "\" }"
+      var newmessage = { ...start, ...JSON.parse(jsondiff) }
+      socket.emit("FromAPI", JSON.stringify(newmessage));
+    }
+
   } catch (error) {
     console.error(`websocket backend Error emit : ${error.code}`);
     console.error(error);

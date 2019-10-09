@@ -26,8 +26,9 @@ var headermessage = {
   heat: '0'
 };
 
-var start = { type: 'start'};
+var start = { type: 'start' };
 var laststart = Date.now();
+var timestart = Date.now();
 
 var mqtt = require('mqtt')
 
@@ -83,10 +84,10 @@ function storeBaseData(message) {
     if (jsonmessage.type == "header") {
       //console.log("new header " + JSON.stringify(jsonmessage))
       headermessage = jsonmessage
-      if (start.type === 'clock' || start.type === 'message' ){
+      if (start.type === 'clock' || start.type === 'message') {
         console.log("----------------- reset " + start.type)
-          var recallmessage = "{\"type\":\"race\"}"
-          start = JSON.parse(recallmessage)
+        var recallmessage = "{\"type\":\"race\"}"
+        start = JSON.parse(recallmessage)
       }
     }
 
@@ -108,16 +109,18 @@ function storeBaseData(message) {
     }
 
     if (jsonmessage.type == "clock") {
+      timestart = Date.now()
       start = jsonmessage
     }
 
     if (jsonmessage.type == "message") {
+      timestart = Date.now()
       start = jsonmessage
     }
 
     if (jsonmessage.type == "clear") {
       console.log("clear lanes")
-      lanemessages = [] 
+      lanemessages = []
     }
 
     if (jsonmessage.type == "lane") {
@@ -143,10 +146,18 @@ function sendBaseData(socket) {
       socket.emit("FromAPI", JSON.stringify(lane));
     }
 
-    var timediff = Date.now() - laststart;
-    var jsondiff = "{\"diff\":\"" + timediff + "\" }"
-    var newmessage = {...start,...JSON.parse(jsondiff) }
-    socket.emit("FromAPI", JSON.stringify(newmessage));
+    if (start.type == "message" || start.type == "clock") {
+      var timediff = Date.now() - timestart;
+      var newtime = Math.floor((timestart + timediff) / 1000);
+      var jsondiff = "{\"time\":\"" + newtime + "\" }"
+      var newmessage = { ...start, ...JSON.parse(jsondiff) }
+      socket.emit("FromAPI", JSON.stringify(newmessage));
+    } else {
+      var timediff = Date.now() - laststart;
+      var jsondiff = "{\"diff\":\"" + timediff + "\" }"
+      var newmessage = { ...start, ...JSON.parse(jsondiff) }
+      socket.emit("FromAPI", JSON.stringify(newmessage));
+    }
     //console.log("FromAPI " + JSON.stringify(newmessage))
   } catch (error) {
     console.error(`websocket backend Error emit : ${error.code}`);
