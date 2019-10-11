@@ -23,8 +23,8 @@ diskutil list
 # check the device
 # umount ?
 # diskutil umountDisk /dev/disk3
-# ctrl+T to check
-dd bs=4m if=2019-10-09-clientall-singledata.img of=/dev/sdx conv=fsync 
+# ctrl+T to check --> rdisk
+dd bs=4m if=2019-10-09-clientall-singledata.img of=/dev/rdiskx conv=sync 
 # check kill -USR1 PID
 ```
 

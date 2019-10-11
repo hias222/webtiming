@@ -84,10 +84,10 @@ class Header extends React.Component {
                         <div className={heatclass}>Platz</div>
                     </TableCell>
                     <TableCell>
-                        <div className={heatclass}>Name/Verein</div>
+                        <div className={heatclass_time}>Zeit</div>
                     </TableCell>
                     <TableCell>
-                        <div className={heatclass_time}>Zeit</div>
+                        <div className={heatclass}>Name/Verein</div>
                     </TableCell>
                 </TableRow>
             </TableHead>

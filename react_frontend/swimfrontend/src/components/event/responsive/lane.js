@@ -42,19 +42,19 @@ class Lane extends React.Component {
 
         return (
             <TableRow className={laneclass} key={this.props.lane.lane}>
-                <NumberCellComponent>{this.props.lane.lane}</NumberCellComponent>
-                <NumberCellComponent>{myicon}</NumberCellComponent>
+                <NumberCellComponent className={laneclass}>{this.props.lane.lane}</NumberCellComponent>
+                <NumberCellComponent className={laneclass}>{myicon}</NumberCellComponent>
+                <TimeCellComponent>
+                <span >
+                    {time}
+                    </span>
+                </TimeCellComponent>
                 <TextCellComponent >
                 <span >
                     {this.props.lane.firstname} {this.props.lane.lastname} <span className={laneclub}>{this.props.lane.name}
                     </span>
                     </span>
                 </TextCellComponent>
-                <TimeCellComponent>
-                <span >
-                    {time}
-                    </span>
-                </TimeCellComponent>
             </TableRow>
 
         )
