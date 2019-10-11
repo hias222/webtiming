@@ -30,10 +30,10 @@ class StaticLane extends React.Component {
                 swimmerName = this.props.lane.firstname + " " + this.props.lane.lastname
                 spanName = <td>
                     <table className={internaltable}>
-                        <tbody>
+                        <tbody className={internaltable}>
                             <tr className={staticname}>
                                 <td>
-                                    {swimmerName.toString().substr(0, 30)}
+                                    {swimmerName.toString().substr(0, 29)}
                                 </td>
                             </tr>
                             <tr className={staticclub}>
@@ -47,11 +47,11 @@ class StaticLane extends React.Component {
                 //Staffel
                 swimmerName = this.props.lane.name
                 spanName = <td>
-                    <table>
-                        <tbody>
+                    <table className={internaltable}>
+                        <tbody className={internaltable}>
                             <tr className={staticname}>
                                 <td>
-                                    {swimmerName.toString().substr(0, 30)}
+                                    {swimmerName.toString().substr(0, 29)}
                                 </td>
                             </tr>
                             <tr className={staticclub}>

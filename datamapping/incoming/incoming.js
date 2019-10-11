@@ -38,7 +38,8 @@ exports.parseColoradoData = function (message) {
     try {
         switch (messagetype) {
             case actions.HEADER:
-                var internHeatID = myEvent.getInternalHeatId(getEvent(message), getHeat(message));
+                //store state
+                myEvent.getInternalHeatId(getEvent(message), getHeat(message));
                 return myEvent.getEventName(getEvent(message))
                 break;
             case actions.RACE:
@@ -62,6 +63,7 @@ exports.parseColoradoData = function (message) {
                 return JSON.parse(jsonclock);
                 break;
             case actions.CLEAR:
+                //todo reset the times
                 var jsonclear = "{ \"type\": \"clear\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
                 return JSON.parse(jsonclear);
                 break;

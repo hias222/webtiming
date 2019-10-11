@@ -41,7 +41,6 @@ class MessageMapper {
         var stringnewmessage = JSON.stringify(newmessage)
         console.log("<mapper> datamapping mapper: " + stringnewmessage)
         sendStatus = mqttSender.sendMessage(stringnewmessage);
-
         try {
           if (newmessage.type === "header") {
             if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {
@@ -72,6 +71,15 @@ class MessageMapper {
             }
           } else if (newmessage.type === "lane") {
             storeLaneData(newmessage.lane, message);
+          } else if (newmessage.type === "clear") {
+            console.log("<message_mapper> clear race")
+            for (let lanedata of lanemessages) {
+              console.log("<message_mapper> race out " + lanedata);
+              var storedlanedata = incoming.parseColoradoData(lanedata.toString())
+              storedlanedata.time = ''
+              storedlanedata.place = ''
+              mqttSender.sendMessage(JSON.stringify(storedlanedata));
+            }
           }
         } catch (err) {
           console.log(err)

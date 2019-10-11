@@ -2,6 +2,31 @@
 
 _Tool used to create the raspberrypi.org Raspbian images_
 
+## nice to know
+
+### turn off wlan
+
+edit /boot/config and add 
+
+```bash
+# dtoverlay=pi3-disable-wifi
+# dtoverlay=pi3-disable-bt
+# ifconfig wlan0
+```
+
+### create image with dd
+
+with dd
+
+```bash
+diskutil list
+# check the device
+# umount ?
+# diskutil umountDisk /dev/disk3
+# ctrl+T to check
+dd bs=4m if=2019-10-09-clientall-singledata.img of=/dev/sdx conv=fsync 
+# check kill -USR1 PID
+```
 
 ## Dependencies
 

@@ -34,14 +34,16 @@ $laneheight: 50px;
 
 .staticmaintable {
     border-spacing: 0;
-    width: 512px;
+    width: 100%;
+    //width: 512px;
     // height: 284px;
     //background-color: $farbehintergrund
 }
 
 .staticheadertable{
     border-spacing: 0;
-    width: 512px;
+    width: 100%;
+    //width: 512px;
     //height: 30px;
     //background-color: $farbehintergrund
 }
