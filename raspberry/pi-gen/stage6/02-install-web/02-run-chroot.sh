@@ -7,7 +7,8 @@ su - ${FIRST_USER_NAME} -c "cd frontend; pm2 start app.js"
 su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js"
 
 ## add cloud
-su - ${FIRST_USER_NAME} -c "cd cloud; pm2 start app.js"
+# muss man erst den key mit aufnehmen
+# su - ${FIRST_USER_NAME} -c "cd cloud; pm2 start app.js"
 
 su - ${FIRST_USER_NAME} -c "pm2 list"
 #
