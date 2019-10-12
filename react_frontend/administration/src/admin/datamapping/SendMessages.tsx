@@ -80,17 +80,22 @@ export default class SendMessages extends React.Component<Props, State> {
   render() {
     return (
       <Grid>
-        <TextField
-          id="standard-name"
-          label="Message"
-          margin="dense"
-          variant="filled"
-          multiline
-          rows="4"
-          onChange={this.handleChange('message')}
-        />
-        <Button variant="contained" color="default" onClick={this.sendMessage('message')}>Send
+        <Grid>
+          <TextField
+            id="standard-name"
+            label="Message"
+            margin="dense"
+            variant="filled"
+            fullWidth
+            multiline
+            rows="5"
+            onChange={this.handleChange('message')}
+          />
+        </Grid>
+        <Grid>
+          <Button variant="contained" color="default" onClick={this.sendMessage('message')}>Send
           <StartIcon /></Button>
+        </Grid>
       </Grid>
 
     )

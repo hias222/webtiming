@@ -6,17 +6,114 @@ import VideoInformation from './video/videoinformation'
 //import { Player } from 'video-react';
 
 class Video extends React.Component {
-    constructor() {
-        super();
-        var videolink = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
-        this.state = {
-            videolink: videolink
+    constructor(props) {
+        super(props);
+        //var videolink = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
+        //this.state = {
+        //    videolink: videolink
+        //}
+        this.setVideoLink = this.setVideoLink.bind(this)
+        switch (this.props.version) {
+            case "1":
+                var videolink1 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
+                this.state = {
+                    videolink: videolink1
+                }
+                console.log("version eins")
+                break;
+            case "2":
+                var videolink2 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_02 : process.env.REACT_APP_VIDEO_02_FULL;
+                this.state = {
+                    videolink: videolink2
+                }
+                console.log("version zwei")
+                break;
+            case "3":
+                var videolink3 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_03 : process.env.REACT_APP_VIDEO_03_FULL;
+                this.state = {
+                    videolink: videolink3
+                }
+                console.log("version drei")
+                break;
+            case "4":
+                var videolink4 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_04 : process.env.REACT_APP_VIDEO_04_FULL;
+                this.state = {
+                    videolink: videolink4
+                }
+                console.log("version vier")
+                break;
+            case "5":
+                var videolink5 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_05 : process.env.REACT_APP_VIDEO_05_FULL;
+                this.state = {
+                    videolink: videolink5
+                }
+                console.log("version fünf")
+                break;
+            default:
+                var videolink = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
+                console.log("version def")
+                this.state = {
+                    videolink: videolink
+                }
         }
+        //var version = this.props.version
+
+    }
+
+    setVideoLink() {
+        switch (this.props.version) {
+            case "1":
+                var videolink1 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
+                this.setState = {
+                    videolink: videolink1
+                }
+                console.log("version eins")
+                break;
+            case "2":
+                var videolink2 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_02 : process.env.REACT_APP_VIDEO_02_FULL;
+                this.setState = {
+                    videolink: videolink2
+                }
+                console.log("version zwei")
+                break;
+            case "3":
+                var videolink3 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_03 : process.env.REACT_APP_VIDEO_03_FULL;
+                this.setState = {
+                    videolink: videolink3
+                }
+                console.log("version drei")
+                break;
+            case "4":
+                var videolink4 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_04 : process.env.REACT_APP_VIDEO_04_FULL;
+                this.setState = {
+                    videolink: videolink4
+                }
+                console.log("version vier")
+                break;
+            case "5":
+                var videolink5 = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_05 : process.env.REACT_APP_VIDEO_05_FULL;
+                this.setState = {
+                    videolink: videolink5
+                }
+                console.log("version fünf")
+                break;
+            default:
+                var videolink = process.env.REACT_APP_BACKEND_VIDEO_DIRECT === "true" ? "http://" + window.location.hostname + ":" + window.location.port + "/" + process.env.REACT_APP_VIDEO_01 : process.env.REACT_APP_VIDEO_01_FULL;
+                console.log("version def")
+                this.setState = {
+                    videolink: videolink
+                }
+        }
+        this.playVideo()
     }
 
     componentDidMount = () => {
         this.playVideo();
     };
+
+    componentDidUpdate = () => {
+        this.setVideoLink(); 
+    }
 
     componentWillUnmount = () => {
         this.pauseVideo();

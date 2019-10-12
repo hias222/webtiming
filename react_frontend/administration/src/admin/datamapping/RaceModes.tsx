@@ -3,7 +3,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 import RaceIcon from '@material-ui/icons/SlowMotionVideo';
-import VideoIcon from '@material-ui/icons/Videocam';
 import StartlistIcon from '@material-ui/icons/ListAlt';
 import ClockIcon from '@material-ui/icons/Watch';
 
@@ -40,10 +39,6 @@ export default class RaceModes extends React.Component {
             <Button variant="contained" color="default" onClick={this.sendAction('startlist')}>
               Startlist
               <StartlistIcon />
-            </Button>
-            <Button variant="contained" color="default" onClick={this.sendAction('video')}>
-              video
-              <VideoIcon />
             </Button>
           </Grid>
         )

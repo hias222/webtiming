@@ -17,7 +17,9 @@ class Showvideo extends React.Component {
         return (
             <div >
                 <Grid>
-                    <Video></Video>
+                    <Video
+                    version={this.props.version}
+                    ></Video>
                 </Grid>
             </div>
         )

@@ -9,6 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import TextField from '@material-ui/core/TextField';
 import SendDatamapping from './datamapping/SendDatamapping';
 import RaceModes from './datamapping/RaceModes';
+import VideoModes from './datamapping/VideoModes';
 import ChangeRaceStatus from './datamapping/ChangeRaceStatus';
 
 import SendMessages from './datamapping/SendMessages';
@@ -102,6 +103,12 @@ export default class admin extends React.Component<Props, State> {
         <Navigation />
         <Box component="span" m={1}>
           <RaceModes />
+          <br>
+          </br>
+          <Divider variant="middle" />
+          <br>
+          </br>
+          <VideoModes />
           <br>
           </br>
           <Divider variant="middle" />

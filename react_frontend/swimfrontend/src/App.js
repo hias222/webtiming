@@ -382,7 +382,7 @@ class App extends Component {
         if (this.state.mode === 'video') {
           webcontent = <Showvideo
             unixcompetitiontime={this.state.unixcompetitiontime}
-            type={this.state.type}
+            version={this.state.type}
             info={this.state.info}
           />
         }
