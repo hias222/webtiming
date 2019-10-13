@@ -295,7 +295,7 @@ maintenance and allows for more easy customization.
 
  - **Stage 5** - The official Raspbian Desktop image. Right now only adds
    Mathematica.
-
+ sehn wir Freitga
 ### Stage specification
 
 If you wish to build up to a specified stage (such as building up to stage 2
