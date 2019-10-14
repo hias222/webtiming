@@ -185,15 +185,15 @@ class Showmessage extends React.Component {
                                 color='inherit'
                             >
                                 <Grid className={varfooter} >
-                                    <MyButton variant="contained" href='https://sg-mfr.de' target='_blank' className={varfooter}>
+                                    <MyButton variant="contained" href='https://nuernberg-schwimmen.de/bay-kurzbahnmeisterschaften/' target='_blank' className={varfooter}>
                                         <LinkIcon></LinkIcon>
-                                        SG Mittelfranken
+                                        Info Wettkampf
                                     </MyButton>
                                 </Grid>
                                 <Grid className={varfooter} >
                                     <MyButton variant="contained" href='https://swimtiming.azurewebsites.net/' className={varfooter} target='_blank' >
                                         <ResultIcon></ResultIcon>
-                                        Ergebnisse
+                                        Ergebnisse/Meldungen
                                     </MyButton>
                                 </Grid>
                                 <Grid className={varfooter} >
