@@ -1,3 +1,4 @@
+
 su - ${FIRST_USER_NAME} -c "cd frontend; unzip -o app.zip"
 su - ${FIRST_USER_NAME} -c "cd frontend; npm install"
 #
@@ -11,6 +12,12 @@ su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js"
 # su - ${FIRST_USER_NAME} -c "cd cloud; pm2 start app.js"
 
 su - ${FIRST_USER_NAME} -c "pm2 list"
+#
+su - ${FIRST_USER_NAME} -c "pm2 save"
+
+## startup pm2
+pm2 startup ubuntu -u swim --hp /home/swim
+
 #
 su - ${FIRST_USER_NAME} -c "pm2 save"
 
