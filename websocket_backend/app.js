@@ -64,6 +64,22 @@ client.on('connect', function () {
   client.subscribe(topic_name);
 });
 
+client.on('error', function () {
+  console.log("websocket backend error");
+  client.subscribe(topic_name);
+});
+
+function checkMQTT(){
+  if (!client.connected)
+  {
+    console.log("failure MQTT")
+  }
+}
+
+setInterval(checkMQTT, 1000);
+
+client.disconnected
+
 client.on('message', function (topic, message) {
   console.log('websocket backend', topic, message.toString());
   storeBaseData(message)
@@ -75,7 +91,6 @@ client.on('message', function (topic, message) {
     console.error(error);
   }
 });
-
 
 function storeBaseData(message) {
   try {
