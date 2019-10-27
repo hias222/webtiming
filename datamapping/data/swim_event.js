@@ -53,8 +53,19 @@ class swimevent {
     async updateFile(filename) {
         this.filename = filename
         try {
-            this.xml_string = fs.readFileSync(filename, "utf8");
-            this.readFile()
+            //somtimes parts are missing waiting?
+            // switch to async with readfile 
+            //this.xml_string = fs.readFileSync(filename, "utf8");
+            fs.readFile(filename, "utf8", function read(err, data) {
+                if (err) {
+                    console.log(err)
+                }
+                this.xml_string = data;
+                console.log("read new xml file " + this.xml_string);
+                this.readFile()
+            }
+            )
+
         } catch (Exception) {
             mqttMessageSender.sendMessage("lenex failure load <swim_event update> " + this.filename)
             console.log(Exception)
@@ -225,10 +236,10 @@ class swimevent {
         var get_club_Search = "[].{code: ATTR.code, name: ATTR.name}"
         var club_per_lane = jmespath.search(tmp, get_club_Search);
 
-        var complete_entry = [{ ...JSON.parse(emptylane), ...club_per_lane[0], ...cleared_entry[0]}]
-        
+        var complete_entry = [{ ...JSON.parse(emptylane), ...club_per_lane[0], ...cleared_entry[0] }]
+
         //console.log(JSON.stringify(complete_entry))
-    
+
         return complete_entry;
 
     }
@@ -243,13 +254,13 @@ class swimevent {
             lane: ENTRIES[0].ENTRY[?ATTR.heatid == '" + internalHeatID + "'].ATTR.lane , \
             entrytime: ENTRIES[0].ENTRY[?ATTR.heatid == '" + internalHeatID + "'].ATTR.entrytime}"
         var tmp2 = jmespath.search(tmp, searchstring2);
-        
+
         var searchstring3 = "[].{athleteid: athleteid, birthdate: birthdate, firstname: firstname, lastname: lastname, lane: lane[0], entrytime: entrytime[0] }"
         var tmp3 = jmespath.search(tmp2, searchstring3);
 
         var searchstring4 = "[?lane == '" + lane + "']"
         var tmp4 = jmespath.search(tmp3, searchstring4);
-        
+
         return tmp4
     }
 

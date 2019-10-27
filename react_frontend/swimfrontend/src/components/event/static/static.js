@@ -193,7 +193,7 @@ class Static extends React.Component {
                                         <tbody>
                                             <tr>
                                                 <td align="left">
-                                                    BSV - SG Mittelfranken
+                                                    TV Fürth 1860 - SpVgg Greuther Fürth
                                             </td>
                                                 <td align="right">
                                                     Timing SG Fürth
