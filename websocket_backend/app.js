@@ -8,6 +8,11 @@ const index = require("./routes/index");
 const topic_name = "mainchannel"
 
 const mqtt_host = "mqtt://localhost"
+
+const staticbasemessage = "Kinderschwimmen 2019\\n \
+                          Live Timing\\n \
+                          09.11.2019\\n \
+                          SG Fürth"
 //const mqtt_host = "mqtt://mqtt"
 //const mqtt_host = "mqtt://192.168.178.145"
 
@@ -69,9 +74,8 @@ client.on('error', function () {
   client.subscribe(topic_name);
 });
 
-function checkMQTT(){
-  if (!client.connected)
-  {
+function checkMQTT() {
+  if (!client.connected) {
     console.log("failure MQTT")
   }
 }
@@ -152,26 +156,39 @@ function storeBaseData(message) {
 function sendBaseData(socket) {
   // we need io.sockets.socket();
   try {
-    //socket.emit("FromAPI", JSON.stringify(headermessage))
-    //io.sockets.emit("FromAPI", JSON.stringify(headermessage));
-    socket.emit("FromAPI", JSON.stringify(headermessage));
 
-    //console.log("init send " + JSON.stringify(headermessage))
-    for (let lane of lanemessages) {
-      socket.emit("FromAPI", JSON.stringify(lane));
-    }
-
-    if (start.type === "message" || start.type === "clock") {
+    if (headermessage.event === "0") {
+      var basemessage = {
+        type: 'message',
+        value: staticbasemessage,
+      }
       var timediff = Date.now() - timestart;
       var newtime = Math.floor((timestart + timediff) / 1000);
       var jsondiff = "{\"time\":\"" + newtime + "\" }"
-      var newmessage = { ...start, ...JSON.parse(jsondiff) }
+
+      var newmessage = { ...basemessage, ...JSON.parse(jsondiff) }
       socket.emit("FromAPI", JSON.stringify(newmessage));
+      return;
     } else {
-      var timediff = Date.now() - laststart;
-      var jsondiff = "{\"diff\":\"" + timediff + "\" }"
-      var newmessage = { ...start, ...JSON.parse(jsondiff) }
-      socket.emit("FromAPI", JSON.stringify(newmessage));
+
+      socket.emit("FromAPI", JSON.stringify(headermessage));
+
+      for (let lane of lanemessages) {
+        socket.emit("FromAPI", JSON.stringify(lane));
+      }
+
+      if (start.type === "message" || start.type === "clock") {
+        var timediff = Date.now() - timestart;
+        var newtime = Math.floor((timestart + timediff) / 1000);
+        var jsondiff = "{\"time\":\"" + newtime + "\" }"
+        var newmessage = { ...start, ...JSON.parse(jsondiff) }
+        socket.emit("FromAPI", JSON.stringify(newmessage));
+      } else {
+        var timediff = Date.now() - laststart;
+        var jsondiff = "{\"diff\":\"" + timediff + "\" }"
+        var newmessage = { ...start, ...JSON.parse(jsondiff) }
+        socket.emit("FromAPI", JSON.stringify(newmessage));
+      }
     }
     //console.log("FromAPI " + JSON.stringify(newmessage))
   } catch (error) {

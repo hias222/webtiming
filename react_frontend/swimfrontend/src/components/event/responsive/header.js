@@ -143,9 +143,9 @@ class Header extends React.Component {
                                   color='inherit'
                                   >
                                 <Grid className={varfooter} >
-                                    <MyButton variant="contained" href='https://nuernberg-schwimmen.de/bay-kurzbahnmeisterschaften/' target='_blank' className={varfooter}>
+                                    <MyButton variant="contained" href='https://www.sgfuerth.de/events/ausschreibung-kinderschwimmen-2019/' target='_blank' className={varfooter}>
                                         <LinkIcon></LinkIcon>
-                                        Info Wettkampf
+                                        Kinderschwimmen
                                     </MyButton>
                                 </Grid>
                                 <Grid  className={varfooter} >

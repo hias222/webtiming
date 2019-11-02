@@ -187,7 +187,7 @@ class Showmessage extends React.Component {
                                 <Grid className={varfooter} >
                                     <MyButton variant="contained" href='https://nuernberg-schwimmen.de/bay-kurzbahnmeisterschaften/' target='_blank' className={varfooter}>
                                         <LinkIcon></LinkIcon>
-                                        Info Wettkampf
+                                        Info Kinderschwimmen
                                     </MyButton>
                                 </Grid>
                                 <Grid className={varfooter} >
@@ -203,9 +203,6 @@ class Showmessage extends React.Component {
                                     </MyButton>
                                 </Grid>
                             </MyGrid>
-                            <Grid item xs={12} className={varmessagetext_main}>
-                                {this.props.info.competition}
-                            </Grid>
                             <Grid item xs={6} container justify='center' >
                                 {this.splitMessageLines()}
                             </Grid>

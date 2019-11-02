@@ -4,6 +4,11 @@ const socketIo = require("socket.io");
 const port = 8080;
 const index = require("./routes/index");
 
+const staticbasemessage = "Kinderschwimmen 2019\\n \
+                          Live Timing\\n \
+                          09.11.2019\\n \
+                          SG Fürth"
+
 require('dotenv').config();
 
 var connectionString = process.env.AZURE_CONNECT_STRING
@@ -84,11 +89,11 @@ function storeBaseData(message) {
     console.log(jsonmessage.type)
     if (jsonmessage.type == "header") {
       headermessage = jsonmessage
-    
-      if (start.type === 'clock' || start.type === 'message' ){
+
+      if (start.type === 'clock' || start.type === 'message') {
         console.log("----------------- reset " + start.type)
-          var recallmessage = "{\"type\":\"race\"}"
-          start = JSON.parse(recallmessage)
+        var recallmessage = "{\"type\":\"race\"}"
+        start = JSON.parse(recallmessage)
       }
     }
 
@@ -99,7 +104,7 @@ function storeBaseData(message) {
     if (jsonmessage.type == "startlist") {
       start = jsonmessage
     }
-    
+
     if (jsonmessage.type == "start") {
       laststart = Date.now()
       start = jsonmessage
@@ -138,28 +143,42 @@ function storeBaseData(message) {
 function sendBaseData(socket) {
   // we need io.sockets.socket();
   try {
-    //socket.emit("FromAPI", JSON.stringify(headermessage))
-    //io.sockets.emit("FromAPI", JSON.stringify(headermessage));
-    socket.emit("FromAPI", JSON.stringify(headermessage));
 
-    //console.log("init send " + headermessage.toString())
-    for (let lane of lanemessages) {
-      socket.emit("FromAPI", JSON.stringify(lane));
-    }
-
-    if (start.type === "message" || start.type === "clock") {
+    if (headermessage.event === "0") {
+      var basemessage = {
+        type: 'message',
+        value: staticbasemessage,
+      }
       var timediff = Date.now() - timestart;
       var newtime = Math.floor((timestart + timediff) / 1000);
       var jsondiff = "{\"time\":\"" + newtime + "\" }"
-      var newmessage = { ...start, ...JSON.parse(jsondiff) }
+
+      var newmessage = { ...basemessage, ...JSON.parse(jsondiff) }
       socket.emit("FromAPI", JSON.stringify(newmessage));
-      console.log("message clock " + start.type)
+      return;
     } else {
-      var timediff = Date.now() - laststart;
-      var jsondiff = "{\"diff\":\"" + timediff + "\" }"
-      var newmessage = { ...start, ...JSON.parse(jsondiff) }
-      socket.emit("FromAPI", JSON.stringify(newmessage));
-      console.log("other message " + start.type)
+
+      socket.emit("FromAPI", JSON.stringify(headermessage));
+
+      //console.log("init send " + headermessage.toString())
+      for (let lane of lanemessages) {
+        socket.emit("FromAPI", JSON.stringify(lane));
+      }
+
+      if (start.type === "message" || start.type === "clock") {
+        var timediff = Date.now() - timestart;
+        var newtime = Math.floor((timestart + timediff) / 1000);
+        var jsondiff = "{\"time\":\"" + newtime + "\" }"
+        var newmessage = { ...start, ...JSON.parse(jsondiff) }
+        socket.emit("FromAPI", JSON.stringify(newmessage));
+        console.log("message clock " + start.type)
+      } else {
+        var timediff = Date.now() - laststart;
+        var jsondiff = "{\"diff\":\"" + timediff + "\" }"
+        var newmessage = { ...start, ...JSON.parse(jsondiff) }
+        socket.emit("FromAPI", JSON.stringify(newmessage));
+        console.log("other message " + start.type)
+      }
     }
 
   } catch (error) {
