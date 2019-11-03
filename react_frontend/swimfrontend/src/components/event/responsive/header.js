@@ -119,9 +119,21 @@ class Header extends React.Component {
         return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ',' + fract;
     }
 
-    render() {
+    getSwimStyle() {
+        //ToDo Staffeln
+        var swimstyle = getSwimStyles(this.props.info.swimstyle);
 
-        var style = getSwimStyles(this.props.info.swimstyle);
+        if (swimstyle === "UNKNOWN") {
+            if (typeof (this.props.info.name) !== "undefined" && this.props.info.name) {
+                return this.props.info.name;
+            }
+        }
+        return this.props.info.distance + "m " + swimstyle;
+    }
+
+
+    render() {
+        var style = this.getSwimStyle();
         var race = getRaceType(this.props.info.round);
         let heatclass = classnames('heatheader');
         let varfooter = classnames('varfooter_race');
@@ -129,26 +141,25 @@ class Header extends React.Component {
         let heatclass_event = classnames('heatheader_event');
         let heatclass_time = classnames('heatheader_time');
 
-
         return (
             <div>
                 <Container maxWidth="md">
                     <MyPaper >
                         <Grid container spacing={0} >
                             <MyGrid className={varfooter}
-                                  container 
-                                  direction="row"
-                                  justify="flex-start"
-                                  alignItems="flex-start"
-                                  color='inherit'
-                                  >
+                                container
+                                direction="row"
+                                justify="flex-start"
+                                alignItems="flex-start"
+                                color='inherit'
+                            >
                                 <Grid className={varfooter} >
                                     <MyButton variant="contained" href='https://www.sgfuerth.de/events/ausschreibung-kinderschwimmen-2019/' target='_blank' className={varfooter}>
                                         <LinkIcon></LinkIcon>
                                         Kinderschwimmen
                                     </MyButton>
                                 </Grid>
-                                <Grid  className={varfooter} >
+                                <Grid className={varfooter} >
                                     <MyButton variant="contained" href='https://swimtiming.azurewebsites.net' className={varfooter} target='_blank' >
                                         <ResultIcon></ResultIcon>
                                         Ergebnisse/Meldungen
@@ -167,7 +178,7 @@ class Header extends React.Component {
                                         {this.props.info.competition}
                                     </div>
                                     <div className={heatclass_event}>
-                                        Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}: {this.props.info.heat}
+                                        Wettkampf: {this.props.info.event} {style} {race}: {this.props.info.heat}
                                     </div>
                                 </Grid>
                                 <Grid align="right" >

@@ -162,7 +162,7 @@ class Showmessage extends React.Component {
 
     render() {
 
-        let varmessagetext_main = classnames('varmessagetext_main');
+        //let varmessagetext_main = classnames('varmessagetext_main');
         //let varmessage_clock = classnames('varmessage_clock');
         let varfooter = classnames('varfooter');
 

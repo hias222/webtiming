@@ -45,36 +45,32 @@ class swimevent {
             mqttMessageSender.sendMessage("lenex failure load <swim_event initial> " + this.filename)
             console.log(Exception)
         }
-
+        this.preparereadFile = this.preparereadFile.bind(this);
         console.log("<swim_event> Event type " + event_type)
-
     }
 
     async updateFile(filename) {
         this.filename = filename
+        //var xml_data = "";
         try {
-            //somtimes parts are missing waiting?
-            // switch to async with readfile 
-            //this.xml_string = fs.readFileSync(filename, "utf8");
-            fs.readFile(filename, "utf8", function read(err, data) {
-                if (err) {
-                    console.log(err)
-                }
-                this.xml_string = data;
-                console.log("read new xml file " + this.xml_string);
-                this.readFile()
-            }
-            )
-
+            fs.readFile(filename, "utf8",this.preparereadFile);
         } catch (Exception) {
-            mqttMessageSender.sendMessage("lenex failure load <swim_event update> " + this.filename)
+            mqttMessageSender.sendMessage("<swim_event> <updateFile> lenex failure load" + this.filename)
             console.log(Exception)
         }
-        //todo update file name
+        // update file name
         var lenex_file = properties.get("main.lenex_startlist")
-        console.log("<swimevent> old file " + lenex_file)
+        console.log("<swim_event> old file " + lenex_file)
         properties.set("main.lenex_startlist", filename);
         properties.save(propertyfile)
+    }
+
+    async preparereadFile(err, data) {
+        if (err) {
+            console.log(err)
+        }
+        this.xml_string = data;
+        this.readFile();
     }
 
     readFile() {
@@ -89,12 +85,12 @@ class swimevent {
                     event_heatid = jmespath.search(result.LENEX.MEETS[0].MEET[0].SESSIONS, "[].SESSION[].EVENTS[].EVENT[]");
                     event_sessions = jmespath.search(result.LENEX.MEETS[0].MEET[0].SESSIONS, "[].SESSION[].EVENTS[].EVENT[]")
                 } else {
-                    mqttMessageSender.sendMessage("lenex error" + error)
+                    mqttMessageSender.sendMessage("<swim_event> lenex error " + error)
                     console.log(error);
                 }
             });
         } catch (Exception) {
-            mqttMessageSender.sendMessage("lenex failure load <swim_event> " + this.filename)
+            mqttMessageSender.sendMessage("<swim_event> lenex failure load  " + this.filename)
             console.log(Exception)
         }
     }
@@ -105,11 +101,10 @@ class swimevent {
             var shortname = "{ \"competition\": \"" + event_all.LENEX.MEETS[0].MEET[0].ATTR.name + "\"}"
             return JSON.parse(shortname);
         } catch (Exception) {
-            //mqttMessageSender.sendMessage("lenex failure load " + this.filename)
-            //console.log(Exception)
+            mqttMessageSender.sendMessage("<swim_event> lenex failure load getCompetitionName")
+            console.log(Exception)
             return null;
         }
-
     }
 
     getInternalHeatId(eventnumber, heatnumber) {
@@ -151,7 +146,7 @@ class swimevent {
         try {
             var searchstring = "[?ATTR.number == '" + number + "']"
             var tmp = jmespath.search(event_sessions, searchstring);
-            var attributsearch = "[].{event: ATTR.number, gender: ATTR.gender, round: ATTR.round, relaycount: SWIMSTYLE[0].ATTR.relaycount, swimstyle: SWIMSTYLE[0].ATTR.stroke, distance: SWIMSTYLE[0].ATTR.distance }"
+            var attributsearch = "[].{event: ATTR.number, gender: ATTR.gender, round: ATTR.round, relaycount: SWIMSTYLE[0].ATTR.relaycount, swimstyle: SWIMSTYLE[0].ATTR.stroke, distance: SWIMSTYLE[0].ATTR.distance, name: SWIMSTYLE[0].ATTR.name }"
             var searcharray = jmespath.search(tmp, attributsearch);
             if (searcharray.length > 1 && event_type !== event_type_values.ALL) {
                 console.log("<swim_event> wir müssen nochmal filtern " + event_type)

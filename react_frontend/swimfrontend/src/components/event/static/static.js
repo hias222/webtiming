@@ -119,10 +119,22 @@ class Static extends React.Component {
         })
     }
 
+    getSwimStyle() {
+        //ToDo Staffeln
+        var swimstyle = getSwimStyles(this.props.info.swimstyle);
+
+        if (swimstyle === "UNKNOWN") {
+            if (typeof (this.props.info.name) !== "undefined" && this.props.info.name) {
+                return "Wk: " + this.props.info.event + " " + this.props.info.name;
+            }
+        }
+        return "Wettkampf: " +  this.props.info.event + " " + this.props.info.distance + "m " + swimstyle;
+    }
+
     render() {
 
 
-        var style = getSwimStyles(this.props.info.swimstyle);
+        var event_style = this.getSwimStyle();
         var race = getRaceType(this.props.info.round);
 
         let statictable = classnames('statictable');
@@ -172,7 +184,7 @@ class Static extends React.Component {
                                     <table className={staticheadertable}>
                                         <tbody>
                                             <tr className={staticheatevent}>
-                                                <td>Wettkampf: {this.props.info.event} {this.props.info.distance}m {style} {race}
+                                                <td>{event_style} {race}
                                                     : {this.props.info.heat}</td>
                                                 <td className={staticheader_time}>{this.format(this.props.time)}</td>
                                             </tr>
