@@ -36,18 +36,11 @@ class StartStaticLane extends React.Component {
                                     {swimmerName.toString().substr(0, 40)}
                                 </td>
                             </tr>
-                            <tr><td>
-                                <table width='100%' className={internaltable}>
-                                    <tbody className={internaltable}>
-                                        <tr className={staticclub}>
-                                            <td>
-                                                {getBirthYear(this.props.lane.birthdate)} {this.props.lane.name}
-                                                &nbsp; {getEntryTime(this.props.lane.entrytime)}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
+                            <tr className={staticclub}>
+                                <td>
+                                    {getBirthYear(this.props.lane.birthdate)} {this.props.lane.name}
+                                    &nbsp; {getEntryTime(this.props.lane.entrytime)}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
