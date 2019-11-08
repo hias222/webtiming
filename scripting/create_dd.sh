@@ -2,7 +2,7 @@
 
 RASP_DIR=/Users/matthiasfuchs/projects/schwimmen/webtiming/raspberry/pi-gen
 DEVICE_NAME=disk3
-IMAGE_DATE=2019-11-03
+IMAGE_DATE=2019-11-08
 
 cd $RASP_DIR
 cd deploy/tmp
