@@ -13,6 +13,10 @@ the software has these components:
 * scripts -> generate packages for RPi pi-gen (bash)
 * monitor
 
+## Install for RP
+
+[install image](scripting/Install.md)
+
 ## Installs
 
 ### mosquito

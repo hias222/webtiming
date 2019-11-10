@@ -14,3 +14,5 @@ diskutil umountDisk /dev/$DEVICE_NAME
 sudo dd bs=4m if=$IMAGE_DATE-clientall-singledata.img of=/dev/r$DEVICE_NAME conv=sync
 
 diskutil eject /dev/$DEVICE_NAME
+
+rm -f $IMAGE_DATE*
