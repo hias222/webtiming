@@ -36,7 +36,7 @@ pm2 start app.js
 pm2 list
 ```
 
-Shoul look like this
+Should look like this
 
 ```bash
 swim@raspberrypi:~ $ pm2 list
@@ -90,8 +90,12 @@ pm2 start app.js
 
 ### Main
 
-THere are two modes, the prefered mode can configured during build of react app, base is static
+There are two modes, the prefered mode can configured during build of react app, base is static  
+The startup text is a configured value in websocke_tbackend/app.js - staticbasemessage, can be edited with vi  
+
+```html
 http://[IP Address]
+```
 
 #### For static use
 
@@ -111,4 +115,4 @@ You can upload new lenex file under settings, if cloud is connected, this part i
 
 http://[IP]:3002/ - no automatic update, browser refresh must be used
 
-this is an monitoring app. It collects the last messages and put it to website - no auto reload!! When a arduino/esp connects you see somethin like MQTT started an ever few seconds something like no serial data
+this is an monitoring app. It collects the last messages and put it to website - no auto reload!! When a arduino/esp connects you see somethin like MQTT started an every few seconds something like no serial data
