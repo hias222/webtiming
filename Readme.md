@@ -15,7 +15,7 @@ the software has these components:
 
 ## Install for RP
 
-[install image](scripting/Install.md)
+[install image](scripting/install.md)
 
 ## Installs
 
