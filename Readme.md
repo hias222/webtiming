@@ -148,3 +148,16 @@ docker-compose -f docker-compose-prod.yml up -d --build
 ### Websocket
 
 docker-compose up
+
+
+# Addons
+
+## 7 zoll
+
+```bash
+hdmi_group=2
+hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt 1024 600 60 6 0 0 0
+max_usb_current=1 
+```
