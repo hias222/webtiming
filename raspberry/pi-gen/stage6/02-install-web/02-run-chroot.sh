@@ -11,24 +11,16 @@ su - ${FIRST_USER_NAME} -c "cd frontend; pm2 start app.js --name frontend"
 ## add monitor
 su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js --name monitor"
 
-## add cloud
-# muss man erst den key mit aufnehmen
-# su - ${FIRST_USER_NAME} -c "cd cloud; pm2 start app.js"
-
-su - ${FIRST_USER_NAME} -c "pm2 list"
-#
+echo "save ..."
 su - ${FIRST_USER_NAME} -c "pm2 save"
-#
-su - ${FIRST_USER_NAME} -c "pm2 list"
 
-# pm2 startup systemd
-#sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u swim --hp /home/swim
+su - ${FIRST_USER_NAME} -c "pm2 stop all"
+# su - ${FIRST_USER_NAME} -c "cd backend; pm2 stop backend"
+# su - ${FIRST_USER_NAME} -c "cd monitor; pm2 stop monitor"
 
-su - ${FIRST_USER_NAME} -c "pm2 stop app"
-# su - ${FIRST_USER_NAME} -c "cd backend; pm2 stop app"
-
-systemctl stop pm2-root.service
-
+echo "kill process ... "
 pkill -f node
+sleep 10
 
-ps -ef | grep node
+echo "process list ... "
+ps -ef 
