@@ -29,7 +29,7 @@ on_chroot << EOF
   su - ${FIRST_USER_NAME} -c "cd backend; unzip -o app.zip"
   su - ${FIRST_USER_NAME} -c "cd backend; npm install"
   #
-  su - ${FIRST_USER_NAME} -c "cd backend; pm2 start app.js"
+  su - ${FIRST_USER_NAME} -c "cd backend; pm2 start app.js --name backend"
   #
   su - ${FIRST_USER_NAME} -c "pm2 save"
   

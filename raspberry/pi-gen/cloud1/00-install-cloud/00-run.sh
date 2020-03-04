@@ -21,21 +21,20 @@ EOF
 
 echo "install app"
 on_chroot << EOF
-  su - ${FIRST_USER_NAME} -c "cd cloud; unzip -o app.zip"
-  su - ${FIRST_USER_NAME} -c "cd cloud; npm install"
-  #
-  su - ${FIRST_USER_NAME} -c "cd cloud; pm2 start app.js"
+su - ${FIRST_USER_NAME} -c "cd cloud; unzip -o app.zip"
+su - ${FIRST_USER_NAME} -c "cd cloud; npm install"
+su - ${FIRST_USER_NAME} -c "cd cloud; pm2 start app.js"
   
-  # su - ${FIRST_USER_NAME} -c "pm2 save"
-  # pm2 startup ubuntu -u swim --hp /home/swim
+echo "cloud process will not be saved ..."
+# su - ${FIRST_USER_NAME} -c "pm2 save"
+# pm2 startup ubuntu -u swim --hp /home/swim
 
-  su - ${FIRST_USER_NAME} -c "pm2 stop app"
-  # pm2 startup ubuntu -u swim --hp /home/swim
+su - ${FIRST_USER_NAME} -c "cd cloud; pm2 stop app"
+echo "kill process ... "
+pkill -f node
+sleep 10
 
-  su - ${FIRST_USER_NAME} -c "pm2 stop app"
-
-  systemctl stop pm2-root.service
-
-  pkill -f node
+echo "process list ... "
+ps -ef 
 
 EOF

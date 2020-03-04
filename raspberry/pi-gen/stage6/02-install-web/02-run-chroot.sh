@@ -6,10 +6,10 @@ su - ${FIRST_USER_NAME} -c "cd frontend; npm install"
 pm2 startup ubuntu -u swim --hp /home/swim
 
 ## add frontend
-su - ${FIRST_USER_NAME} -c "cd frontend; pm2 start app.js"
+su - ${FIRST_USER_NAME} -c "cd frontend; pm2 start app.js --name frontend"
 
 ## add monitor
-su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js"
+su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js --name monitor"
 
 ## add cloud
 # muss man erst den key mit aufnehmen

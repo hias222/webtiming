@@ -1,6 +1,5 @@
 su - ${FIRST_USER_NAME} -c "cd frontend; unzip -o app.zip"
 su - ${FIRST_USER_NAME} -c "cd frontend; npm install"
-#
 su - ${FIRST_USER_NAME} -c "cd frontend; pm2 start app.js"
 #
 su - ${FIRST_USER_NAME} -c "pm2 save"

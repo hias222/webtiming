@@ -23,19 +23,26 @@ echo "install app"
 on_chroot << EOF
   su - ${FIRST_USER_NAME} -c "cd monitor; unzip -o app.zip"
   su - ${FIRST_USER_NAME} -c "cd monitor; npm install"
-  #
   su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js"
+
+  echo "persist config .. "
   
   su - ${FIRST_USER_NAME} -c "pm2 save"
+
+  echo "root actions ... "
+
   pm2 startup ubuntu -u swim --hp /home/swim
+  pm2 save
 
-  su - ${FIRST_USER_NAME} -c "pm2 stop app"
-  # pm2 startup ubuntu -u swim --hp /home/swim
+  systemctl enable pm2-swim
+  # systemctl stop pm2-swim --> Running in chroot, ignoring request: stop
 
-  su - ${FIRST_USER_NAME} -c "pm2 stop app"
+su - ${FIRST_USER_NAME} -c "pm2 stop app"
+echo "kill process ... "
+pkill -f node
+sleep 10
 
-  systemctl stop pm2-root.service
-
-  pkill -f node
+echo "process list ... "
+ps -ef 
 
 EOF
