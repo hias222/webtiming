@@ -4,8 +4,6 @@ import Grid from '@material-ui/core/Grid';
 
 import VideoIcon from '@material-ui/icons/Videocam';
 
-
-
 export default class VideoModes extends React.Component {
 
   private backendConnect = process.env.REACT_APP_BACKEND_DIRECT === "true" ? "http://" + window.location.hostname + ":3001/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH : process.env.REACT_APP_DATAMAPPING_INTERNAL_URL + "/" + process.env.REACT_APP_DATAMAPPING_MQQT_REST_PATH
