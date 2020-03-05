@@ -30,6 +30,7 @@ echo "cloud process will not be saved ..."
 # pm2 startup ubuntu -u swim --hp /home/swim
 
 su - ${FIRST_USER_NAME} -c "cd cloud; pm2 stop app"
+
 echo "kill process ... "
 pkill -f node
 sleep 10
