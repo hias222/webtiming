@@ -5,4 +5,5 @@ zenity xdg-utils
 gvfs-backends gvfs-fuse
 lightdm gnome-themes-standard-data gnome-icon-theme
 accountsservice
+at-spi2-core
 

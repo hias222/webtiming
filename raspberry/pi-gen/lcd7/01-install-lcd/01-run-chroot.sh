@@ -17,3 +17,5 @@ echo "hdmi_mode=1" >> ./boot/config.txt
 echo "hdmi_mode=87" >> ./boot/config.txt
 echo "hdmi_cvt 1024 600 60 6 0 0 0" >> ./boot/config.txt
 echo "max_usb_current=1" >> ./boot/config.txt
+echo "disable_overscan=1" >> ./boot/config.txt
+ 
