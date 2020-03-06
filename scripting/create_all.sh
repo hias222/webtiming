@@ -128,5 +128,5 @@ docker rm -v pigen_work
 # create image
 cd ${RASP_DIR}
 #./build-docker.sh -c clientall
-./build-docker.sh -c client7
-#./build-docker.sh -c client35
+#./build-docker.sh -c client7
+./build-docker.sh -c client35

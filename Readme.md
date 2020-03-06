@@ -42,7 +42,7 @@ docker run -d -p 1883:1883 -p 9001:9001 -v $(pwd)/mosquitto.conf:/mosqtto/config
 
 brew install mosquitto
 brew list mosquitto
-ln -s /usr/local/Cellar/mosquitto/1.6.3/bin/mosquitto_sub /usr/local/bin/mosquitto_sub
+ln -s /usr/local/Cellar/mosquitto/1.6.8/bin/mosquitto_sub /usr/local/bin/mosquitto_sub
 
 ## datamapping
 
