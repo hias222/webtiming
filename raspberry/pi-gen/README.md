@@ -2,6 +2,11 @@
 
 _Tool used to create the raspberrypi.org Raspbian images_
 
+```bash
+scripting/create_all.sh
+```
+
+
 ## nice to know
 
 ### turn off wlan
@@ -12,6 +17,12 @@ edit /boot/config and add
 # dtoverlay=pi3-disable-wifi
 # dtoverlay=pi3-disable-bt
 # ifconfig wlan0
+```
+
+```bash
+disable serial
+sudo raspi-config
+Select option 5, Interfacing options, then option P6, Serial, and select No. Exit raspi-config.
 ```
 
 ### create image with dd

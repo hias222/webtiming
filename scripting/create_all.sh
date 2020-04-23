@@ -128,7 +128,7 @@ check_exit ${RASP_DIR}/monitor1/00-install-monitor/files/app.zip $COMPONENT_NAME
 
 # delete old ones
 
-#docker rm -v pigen_work
+docker rm -v pigen_work
 
 # create image
 cd ${RASP_DIR}

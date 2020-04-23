@@ -1,0 +1,14 @@
+[Unit]
+Description=colorado
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/colorado
+WorkingDirectory=/home/swim/serial
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

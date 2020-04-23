@@ -1,5 +1,4 @@
+git python-setuptools python3-setuptools unzip
 cmake
 libssl-dev
 jpnevulator
-unzip
-git
