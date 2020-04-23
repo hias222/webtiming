@@ -1,0 +1,5 @@
+cmake
+libssl-dev
+jpnevulator
+unzip
+git
