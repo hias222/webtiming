@@ -13,6 +13,10 @@ the software has these components:
 * scripts -> generate packages for RPi pi-gen (bash)
 * monitor
 
+## Colorado
+
+[preferences](documentation_for_colorado.docx)
+
 ## Details
 
 [RPi](rpi.md)

@@ -19,8 +19,12 @@ the software has these components:
 
 ## Installs
 
-[overall][documentation/Readme.md]
+[overall](documentation/Readme.md)
 
 ### Raspberry
 
-[RPi][documentation/rpi.md]
+[RPi](documentation/rpi.md)
+
+### Windows
+
+[RPi](documentation/windows.md)
