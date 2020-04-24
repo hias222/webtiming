@@ -38,6 +38,10 @@ _Tool used to create the raspberrypi.org Raspbian images_
 scripting/create_all.sh
 ```
 
+```bash
+CONTINUE=1 ./build-docker.sh -c clientall
+```
+
 ### turn off wlan
 
 edit /boot/config and add 
