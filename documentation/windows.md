@@ -11,6 +11,11 @@ Install 1.6.9
 <https://projects.eclipse.org/projects/iot.mosquitto>  
 check with mosquitto_sub -t raw, if its running (files under c:\program\mosquitto)
 
+## install nginx
+
+<https://www.nginx.org>
+copy build react app in html folder
+
 ## using pm2
 
 * Create a new folder `c:\etc\.pm2`
