@@ -17,6 +17,8 @@ console.log("<incoming> using file " + lenex_file);
 var myEvent = new swimEvent(lenex_file);
 //var myEvent = new swimEvent("resources/170114-Schwandorf-ME.lef");
 
+var race_running = false;
+
 const actions = {
     HEADER: 'header',
     RACE: 'race',
@@ -29,7 +31,8 @@ const actions = {
     VIDEO: 'video',
     LENEX: 'lenex',
     CONFIGURATION: 'configuration',
-    STARTLIST: 'startlist'
+    STARTLIST: 'startlist',
+    TIME: 'time'
 }
 
 exports.parseColoradoData = function (message) {
@@ -56,6 +59,7 @@ exports.parseColoradoData = function (message) {
                 break;
             case actions.STOP:
                 var jsonstart = "{ \"type\": \"stop\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                race_running = false;
                 return JSON.parse(jsonstart);
                 break;
             case actions.CLOCK:
@@ -78,6 +82,12 @@ exports.parseColoradoData = function (message) {
             case actions.MESSAGE:
                 var clearMessage = clearMessageText(message)
                 var jsonmsg = "{ \"type\": \"message\", \"value\": \"" + getMessage(clearMessage) + "\", \"time\": \"" + Math.floor(new Date() / 1000) + "\" }"
+                return JSON.parse(jsonmsg);
+                break;
+            case actions.TIME:
+                var jsonmsg = "{ \"type\": \"time\", \"value\": \"" + getTimeState(message) + "\" }"
+                //todo -> set running if time > 0 
+                // if missed start
                 return JSON.parse(jsonmsg);
                 break;
             case actions.LENEX:
@@ -109,6 +119,10 @@ exports.parseColoradoData = function (message) {
         return "unknown"
     }
     return "unknown"
+}
+
+exports.getTimeState = function () {
+    return race_running
 }
 
 async function getNewLenexFile(filename) {
@@ -195,6 +209,23 @@ function clearMessageText(message) {
     var strmessage = message.toString();
     var newMessage = strmessage.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
     return newMessage;
+}
+
+function getTimeState(message) {
+    var words = message.toString().split(' ');
+    try {
+        var time = words[1]
+        if (time === "00:00,0"){
+            race_running = false;
+            console.log("--stop");
+        } else {
+            race_running = true;
+        }
+        return time
+    } catch (err) {
+        console.log(err)
+        return 0
+    }
 }
 
 function getHeat(message) {
