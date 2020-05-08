@@ -6,15 +6,14 @@ const port = process.env.PORT || 4001;
 const index = require("./routes/index");
 
 const topic_name = "mainchannel"
-
 const mqtt_host = "mqtt://localhost"
 
-const staticbasemessage = "Kinderschwimmen 2019\\n \
+const today = new Date();
+
+const staticbasemessage = today.getDate() + "." + today.getMonth() + "." + today.getFullYear() + " \\n \
                           Live Timing\\n \
-                          09.11.2019\\n \
-                          SG Fürth"
-//const mqtt_host = "mqtt://mqtt"
-//const mqtt_host = "mqtt://192.168.178.145"
+                          \\n \
+                          "
 
 var settings = {
   keepalive: 2000
