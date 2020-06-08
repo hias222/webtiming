@@ -5,6 +5,8 @@ const socketIo = require("socket.io");
 const port = process.env.PORT || 4001;
 const index = require("./routes/index");
 
+const senddatahub = require("./outgoing/senddatahub")
+
 const topic_name = "mainchannel"
 const mqtt_host = "mqtt://localhost"
 
@@ -84,7 +86,7 @@ setInterval(checkMQTT, 1000);
 client.disconnected
 
 client.on('message', function (topic, message) {
-  console.log('websocket backend', topic, message.toString());
+  //console.log('websocket backend', topic, message.toString());
   storeBaseData(message)
   try {
     io.sockets.emit("FromAPI", message.toString());
@@ -98,7 +100,7 @@ client.on('message', function (topic, message) {
 function storeBaseData(message) {
   try {
     var jsonmessage = JSON.parse(message)
-    console.log(jsonmessage.type)
+    //console.log(jsonmessage.type)
     if (jsonmessage.type == "header") {
       //console.log("new header " + JSON.stringify(jsonmessage))
       headermessage = jsonmessage
@@ -157,11 +159,8 @@ function storeBaseData(message) {
 function sendDataHub() {
   console.log("send to datahub")
   var newmessage = { ...headermessage, lanes: lanemessages }
-  console.log(JSON.stringify(newmessage))
-
-  
-
-
+  //console.log(JSON.stringify(newmessage))
+  senddatahub.sendHeat(newmessage)
 }
 
 function sendBaseData(socket) {
