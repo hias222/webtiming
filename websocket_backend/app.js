@@ -123,6 +123,8 @@ function storeBaseData(message) {
     }
 
     if (jsonmessage.type == "stop") {
+      // we send it to datahub
+      sendDataHub();
       start = jsonmessage
     }
 
@@ -150,6 +152,16 @@ function storeBaseData(message) {
     console.log("<app.js> error")
     console.log(err)
   }
+}
+
+function sendDataHub() {
+  console.log("send to datahub")
+  var newmessage = { ...headermessage, lanes: lanemessages }
+  console.log(JSON.stringify(newmessage))
+
+  
+
+
 }
 
 function sendBaseData(socket) {
