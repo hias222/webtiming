@@ -100,8 +100,8 @@ class StaticLane extends React.Component {
         }
 
         var { time } = ""
-        if (this.props.lane.time !== 'undefined') {
-            time = this.props.lane.time
+        if (this.props.lane.finishtime !== 'undefined') {
+            time = this.props.lane.finishtime
         } else {
             time = ""
         }
