@@ -159,7 +159,6 @@ function storeBaseData(message) {
 function sendDataHub() {
   console.log("send to datahub")
   var newmessage = { ...headermessage, lanes: lanemessages }
-  //console.log(JSON.stringify(newmessage))
   senddatahub.sendHeat(newmessage)
 }
 
