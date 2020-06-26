@@ -42,6 +42,7 @@ export default class Lcd extends React.Component<{}, FrontendState> {
             heatnr: "0",
             eventnr: "0"
         }
+        
         this.state = {
             startdelayms: 0,
             runningTime: "",
@@ -50,7 +51,7 @@ export default class Lcd extends React.Component<{}, FrontendState> {
             lanes: [],
             displayMode: "race",
             MessageText: "",
-            MessageTime: "",
+            MessageTime: Date.now().toString(),
             VideoVersion: ""
         };
         this.mylane = [];
@@ -144,6 +145,10 @@ export default class Lcd extends React.Component<{}, FrontendState> {
         if (message.time !== undefined) {
             this.setState({
                 MessageTime: message.time
+            })
+        } else {
+            this.setState({
+                MessageTime: Date.now().toString()
             })
         }
 

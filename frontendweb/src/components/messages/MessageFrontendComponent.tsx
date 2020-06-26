@@ -1,6 +1,7 @@
 import React from "react";
 import { MessageInterface } from "../../interfaces/MessageInterface";
 import { VideoFrontendComponent } from "./VideoFrontendComponent";
+import BoardClock from "../clock/BoardClock";
 
 export type MessageType = {
     displayMode: string;
@@ -51,7 +52,6 @@ export class MessageFrontendComponent extends React.Component<MessageInterface, 
     // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
     getFrontend() {
 
-
         switch (this.state.displayMode) {
             case "video":
                 switch (this.props.displayFormat) {
@@ -75,7 +75,10 @@ export class MessageFrontendComponent extends React.Component<MessageInterface, 
             case "message":
                 return <p>MSG: {this.props.MessageText}</p>
             case "clock":
-                return <p>clock</p>
+                return <BoardClock
+                    type="123"
+                    unixcompetitiontime={this.props.MessageTime}
+                />
             default:
                 return <h1>not defined - this.state.displayMode</h1>
         }

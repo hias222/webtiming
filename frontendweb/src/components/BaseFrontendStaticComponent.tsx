@@ -19,7 +19,6 @@ export class BaseFrontendStaticComponent extends React.Component<BaseFrontendInt
     render() {
 
         let staticlaneeven = classnames('staticlaneeven');
-
         let staticbox = classnames('staticbox');
         return (
             <div>
