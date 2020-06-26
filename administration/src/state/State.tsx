@@ -24,12 +24,6 @@ export default class Counter extends React.Component<Props, State> {
     
   }
 
-  //state: State = {
-  //  event_type: "",
-  //  count: 0
-  //};
-
-
   private backendConnect = process.env.REACT_APP_DATAMAPPING_DIRECT === "true" ? "http://" + window.location.hostname + ":3001" : process.env.REACT_APP_DATAMAPPING_URL;
 
   getStateDatamapping() {

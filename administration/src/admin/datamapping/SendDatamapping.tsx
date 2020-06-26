@@ -9,9 +9,9 @@ interface State {
     event_type: string;
 };
 
-//FINALE: 'FIN',
-//VORLAEUFE: 'PRE',
-//DIREKT: 'TIM'
+// FINALE: 'FIN',
+// VORLAEUFE: 'PRE',
+// DIREKT: 'TIM'
 
 
 export default class SendDatamapping extends React.Component<Props, State> {

@@ -17,6 +17,7 @@ check_exit(){
 
 cd $START_DIR
 
+##########################################################
 COMPONENT_NAME=frontendweb
 echo "---------------------------------------------------"
 echo react
@@ -46,6 +47,7 @@ check_exit ${RASP_DIR}/stage9/01-install-web/files/web.zip $COMPONENT_NAME
 
 echo ""
 
+##########################################################
 COMPONENT_NAME=datamapping
 echo "---------------------------------------------------"
 echo datamapping
@@ -73,6 +75,7 @@ check_exit ${RASP_DIR}/cloud1/00-install-cloud/files/app.zip $COMPONENT_NAME
 
 echo ""echo ""
 
+##########################################################
 COMPONENT_NAME=websocket
 echo "---------------------------------------------------"
 echo websocket backend
@@ -98,11 +101,12 @@ zip -q ${RASP_DIR}/stage9/01-install-web/files/app.zip app.js package.json route
 
 check_exit ${RASP_DIR}/stage9/01-install-web/files/app.zip $COMPONENT_NAME
 
+##########################################################
 COMPONENT_NAME=admin
 echo "---------------------------------------------------"
 cd $START_DIR
 echo react admin
-cd ../react_frontend/administration
+cd ../administration
 npm run-script build
 cd build
 
@@ -115,6 +119,7 @@ rm ${RASP_DIR}/stage8/03-install-admin/files/web.zip
 zip -q ${RASP_DIR}/stage8/03-install-admin/files/web.zip * -r
 
 
+##########################################################
 COMPONENT_NAME=monitor
 echo "---------------------------------------------------"
 echo monitor
