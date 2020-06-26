@@ -22,8 +22,10 @@ COMPONENT_NAME=frontendweb
 echo "---------------------------------------------------"
 echo react
 #cd ../react_frontend/swimfrontend
-cd ../../frontendweb
-npm run-script build
+cd ../frontendweb
+rm -rf node_modules
+npm install
+npm run build
 cd build
 
 rm ${RASP_DIR}/stage6/03-install-web/files/web.zip

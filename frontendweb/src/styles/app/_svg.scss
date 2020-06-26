@@ -1,0 +1,23 @@
+$farbeschrift: white;
+
+.textlanesvg{
+    font-size: 10;
+    text-align: right;
+    font-weight: bold;
+    fill: $farbeschrift;
+}
+  
+.gradient_lane {
+    stop-color: #FF0000;
+}
+
+.gradient_place {
+    stop-color:  rgb(0, 255, 0);
+}
+
+.textplacesvg{
+    font-size: 10;
+    text-align: right;
+    font-weight: bold;
+    fill: black;
+}
