@@ -1,4 +1,8 @@
 #!/bin/bash
+RASP_DIR=/Users/matthiasfuchs/projects/schwimmen/webtiming/raspberry/pi-gen
+
+START_DIR=`pwd`
+echo $START_DIR
 
 ./create_apps.sh
 
