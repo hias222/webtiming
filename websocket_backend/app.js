@@ -35,6 +35,7 @@ var headermessage = {
 var start = { type: 'start' };
 var laststart = Date.now();
 var timestart = Date.now();
+var running = false;
 
 var mqtt = require('mqtt')
 
@@ -126,6 +127,7 @@ function storeBaseData(message) {
 
     if (jsonmessage.type == "stop") {
       // we send it to datahub
+      running = false
       sendDataHub();
       start = jsonmessage
     }
@@ -146,6 +148,7 @@ function storeBaseData(message) {
     }
 
     if (jsonmessage.type == "lane") {
+      running = true
       var lanenumber = (jsonmessage.lane - 1)
       var number_of_elements_to_remove = 1
       lanemessages.splice(lanenumber, number_of_elements_to_remove, jsonmessage);
@@ -162,7 +165,7 @@ function sendDataHub() {
   senddatahub.sendHeat(newmessage)
 }
 
-function sendBaseData(socket) {
+async function sendBaseData(socket) {
   // we need io.sockets.socket();
   try {
 
@@ -196,7 +199,13 @@ function sendBaseData(socket) {
         var timediff = Date.now() - laststart;
         var jsondiff = "{\"diff\":\"" + timediff + "\" }"
         var newmessage = { ...start, ...JSON.parse(jsondiff) }
-        socket.emit("FromAPI", JSON.stringify(newmessage));
+        socket.emit("FromAPI", JSON.stringify(newmessage))
+        if (running) {
+          var racemessage = "{\"type\":\"race\"}"
+          var sendracemessage = JSON.parse(racemessage)
+          socket.emit("FromAPI", JSON.stringify(sendracemessage))
+          console.log("send race maybe " + timediff)
+        }
       }
     }
     //console.log("FromAPI " + JSON.stringify(newmessage))
