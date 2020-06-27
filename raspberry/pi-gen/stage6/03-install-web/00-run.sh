@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/frontend"
-install -v -o 1000 -g 1000 -m 644 files/app.zip "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/frontend/"
+install -v -o 1000 -g 1000 -d "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/websocket"
+install -v -o 1000 -g 1000 -m 644 files/app.zip "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/websocket/"
 
 on_chroot << EOF
   systemctl enable nginx.service 

@@ -182,7 +182,7 @@ export default class Lcd extends React.Component<{}, FrontendState> {
             buttonfullscreen = <div>
                 <button onClick={this.handleFullscreen}>Full screen
                 </button>
-                <a href="/download/index.html" >Downloads
+                <a href="/download/index.html">Links - Downloads
                 </a>
             </div>
         }

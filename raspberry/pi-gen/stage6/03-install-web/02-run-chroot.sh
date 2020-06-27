@@ -1,12 +1,12 @@
 
-su - ${FIRST_USER_NAME} -c "cd frontend; unzip -o app.zip"
-su - ${FIRST_USER_NAME} -c "cd frontend; npm install"
+su - ${FIRST_USER_NAME} -c "cd websocket; unzip -o app.zip"
+su - ${FIRST_USER_NAME} -c "cd websocket; npm install"
 
 ## startup pm2
 pm2 startup ubuntu -u swim --hp /home/swim
 
 ## add frontend
-su - ${FIRST_USER_NAME} -c "cd frontend; pm2 start app.js --name frontend"
+su - ${FIRST_USER_NAME} -c "cd websocket; pm2 start app.js --name websocket"
 
 ## add monitor
 su - ${FIRST_USER_NAME} -c "cd monitor; pm2 start app.js --name monitor"

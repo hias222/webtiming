@@ -1,6 +1,7 @@
 #!/bin/bash
 
-MQTT_HOST=localhost
+#MQTT_HOST=localhost
+MQTT_HOST=192.168.178.152
 RAW_TOPIC=mainchannel
 
 RANDOM_TIME="1:1,1"
