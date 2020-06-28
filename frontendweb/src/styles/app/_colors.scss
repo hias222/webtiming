@@ -1,0 +1,217 @@
+
+$farbegerade:  rgba(194, 211, 215, 0);
+$farbeungerade: rgba(196, 196, 196, 0.1);
+$farbehintergrund:   rgba(196, 196, 196, 0.1);
+$farbegeradeschrift: white;
+$farbeungeradeschrift: white;
+$lanecolor: rgb(152, 0, 23);
+
+$farbeschrift: rgb(195, 220, 232);
+//linear-gradient(45deg, #4cd45a 20%, #FF8E53 70%);
+
+$smallsize: 0.9em;
+$normalsize: 1em;
+
+.varfooter{
+    font-size: $smallsize;
+    border-spacing: 0;
+    text-align: center;
+    color: $farbeschrift;
+
+    .a:link {
+        color: white;
+        text-decoration: none;
+      }
+    
+    .a:visited {
+        color: white;
+        text-decoration: none;
+    }
+    .a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .a:active {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.varfooter_race{
+    font-size: 1.2em;
+    border-spacing: 0;
+    text-align: center;
+    color: $farbeschrift;
+
+    .a:link {
+        color: white;
+        text-decoration: none;
+      }
+    
+    .a:visited {
+        color: white;
+        text-decoration: none;
+    }
+    .a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .a:active {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.headername {
+    color: white;
+    text-align: left;
+}
+
+.heatheader {
+    text-align: left;
+    font-size: 1em;
+    color: $farbegeradeschrift;
+}
+
+.heatheader_event {
+    font-size: 1.5em;
+    color: $farbegeradeschrift;
+}
+
+.heatheader_heat {
+    font-size: 1.5em;
+    color: $farbegeradeschrift;
+}
+
+.heatheader_time {
+    color: $farbegeradeschrift;
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.heatbackground {
+    font-size: 1em;
+
+}
+
+.lane {
+    color: $farbegeradeschrift;
+}
+
+.laneeven {
+    background: $farbegerade;
+}
+
+.laneodd {
+    background: $farbeungerade;
+}
+
+.laneclub {
+    font-size: 0.7em;
+}
+
+.lanetime {
+    text-align: right;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+}
+
+
+// 
+//message
+
+.messagetable{
+    border-spacing: 0;
+    width: 512px;
+    height: 334px;
+    background-color: $farbehintergrund
+}
+
+.messagetable_header{
+    border-spacing: 0;
+    width: 512px;
+    height: 50px;
+    background-color: $farbehintergrund
+}
+
+.messagetext_main{
+    color: $farbeschrift;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.messagetext_header{
+    color: $farbeschrift;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+///@at-root
+
+//message
+.varmessagetable{
+    border-spacing: 0;
+    width: 512px;
+    height: 334px;
+    background-color: $farbehintergrund
+}
+
+.varmessagetable_header{
+    border-spacing: 0;
+    width: 512px;
+    height: 50px;
+    background-color: $farbehintergrund
+}
+
+.varmessagetext_main{
+    color: $farbeschrift;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.staticmessagetext_header{
+    color: $farbeschrift;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+//
+
+.varmessage_clock {
+    color: $farbeschrift;
+    text-align: center;
+    font-size: 1.2em;
+
+    .react-clock {
+
+        &__face {
+            border-color: $farbeschrift;  
+          }
+
+        &__mark {
+            &__body {
+                background-color: $farbeschrift;
+              }
+          }
+        
+        &__minute-mark {
+            background-color: $farbeschrift;
+        }
+
+        &__hand {
+          &__body {
+            background-color: $farbeschrift;
+          }
+
+        }
+        &__hour-hand {
+          &__body {
+              background-color: $farbeschrift;
+          }
+
+        }
+    }
+
+}

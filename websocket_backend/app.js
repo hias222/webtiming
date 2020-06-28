@@ -5,16 +5,17 @@ const socketIo = require("socket.io");
 const port = process.env.PORT || 4001;
 const index = require("./routes/index");
 
-const topic_name = "mainchannel"
+const senddatahub = require("./outgoing/senddatahub")
 
+const topic_name = "mainchannel"
 const mqtt_host = "mqtt://localhost"
 
-const staticbasemessage = "Kinderschwimmen 2019\\n \
+const today = new Date();
+
+const staticbasemessage = today.getDate() + "." + today.getMonth() + "." + today.getFullYear() + " \\n \
                           Live Timing\\n \
-                          09.11.2019\\n \
-                          SG Fürth"
-//const mqtt_host = "mqtt://mqtt"
-//const mqtt_host = "mqtt://192.168.178.145"
+                          \\n \
+                          "
 
 var settings = {
   keepalive: 2000
@@ -34,6 +35,7 @@ var headermessage = {
 var start = { type: 'start' };
 var laststart = Date.now();
 var timestart = Date.now();
+var running = false;
 
 var mqtt = require('mqtt')
 
@@ -85,7 +87,7 @@ setInterval(checkMQTT, 1000);
 client.disconnected
 
 client.on('message', function (topic, message) {
-  console.log('websocket backend', topic, message.toString());
+  //console.log('websocket backend', topic, message.toString());
   storeBaseData(message)
   try {
     io.sockets.emit("FromAPI", message.toString());
@@ -99,7 +101,7 @@ client.on('message', function (topic, message) {
 function storeBaseData(message) {
   try {
     var jsonmessage = JSON.parse(message)
-    console.log(jsonmessage.type)
+    //console.log(jsonmessage.type)
     if (jsonmessage.type == "header") {
       //console.log("new header " + JSON.stringify(jsonmessage))
       headermessage = jsonmessage
@@ -124,6 +126,9 @@ function storeBaseData(message) {
     }
 
     if (jsonmessage.type == "stop") {
+      // we send it to datahub
+      running = false
+      sendDataHub();
       start = jsonmessage
     }
 
@@ -143,6 +148,7 @@ function storeBaseData(message) {
     }
 
     if (jsonmessage.type == "lane") {
+      running = true
       var lanenumber = (jsonmessage.lane - 1)
       var number_of_elements_to_remove = 1
       lanemessages.splice(lanenumber, number_of_elements_to_remove, jsonmessage);
@@ -153,7 +159,13 @@ function storeBaseData(message) {
   }
 }
 
-function sendBaseData(socket) {
+function sendDataHub() {
+  console.log("send to datahub")
+  var newmessage = { ...headermessage, lanes: lanemessages }
+  senddatahub.sendHeat(newmessage)
+}
+
+async function sendBaseData(socket) {
   // we need io.sockets.socket();
   try {
 
@@ -187,7 +199,13 @@ function sendBaseData(socket) {
         var timediff = Date.now() - laststart;
         var jsondiff = "{\"diff\":\"" + timediff + "\" }"
         var newmessage = { ...start, ...JSON.parse(jsondiff) }
-        socket.emit("FromAPI", JSON.stringify(newmessage));
+        socket.emit("FromAPI", JSON.stringify(newmessage))
+        if (running) {
+          var racemessage = "{\"type\":\"race\"}"
+          var sendracemessage = JSON.parse(racemessage)
+          socket.emit("FromAPI", JSON.stringify(sendracemessage))
+          console.log("send race maybe " + timediff)
+        }
       }
     }
     //console.log("FromAPI " + JSON.stringify(newmessage))

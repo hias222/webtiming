@@ -3,6 +3,7 @@ var incoming = require('../incoming/incoming')
 var mqttSender = new mqttSender();
 
 var sendStatus = false;
+var race_running = false;
 var lastEvent = 0;
 var lastHeat = 0;
 var lanemessages = [];
@@ -40,8 +41,17 @@ class MessageMapper {
         console.log("<message_mapper> generate message")
         var stringnewmessage = JSON.stringify(newmessage)
         console.log("<mapper> datamapping mapper: " + stringnewmessage)
-        sendStatus = mqttSender.sendMessage(stringnewmessage);
         try {
+          if (newmessage.type !== "lane") {
+            sendStatus = mqttSender.sendMessage(stringnewmessage);
+          } else if (race_running) {
+            sendStatus = mqttSender.sendMessage(stringnewmessage);
+          } 
+
+          if (!race_running){
+            race_running = incoming.getTimeState()
+          }
+
           if (newmessage.type === "header") {
             if (newmessage.event != lastEvent || newmessage.heat != lastHeat) {
               lastEvent = newmessage.event
@@ -57,7 +67,23 @@ class MessageMapper {
                 mqttSender.sendMessage(stringnewlanemessage);
               }
             }
-          } else if (newmessage.type === "race") {
+          } else if (newmessage.type === "start") {
+            race_running = true;
+            //clear data
+            lanemessages = []
+            for (var i = 0; i < lanes; i++) {
+              //we send all lanes
+              var incomingmsg = "lane " + (i + 1);
+              storeLaneData(i + 1, incomingmsg);
+              var newlanemessage = incoming.parseColoradoData(incomingmsg.toString())
+              var stringnewlanemessage = JSON.stringify(newlanemessage)
+              mqttSender.sendMessage(stringnewlanemessage);
+            }
+          } else if (newmessage.type === "stop") {
+            race_running = false;
+            lanemessages = []
+          }
+          else if (newmessage.type === "race") {
             // zeiten speichern?
             console.log("race " + lastEvent)
             var incomingheader = "header " + lastEvent + " " + lastHeat

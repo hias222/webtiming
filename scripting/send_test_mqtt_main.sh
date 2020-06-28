@@ -1,6 +1,7 @@
 #!/bin/bash
 
-MQTT_HOST=localhost
+#MQTT_HOST=localhost
+MQTT_HOST=192.168.178.152
 RAW_TOPIC=mainchannel
 
 RANDOM_TIME="1:1,1"
@@ -12,7 +13,7 @@ NUMBER_HEATS=4
 
 send_main_message(){
     echo main: $1
-    NEW_MESSAGE="{\"type\":\"$1\",\"size\":\"large\",\"time\":\"1569662431\"}"
+    NEW_MESSAGE="{\"type\":\"$1\",\"size\":\"large\",\"finishtime\":\"1569662431\"}"
     mosquitto_pub -h $MQTT_HOST -t $RAW_TOPIC -m "$NEW_MESSAGE"
 }
 
@@ -25,7 +26,7 @@ send_header_message(){
 send_lane_message(){
     echo lane: $1 - $2 - $3 - $5
     NEW_MESSAGE="{\"athleteid\":\"4002\",\"birthdate\":\"2001-01-01\",\"firstname\":\"Nele\",\"lastname\":\"Rudolph\", \
-    \"lane\":\"$1\",\"entrytime\":\"00:01:04.90\",\"name\":\"SG Mittelfranken\",\"code\":\"6768\",\"type\":\"lane\",\"event\":\"$2\",\"place\":\"$3\",\"time\":\"$4\",\"heat\":\"$5\"}"
+    \"lane\":\"$1\",\"entrytime\":\"00:01:04.90\",\"name\":\"SG Mittelfranken\",\"code\":\"6768\",\"type\":\"lane\",\"event\":\"$2\",\"place\":\"$3\",\"finishtime\":\"$4\",\"heat\":\"$5\"}"
     mosquitto_pub -h $MQTT_HOST -t $RAW_TOPIC -m "$NEW_MESSAGE"
 }
 

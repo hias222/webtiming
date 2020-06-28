@@ -4,5 +4,7 @@
         "node_modules{,/**}"
     ],
     "appService.defaultWebAppToDeploy": "/subscriptions/c7d4f7fe-53f6-4043-a10a-d574ccc6db26/resourceGroups/webtiming/providers/Microsoft.Web/sites/webtiming",
-    "appService.deploySubpath": "react_frontend/swimfrontend/build"
+    "appService.deploySubpath": "react_frontend/swimfrontend/build",
+    "cmake.buildBeforeRun": false,
+    "C_Cpp.autocomplete": "Disabled"
 }

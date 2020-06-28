@@ -183,7 +183,7 @@ class swimevent {
         var emptylane = "{ \"type\": \"lane\", \"lane\": \"" +
             lane + "\", \"event\": \"" +
             actual_event + "\", \"place\": \"" +
-            place + "\", \"time\": \"" +
+            place + "\", \"finishtime\": \"" +
             time + "\", \"heat\": \"" +
             actual_heat + "\" }"
         try {
@@ -210,7 +210,7 @@ class swimevent {
             try {
                 return JSON.parse(emptylane);
             } catch (err) {
-                var nulllane = "{\"type\":\"lane\",\"lane\":\"0\",\"event\":\"0\",\"place\":\"0\",\"time\":\"0\",\"heat\":\"0\"}"
+                var nulllane = "{\"type\":\"lane\",\"lane\":\"0\",\"event\":\"0\",\"place\":\"0\",\"finishtime\":\"0\",\"heat\":\"0\"}"
                 return JSON.parse(nulllane);
             }
         }
