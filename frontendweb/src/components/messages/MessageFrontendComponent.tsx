@@ -2,6 +2,7 @@ import React from "react";
 import { MessageInterface } from "../../interfaces/MessageInterface";
 import { VideoFrontendComponent } from "./VideoFrontendComponent";
 import BoardClock from "../clock/BoardClock";
+import { MessageBoxComponent } from "./MessageBoxComponent";
 
 export type MessageType = {
     displayMode: string;
@@ -42,8 +43,6 @@ export class MessageFrontendComponent extends React.Component<MessageInterface, 
         if (this.props.VideoVersion === "5") {
             return "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"
         }
-
-
         console.log("not found video " + this.props.VideoVersion)
         return ""
     }
@@ -51,7 +50,6 @@ export class MessageFrontendComponent extends React.Component<MessageInterface, 
     // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
     // http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
     getFrontend() {
-
         switch (this.state.displayMode) {
             case "video":
                 switch (this.props.displayFormat) {
@@ -62,18 +60,17 @@ export class MessageFrontendComponent extends React.Component<MessageInterface, 
                             height="382"
                             width="510"
                         />
-
                     default:
-
                         return <VideoFrontendComponent
                             videoURL={this.getVideoUrl()}
                             height="100%"
                             width="100%"
                         />
-
                 }
             case "message":
-                return <p>MSG: {this.props.MessageText}</p>
+                return <MessageBoxComponent
+                    MessageText={this.props.MessageText}
+                    MessageTime={this.props.MessageTime} />
             case "clock":
                 return <BoardClock
                     type="123"

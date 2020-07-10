@@ -145,13 +145,9 @@ class Staticmessage extends React.Component {
     }
 
     render() {
-
-
         let staticemptytable = classnames('staticemptytable');
-
         let staticmessagetable = classnames('staticmessagetable');
         let staticmessagetable_header = classnames('staticmessagetable_header');
-
         let staticmessagetext_main = classnames('staticmessagetext_main');
         let staticmessagetext_header = classnames('staticmessagetext_header');
 

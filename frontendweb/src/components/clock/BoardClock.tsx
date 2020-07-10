@@ -106,9 +106,9 @@ export default class BoardClock extends React.Component<ClockInterface, ClockSta
         })
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps: ClockInterface) {
 
-        if (this.props.type !== this.state.type) {
+        if (prevProps.unixcompetitiontime !== this.props.unixcompetitiontime) {
             console.log("type change")
             this.restartMessage()
             this.setState({
