@@ -164,7 +164,7 @@ export default class BoardClock extends React.Component<ClockInterface, ClockSta
         let staticmessagetext_main = classnames('staticmessagetext_main');
         //let staticmessagetext_header = classnames('staticmessagetext_header');
 
-        let clocktime = this.state.timediff + this.state.unixcompetitiontime;
+        let clocktime = (this.state.unixcompetitiontime * 1000) + this.state.timediff;
         let unixtoshow = isNaN(clocktime) ? 1 : clocktime
         let newclocktime = new Date(unixtoshow);
 
