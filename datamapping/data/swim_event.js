@@ -5,6 +5,8 @@ const jmespath = require('jmespath');
 
 var PropertyReader = require('properties-reader')
 
+// todo check env exists
+
 require('dotenv').config();
 
 var propertyfile = __dirname + "/../" + process.env.PROPERTY_FILE;

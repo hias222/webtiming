@@ -2,6 +2,12 @@
 
 Get MQTT Data and add user data
 
+## configure
+
+* check .env file out of example.env
+* add number of lanes in env file
+
+
 ## Start
 
 ```bash
