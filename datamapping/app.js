@@ -42,7 +42,7 @@ app.post('/upload', upload)
 
 app.use(express.static(path));
 app.use('/', router);
-app.set('view engine', 'pug');
+//app.set('view engine', 'pug');
 
 var HTTP_REST_PORT = typeof process.env.HTTP_REST_PORT !== "undefined" ? process.env.HTTP_REST_PORT : 3001;
 
