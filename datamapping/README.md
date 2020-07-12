@@ -4,6 +4,7 @@ Get MQTT Data and add user data
 
 ## configure
 
+* npm install
 * check .env file out of example.env
 * add number of lanes in env file
 
