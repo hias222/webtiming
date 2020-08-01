@@ -91,7 +91,8 @@ client.on('message', function (topic, message) {
   storeBaseData(message)
   try {
     io.sockets.emit("FromAPI", message.toString());
-    console.log("websocket backend send " + message.toString())
+    // console.log("websocket backend send " + message.toString())
+    // console.log("send heat ")
   } catch (error) {
     console.error(`websocket backend Error emit : ${error.code}`);
     console.error(error);
