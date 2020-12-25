@@ -28,3 +28,7 @@ the software has these components:
 ### Windows
 
 [RPi](documentation/windows.md)
+
+## Using webcams
+
+[RPi](documentation/webcams.md)
