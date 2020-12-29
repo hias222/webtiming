@@ -17,6 +17,7 @@ Installation scripts
 
 ## WebRTC
 
+<https://www.linux-projects.org/2020/12/28/new-ai-module-for-uv4l-an-example-of-real-time-video-tracking-out-of-the-box/>  
 <https://www.highvoltagecode.com/post/webrtc-on-raspberry-pi-live-hd-video-and-audio-streaming>
 
 ## install webcam
