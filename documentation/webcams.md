@@ -1,5 +1,13 @@
 # Webcams
 
+## choose the right cam
+
+<https://www.epiphan.com/blog/best-cameras-for-live-streaming
+
+## HDMI
+
+For best quality use HDMI with converter into OBS
+
 ## RTSP
 
 <https://github.com/mpromonet/v4l2rtspserver.git>
@@ -12,6 +20,8 @@ Installation scripts
 <https://www.highvoltagecode.com/post/webrtc-on-raspberry-pi-live-hd-video-and-audio-streaming>
 
 ## install webcam
+
+<https://github.com/hias222/ansibleswim/blob/master/roles/webcam/tasks/webrtc.yml>
 
 ## uv4l prerequisites
 
