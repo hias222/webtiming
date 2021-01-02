@@ -2,7 +2,7 @@
 
 ## choose the right cam
 
-<https://www.epiphan.com/blog/best-cameras-for-live-streaming
+<https://www.epiphan.com/blog/best-cameras-for-live-streaming>
 
 ## HDMI
 
@@ -22,3 +22,8 @@ tested with uv4l:
 ## Details find here
 
 <https://github.com/hias222/ansibleswim/blob/master/roles/webcam/Readme.md>
+
+
+## other projects
+
+<https://ourcodeworld.com/articles/read/1212/top-5-best-open-source-webrtc-media-server-projects>
