@@ -26,15 +26,18 @@ password: <password>
 
 ## use vnc server
 
+```bash
+# if not installed - normally it is installed with rpi image
 sudo apt update
 sudo apt install realvnc-vnc-server realvnc-vnc-viewer
 
 sudo raspi-config
+```
 
 Now, enable VNC Server by doing the following:
 
-*  Navigate to Interfacing Options.
-*  Scroll down and select VNC > Yes.
+* Navigate to Interfacing Options.
+* Scroll down and select VNC > Yes.
 
 
 ### set video mode
