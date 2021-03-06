@@ -3,8 +3,15 @@
 ## RP
 
 Create or Download the RP Image
-* Install with dd see script create_dd.sh
+
+* use image 32 bit - easy
+* use ubuntu 64 bit - for server 
 * Install wit balenaetcher
+
+## Prepare Image
+
+* put empty file with name ssh in root boot partition for ssh access
+* ssh access is open at first startup
 
 ## First Startup
 
@@ -13,75 +20,33 @@ Start the RP, WLAN is configured during Image creation, if you use the image onl
 * connect to the rpi
 
 ```bash
-ssh swim@<IP>
-password: swim
+ssh pi@<IP>
+password: <password>
 ```
 
-* nginx and MQTT starts with system
-* node applications don't start at the moment (bug of image creation)
+## use vnc server
 
-```bash
-# cd to one node app
-cd backend
-pm2 start app.js
-```
+sudo apt update
+sudo apt install realvnc-vnc-server realvnc-vnc-viewer
 
-* check node running
+sudo raspi-config
 
-```bash
-pm2 list
-```
+Now, enable VNC Server by doing the following:
 
-Should look like this
+*  Navigate to Interfacing Options.
+*  Scroll down and select VNC > Yes.
 
-```bash
-swim@raspberrypi:~ $ pm2 list
-┌────┬────────────────────┬──────────┬──────┬──────────┬──────────┬──────────┐
-│ id │ name               │ mode     │ ↺    │ status   │ cpu      │ memory   │
-├────┼────────────────────┼──────────┼──────┼──────────┼──────────┼──────────┤
-│ 0  │ app                │ fork     │ 0    │ online   │ 0.3%     │ 43.9mb   │
-│ 1  │ app                │ fork     │ 0    │ online   │ 0.7%     │ 42.0mb   │
-│ 2  │ app                │ fork     │ 0    │ online   │ 0.5%     │ 39.5mb   │
-└────┴────────────────────┴──────────┴──────┴──────────┴──────────┴──────────┘
-```
 
-processes
+### set video mode
 
-```bash
-swim@raspberrypi:~ $ ps -ef | grep node
-swim       520   509  2 10:33 ?        00:00:05 node /home/swim/backend/app.js
-swim       527   509  2 10:33 ?        00:00:04 node /home/swim/frontend/app.js
-swim       534   509  1 10:33 ?        00:00:03 node /home/swim/monitor/app.js
-swim       838   819  0 10:37 pts/0    00:00:00 grep --color=auto node
-```
+Prepare static display. Display is not needed on reboot.
 
-* save the state for the next startup
+* sudo /opt/vc/bin/tvservice -d /boot/edid.dat
+* and add hdmi_edid_file=1 to config.txt.
 
-```bash
-pm2 save
-```
+## installs
 
-```bash
-[PM2] Saving current process list...
-[PM2] Successfully saved in /home/swim/.pm2/dump.pm2
-```
-
-* to check log use
-
-```bash
-pm2 log
-```
-
-* to start azure connect
-
-```bash
-cd cloud
-vi .env
---> edit connection secret (IoT key)
-pm2 start app.js
---> check with pm2 log
-```
-
+use ansibleswim repo for installation
 ## Urls
 
 ### Main

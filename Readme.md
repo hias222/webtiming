@@ -15,6 +15,8 @@ the software has these components:
 
 ## Install for RP
 
+old install, new with ansible
+
 [install image](scripting/install.md)
 
 ## Installs
